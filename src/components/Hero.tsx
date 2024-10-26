@@ -7,23 +7,22 @@ const Hero = () => {
       className="relative min-h-screen pt-32 pb-20 bg-navy overflow-hidden"
       aria-label="Hero Section"
     >
-      {/* Enhanced animated background effects */}
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px] animate-[grid_20s_linear_infinite]" />
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] animate-pulse" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px] animate-pulse delay-1000" />
       
-      <div className="container mx-auto grid lg:grid-cols-2 gap-16 items-center relative">
+      <div className="container mx-auto grid lg:grid-cols-2 gap-16 items-center relative px-4 sm:px-6 lg:px-8">
         <div className="space-y-8 max-w-2xl">
-          <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-6 py-3 backdrop-blur-xl hover:bg-white/10 transition-all duration-300 transform hover:scale-105">
+          <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-6 py-3 backdrop-blur-xl hover:bg-white/10 transition-all duration-300 transform hover:scale-105 shadow-lg">
             <span className="text-primary animate-pulse font-semibold">New</span>
             <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">Premium IPTV Experience</span>
           </div>
           
           <h1 className="text-5xl lg:text-7xl font-bold leading-tight tracking-tight">
-            <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">Experience The #1 </span>
+            <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">Experience The #1 </span>
             <span className="text-primary relative inline-block">
               IPTV Service
-              <span className="absolute -bottom-2 left-0 right-0 h-1 bg-primary/30 blur-sm"></span>
+              <span className="absolute -bottom-2 left-0 right-0 h-1.5 bg-primary/30 blur-sm"></span>
             </span>
           </h1>
           
@@ -36,8 +35,8 @@ const Hero = () => {
               className="bg-primary text-navy hover:bg-primary/90 text-lg px-8 h-14 group transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_40px_rgba(0,255,133,0.4)]"
               aria-label="Start Free Trial"
             >
-              Start Free Trial
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <span className="group-hover:translate-x-1 transition-transform">Start Free Trial</span>
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform" />
             </Button>
             <Button 
               variant="outline" 
@@ -45,7 +44,7 @@ const Hero = () => {
               aria-label="Contact on WhatsApp"
             >
               <MessageCircle className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
-              Contact on WhatsApp
+              <span className="group-hover:translate-x-1 transition-transform">Contact on WhatsApp</span>
             </Button>
           </div>
         </div>
