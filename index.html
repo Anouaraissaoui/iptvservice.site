@@ -8,44 +8,110 @@
   
   <!-- Primary Meta Tags -->
   <meta name="description" content="Experience premium IPTV service with 18000+ channels, VOD, and live sports. High-quality streaming, 24/7 support, and flexible subscription plans starting at $11/month." />
-  <meta name="keywords" content="IPTV subscription, streaming service, live TV channels, VOD, sports channels, premium IPTV" />
+  <meta name="keywords" content="IPTV subscription, streaming service, live TV channels, VOD, sports channels, premium IPTV, HD streaming, live sports streaming" />
   <meta name="author" content="BuyIPTV" />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="English" />
+  <meta name="revisit-after" content="7 days" />
+  <link rel="canonical" href="https://buyiptv.com/" />
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://buyiptv.com/" />
+  <meta property="og:site_name" content="BuyIPTV" />
   <meta property="og:title" content="BuyIPTV - Premium IPTV Subscription Service" />
   <meta property="og:description" content="Stream 18000+ channels with premium IPTV subscription. Live TV, sports, movies & more." />
   <meta property="og:image" content="/og-image.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
   
   <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://buyiptv.com/" />
-  <meta property="twitter:title" content="BuyIPTV - Premium IPTV Service" />
-  <meta property="twitter:description" content="Stream 18000+ channels with premium IPTV subscription. Live TV, sports, movies & more." />
-  <meta property="twitter:image" content="/og-image.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@buyiptv" />
+  <meta name="twitter:creator" content="@buyiptv" />
+  <meta name="twitter:url" content="https://buyiptv.com/" />
+  <meta name="twitter:title" content="BuyIPTV - Premium IPTV Service" />
+  <meta name="twitter:description" content="Stream 18000+ channels with premium IPTV subscription. Live TV, sports, movies & more." />
+  <meta name="twitter:image" content="/og-image.svg" />
   
-  <!-- Structured Data -->
+  <!-- Structured Data - Organization -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "BuyIPTV",
+      "url": "https://buyiptv.com",
+      "logo": "https://buyiptv.com/logo.svg",
+      "sameAs": [
+        "https://facebook.com/buyiptv",
+        "https://twitter.com/buyiptv",
+        "https://instagram.com/buyiptv"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-555-555-5555",
+        "contactType": "customer service",
+        "availableLanguage": ["English"]
+      }
+    }
+  </script>
+
+  <!-- Structured Data - Product -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Product",
       "name": "BuyIPTV Subscription Service",
       "description": "Premium IPTV subscription service offering 18000+ channels, VOD content, and live sports streaming.",
+      "brand": {
+        "@type": "Brand",
+        "name": "BuyIPTV"
+      },
       "offers": {
         "@type": "AggregateOffer",
         "lowPrice": "11",
         "highPrice": "90",
         "priceCurrency": "USD",
-        "offerCount": "4"
+        "offerCount": "4",
+        "availability": "https://schema.org/InStock"
       },
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.8",
-        "reviewCount": "50000"
+        "reviewCount": "50000",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "image": "https://buyiptv.com/og-image.svg"
+    }
+  </script>
+
+  <!-- Structured Data - WebSite -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "BuyIPTV",
+      "url": "https://buyiptv.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://buyiptv.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
       }
     }
   </script>
+
+  <!-- Performance Optimizations -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  
+  <!-- PWA Support -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#0F172A" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 </head>
 
 <body>
