@@ -10,14 +10,14 @@ const Navbar = () => {
   return (
     <nav className="fixed w-full bg-navy/90 backdrop-blur-sm z-50 border-b border-white/10">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between py-4 md:py-6">
+        <div className="flex items-center justify-between h-16 md:h-20">
           <div className="flex items-center gap-2">
-            <span className="text-primary font-bold text-xl md:text-2xl tracking-tight hover:text-primary/90 transition-colors cursor-pointer">
+            <span className="text-primary font-bold text-lg md:text-xl lg:text-2xl tracking-tight hover:text-primary/90 transition-colors cursor-pointer">
               IPTV Service
             </span>
           </div>
           
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6 lg:gap-8">
             {["Home", "Blog", "IPTV Subscription", "IPTV Services"].map((item) => (
               <a 
                 key={item}
@@ -46,7 +46,7 @@ const Navbar = () => {
 
           <Button 
             variant="ghost" 
-            className="md:hidden text-gray-300 hover:text-white"
+            className="md:hidden text-gray-300 hover:text-white p-2"
             onClick={toggleMenu}
           >
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -54,10 +54,10 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu with improved animation */}
       {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-[73px] bg-navy/95 backdrop-blur-lg z-40">
-          <div className="container px-4 py-8 flex flex-col gap-6">
+        <div className="md:hidden fixed inset-0 top-16 bg-navy/95 backdrop-blur-lg z-40 animate-in slide-in-from-top duration-300">
+          <div className="container px-4 py-6 flex flex-col gap-4">
             {["Home", "Blog", "IPTV Subscription", "IPTV Services"].map((item) => (
               <a 
                 key={item}

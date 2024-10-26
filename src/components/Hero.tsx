@@ -4,22 +4,22 @@ import { ArrowRight, MessageCircle } from "lucide-react";
 const Hero = () => {
   return (
     <section 
-      className="relative min-h-[calc(100vh-4rem)] pt-24 md:pt-32 pb-16 md:pb-20 bg-navy overflow-hidden"
+      className="relative min-h-[calc(100vh-4rem)] pt-20 md:pt-32 pb-12 md:pb-20 bg-navy overflow-hidden px-4"
       aria-label="Hero Section"
     >
-      {/* Enhanced animated grid background */}
+      {/* Background Effects */}
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px] animate-[grid_20s_linear_infinite]" aria-hidden="true" />
       <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] animate-pulse" aria-hidden="true" />
       <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] animate-pulse" aria-hidden="true" />
       
-      <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative">
-        <div className="space-y-6 md:space-y-8 text-center lg:text-left">
-          <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 md:px-6 md:py-3 backdrop-blur-xl hover:bg-white/10 transition-all duration-300 transform hover:scale-105">
+      <div className="container mx-auto grid lg:grid-cols-2 gap-8 lg:gap-16 items-center relative">
+        <div className="space-y-6 md:space-y-8 text-center lg:text-left order-2 lg:order-1">
+          <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-3 md:px-6 py-2 backdrop-blur-xl hover:bg-white/10 transition-all duration-300 transform hover:scale-105">
             <span className="text-primary animate-pulse font-semibold">New</span>
-            <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent text-sm md:text-base">Experience the future of TV</span>
+            <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent text-sm">Experience the future of TV</span>
           </div>
           
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight">
             <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">Experience The #1 </span>
             <span className="text-primary relative inline-block">
               IPTV Subscription
@@ -28,7 +28,7 @@ const Hero = () => {
             <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">Service Today!</span>
           </h1>
           
-          <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0">
+          <p className="text-gray-400 text-base md:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
             Unleash unmatched entertainment with our leading IPTV subscription service. Buy IPTV from the best in the industry and enjoy a seamless, high-quality viewing experience.
           </p>
           
@@ -51,7 +51,7 @@ const Hero = () => {
           </div>
         </div>
         
-        <div className="relative mt-8 lg:mt-0">
+        <div className="relative mt-4 lg:mt-0 order-1 lg:order-2">
           <div className="absolute inset-0 bg-primary/20 blur-[120px] rounded-full animate-pulse" aria-hidden="true"></div>
           <div className="relative bg-navy-light rounded-3xl border border-white/10 p-2 md:p-3 shadow-2xl transform hover:scale-[1.02] transition-transform duration-300 hover:border-primary/50">
             <img 
