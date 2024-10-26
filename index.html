@@ -19,7 +19,7 @@
   <meta name="revisit-after" content="1 days" />
   <link rel="canonical" href="https://iptvservice.site/" />
   
-  <!-- Open Graph / Facebook with Enhanced Properties -->
+  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://iptvservice.site/" />
   <meta property="og:site_name" content="Premium IPTV Service" />
@@ -31,7 +31,7 @@
   <meta property="og:locale" content="en_US" />
   <meta property="og:video" content="https://iptvservice.site/promo.mp4" />
   
-  <!-- Twitter with Enhanced Properties -->
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@iptvservice" />
   <meta name="twitter:creator" content="@iptvservice" />
@@ -40,162 +40,13 @@
   <meta name="twitter:description" content="18,000+ channels, HD/4K quality, instant activation & 24/7 support. Try risk-free today!" />
   <meta name="twitter:image" content="https://iptvservice.site/og-image.jpg" />
   
-  <!-- Enhanced Organization Schema -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Premium IPTV Service",
-      "alternateName": "Best IPTV Provider",
-      "url": "https://iptvservice.site",
-      "logo": "https://iptvservice.site/logo.svg",
-      "description": "Leading IPTV streaming service offering 18,000+ channels, VOD content, and live sports with HD/4K quality.",
-      "foundingDate": "2020",
-      "founders": [{
-        "@type": "Person",
-        "name": "John Smith"
-      }],
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "United States"
-      },
-      "sameAs": [
-        "https://facebook.com/iptvservice",
-        "https://twitter.com/iptvservice",
-        "https://instagram.com/iptvservice",
-        "https://linkedin.com/company/iptvservice"
-      ],
-      "contactPoint": [{
-        "@type": "ContactPoint",
-        "telephone": "+1-234-567-8900",
-        "contactType": "customer service",
-        "availableLanguage": ["English"],
-        "contactOption": "TollFree",
-        "areaServed": "Worldwide"
-      }],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": "1250",
-        "bestRating": "5",
-        "worstRating": "1"
-      }
-    }
-  </script>
+  <!-- Dynamic Schema Loading -->
+  <script type="application/ld+json" src="/schemas/organization.json"></script>
+  <script type="application/ld+json" src="/schemas/product.json"></script>
+  <script type="application/ld+json" src="/schemas/faq.json"></script>
+  <script type="application/ld+json" src="/schemas/breadcrumbs.json"></script>
 
-  <!-- Enhanced Product Schema -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "Premium IPTV Subscription",
-      "description": "Premium IPTV subscription with 18,000+ channels, VOD content, and live sports. HD/4K quality and instant activation.",
-      "brand": {
-        "@type": "Brand",
-        "name": "Premium IPTV Service",
-        "slogan": "Experience the Future of TV"
-      },
-      "category": "Streaming Services",
-      "sku": "IPTV-PREMIUM",
-      "mpn": "IPTV2024",
-      "offers": {
-        "@type": "AggregateOffer",
-        "lowPrice": "11",
-        "highPrice": "90",
-        "priceCurrency": "USD",
-        "offerCount": "4",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Premium IPTV Service"
-        },
-        "priceValidUntil": "2024-12-31"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": "1250",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "review": [{
-        "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5",
-          "bestRating": "5"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "John Smith"
-        },
-        "datePublished": "2024-02-15",
-        "reviewBody": "Excellent IPTV service with great channel selection and reliable streaming quality."
-      }]
-    }
-  </script>
-
-  <!-- Enhanced FAQ Schema -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "What devices are compatible with your IPTV service?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Our IPTV service is compatible with Smart TVs (Samsung, LG, Android TV), mobile devices (iOS/Android), streaming devices (Amazon Fire Stick, Roku, Apple TV), and MAG boxes. You can watch on any device with an internet connection."
-        }
-      }, {
-        "@type": "Question",
-        "name": "Do you offer customer support?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, we provide 24/7 customer support via live chat, WhatsApp, and email. Our technical team is always ready to help with setup, troubleshooting, or any questions you may have."
-        }
-      }, {
-        "@type": "Question",
-        "name": "What channels are included in the subscription?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Our service includes 18,000+ channels from around the world, including sports, movies, news, entertainment, and children's programming. We regularly update our channel list to ensure the best content."
-        }
-      }, {
-        "@type": "Question",
-        "name": "Is there a money-back guarantee?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, we offer a 100% satisfaction guarantee. If you're not completely satisfied with our service within the first 24 hours, we'll provide a full refund."
-        }
-      }]
-    }
-  </script>
-
-  <!-- Breadcrumb Schema for Better Navigation Understanding -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://iptvservice.site"
-      }, {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Pricing",
-        "item": "https://iptvservice.site/pricing"
-      }, {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Features",
-        "item": "https://iptvservice.site/features"
-      }]
-    }
-  </script>
-
+  <!-- Assets -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/manifest.json" />
