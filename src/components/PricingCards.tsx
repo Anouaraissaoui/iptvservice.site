@@ -25,7 +25,7 @@ const PricingCards = () => {
         { text: "Supports All Devices", icon: <HeadphonesIcon className="h-4 w-4" /> },
         { text: "24/7 Instant Support", icon: <MessageCircle className="h-4 w-4" /> },
       ],
-      popular: true,
+      popular: false,
     },
     {
       duration: "6 Months",
@@ -75,24 +75,11 @@ const PricingCards = () => {
           {plans.map((plan, index) => (
             <div 
               key={index} 
-              className={`relative group transform hover:scale-105 transition-all duration-500 ${
-                plan.popular ? 'lg:-translate-y-4' : ''
-              }`}
+              className="relative group transform hover:scale-105 transition-all duration-500"
             >
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-navy px-4 py-1 rounded-full text-sm font-semibold">
-                  Most Popular
-                </div>
-              )}
-              
-              {/* Card Background Effects */}
               <div className="absolute inset-0 bg-primary/5 blur-xl rounded-3xl group-hover:bg-primary/10 transition-all duration-300" />
               
-              <div className={`relative backdrop-blur-sm rounded-2xl p-8 border ${
-                plan.popular 
-                  ? 'border-primary/50 bg-navy-light/90' 
-                  : 'border-white/10 bg-navy-light/80'
-              } group-hover:border-primary/50 transition-all duration-300`}>
+              <div className="relative backdrop-blur-sm rounded-2xl p-8 border border-white/10 bg-navy-light/80 group-hover:border-primary/50 transition-all duration-300">
                 <div className="text-center mb-8">
                   <h3 className="text-xl font-bold text-white mb-4">{plan.duration}</h3>
                   <div className="flex items-start justify-center gap-1">
@@ -116,11 +103,7 @@ const PricingCards = () => {
                 </ul>
 
                 <Button 
-                  className={`w-full h-12 group-hover:scale-105 transition-all duration-300 ${
-                    plan.popular 
-                      ? 'bg-primary text-navy hover:bg-primary/90 shadow-lg shadow-primary/20 hover:shadow-primary/30' 
-                      : 'bg-white/10 text-white hover:bg-white/20'
-                  }`}
+                  className="w-full h-12 group-hover:scale-105 transition-all duration-300 bg-white/10 text-white hover:bg-white/20"
                 >
                   Get Started
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
