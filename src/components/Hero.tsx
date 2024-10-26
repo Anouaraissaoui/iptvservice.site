@@ -44,7 +44,7 @@ const Hero = () => {
           <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full"></div>
           <div className="relative bg-navy-light rounded-3xl border border-white/10 p-2 shadow-2xl">
             <img 
-              src="/watching-tv.jpg" 
+              src="https://ideogram.ai/assets/progressive-image/balanced/response/T-JUnqqgRsmp3yYR7L_s0g" 
               alt="Person watching TV" 
               className="relative rounded-2xl shadow-2xl"
             />
