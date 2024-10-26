@@ -1,13 +1,14 @@
 const Stats = () => {
   return (
     <div className="py-20 bg-navy-light relative overflow-hidden">
-      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
+      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px] animate-[grid_20s_linear_infinite]" />
       <div className="container mx-auto relative">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Why Choose Us For Your <span className="text-primary">IPTV Subscription</span>?
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
+            Why Choose Us For Your <span className="text-primary relative inline-block">IPTV Subscription
+            <span className="absolute -bottom-2 left-0 right-0 h-1 bg-primary/30 blur-sm"></span></span>?
           </h2>
-          <div className="h-1 w-20 bg-primary mx-auto rounded-full mb-6"></div>
+          <div className="h-1 w-20 bg-primary mx-auto rounded-full mb-6 animate-pulse"></div>
           <p className="text-gray-400">Experience unmatched quality and reliability with our premium IPTV service.</p>
         </div>
         
@@ -18,11 +19,11 @@ const Stats = () => {
             { number: "+1,500", label: "Sport Channels" },
             { number: "+50K", label: "VOD & Movies" }
           ].map((stat, index) => (
-            <div key={index} className="relative group">
+            <div key={index} className="relative group transform hover:scale-105 transition-all duration-300">
               <div className="absolute inset-0 bg-primary/5 blur-xl rounded-3xl group-hover:bg-primary/10 transition-all duration-300"></div>
-              <div className="relative bg-navy-light border border-white/10 rounded-2xl p-8 text-center hover:border-primary/50 transition-all duration-300">
-                <p className="text-4xl font-bold text-primary mb-2">{stat.number}</p>
-                <p className="text-gray-400">{stat.label}</p>
+              <div className="relative bg-navy-light border border-white/10 rounded-2xl p-8 text-center hover:border-primary/50 transition-all duration-300 backdrop-blur-sm">
+                <p className="text-4xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform duration-300">{stat.number}</p>
+                <p className="text-gray-400 group-hover:text-white transition-colors duration-300">{stat.label}</p>
               </div>
             </div>
           ))}
