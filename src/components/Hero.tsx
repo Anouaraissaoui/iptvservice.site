@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MessageCircle } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -18,7 +18,11 @@ const Hero = () => {
               Free Trial
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button variant="outline" className="text-white border-white/20 hover:bg-white/10 text-lg px-8">
+            <Button 
+              variant="outline" 
+              className="text-white border-[#25D366] bg-[#25D366]/10 hover:bg-[#25D366]/20 text-lg px-8"
+            >
+              <MessageCircle className="mr-2 h-5 w-5" />
               WhatsApp
             </Button>
           </div>
