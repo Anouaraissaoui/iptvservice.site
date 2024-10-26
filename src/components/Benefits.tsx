@@ -1,4 +1,4 @@
-import { DollarSign, Tv2, Smartphone, Globe } from "lucide-react";
+import { DollarSign, Tv2, DevicesIcon, Globe } from "lucide-react";
 
 const Benefits = () => {
   const benefits = [
@@ -15,7 +15,7 @@ const Benefits = () => {
     {
       title: "Flexible Viewing",
       description: "Watch your favorite content anytime, anywhere with an internet connection.",
-      icon: Smartphone
+      icon: DevicesIcon
     },
     {
       title: "Global Reach",
