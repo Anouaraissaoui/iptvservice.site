@@ -1,5 +1,12 @@
+# Group 1
 User-agent: *
 Allow: /
+
+# Important pages
+Allow: /pricing
+Allow: /features
+Allow: /blog
+Allow: /contact
 
 # Sitemaps
 Sitemap: https://iptvservice.site/sitemap.xml
@@ -9,3 +16,24 @@ Disallow: /admin/
 Disallow: /private/
 Disallow: /checkout/
 Disallow: /account/
+Disallow: /api/
+Disallow: /temp/
+Disallow: /*.json$
+Disallow: /*?*
+
+# Crawl-delay
+Crawl-delay: 10
+
+# Additional User agents
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 5
+
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /assets/
+Disallow: /temp/
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 10
