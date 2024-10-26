@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Check, Smartphone, Tv, HeadphonesIcon, MessageCircle } from "lucide-react";
+import { Check, Smartphone, Tv, HeadphonesIcon, MessageCircle, ArrowRight } from "lucide-react";
 
 const PricingCards = () => {
   const plans = [
