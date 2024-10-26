@@ -6,8 +6,7 @@ const Navbar = () => {
     <nav className="fixed w-full bg-navy/90 backdrop-blur-sm z-50 py-4">
       <div className="container mx-auto flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <img src="/logo.svg" alt="BuyIPTV" className="h-8" />
-          <span className="text-white font-semibold text-xl">BuyIPTV</span>
+          <span className="text-primary font-bold text-2xl">IPTV Service</span>
         </div>
         
         <div className="hidden md:flex items-center gap-8">
