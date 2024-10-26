@@ -1,32 +1,46 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  const navItems = [
+    { name: "Home", path: "/" },
+    { name: "Blog", path: "/blog" },
+    { name: "Pricing", path: "/pricing" },
+    { name: "Features", path: "/features" },
+    { name: "Contact", path: "/contact" }
+  ];
 
   return (
     <nav className="fixed w-full bg-navy/90 backdrop-blur-sm z-50 border-b border-white/10">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-4 md:py-6">
-          <div className="flex items-center gap-2">
-            <span className="text-primary font-bold text-xl md:text-2xl tracking-tight hover:text-primary/90 transition-colors cursor-pointer">
+          <Link to="/" className="flex items-center gap-2">
+            <span className="text-primary font-bold text-xl md:text-2xl tracking-tight hover:text-primary/90 transition-colors">
               IPTV Service
             </span>
-          </div>
+          </Link>
           
           <div className="hidden md:flex items-center gap-8">
-            {["Home", "Blog", "IPTV Subscription", "IPTV Services"].map((item) => (
-              <a 
-                key={item}
-                href="#" 
-                className="text-gray-300 hover:text-white transition-colors relative group"
+            {navItems.map((item) => (
+              <Link 
+                key={item.path}
+                to={item.path}
+                className={`text-gray-300 hover:text-white transition-colors relative group ${
+                  location.pathname === item.path ? "text-white" : ""
+                }`}
               >
-                {item}
-                <span className="absolute -bottom-1.5 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-              </a>
+                {item.name}
+                <span className={`absolute -bottom-1.5 left-0 h-0.5 bg-primary transition-all duration-300 ${
+                  location.pathname === item.path ? "w-full" : "w-0 group-hover:w-full"
+                }`} />
+              </Link>
             ))}
           </div>
 
@@ -58,15 +72,17 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden fixed inset-0 top-[73px] bg-navy/95 backdrop-blur-lg z-40">
           <div className="container px-4 py-8 flex flex-col gap-6">
-            {["Home", "Blog", "IPTV Subscription", "IPTV Services"].map((item) => (
-              <a 
-                key={item}
-                href="#" 
-                className="text-gray-300 hover:text-white transition-colors text-lg font-medium py-2 border-b border-white/10"
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`text-gray-300 hover:text-white transition-colors text-lg font-medium py-2 border-b border-white/10 ${
+                  location.pathname === item.path ? "text-white" : ""
+                }`}
                 onClick={toggleMenu}
               >
-                {item}
-              </a>
+                {item.name}
+              </Link>
             ))}
             <div className="flex flex-col gap-4 mt-4">
               <Button 
