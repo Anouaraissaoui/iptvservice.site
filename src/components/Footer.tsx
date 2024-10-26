@@ -10,12 +10,6 @@ const Footer = () => {
     { icon: <Youtube className="w-5 h-5" />, href: "#", label: "YouTube" }
   ];
 
-  const footerLinks = [
-    { title: "Company", links: ["About Us", "Contact", "Careers", "Press"] },
-    { title: "Legal", links: ["Terms", "Privacy", "Cookies", "Licenses"] },
-    { title: "Support", links: ["Help Center", "Documentation", "Status", "Updates"] }
-  ];
-
   return (
     <footer className="bg-navy-light relative overflow-hidden border-t border-white/10">
       {/* Animated Background Effects */}
@@ -24,9 +18,9 @@ const Footer = () => {
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] animate-pulse" />
       
       <div className="container mx-auto py-16 relative">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+        <div className="space-y-8">
           {/* Brand Section */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="space-y-6">
             <div className="flex items-center gap-2">
               <span className="text-primary font-bold text-2xl tracking-tight">
                 IPTV Service
@@ -53,39 +47,20 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Links Sections */}
-          {footerLinks.map((section, index) => (
-            <div key={index} className="space-y-6">
-              <h3 className="text-white font-semibold text-lg">{section.title}</h3>
-              <ul className="space-y-4">
-                {section.links.map((link, linkIndex) => (
-                  <li key={linkIndex}>
-                    <a 
-                      href="#" 
-                      className="text-gray-400 hover:text-primary transition-colors duration-300"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        {/* Bottom Section */}
-        <div className="mt-16 pt-8 border-t border-white/10">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm">
-              © 2024 IPTV Service. All rights reserved.
-            </p>
-            <div className="flex items-center gap-6">
-              <a href="#" className="text-gray-400 hover:text-primary text-sm transition-colors duration-300">
-                Terms of Service
-              </a>
-              <a href="#" className="text-gray-400 hover:text-primary text-sm transition-colors duration-300">
-                Privacy Policy
-              </a>
+          {/* Bottom Section */}
+          <div className="pt-8 border-t border-white/10">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              <p className="text-gray-400 text-sm">
+                © 2024 IPTV Service. All rights reserved.
+              </p>
+              <div className="flex items-center gap-6">
+                <a href="#" className="text-gray-400 hover:text-primary text-sm transition-colors duration-300">
+                  Terms of Service
+                </a>
+                <a href="#" className="text-gray-400 hover:text-primary text-sm transition-colors duration-300">
+                  Privacy Policy
+                </a>
+              </div>
             </div>
           </div>
         </div>
