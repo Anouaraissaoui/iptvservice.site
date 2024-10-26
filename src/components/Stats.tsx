@@ -1,11 +1,19 @@
 import { Users, Tv, Trophy, Film } from "lucide-react";
 
 const Stats = () => {
+  const stats = [
+    { number: "+50K", label: "Happy Customers", icon: Users, gradient: "from-pink-500 to-rose-500" },
+    { number: "+40K", label: "Channels", icon: Tv, gradient: "from-blue-500 to-indigo-500" },
+    { number: "+1,500", label: "Sport Channels", icon: Trophy, gradient: "from-yellow-500 to-orange-500" },
+    { number: "+50K", label: "VOD & Movies", icon: Film, gradient: "from-green-500 to-emerald-500" }
+  ];
+
   return (
-    <div className="py-24 bg-navy-light relative overflow-hidden">
+    <div className="py-32 bg-navy-light relative overflow-hidden">
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px] animate-[grid_20s_linear_infinite]" />
       <div className="container mx-auto relative">
         <div className="max-w-3xl mx-auto text-center mb-20">
+          <span className="text-primary font-semibold tracking-wider uppercase mb-4 block">Our Numbers</span>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
             Why Choose Us For Your <span className="text-primary relative inline-block">IPTV Subscription
             <span className="absolute -bottom-2 left-0 right-0 h-1 bg-primary/30 blur-sm"></span></span>?
@@ -14,20 +22,17 @@ const Stats = () => {
           <p className="text-gray-400 text-lg">Experience unmatched quality and reliability with our premium IPTV service.</p>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {[
-            { number: "+50K", label: "Happy Customers", icon: Users },
-            { number: "+40K", label: "Channels", icon: Tv },
-            { number: "+1,500", label: "Sport Channels", icon: Trophy },
-            { number: "+50K", label: "VOD & Movies", icon: Film }
-          ].map((stat, index) => (
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          {stats.map((stat, index) => (
             <div key={index} className="relative group transform hover:scale-105 transition-all duration-300">
               <div className="absolute inset-0 bg-primary/5 blur-xl rounded-3xl group-hover:bg-primary/10 transition-all duration-300"></div>
               <div className="relative bg-navy-light/80 border border-white/10 rounded-2xl p-8 text-center hover:border-primary/50 transition-all duration-300 backdrop-blur-sm">
                 <div className="mb-4 flex justify-center">
-                  <stat.icon className="w-8 h-8 text-primary group-hover:scale-110 transition-transform duration-300" />
+                  <div className={`p-4 bg-gradient-to-br ${stat.gradient} rounded-2xl group-hover:scale-110 transition-transform duration-300`}>
+                    <stat.icon className="w-8 h-8 text-white" />
+                  </div>
                 </div>
-                <p className="text-5xl font-bold bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent mb-4 group-hover:scale-110 transition-transform duration-300">{stat.number}</p>
+                <p className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent mb-4 group-hover:scale-110 transition-transform duration-300">{stat.number}</p>
                 <p className="text-gray-400 text-lg group-hover:text-white transition-colors duration-300">{stat.label}</p>
               </div>
             </div>
