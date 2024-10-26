@@ -1,7 +1,8 @@
+import { memo } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageCircle } from "lucide-react";
 
-const Hero = () => {
+const Hero = memo(() => {
   return (
     <section 
       className="relative min-h-[calc(100vh-4rem)] pt-24 md:pt-32 pb-16 md:pb-20 bg-navy overflow-hidden"
@@ -73,6 +74,6 @@ const Hero = () => {
       </div>
     </section>
   );
-};
+});
 
 export default Hero;
