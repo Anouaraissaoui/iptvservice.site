@@ -1,5 +1,3 @@
-import { Users, Tv, Trophy, Film } from "lucide-react";
-
 const Stats = () => {
   return (
     <div className="py-24 bg-navy-light relative overflow-hidden">
@@ -16,17 +14,14 @@ const Stats = () => {
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
-            { number: "+50K", label: "Happy Customers", icon: Users },
-            { number: "+40K", label: "Channels", icon: Tv },
-            { number: "+1,500", label: "Sport Channels", icon: Trophy },
-            { number: "+50K", label: "VOD & Movies", icon: Film }
+            { number: "+50K", label: "Happy Customers" },
+            { number: "+40K", label: "Channels" },
+            { number: "+1,500", label: "Sport Channels" },
+            { number: "+50K", label: "VOD & Movies" }
           ].map((stat, index) => (
             <div key={index} className="relative group transform hover:scale-105 transition-all duration-300">
               <div className="absolute inset-0 bg-primary/5 blur-xl rounded-3xl group-hover:bg-primary/10 transition-all duration-300"></div>
               <div className="relative bg-navy-light/80 border border-white/10 rounded-2xl p-8 text-center hover:border-primary/50 transition-all duration-300 backdrop-blur-sm">
-                <div className="mb-4 flex justify-center">
-                  <stat.icon className="w-8 h-8 text-primary group-hover:scale-110 transition-transform duration-300" />
-                </div>
                 <p className="text-5xl font-bold bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent mb-4 group-hover:scale-110 transition-transform duration-300">{stat.number}</p>
                 <p className="text-gray-400 text-lg group-hover:text-white transition-colors duration-300">{stat.label}</p>
               </div>

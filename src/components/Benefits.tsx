@@ -1,33 +1,7 @@
-import { DollarSign, Tv2, DevicesIcon, Globe } from "lucide-react";
-
 const Benefits = () => {
-  const benefits = [
-    {
-      title: "Cost-Effective",
-      description: "More affordable than traditional cable or satellite TV packages.",
-      icon: DollarSign
-    },
-    {
-      title: "High-Quality Streaming",
-      description: "Enjoy crisp, high-definition video and audio quality.",
-      icon: Tv2
-    },
-    {
-      title: "Flexible Viewing",
-      description: "Watch your favorite content anytime, anywhere with an internet connection.",
-      icon: DevicesIcon
-    },
-    {
-      title: "Global Reach",
-      description: "Access a wide range of international channels and content.",
-      icon: Globe
-    }
-  ];
-
   return (
-    <div className="py-24 bg-navy-light relative overflow-hidden">
-      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px] animate-[grid_20s_linear_infinite]" />
-      <div className="container mx-auto relative">
+    <div className="py-24 bg-navy-light">
+      <div className="container mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div className="relative group">
             <div className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full animate-pulse"></div>
@@ -51,17 +25,27 @@ const Benefits = () => {
             </h2>
             
             <div className="space-y-8">
-              {benefits.map((benefit, index) => (
+              {[
+                {
+                  title: "Cost-Effective",
+                  description: "More affordable than traditional cable or satellite TV packages."
+                },
+                {
+                  title: "High-Quality Streaming",
+                  description: "Enjoy crisp, high-definition video and audio quality."
+                },
+                {
+                  title: "Flexible Viewing",
+                  description: "Watch your favorite content anytime, anywhere with an internet connection."
+                },
+                {
+                  title: "Global Reach",
+                  description: "Access a wide range of international channels and content."
+                }
+              ].map((benefit, index) => (
                 <div key={index} className="group bg-navy/50 border border-white/10 rounded-2xl p-6 hover:border-primary/50 transition-all duration-300 hover:bg-navy-light/50">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 bg-primary/10 rounded-xl group-hover:bg-primary/20 transition-colors">
-                      <benefit.icon className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-primary transition-colors">{benefit.title}</h3>
-                      <p className="text-gray-400 group-hover:text-gray-300 transition-colors">{benefit.description}</p>
-                    </div>
-                  </div>
+                  <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-primary transition-colors">{benefit.title}</h3>
+                  <p className="text-gray-400 group-hover:text-gray-300 transition-colors">{benefit.description}</p>
                 </div>
               ))}
             </div>
