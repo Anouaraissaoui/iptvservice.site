@@ -10,19 +10,23 @@ const FaqSection = () => {
   const faqs = [
     {
       question: "What devices are compatible with your IPTV service?",
-      answer: "Our IPTV service is compatible with a wide range of devices, including Smart TVs, Android and iOS devices, as well as streaming devices like Amazon Fire Stick and Roku."
+      answer: "Our IPTV service is compatible with Smart TVs (Samsung, LG, Android TV), mobile devices (iOS/Android), streaming devices (Amazon Fire Stick, Roku, Apple TV), and MAG boxes. You can watch on any device with an internet connection.",
+      id: "devices-compatibility"
     },
     {
       question: "Do you offer customer support?",
-      answer: "Yes, we offer 24/7 customer support to help with any issues or questions you may have."
+      answer: "Yes, we provide 24/7 customer support via live chat, WhatsApp, and email. Our technical team is always ready to help with setup, troubleshooting, or any questions you may have.",
+      id: "customer-support"
     },
     {
-      question: "Is there a trial period available?",
-      answer: "Yes, we offer a free trial so you can test our IPTV service before purchasing a subscription."
+      question: "What channels are included in the subscription?",
+      answer: "Our service includes 18,000+ channels from around the world, including sports, movies, news, entertainment, and children's programming. We regularly update our channel list to ensure the best content.",
+      id: "channel-list"
     },
     {
-      question: "Can I become a reseller of your IPTV services?",
-      answer: "Absolutely! Join our IPTV reseller program and start earning profits by selling subscriptions to others."
+      question: "Is there a money-back guarantee?",
+      answer: "Yes, we offer a 100% satisfaction guarantee. If you're not completely satisfied with our service within the first 24 hours, we'll provide a full refund.",
+      id: "money-back-guarantee"
     }
   ];
 
@@ -40,7 +44,10 @@ const FaqSection = () => {
             <span className="text-white">Got Questions?</span>
           </span>
           
-          <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+          <h2 
+            id="faq-section"
+            className="text-4xl md:text-5xl font-bold text-white leading-tight"
+          >
             Frequently Asked{" "}
             <span className="text-primary relative inline-block">
               Questions
@@ -61,6 +68,8 @@ const FaqSection = () => {
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
+                id={faq.id}
+                data-fraggle={faq.id}
                 className="group data-[state=open]:bg-white/5 bg-navy-light/50 border border-white/10 rounded-xl px-6 backdrop-blur-sm transition-all duration-300 hover:border-primary/50"
               >
                 <AccordionTrigger className="py-6 text-white group-hover:text-primary transition-colors">
