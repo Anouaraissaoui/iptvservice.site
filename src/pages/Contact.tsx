@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -7,8 +8,34 @@ import { MessageCircle, Mail, Phone } from "lucide-react";
 
 const Contact = () => {
   return (
-    <div className="min-h-screen bg-navy">
-      <Navbar />
+    <>
+      <Helmet>
+        <title>Contact Us | 24/7 IPTV Support & Customer Service</title>
+        <meta name="description" content="Get in touch with our 24/7 IPTV support team. We're here to help with technical issues, subscription inquiries, and general questions about our IPTV service." />
+        <meta name="keywords" content="IPTV support, contact IPTV service, IPTV customer service, IPTV help" />
+        <link rel="canonical" href="https://iptvservice.site/contact" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "name": "IPTV Service Contact Page",
+            "description": "Contact our 24/7 support team",
+            "mainEntity": {
+              "@type": "Organization",
+              "name": "Premium IPTV Service",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+1-234-567-8900",
+                "contactType": "customer service",
+                "availableLanguage": ["English"],
+                "contactOption": "TollFree"
+              }
+            }
+          })}
+        </script>
+      </Helmet>
+      <main className="min-h-screen bg-navy">
+        <Navbar />
       <div className="container mx-auto px-4 py-24">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-8">
@@ -79,8 +106,9 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      <Footer />
-    </div>
+        <Footer />
+      </main>
+    </>
   );
 };
 
