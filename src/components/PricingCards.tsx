@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Check, ArrowRight } from "lucide-react";
+import { Check, Smartphone, Tv, HeadphonesIcon, MessageCircle } from "lucide-react";
 
 const PricingCards = () => {
   const plans = [
@@ -8,81 +8,124 @@ const PricingCards = () => {
       price: 11,
       period: "/ Month",
       features: [
-        "1 Device Connection",
-        "16000+ TV Channels",
-        "Supports All Devices",
-        "24/7 Instant Support",
+        { text: "1 Device Connection", icon: <Smartphone className="h-4 w-4" /> },
+        { text: "16000+ TV Channels", icon: <Tv className="h-4 w-4" /> },
+        { text: "Supports All Devices", icon: <HeadphonesIcon className="h-4 w-4" /> },
+        { text: "24/7 Instant Support", icon: <MessageCircle className="h-4 w-4" /> },
       ],
+      popular: false,
     },
     {
       duration: "3 Months",
       price: 30,
       period: "/ 3 Months",
       features: [
-        "1 Device Connection",
-        "18000+ TV Channels",
-        "Supports All Devices",
-        "24/7 Instant Support",
+        { text: "1 Device Connection", icon: <Smartphone className="h-4 w-4" /> },
+        { text: "18000+ TV Channels", icon: <Tv className="h-4 w-4" /> },
+        { text: "Supports All Devices", icon: <HeadphonesIcon className="h-4 w-4" /> },
+        { text: "24/7 Instant Support", icon: <MessageCircle className="h-4 w-4" /> },
       ],
+      popular: true,
     },
     {
       duration: "6 Months",
       price: 55,
       period: "/ 6 Months",
       features: [
-        "1 Device Connection",
-        "18000+ TV Channels",
-        "Supports All Devices",
-        "24/7 Instant Support",
+        { text: "1 Device Connection", icon: <Smartphone className="h-4 w-4" /> },
+        { text: "18000+ TV Channels", icon: <Tv className="h-4 w-4" /> },
+        { text: "Supports All Devices", icon: <HeadphonesIcon className="h-4 w-4" /> },
+        { text: "24/7 Instant Support", icon: <MessageCircle className="h-4 w-4" /> },
       ],
+      popular: false,
     },
     {
       duration: "1 Year",
       price: 90,
       period: "/ Year",
       features: [
-        "1 Device Connection",
-        "18000+ TV Channels",
-        "Supports All Devices",
-        "24/7 Instant Support",
+        { text: "1 Device Connection", icon: <Smartphone className="h-4 w-4" /> },
+        { text: "18000+ TV Channels", icon: <Tv className="h-4 w-4" /> },
+        { text: "Supports All Devices", icon: <HeadphonesIcon className="h-4 w-4" /> },
+        { text: "24/7 Instant Support", icon: <MessageCircle className="h-4 w-4" /> },
       ],
+      popular: false,
     },
   ];
 
   return (
-    <div className="py-20 bg-navy">
-      <div className="container mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-4">
-          Explore Our <span className="text-primary">IPTV Subscription</span> Plans
-        </h2>
-        <p className="text-gray-400 text-center mb-12">
-          We Offer Flexible IPTV Subscription Packages Designed to Cater To Your Entertainment Needs
-        </p>
+    <div className="py-24 bg-navy relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px] animate-grid" />
+      <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] animate-pulse" />
+      <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] animate-pulse" />
+
+      <div className="container mx-auto relative">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+            Explore Our <span className="text-primary">IPTV Subscription</span> Plans
+          </h2>
+          <div className="h-1 w-24 bg-gradient-to-r from-primary to-primary/50 mx-auto rounded-full mb-6" />
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            Choose the perfect plan for your entertainment needs with our flexible IPTV subscription packages
+          </p>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {plans.map((plan, index) => (
-            <div key={index} className="bg-navy-light p-8 rounded-xl border border-white/10 hover:border-primary/50 transition duration-300">
-              <div className="text-center mb-8">
-                <h3 className="text-xl font-bold text-white mb-4">{plan.duration}</h3>
-                <div className="flex items-start justify-center">
-                  <span className="text-2xl text-primary">$</span>
-                  <span className="text-5xl font-bold text-white">{plan.price}</span>
+            <div 
+              key={index} 
+              className={`relative group transform hover:scale-105 transition-all duration-500 ${
+                plan.popular ? 'lg:-translate-y-4' : ''
+              }`}
+            >
+              {plan.popular && (
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-navy px-4 py-1 rounded-full text-sm font-semibold">
+                  Most Popular
                 </div>
-                <span className="text-gray-400">{plan.period}</span>
+              )}
+              
+              {/* Card Background Effects */}
+              <div className="absolute inset-0 bg-primary/5 blur-xl rounded-3xl group-hover:bg-primary/10 transition-all duration-300" />
+              
+              <div className={`relative backdrop-blur-sm rounded-2xl p-8 border ${
+                plan.popular 
+                  ? 'border-primary/50 bg-navy-light/90' 
+                  : 'border-white/10 bg-navy-light/80'
+              } group-hover:border-primary/50 transition-all duration-300`}>
+                <div className="text-center mb-8">
+                  <h3 className="text-xl font-bold text-white mb-4">{plan.duration}</h3>
+                  <div className="flex items-start justify-center gap-1">
+                    <span className="text-2xl text-primary">$</span>
+                    <span className="text-5xl font-bold text-white group-hover:scale-110 transition-transform duration-300">
+                      {plan.price}
+                    </span>
+                  </div>
+                  <span className="text-gray-400">{plan.period}</span>
+                </div>
+
+                <ul className="space-y-4 mb-8">
+                  {plan.features.map((feature, fIndex) => (
+                    <li key={fIndex} className="flex items-center gap-3 text-gray-300 group-hover:text-white transition-colors">
+                      <span className="p-1.5 rounded-full bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
+                        {feature.icon}
+                      </span>
+                      {feature.text}
+                    </li>
+                  ))}
+                </ul>
+
+                <Button 
+                  className={`w-full h-12 group-hover:scale-105 transition-all duration-300 ${
+                    plan.popular 
+                      ? 'bg-primary text-navy hover:bg-primary/90 shadow-lg shadow-primary/20 hover:shadow-primary/30' 
+                      : 'bg-white/10 text-white hover:bg-white/20'
+                  }`}
+                >
+                  Get Started
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
               </div>
-
-              <ul className="space-y-4 mb-8">
-                {plan.features.map((feature, fIndex) => (
-                  <li key={fIndex} className="flex items-center text-gray-300">
-                    <Check className="h-5 w-5 text-primary mr-2" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              <Button className="w-full bg-primary text-navy hover:bg-primary/90">
-                ORDER NOW
-              </Button>
             </div>
           ))}
         </div>
