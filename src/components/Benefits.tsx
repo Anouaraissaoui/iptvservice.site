@@ -6,7 +6,7 @@ const Benefits = () => {
           <div className="relative">
             <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full"></div>
             <img 
-              src="/family-watching.jpg" 
+              src="https://ideogram.ai/assets/progressive-image/balanced/response/rjBDn08hT6OtKawxA6EQPg" 
               alt="Family watching TV" 
               className="relative rounded-3xl shadow-2xl"
             />
