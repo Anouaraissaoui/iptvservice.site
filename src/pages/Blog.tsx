@@ -59,8 +59,8 @@ const Blog = () => {
         <meta name="keywords" content="IPTV blog, streaming news, IPTV guides, streaming tips, IPTV tutorials, IPTV updates, streaming guides" />
         <meta name="robots" content="index, follow, max-image-preview:large" />
         <meta property="og:type" content="blog" />
-        <meta property="og:title" content="IPTV Blog - Latest Streaming News & Guides 2024" />
-        <meta property="og:description" content="Expert IPTV guides, streaming tips, and industry updates. Stay informed about the latest in IPTV technology!" />
+        <meta property="og:title" content="IPTV Blog - Latest News & Updates 2024" />
+        <meta property="og:description" content="Expert IPTV guides & streaming tips. Stay updated with the latest IPTV technology!" />
         <meta property="og:url" content="https://www.iptvservice.site/blog" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="IPTV Blog - Latest News & Updates 2024" />
