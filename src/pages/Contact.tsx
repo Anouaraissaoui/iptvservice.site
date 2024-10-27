@@ -43,7 +43,7 @@ const Contact = () => {
     <>
       <Helmet>
         <title>Contact Us | 24/7 IPTV Support & Customer Service</title>
-        <meta name="description" content="Get in touch with our 24/7 IPTV support team. We're here to help with technical issues, subscription inquiries, and general questions about our IPTV service." />
+        <meta name="description" content="Need help with your IPTV service? Our 24/7 customer support team is ready to assist with technical issues, subscription inquiries, and setup guidance. Get instant support via live chat, email, or phone." />
         <meta name="keywords" content="IPTV support, contact IPTV service, IPTV customer service, IPTV help" />
         <link rel="canonical" href="https://iptvservice.site/contact" />
         <script type="application/ld+json">

@@ -8,7 +8,7 @@ const Pricing = () => {
     <>
       <Helmet>
         <title>IPTV Subscription Plans & Pricing | Premium IPTV Service</title>
-        <meta name="description" content="Choose from our flexible IPTV subscription plans starting from $11/month. Access 18,000+ channels, HD quality, and 24/7 support. Best IPTV pricing packages." />
+        <meta name="description" content="Choose from our flexible IPTV subscription plans starting at $11/month. All plans include 18,000+ channels, HD/4K quality, VOD content, multi-device support, and 24/7 customer service. 3-day money-back guarantee." />
         <meta name="keywords" content="IPTV subscription plans, IPTV pricing, buy IPTV subscription, IPTV packages, cheap IPTV service" />
         <link rel="canonical" href="https://iptvservice.site/pricing" />
         <script type="application/ld+json">

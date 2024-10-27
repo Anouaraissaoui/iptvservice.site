@@ -55,7 +55,7 @@ const Blog = () => {
     <>
       <Helmet>
         <title>IPTV Blog | Latest News, Guides & Updates</title>
-        <meta name="description" content="Stay updated with the latest IPTV news, streaming guides, tech updates, and industry insights. Expert tips and tutorials for the best streaming experience." />
+        <meta name="description" content="Stay informed with expert IPTV guides, streaming tips, industry news, and technical tutorials. Learn about new features, channel updates, and maximize your streaming experience with our comprehensive IPTV resources." />
         <meta name="keywords" content="IPTV blog, streaming news, IPTV guides, streaming tips, IPTV tutorials" />
         <link rel="canonical" href="https://iptvservice.site/blog" />
         <script type="application/ld+json">

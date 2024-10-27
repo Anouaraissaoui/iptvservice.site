@@ -8,7 +8,7 @@ const Features = () => {
     <>
       <Helmet>
         <title>IPTV Features & Benefits | Premium Streaming Service</title>
-        <meta name="description" content="Discover our IPTV service features: 18,000+ channels, HD/4K quality, VOD content, multi-device support, and 24/7 customer service. Experience premium streaming." />
+        <meta name="description" content="Explore our premium IPTV features: 18,000+ channels worldwide, HD/4K streaming, catch-up TV, multi-device support, EPG guide, and VOD library. Experience seamless streaming with 99.9% server uptime and anti-freeze technology." />
         <meta name="keywords" content="IPTV features, IPTV benefits, streaming quality, VOD content, live TV channels" />
         <link rel="canonical" href="https://iptvservice.site/features" />
         <script type="application/ld+json">

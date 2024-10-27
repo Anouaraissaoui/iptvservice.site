@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { lazy, Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -25,25 +26,31 @@ const SectionLoader = () => (
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-navy">
-      <Navbar />
-      <Hero />
-      <Suspense fallback={<SectionLoader />}>
-        <Stats />
-      </Suspense>
-      <Suspense fallback={<SectionLoader />}>
-        <PricingCards />
-      </Suspense>
-      <Suspense fallback={<SectionLoader />}>
-        <Benefits />
-      </Suspense>
-      <Suspense fallback={<SectionLoader />}>
-        <FaqSection />
-      </Suspense>
-      <Suspense fallback={<SectionLoader />}>
-        <Footer />
-      </Suspense>
-    </div>
+    <>
+      <Helmet>
+        <title>Premium IPTV Service 2024 | 18,000+ Live Channels | Best IPTV Provider</title>
+        <meta name="description" content="Experience premium IPTV streaming with 18,000+ live channels, movies & sports in HD/4K quality. Instant activation, 24/7 support, and flexible plans from $11/month. Try our reliable IPTV service with 99.9% uptime." />
+      </Helmet>
+      <div className="min-h-screen bg-navy">
+        <Navbar />
+        <Hero />
+        <Suspense fallback={<SectionLoader />}>
+          <Stats />
+        </Suspense>
+        <Suspense fallback={<SectionLoader />}>
+          <PricingCards />
+        </Suspense>
+        <Suspense fallback={<SectionLoader />}>
+          <Benefits />
+        </Suspense>
+        <Suspense fallback={<SectionLoader />}>
+          <FaqSection />
+        </Suspense>
+        <Suspense fallback={<SectionLoader />}>
+          <Footer />
+        </Suspense>
+      </div>
+    </>
   );
 };
 

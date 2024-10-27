@@ -12,7 +12,7 @@ const NotFound = () => {
     <>
       <Helmet>
         <title>Page Not Found | 404 Error | Premium IPTV Service</title>
-        <meta name="description" content="The page you're looking for cannot be found. Explore our IPTV service features, pricing, and support pages instead." />
+        <meta name="description" content="Sorry, the page you're looking for cannot be found. Browse our IPTV service features, pricing plans, or contact our 24/7 support team for assistance. Get back to streaming 18,000+ channels in HD/4K quality." />
         <meta name="robots" content="noindex, follow" />
         <link rel="canonical" href="https://iptvservice.site/404" />
       </Helmet>
