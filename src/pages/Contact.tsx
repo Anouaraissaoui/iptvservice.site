@@ -42,29 +42,18 @@ const Contact = () => {
   return (
     <>
       <Helmet>
-        <title>Contact Us | 24/7 IPTV Support & Customer Service</title>
-        <meta name="description" content="Need help with your IPTV service? Our 24/7 customer support team is ready to assist with technical issues, subscription inquiries, and setup guidance. Get instant support via live chat, email, or phone." />
-        <meta name="keywords" content="IPTV support, contact IPTV service, IPTV customer service, IPTV help" />
+        <title>24/7 IPTV Support & Customer Service | Premium IPTV Help</title>
+        <meta name="description" content="Get instant support for your IPTV service. Our 24/7 customer support team provides technical assistance, subscription help, and setup guidance. Reach us via live chat, WhatsApp, email, or phone for immediate response." />
+        <meta name="keywords" content="IPTV support, IPTV customer service, IPTV help, IPTV technical support, IPTV setup help, contact IPTV service" />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="24/7 IPTV Customer Support & Technical Help" />
+        <meta property="og:description" content="Need help? Our 24/7 support team is ready to assist with technical issues, subscription inquiries, and setup guidance." />
+        <meta property="og:url" content="https://iptvservice.site/contact" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="24/7 IPTV Support & Customer Service" />
+        <meta name="twitter:description" content="Get instant IPTV support via live chat, WhatsApp, email, or phone. Available 24/7!" />
         <link rel="canonical" href="https://iptvservice.site/contact" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "ContactPage",
-            "name": "IPTV Service Contact Page",
-            "description": "Contact our 24/7 support team",
-            "mainEntity": {
-              "@type": "Organization",
-              "name": "Premium IPTV Service",
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+1-234-567-8900",
-                "contactType": "customer service",
-                "availableLanguage": ["English"],
-                "contactOption": "TollFree"
-              }
-            }
-          })}
-        </script>
       </Helmet>
       <main className="min-h-screen bg-navy">
         <Navbar />

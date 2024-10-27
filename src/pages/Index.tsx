@@ -4,14 +4,12 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import { Skeleton } from "@/components/ui/skeleton";
 
-// Lazy load components that are below the fold
 const Stats = lazy(() => import("@/components/Stats"));
 const PricingCards = lazy(() => import("@/components/PricingCards"));
 const Benefits = lazy(() => import("@/components/Benefits"));
 const FaqSection = lazy(() => import("@/components/FaqSection"));
 const Footer = lazy(() => import("@/components/Footer"));
 
-// Loading fallback component
 const SectionLoader = () => (
   <div className="w-full space-y-4 p-8">
     <Skeleton className="h-8 w-3/4 mx-auto" />
@@ -28,8 +26,19 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Best IPTV Service Provider | Buy IPTV In USA, UK & Worldwide</title>
+        <title>Buy IPTV Service | Best IPTV Subscription USA, UK & Worldwide</title>
         <meta name="description" content="Experience premium IPTV streaming with 18,000+ live channels, movies & sports in HD/4K quality. Instant activation, 24/7 support, and flexible plans from $11/month. Try our reliable IPTV service with 99.9% uptime." />
+        <meta name="keywords" content="buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV buy, best buy IPTV, IPTV channels, HD IPTV, 4K IPTV" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Premium IPTV Service 2024 | #1 Streaming Experience" />
+        <meta property="og:description" content="Access 18,000+ live channels, VOD & sports. Premium IPTV with HD/4K quality, instant activation & 24/7 support. Risk-free trial with money-back guarantee!" />
+        <meta property="og:url" content="https://iptvservice.site/" />
+        <meta property="og:site_name" content="Premium IPTV Service" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Premium IPTV Service 2024 | #1 Streaming Experience" />
+        <meta name="twitter:description" content="18,000+ channels, HD/4K quality, instant activation & 24/7 support. Try risk-free with our money-back guarantee!" />
+        <link rel="canonical" href="https://iptvservice.site/" />
       </Helmet>
       <div className="min-h-screen bg-navy">
         <Navbar />

@@ -7,25 +7,18 @@ const Pricing = () => {
   return (
     <>
       <Helmet>
-        <title>IPTV Subscription Plans & Pricing | Premium IPTV Service</title>
-        <meta name="description" content="Choose from our flexible IPTV subscription plans starting at $11/month. All plans include 18,000+ channels, HD/4K quality, VOD content, multi-device support, and 24/7 customer service. 3-day money-back guarantee." />
-        <meta name="keywords" content="IPTV subscription plans, IPTV pricing, buy IPTV subscription, IPTV packages, cheap IPTV service" />
+        <title>IPTV Subscription Plans & Pricing 2024 | Premium IPTV Service</title>
+        <meta name="description" content="Choose from our flexible IPTV subscription plans starting at $11/month. All plans include 18,000+ channels, HD/4K quality, VOD content, multi-device support, and 24/7 customer service. 24-hour money-back guarantee." />
+        <meta name="keywords" content="IPTV subscription plans, IPTV pricing, buy IPTV subscription, IPTV packages, cheap IPTV service, IPTV deals, best IPTV plans" />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <meta property="og:type" content="product" />
+        <meta property="og:title" content="IPTV Subscription Plans & Pricing 2024 | From $11/month" />
+        <meta property="og:description" content="Premium IPTV plans with 18,000+ channels, HD/4K quality, VOD content. 24/7 support and money-back guarantee included!" />
+        <meta property="og:url" content="https://iptvservice.site/pricing" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="IPTV Subscription Plans & Pricing 2024" />
+        <meta name="twitter:description" content="Get premium IPTV access from $11/month. 18,000+ channels, HD/4K quality, 24/7 support!" />
         <link rel="canonical" href="https://iptvservice.site/pricing" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Product",
-            "name": "IPTV Subscription Plans",
-            "description": "Premium IPTV subscription plans with 18,000+ channels",
-            "offers": {
-              "@type": "AggregateOffer",
-              "lowPrice": "11",
-              "highPrice": "90",
-              "priceCurrency": "USD",
-              "offerCount": "4"
-            }
-          })}
-        </script>
       </Helmet>
       <main className="min-h-screen bg-navy">
         <Navbar />
