@@ -10,12 +10,33 @@ import { useToast } from "@/components/ui/use-toast";
 const Contact = () => {
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    toast({
-      title: "Message sent",
-      description: "We'll get back to you as soon as possible.",
-    });
+    const form = e.target as HTMLFormElement;
+    
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(new FormData(form) as any).toString(),
+      });
+      
+      if (response.ok) {
+        toast({
+          title: "Message sent",
+          description: "We'll get back to you as soon as possible.",
+        });
+        form.reset();
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again later.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -93,11 +114,17 @@ const Contact = () => {
             </div>
             
             <div className="bg-navy-light/50 border border-white/10 rounded-2xl p-8 backdrop-blur-sm">
+              {/* Hidden form for Netlify form detection */}
+              <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+                <input type="text" name="name" />
+                <input type="email" name="email" />
+                <textarea name="message"></textarea>
+              </form>
+              
+              {/* Actual form */}
               <form 
                 name="contact" 
-                method="POST" 
-                data-netlify="true"
-                netlify-honeypot="bot-field"
+                method="POST"
                 onSubmit={handleSubmit}
                 className="space-y-6"
               >
