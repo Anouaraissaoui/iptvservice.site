@@ -29,7 +29,51 @@ const Index = () => {
     <>
       <Helmet>
         <title>Best IPTV Service Provider | Buy IPTV In USA, UK & Worldwide</title>
-        <meta name="description" content="Experience premium IPTV streaming with 18,000+ live channels, movies & sports in HD/4K quality. Instant activation, 24/7 support, and flexible plans from $11/month. Try our reliable IPTV service with 99.9% uptime." />
+        <meta name="description" content="Get instant access to 18,000+ live TV channels, VOD content & sports. Premium IPTV service with HD/4K quality, instant activation & 24/7 support. Plans from $11/month. Try risk-free today!" />
+        <meta name="keywords" content="buy IPTV subscription, best IPTV service 2024, premium IPTV provider, HD streaming service, live TV channels, sports streaming, movies on demand, 4K IPTV, reliable IPTV, cheap IPTV subscription" />
+        <link rel="canonical" href="https://iptvservice.site/" />
+        
+        {/* Social Media Tags */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Best IPTV Service Provider | Buy IPTV In USA, UK & Worldwide" />
+        <meta property="og:description" content="Get instant access to 18,000+ live TV channels, VOD content & sports. Premium IPTV service with HD/4K quality, instant activation & 24/7 support." />
+        <meta property="og:image" content="https://iptvservice.site/og-image.jpg" />
+        <meta property="og:url" content="https://iptvservice.site" />
+        
+        {/* Twitter Card Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Best IPTV Service Provider | Premium Streaming Service" />
+        <meta name="twitter:description" content="Access 18,000+ channels, VOD & sports. HD/4K quality, instant activation & 24/7 support." />
+        <meta name="twitter:image" content="https://iptvservice.site/og-image.jpg" />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Best IPTV Service Provider",
+            "description": "Premium IPTV streaming service with 18,000+ channels worldwide",
+            "publisher": {
+              "@type": "Organization",
+              "name": "Premium IPTV Service",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://iptvservice.site/logo.png"
+              }
+            },
+            "mainEntity": {
+              "@type": "Product",
+              "name": "IPTV Subscription",
+              "description": "Premium IPTV service with 18,000+ channels",
+              "offers": {
+                "@type": "AggregateOffer",
+                "lowPrice": "11",
+                "highPrice": "90",
+                "priceCurrency": "USD"
+              }
+            }
+          })}
+        </script>
       </Helmet>
       <div className="min-h-screen bg-navy">
         <Navbar />
