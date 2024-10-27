@@ -115,7 +115,7 @@ const Contact = () => {
             
             <div className="bg-navy-light/50 border border-white/10 rounded-2xl p-8 backdrop-blur-sm">
               {/* Hidden form for Netlify form detection */}
-              <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+              <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
                 <input type="text" name="name" />
                 <input type="email" name="email" />
                 <textarea name="message"></textarea>
