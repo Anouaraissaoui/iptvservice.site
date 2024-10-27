@@ -3,10 +3,38 @@
   "@type": "WebSite",
   "url": "https://iptvservice.site",
   "name": "Premium IPTV Service",
-  "description": "Premium IPTV streaming service with 18,000+ channels, VOD content, and live sports in HD/4K quality",
-  "potentialAction": {
+  "description": "Premium IPTV streaming service with 18,000+ channels, VOD content, and live sports in HD/4K quality. Experience the best in entertainment with our reliable streaming platform.",
+  "potentialAction": [{
     "@type": "SearchAction",
-    "target": "https://iptvservice.site/search?q={search_term_string}",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://iptvservice.site/search?q={search_term_string}"
+    },
     "query-input": "required name=search_term_string"
-  }
+  }, {
+    "@type": "ViewAction",
+    "target": [
+      {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://iptvservice.site/pricing",
+        "name": "View Pricing Plans"
+      },
+      {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://iptvservice.site/features",
+        "name": "Explore Features"
+      }
+    ]
+  }],
+  "publisher": {
+    "@type": "Organization",
+    "name": "Premium IPTV Service",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://iptvservice.site/logo.svg"
+    }
+  },
+  "inLanguage": ["en-US", "fr", "es", "ar"],
+  "copyrightYear": "2024",
+  "keywords": "IPTV service, streaming TV, live channels, HD TV, 4K streaming, sports channels, movies on demand, TV series"
 }
