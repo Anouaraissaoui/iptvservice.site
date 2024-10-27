@@ -1,26 +1,31 @@
 import { Shield, Tv, Globe, CreditCard } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Benefits = () => {
   const benefits = [
     {
       title: "Cost-Effective",
       description: "More affordable than traditional cable or satellite TV packages.",
-      icon: <CreditCard className="w-6 h-6" />
+      icon: <CreditCard className="w-6 h-6" />,
+      link: "/pricing"
     },
     {
       title: "High-Quality Streaming",
       description: "Enjoy crisp, high-definition video and audio quality.",
-      icon: <Tv className="w-6 h-6" />
+      icon: <Tv className="w-6 h-6" />,
+      link: "/features"
     },
     {
       title: "Flexible Viewing",
       description: "Watch your favorite content anytime, anywhere with an internet connection.",
-      icon: <Shield className="w-6 h-6" />
+      icon: <Shield className="w-6 h-6" />,
+      link: "/features#streaming"
     },
     {
       title: "Global Reach",
       description: "Access a wide range of international channels and content.",
-      icon: <Globe className="w-6 h-6" />
+      icon: <Globe className="w-6 h-6" />,
+      link: "/features#channels"
     }
   ];
 
@@ -35,7 +40,7 @@ const Benefits = () => {
         <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
           <div className="relative group order-2 lg:order-1">
             <div className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full animate-pulse" />
-            <div className="relative transform group-hover:scale-[1.02] transition-all duration-500">
+            <Link to="/features" className="block relative transform group-hover:scale-[1.02] transition-all duration-500">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent blur-2xl" />
               <img 
                 src="https://ideogram.ai/assets/progressive-image/balanced/response/rjBDn08hT6OtKawxA6EQPg" 
@@ -48,30 +53,31 @@ const Benefits = () => {
                   <p className="text-white font-medium">Premium Quality</p>
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
           
           <div className="space-y-8 md:space-y-10 order-1 lg:order-2">
             <div className="space-y-4 text-center lg:text-left">
-              <span className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 md:px-6 py-2 backdrop-blur-xl text-sm">
+              <Link to="/features" className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 md:px-6 py-2 backdrop-blur-xl text-sm hover:bg-white/10 transition-all duration-300">
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                 <span className="text-white">Why Choose Us?</span>
-              </span>
+              </Link>
               
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
                 Benefits of{" "}
-                <span className="text-primary relative inline-block">
+                <Link to="/pricing" className="text-primary relative inline-block hover:text-primary/90 transition-colors">
                   IPTV
                   <span className="absolute -bottom-2 left-0 right-0 h-1 bg-primary/30 blur-sm" />
-                </span>
+                </Link>
               </h2>
             </div>
             
             <div className="space-y-4 md:space-y-6">
               {benefits.map((benefit, index) => (
-                <div 
-                  key={index} 
-                  className="group bg-navy/50 border border-white/10 rounded-2xl p-6 hover:border-primary/50 transition-all duration-300 hover:bg-navy-light/50 hover:scale-105 backdrop-blur-sm"
+                <Link 
+                  key={index}
+                  to={benefit.link}
+                  className="block group bg-navy/50 border border-white/10 rounded-2xl p-6 hover:border-primary/50 transition-all duration-300 hover:bg-navy-light/50 hover:scale-105 backdrop-blur-sm"
                 >
                   <div className="flex items-start gap-4">
                     <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
@@ -86,7 +92,7 @@ const Benefits = () => {
                       </p>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

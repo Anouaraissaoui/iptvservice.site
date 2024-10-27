@@ -1,4 +1,5 @@
 import { memo } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageCircle } from "lucide-react";
 
@@ -8,7 +9,7 @@ const Hero = memo(() => {
       className="relative min-h-[calc(100vh-4rem)] pt-24 md:pt-32 pb-16 md:pb-20 bg-navy overflow-hidden"
       aria-label="Hero Section"
     >
-      {/* Enhanced animated grid background */}
+      {/* Background Effects */}
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px] animate-[grid_20s_linear_infinite]" aria-hidden="true" />
       <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] animate-pulse" aria-hidden="true" />
       <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] animate-pulse" aria-hidden="true" />
@@ -17,38 +18,46 @@ const Hero = memo(() => {
         <div className="space-y-6 md:space-y-8 text-center lg:text-left">
           <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 md:px-6 md:py-3 backdrop-blur-xl hover:bg-white/10 transition-all duration-300 transform hover:scale-105">
             <span className="text-primary animate-pulse font-semibold">New</span>
-            <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent text-sm md:text-base">Experience the future of TV</span>
+            <Link to="/features" className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent text-sm md:text-base hover:text-primary transition-colors">
+              Experience the future of TV →
+            </Link>
           </div>
           
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight">
             <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">Experience The #1 </span>
-            <span className="text-primary relative inline-block">
+            <Link to="/pricing" className="text-primary relative inline-block hover:text-primary/90 transition-colors">
               IPTV Subscription
               <span className="absolute -bottom-2 left-0 right-0 h-1 bg-primary/30 blur-sm"></span>
-            </span>{" "}
+            </Link>{" "}
             <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">Service Today!</span>
           </h1>
           
           <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0">
-            Unleash unmatched entertainment with our leading IPTV subscription service. Buy IPTV from the best in the industry and enjoy a seamless, high-quality viewing experience.
+            Unleash unmatched entertainment with our leading IPTV subscription service. 
+            <Link to="/blog" className="text-primary hover:text-primary/90 transition-colors"> Learn more about IPTV </Link> 
+            from the best in the industry and enjoy a seamless, high-quality viewing experience.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <Button 
-              className="bg-primary text-navy hover:bg-primary/90 text-base md:text-lg px-6 md:px-8 h-12 md:h-14 group transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_40px_rgba(0,255,133,0.4)]"
-              aria-label="Start Free Trial"
-            >
-              Start Free Trial
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
-            </Button>
-            <Button 
-              variant="outline" 
-              className="text-white border-[#25D366] bg-[#25D366]/10 hover:bg-[#25D366]/20 text-base md:text-lg px-6 md:px-8 h-12 md:h-14 group transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_40px_rgba(37,211,102,0.3)]"
-              aria-label="Contact on WhatsApp"
-            >
-              <MessageCircle className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform" aria-hidden="true" />
-              Contact on WhatsApp
-            </Button>
+            <Link to="/pricing">
+              <Button 
+                className="bg-primary text-navy hover:bg-primary/90 text-base md:text-lg px-6 md:px-8 h-12 md:h-14 group transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_40px_rgba(0,255,133,0.4)] w-full sm:w-auto"
+                aria-label="View Pricing Plans"
+              >
+                View Pricing Plans
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+              </Button>
+            </Link>
+            <Link to="/contact">
+              <Button 
+                variant="outline" 
+                className="text-white border-[#25D366] bg-[#25D366]/10 hover:bg-[#25D366]/20 text-base md:text-lg px-6 md:px-8 h-12 md:h-14 group transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_40px_rgba(37,211,102,0.3)] w-full sm:w-auto"
+                aria-label="Contact Support"
+              >
+                <MessageCircle className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform" aria-hidden="true" />
+                Contact Support
+              </Button>
+            </Link>
           </div>
         </div>
         
