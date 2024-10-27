@@ -61,11 +61,11 @@ const Blog = () => {
         <meta property="og:type" content="blog" />
         <meta property="og:title" content="IPTV Blog - Latest Streaming News & Guides 2024" />
         <meta property="og:description" content="Expert IPTV guides, streaming tips, and industry updates. Stay informed about the latest in IPTV technology!" />
-        <meta property="og:url" content="https://iptvservice.site/blog" />
+        <meta property="og:url" content="https://www.iptvservice.site/blog" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="IPTV Blog - Latest News & Updates 2024" />
         <meta name="twitter:description" content="Expert IPTV guides & streaming tips. Stay updated with the latest IPTV technology!" />
-        <link rel="canonical" href="https://iptvservice.site/blog" />
+        <link rel="canonical" href="https://www.iptvservice.site/blog" />
       </Helmet>
       <main className="min-h-screen bg-navy">
         <Navbar />

@@ -49,11 +49,11 @@ const Contact = () => {
         <meta property="og:type" content="website" />
         <meta property="og:title" content="24/7 IPTV Customer Support & Technical Help" />
         <meta property="og:description" content="Need help? Our 24/7 support team is ready to assist with technical issues, subscription inquiries, and setup guidance." />
-        <meta property="og:url" content="https://iptvservice.site/contact" />
+        <meta property="og:url" content="https://www.iptvservice.site/contact" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="24/7 IPTV Support & Customer Service" />
         <meta name="twitter:description" content="Get instant IPTV support via live chat, WhatsApp, email, or phone. Available 24/7!" />
-        <link rel="canonical" href="https://iptvservice.site/contact" />
+        <link rel="canonical" href="https://www.iptvservice.site/contact" />
       </Helmet>
       <main className="min-h-screen bg-navy">
         <Navbar />
