@@ -28,7 +28,7 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Premium IPTV Service 2024 | 18,000+ Live Channels | Best IPTV Provider</title>
+        <title>Best IPTV Service Provider | Buy IPTV In USA, UK & Worldwide</title>
         <meta name="description" content="Experience premium IPTV streaming with 18,000+ live channels, movies & sports in HD/4K quality. Instant activation, 24/7 support, and flexible plans from $11/month. Try our reliable IPTV service with 99.9% uptime." />
       </Helmet>
       <div className="min-h-screen bg-navy">
