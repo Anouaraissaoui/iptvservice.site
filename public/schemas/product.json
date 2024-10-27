@@ -1,16 +1,17 @@
 {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "Premium IPTV Subscription",
-  "description": "Premium IPTV subscription with 18,000+ channels, VOD content, and live sports. HD/4K quality and instant activation.",
+  "name": "Premium IPTV Subscription Service",
+  "description": "Premium IPTV subscription with 18,000+ live channels, movies, sports & VOD content in HD/4K quality. Instant activation with 99.9% uptime guarantee.",
   "brand": {
     "@type": "Brand",
     "name": "Premium IPTV Service",
-    "slogan": "Experience the Future of TV"
+    "slogan": "Experience the Future of TV Streaming"
   },
   "category": "Streaming Services",
-  "sku": "IPTV-PREMIUM",
-  "mpn": "IPTV2024",
+  "keywords": "IPTV service, HD streaming, 4K content, live TV, sports channels, movie channels, VOD content",
+  "sku": "IPTV-PREMIUM-2024",
+  "mpn": "IPTV2024-PREMIUM",
   "offers": {
     "@type": "AggregateOffer",
     "lowPrice": "11",
@@ -20,7 +21,8 @@
     "availability": "https://schema.org/InStock",
     "seller": {
       "@type": "Organization",
-      "name": "Premium IPTV Service"
+      "name": "Premium IPTV Service",
+      "description": "Leading provider of premium IPTV streaming services"
     },
     "priceValidUntil": "2024-12-31"
   },
@@ -43,6 +45,6 @@
       "name": "John Smith"
     },
     "datePublished": "2024-02-15",
-    "reviewBody": "Excellent IPTV service with great channel selection and reliable streaming quality."
+    "reviewBody": "Best IPTV service I've used. Excellent HD quality, reliable streaming, and great channel selection. The 24/7 support is outstanding!"
   }]
 }
