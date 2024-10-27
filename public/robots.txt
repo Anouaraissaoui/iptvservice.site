@@ -1,3 +1,4 @@
+# Premium IPTV Service Robots.txt
 User-agent: *
 Allow: /
 
@@ -18,20 +19,58 @@ Disallow: /account/
 Disallow: /api/
 Disallow: /*.json$
 Disallow: /*?*
+Disallow: /*/amp/
+Disallow: /*?amp
+Disallow: /*&amp
+Disallow: /search/
+Disallow: /tag/
+Disallow: /category/
 
-# Crawl-delay
+# Rate limiting
 Crawl-delay: 5
 
-# Additional User agents
+# Specific User agents
 User-agent: Googlebot
 Allow: /
+Allow: /*.js
+Allow: /*.css
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.gif
+Allow: /*.svg
 Crawl-delay: 2
 
 User-agent: Googlebot-Image
 Allow: /images/
 Allow: /assets/
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.png
+Allow: /*.webp
+Allow: /*.svg
 Disallow: /temp/
 
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 5
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 5
+
+# Block bad bots
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
