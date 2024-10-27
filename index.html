@@ -8,13 +8,30 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="google-site-verification" content="-9tOh9Oe5dOljUAOkEsn23HsiUTS8QB5MMvwzU-AQgM" />
   
-  <!-- Preload critical assets -->
-  <link rel="preload" href="/src/index.css" as="style">
-  <link rel="preload" href="/src/App.tsx" as="script">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Resource Hints -->
+  <link rel="preload" href="/src/index.css" as="style" crossorigin="anonymous" />
+  <link rel="preload" href="/src/App.tsx" as="script" crossorigin="anonymous" />
+  <link rel="preload" href="/fonts/your-main-font.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link rel="dns-prefetch" href="https://api.iptvservice.site" />
   
-  <!-- Primary Meta Tags with Enhanced Keywords -->
+  <!-- Security Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; connect-src 'self' https:;" />
+  
+  <!-- PWA Support -->
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="application-name" content="IPTV Service" />
+  <meta name="apple-mobile-web-app-title" content="IPTV Service" />
+  <meta name="msapplication-TileColor" content="#0F172A" />
+  <meta name="msapplication-config" content="/browserconfig.xml" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0F172A" />
+  
+  <!-- Primary Meta Tags with Enhanced Technical SEO -->
   <title>Premium IPTV Service 2024 | 18,000+ Live Channels | Best IPTV Provider</title>
   <meta name="description" content="Get instant access to 18,000+ live TV channels, VOD content & sports. Premium IPTV service with HD/4K quality, instant activation & 24/7 support. Plans from $11/month. Try risk-free today!" />
   <meta name="keywords" content="buy IPTV subscription, best IPTV service 2024, premium IPTV provider, HD streaming service, live TV channels, sports streaming, movies on demand, 4K IPTV, reliable IPTV, cheap IPTV subscription, IPTV trial, IPTV reviews, streaming service, online TV" />
@@ -32,7 +49,7 @@
   <meta name="HandheldFriendly" content="True" />
   <link rel="canonical" href="https://iptvservice.site/" />
   
-  <!-- Open Graph / Facebook -->
+  <!-- Open Graph / Facebook with Enhanced Properties -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://iptvservice.site/" />
   <meta property="og:site_name" content="Premium IPTV Service" />
@@ -41,11 +58,15 @@
   <meta property="og:image" content="https://iptvservice.site/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:video" content="https://iptvservice.site/promo.mp4" />
+  <meta property="og:video:type" content="video/mp4" />
+  <meta property="og:video:width" content="1280" />
+  <meta property="og:video:height" content="720" />
   <meta property="fb:app_id" content="your-fb-app-id" />
   
-  <!-- Twitter -->
+  <!-- Twitter Cards with Technical Enhancements -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@iptvservice" />
   <meta name="twitter:creator" content="@iptvservice" />
@@ -54,8 +75,13 @@
   <meta name="twitter:description" content="18,000+ channels, HD/4K quality, instant activation & 24/7 support. Try risk-free today!" />
   <meta name="twitter:image" content="https://iptvservice.site/og-image.jpg" />
   <meta name="twitter:image:alt" content="Premium IPTV Service Interface Screenshot" />
+  <meta name="twitter:player" content="https://iptvservice.site/promo-player" />
+  <meta name="twitter:player:width" content="1280" />
+  <meta name="twitter:player:height" content="720" />
   
-  <!-- Dynamic Schema Loading -->
+  <!-- Dynamic Schema Loading with Preload -->
+  <link rel="preload" href="/schemas/organization.json" as="fetch" crossorigin="anonymous" />
+  <link rel="preload" href="/schemas/product.json" as="fetch" crossorigin="anonymous" />
   <script type="application/ld+json" src="/schemas/organization.json"></script>
   <script type="application/ld+json" src="/schemas/product.json"></script>
   <script type="application/ld+json" src="/schemas/faq.json"></script>
@@ -63,18 +89,22 @@
   <script type="application/ld+json" src="/schemas/website.json"></script>
   <script type="application/ld+json" src="/schemas/local-business.json"></script>
 
-  <!-- Assets -->
+  <!-- Performance Optimized Assets -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <link rel="manifest" href="/manifest.json" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+  <link rel="manifest" href="/manifest.json" crossorigin="use-credentials" />
   
-  <!-- Performance & SEO Optimizations -->
+  <!-- Resource Hints for Third-party Resources -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
   <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
   
-  <!-- Alternate Language Versions -->
+  <!-- HTTP/2 Server Push Header Hints -->
+  <link rel="preload" as="style" href="/build/styles.css" />
+  <link rel="preload" as="script" href="/build/bundle.js" />
+  
+  <!-- Alternate Language Versions with hreflang -->
   <link rel="alternate" hreflang="en" href="https://iptvservice.site" />
   <link rel="alternate" hreflang="es" href="https://iptvservice.site/es" />
   <link rel="alternate" hreflang="fr" href="https://iptvservice.site/fr" />
@@ -84,5 +114,9 @@
 <body class="overflow-x-hidden">
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
+  
+  <!-- Preload Critical Resources -->
+  <link rel="modulepreload" href="/src/components/Hero.tsx" />
+  <link rel="modulepreload" href="/src/components/Navbar.tsx" />
 </body>
 </html>
