@@ -10,41 +10,41 @@
         http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
   
   <url>
-    <loc>https://iptvservice.site/</loc>
+    <loc>https://www.iptvservice.site/</loc>
     <lastmod>2024-02-26T12:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://iptvservice.site/og-image.jpg</image:loc>
+      <image:loc>https://www.iptvservice.site/og-image.jpg</image:loc>
       <image:title>Premium IPTV Service - Best Streaming Experience</image:title>
       <image:caption>Experience premium IPTV streaming with 18,000+ channels</image:caption>
     </image:image>
   </url>
   
   <url>
-    <loc>https://iptvservice.site/pricing</loc>
+    <loc>https://www.iptvservice.site/pricing</loc>
     <lastmod>2024-02-26T12:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://iptvservice.site/pricing-plans.jpg</image:loc>
+      <image:loc>https://www.iptvservice.site/pricing-plans.jpg</image:loc>
       <image:title>IPTV Subscription Plans and Pricing</image:title>
     </image:image>
   </url>
   
   <url>
-    <loc>https://iptvservice.site/features</loc>
+    <loc>https://www.iptvservice.site/features</loc>
     <lastmod>2024-02-26T12:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://iptvservice.site/features-overview.jpg</image:loc>
+      <image:loc>https://www.iptvservice.site/features-overview.jpg</image:loc>
       <image:title>IPTV Service Features and Benefits</image:title>
     </image:image>
   </url>
   
   <url>
-    <loc>https://iptvservice.site/blog</loc>
+    <loc>https://www.iptvservice.site/blog</loc>
     <lastmod>2024-02-26T12:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -59,7 +59,7 @@
   </url>
   
   <url>
-    <loc>https://iptvservice.site/contact</loc>
+    <loc>https://www.iptvservice.site/contact</loc>
     <lastmod>2024-02-26T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
