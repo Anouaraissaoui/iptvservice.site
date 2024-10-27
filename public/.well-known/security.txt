@@ -1,0 +1,7 @@
+Contact: mailto:security@iptvservice.site
+Expires: 2025-12-31T23:59:59.000Z
+Encryption: https://iptvservice.site/pgp-key.txt
+Preferred-Languages: en
+Canonical: https://iptvservice.site/.well-known/security.txt
+Policy: https://iptvservice.site/security-policy
+Hiring: https://iptvservice.site/security-jobs
