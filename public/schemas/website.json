@@ -8,5 +8,27 @@
     "@type": "SearchAction",
     "target": "https://iptvservice.site/search?q={search_term_string}",
     "query-input": "required name=search_term_string"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Premium IPTV Service",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://iptvservice.site/logo.png"
+    }
+  },
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "USD",
+    "lowPrice": "11",
+    "highPrice": "90",
+    "offerCount": "4"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "1250",
+    "bestRating": "5",
+    "worstRating": "1"
   }
 }

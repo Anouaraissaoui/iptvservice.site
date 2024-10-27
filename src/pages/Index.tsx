@@ -26,18 +26,23 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>IPTV Service | Best IPTV Subscription USA, UK & Worldwide</title>
-        <meta name="description" content="Buy IPTV subscription with 18,000+ live channels, HD/4K VOD & sports. Premium IPTV service with 99.9% uptime, instant activation & 24/7 support." />
-        <meta name="keywords" content="buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV buy, best buy IPTV, IPTV channels, HD IPTV, 4K IPTV" />
+        <title>Premium IPTV Service | Best IPTV Subscription USA 2024</title>
+        <meta name="description" content="Get premium IPTV subscription with 18,000+ live channels, HD/4K quality VOD & sports. Enjoy 99.9% uptime, instant activation & 24/7 support. Try risk-free with money-back guarantee!" />
+        <meta name="keywords" content="premium IPTV service, IPTV subscription USA, best IPTV provider, HD IPTV channels, 4K IPTV streaming, buy IPTV subscription, IPTV service provider" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Premium IPTV Service | #1 Streaming Experience" />
-        <meta property="og:description" content="Access 18,000+ live channels, VOD & sports. Premium IPTV with HD/4K quality, instant activation & 24/7 support. Risk-free trial with money-back guarantee!" />
+        <meta property="og:title" content="Premium IPTV Service | #1 Streaming Experience 2024" />
+        <meta property="og:description" content="Access 18,000+ live channels, VOD & sports in HD/4K quality. Get instant activation, 24/7 support & money-back guarantee. Start streaming today!" />
         <meta property="og:url" content="https://iptvservice.site/" />
         <meta property="og:site_name" content="Premium IPTV Service" />
+        <meta property="og:image" content="https://iptvservice.site/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:locale" content="en_US" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Premium IPTV Service | #1 Streaming Experience" />
-        <meta name="twitter:description" content="18,000+ channels, HD/4K quality, instant activation & 24/7 support. Try risk-free with our money-back guarantee!" />
+        <meta name="twitter:title" content="Premium IPTV Service | Best Streaming Experience 2024" />
+        <meta name="twitter:description" content="18,000+ channels, HD/4K quality, instant activation & 24/7 support. Try risk-free today!" />
+        <meta name="twitter:image" content="https://iptvservice.site/og-image.jpg" />
         <link rel="canonical" href="https://iptvservice.site/" />
       </Helmet>
       <div className="min-h-screen bg-navy">
