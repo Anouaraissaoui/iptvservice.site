@@ -27,7 +27,7 @@ const Index = () => {
     <>
       <Helmet>
         <title>Buy IPTV Service | Best IPTV Subscription USA, UK & Worldwide</title>
-        <meta name="description" content="Experience premium IPTV streaming with 18,000+ live channels, movies & sports in HD/4K quality. Instant activation, 24/7 support, and flexible plans from $11/month. Try our reliable IPTV service with 99.9% uptime." />
+        <meta name="description" content="Buy IPTV subscription with 18,000+ live channels, HD/4K VOD & sports. Premium IPTV service with 99.9% uptime, instant activation & 24/7 support." />
         <meta name="keywords" content="buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV buy, best buy IPTV, IPTV channels, HD IPTV, 4K IPTV" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta property="og:type" content="website" />
