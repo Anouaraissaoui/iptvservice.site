@@ -7,9 +7,15 @@ Allow: /pricing
 Allow: /features
 Allow: /blog
 Allow: /contact
+Allow: /fr/
+Allow: /fr/pricing
+Allow: /fr/features
+Allow: /fr/blog
+Allow: /fr/contact
 
 # Sitemaps
 Sitemap: https://iptvservice.site/sitemap.xml
+Sitemap: https://iptvservice.site/fr/sitemap.xml
 
 # Protect sensitive areas
 Disallow: /admin/
@@ -38,6 +44,7 @@ Allow: /*.png
 Allow: /*.jpg
 Allow: /*.gif
 Allow: /*.svg
+Allow: /*.webp
 Crawl-delay: 2
 
 User-agent: Googlebot-Image
