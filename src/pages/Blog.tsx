@@ -37,13 +37,13 @@ const Blog = () => {
     "@type": "Blog",
     "name": "IPTV Blog",
     "description": "Latest Streaming News, Guides & Updates 2024",
-    "url": "https://iptvservice.site/blog",
+    "url": "https://www.iptvservice.site/blog",
     "publisher": {
       "@type": "Organization",
       "name": "Premium IPTV Service",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://iptvservice.site/logo.svg"
+        "url": "https://www.iptvservice.site/logo.svg"
       }
     }
   };
