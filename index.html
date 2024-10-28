@@ -6,6 +6,36 @@
   <meta name="msvalidate.01" content="CEC29E9356C1B062CC9637E64D68C778" />
   <meta name="google-site-verification" content="-9tOh9Oe5dOljUAOkEsn23HsiUTS8QB5MMvwzU-AQgM" />
   
+  <!-- Preload Critical Resources -->
+  <link rel="preload" href="/src/index.css" as="style" />
+  <link rel="preload" href="/src/main.tsx" as="script" type="module" />
+  <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
+  
+  <!-- Preconnect to External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://api.iptvservice.site" />
+  <link rel="preconnect" href="https://www.google-analytics.com" />
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  
+  <!-- Critical CSS Inline -->
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+      margin: 0;
+      background: #0F172A;
+      opacity: 0;
+      animation: fade-in 0.3s ease-out forwards;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+    @keyframes fade-in { to { opacity: 1; } }
+    .no-js { display: block; }
+  </style>
+  
+  <!-- Deferred CSS -->
+  <link rel="stylesheet" href="/src/index.css" media="print" onload="this.media='all'" />
+  
   <!-- Enhanced SEO Meta Tags -->
   <title>Buy IPTV Service | Best IPTV Subscription USA, UK & Worldwide</title>
   <meta name="description" content="Buy IPTV subscription with 18,000+ live channels, HD/4K VOD & sports. Premium IPTV service with 99.9% uptime, instant activation & 24/7 support." />
@@ -15,24 +45,14 @@
   <meta name="google" content="notranslate" />
   <meta name="format-detection" content="telephone=no" />
   
-  <!-- Advanced Performance & Resource Hints -->
-  <link rel="preload" href="/src/index.css" as="style" />
-  <link rel="preload" href="/src/main.tsx" as="script" type="module" />
-  <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="dns-prefetch" href="https://api.iptvservice.site" />
-  <link rel="preconnect" href="https://www.google-analytics.com" />
-  <link rel="preconnect" href="https://www.googletagmanager.com" />
-  
-  <!-- Enhanced Security Headers -->
+  <!-- Security Headers -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; img-src 'self' data: https: *.cloudinary.com ideogram.ai www.google-analytics.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https: www.googletagmanager.com www.google-analytics.com; style-src 'self' 'unsafe-inline' https: fonts.googleapis.com; connect-src 'self' https: www.google-analytics.com; font-src 'self' data: fonts.gstatic.com; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests;">
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta http-equiv="X-Frame-Options" content="DENY" />
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=(), midi=(), interest-cohort=()" />
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
   
-  <!-- Enhanced PWA Support -->
+  <!-- PWA Support -->
   <meta name="theme-color" content="#0F172A" media="(prefers-color-scheme: dark)" />
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
   <meta name="application-name" content="IPTV Service" />
@@ -43,7 +63,7 @@
   <link rel="icon" type="image/png" href="https://res.cloudinary.com/aste/image/upload/v1730132979/iptvservice.site.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
   
-  <!-- Enhanced Open Graph -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.iptvservice.site/" />
   <meta property="og:site_name" content="Premium IPTV Service" />
@@ -56,7 +76,7 @@
   <meta property="og:locale" content="en_US" />
   <meta property="og:updated_time" content="2024-02-26T12:00:00+00:00" />
   
-  <!-- Enhanced Twitter Card -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@iptvservice" />
   <meta name="twitter:creator" content="@iptvservice" />
@@ -65,7 +85,7 @@
   <meta name="twitter:image" content="https://ideogram.ai/assets/progressive-image/balanced/response/C55t2k-_Qr-ZTxrcVHRZDA" />
   <meta name="twitter:image:alt" content="Premium IPTV Service Interface" />
   
-  <!-- Comprehensive Structured Data -->
+  <!-- Structured Data -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -145,32 +165,6 @@
       ]
     }
   </script>
-  
-  <!-- Critical CSS -->
-  <style>
-    :root {
-      color-scheme: light dark;
-    }
-    body {
-      margin: 0;
-      background: #0F172A;
-      opacity: 0;
-      animation: fade-in 0.3s ease-out forwards;
-      text-rendering: optimizeLegibility;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    @keyframes fade-in {
-      to { opacity: 1; }
-    }
-    .loading { display: none; }
-    .no-js { display: block; }
-    img, picture, video, canvas, svg {
-      display: block;
-      max-width: 100%;
-      height: auto;
-    }
-  </style>
 </head>
 <body class="overflow-x-hidden">
   <noscript>
@@ -179,7 +173,7 @@
   
   <div id="root"></div>
   
-  <!-- Main Application -->
-  <script type="module" src="/src/main.tsx"></script>
+  <!-- Deferred Main Application Script -->
+  <script type="module" src="/src/main.tsx" defer></script>
 </body>
 </html>
