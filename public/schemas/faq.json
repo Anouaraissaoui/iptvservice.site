@@ -33,5 +33,21 @@
       "@type": "Answer",
       "text": "Yes, we offer a 100% satisfaction guarantee. If you're not completely satisfied with our service within the first 24 hours, we'll provide a full refund."
     }
+  }, {
+    "@type": "Question",
+    "name": "What video quality do you offer?",
+    "url": "https://iptvservice.site/#video-quality",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "We offer HD (720p/1080p) and 4K quality streams where available. The actual quality depends on your internet connection speed and the source broadcast quality."
+    }
+  }, {
+    "@type": "Question",
+    "name": "How many devices can I use simultaneously?",
+    "url": "https://iptvservice.site/#device-limit",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Different subscription plans allow for different numbers of simultaneous connections, ranging from 1 to 4 devices. Check our pricing page for detailed information about each plan."
+    }
   }]
 }

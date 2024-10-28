@@ -22,7 +22,9 @@
       "@type": "Organization",
       "name": "Premium IPTV Service"
     },
-    "priceValidUntil": "2024-12-31"
+    "priceValidUntil": "2024-12-31",
+    "itemCondition": "https://schema.org/NewCondition",
+    "warranty": "30-day money-back guarantee"
   },
   "aggregateRating": {
     "@type": "AggregateRating",
@@ -44,5 +46,14 @@
     },
     "datePublished": "2024-02-15",
     "reviewBody": "Excellent IPTV service with great channel selection and reliable streaming quality."
-  }]
+  }],
+  "video": {
+    "@type": "VideoObject",
+    "name": "IPTV Service Demo",
+    "description": "Watch how our premium IPTV service works with HD channels and VOD content",
+    "thumbnailUrl": "https://iptvservice.site/demo-thumbnail.jpg",
+    "uploadDate": "2024-02-01",
+    "duration": "PT2M30S",
+    "contentUrl": "https://iptvservice.site/demo-video.mp4"
+  }
 }
