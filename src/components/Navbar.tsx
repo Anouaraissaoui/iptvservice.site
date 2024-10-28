@@ -23,7 +23,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between py-4 md:py-6">
           <Link to="/" className="flex items-center gap-2">
             <span className="text-primary font-bold text-xl md:text-2xl tracking-tight hover:text-primary/90 transition-colors">
-              Service IPTV
+              IPTV Service
             </span>
           </Link>
           
