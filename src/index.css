@@ -60,7 +60,7 @@
 
 /* Hero Section Styles */
 .hero-background {
-  @apply absolute inset-0 bg-grid-white bg-[size:60px_60px] animate-[grid_20s_linear_infinite];
+  @apply absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px] animate-[grid_20s_linear_infinite];
 }
 
 .hero-glow-primary {
@@ -152,10 +152,6 @@
 
 /* Animation Keyframes */
 @keyframes grid {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(60px);
-  }
+  '0%': { transform: translateY(0) },
+  '100%': { transform: translateY(60px) },
 }
