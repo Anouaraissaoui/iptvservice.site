@@ -7,7 +7,8 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-  
+
+  <!-- Homepage -->
   <url>
     <loc>https://www.iptvservice.site/</loc>
     <lastmod>2024-02-26T12:00:00+00:00</lastmod>
@@ -22,7 +23,8 @@
       <image:caption>Experience premium IPTV streaming with 18,000+ channels</image:caption>
     </image:image>
   </url>
-  
+
+  <!-- Pricing Page -->
   <url>
     <loc>https://www.iptvservice.site/pricing</loc>
     <lastmod>2024-02-26T12:00:00+00:00</lastmod>
@@ -34,9 +36,11 @@
     <image:image>
       <image:loc>https://www.iptvservice.site/pricing-plans.jpg</image:loc>
       <image:title>IPTV Subscription Plans and Pricing</image:title>
+      <image:caption>Choose from our flexible IPTV subscription plans</image:caption>
     </image:image>
   </url>
-  
+
+  <!-- Features Page -->
   <url>
     <loc>https://www.iptvservice.site/features</loc>
     <lastmod>2024-02-26T12:00:00+00:00</lastmod>
@@ -48,9 +52,11 @@
     <image:image>
       <image:loc>https://www.iptvservice.site/features-overview.jpg</image:loc>
       <image:title>IPTV Service Features and Benefits</image:title>
+      <image:caption>Explore our premium IPTV features</image:caption>
     </image:image>
   </url>
-  
+
+  <!-- Blog Page -->
   <url>
     <loc>https://www.iptvservice.site/blog</loc>
     <lastmod>2024-02-26T12:00:00+00:00</lastmod>
@@ -68,7 +74,8 @@
       <news:title>Latest IPTV News and Updates</news:title>
     </news:news>
   </url>
-  
+
+  <!-- Contact Page -->
   <url>
     <loc>https://www.iptvservice.site/contact</loc>
     <lastmod>2024-02-26T12:00:00+00:00</lastmod>
@@ -88,5 +95,10 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.iptvservice.site/fr/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.iptvservice.site/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.iptvservice.site/"/>
+    <image:image>
+      <image:loc>https://www.iptvservice.site/fr/og-image.jpg</image:loc>
+      <image:title>Service IPTV Premium - Meilleure Expérience de Streaming</image:title>
+      <image:caption>Découvrez le streaming IPTV premium avec plus de 18 000 chaînes</image:caption>
+    </image:image>
   </url>
 </urlset>
