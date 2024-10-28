@@ -38,7 +38,7 @@ const Index = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Premium IPTV Service 2024 | #1 Streaming Experience" />
         <meta name="twitter:description" content="18,000+ channels, HD/4K quality, instant activation & 24/7 support. Try risk-free with our money-back guarantee!" />
-        <link rel="canonical" href="https://iptvservice.site/" />
+        <link rel="canonical" href="https://iptvservice.site" />
       </Helmet>
       <div className="min-h-screen bg-navy">
         <Navbar />
