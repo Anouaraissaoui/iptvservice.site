@@ -1,14 +1,14 @@
 import { Helmet } from "react-helmet-async";
 import { lazy, Suspense } from "react";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
+import Navbar from "@/components/fr/Navbar";
+import Hero from "@/components/fr/Hero";
 import { Skeleton } from "@/components/ui/skeleton";
 
-const Stats = lazy(() => import("@/components/Stats"));
-const PricingCards = lazy(() => import("@/components/PricingCards"));
-const Benefits = lazy(() => import("@/components/Benefits"));
-const FaqSection = lazy(() => import("@/components/FaqSection"));
-const Footer = lazy(() => import("@/components/Footer"));
+const Stats = lazy(() => import("@/components/fr/Stats"));
+const PricingCards = lazy(() => import("@/components/fr/PricingCards"));
+const Benefits = lazy(() => import("@/components/fr/Benefits"));
+const FaqSection = lazy(() => import("@/components/fr/FaqSection"));
+const Footer = lazy(() => import("@/components/fr/Footer"));
 
 const SectionLoader = () => (
   <div className="w-full space-y-4 p-8">
