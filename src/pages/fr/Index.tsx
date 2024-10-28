@@ -36,11 +36,11 @@ const FrenchIndex = () => {
         <meta name="twitter:title" content="Service IPTV Premium 2024 | France" />
         <meta name="twitter:description" content="Plus de 18 000 chaînes, qualité HD/4K, activation instantanée et support 24/7. Essayez sans risque avec notre garantie!" />
         <link rel="canonical" href="https://www.iptvservice.site/fr/" />
-        <link rel="alternate" hreflang="fr" href="https://www.iptvservice.site/fr/" />
-        <link rel="alternate" hreflang="en" href="https://www.iptvservice.site/" />
-        <link rel="alternate" hreflang="es" href="https://www.iptvservice.site/es/" />
-        <link rel="alternate" hreflang="ar" href="https://www.iptvservice.site/ar/" />
-        <link rel="alternate" hreflang="x-default" href="https://www.iptvservice.site/" />
+        <link rel="alternate" hrefLang="fr" href="https://www.iptvservice.site/fr/" />
+        <link rel="alternate" hrefLang="en" href="https://www.iptvservice.site/" />
+        <link rel="alternate" hrefLang="es" href="https://www.iptvservice.site/es/" />
+        <link rel="alternate" hrefLang="ar" href="https://www.iptvservice.site/ar/" />
+        <link rel="alternate" hrefLang="x-default" href="https://www.iptvservice.site/" />
       </Helmet>
       <div className="min-h-screen bg-navy">
         <Navbar />
