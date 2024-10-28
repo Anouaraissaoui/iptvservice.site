@@ -32,6 +32,22 @@ const fetchPosts = async (): Promise<Post[]> => {
 };
 
 const Blog = () => {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "IPTV Blog",
+    "description": "Latest Streaming News, Guides & Updates 2024",
+    "url": "https://iptvservice.site/blog",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Premium IPTV Service",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://iptvservice.site/logo.svg"
+      }
+    }
+  };
+
   const { data: posts, isLoading, error } = useQuery({
     queryKey: ["posts"],
     queryFn: fetchPosts,
@@ -66,6 +82,9 @@ const Blog = () => {
         <meta name="twitter:title" content="IPTV Blog - Latest News & Updates 2024" />
         <meta name="twitter:description" content="Expert IPTV guides & streaming tips. Stay updated with the latest IPTV technology!" />
         <link rel="canonical" href="https://iptvservice.site/blog" />
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
       </Helmet>
       <main className="min-h-screen bg-navy">
         <Navbar />

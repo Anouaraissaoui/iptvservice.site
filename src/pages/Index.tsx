@@ -23,6 +23,34 @@ const SectionLoader = () => (
 );
 
 const Index = () => {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Premium IPTV Service",
+    "url": "https://iptvservice.site",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://iptvservice.site/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    },
+    "description": "Premium IPTV streaming service with 18,000+ channels, VOD content, and live sports in HD/4K quality",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Premium IPTV Service",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://iptvservice.site/logo.svg"
+      }
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "11",
+      "highPrice": "90",
+      "offerCount": "4"
+    }
+  };
+
   return (
     <>
       <Helmet>
@@ -38,7 +66,10 @@ const Index = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Premium IPTV Service 2024 | #1 Streaming Experience" />
         <meta name="twitter:description" content="18,000+ channels, HD/4K quality, instant activation & 24/7 support. Try risk-free with our money-back guarantee!" />
-        <link rel="canonical" href="https://www.iptvservice.site" />
+        <link rel="canonical" href="https://iptvservice.site" />
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
       </Helmet>
       <div className="min-h-screen bg-navy">
         <Navbar />

@@ -4,6 +4,30 @@ import Benefits from "@/components/Benefits";
 import Footer from "@/components/Footer";
 
 const Features = () => {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "IPTV Service Features",
+    "description": "Premium IPTV Features & Benefits 2024",
+    "url": "https://iptvservice.site/features",
+    "brand": {
+      "@type": "Brand",
+      "name": "Premium IPTV Service"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "11",
+      "highPrice": "90",
+      "offerCount": "4"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "1250"
+    }
+  };
+
   return (
     <>
       <Helmet>
@@ -19,6 +43,9 @@ const Features = () => {
         <meta name="twitter:title" content="Premium IPTV Features & Benefits 2024" />
         <meta name="twitter:description" content="Experience next-level streaming with our premium IPTV features. HD/4K quality, 18,000+ channels, and more!" />
         <link rel="canonical" href="https://iptvservice.site/features" />
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
       </Helmet>
       <main className="min-h-screen bg-navy">
         <Navbar />

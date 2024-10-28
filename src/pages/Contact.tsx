@@ -39,6 +39,26 @@ const Contact = () => {
     }
   };
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact IPTV Support",
+    "description": "24/7 IPTV Support & Customer Service",
+    "url": "https://iptvservice.site/contact",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Premium IPTV Service",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-234-567-8900",
+        "contactType": "customer service",
+        "availableLanguage": ["English"],
+        "contactOption": "TollFree",
+        "areaServed": "Worldwide"
+      }
+    }
+  };
+
   return (
     <>
       <Helmet>
@@ -54,6 +74,9 @@ const Contact = () => {
         <meta name="twitter:title" content="24/7 IPTV Support & Customer Service" />
         <meta name="twitter:description" content="Get instant IPTV support via live chat, WhatsApp, email, or phone. Available 24/7!" />
         <link rel="canonical" href="https://iptvservice.site/contact" />
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
       </Helmet>
       <main className="min-h-screen bg-navy">
         <Navbar />
