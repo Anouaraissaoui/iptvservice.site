@@ -6,43 +6,66 @@ import Footer from "@/components/Footer";
 const Features = () => {
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "IPTV Service Features",
-    "description": "Premium IPTV Features & Benefits 2024",
-    "url": "https://www.iptvservice.site/features",
-    "brand": {
-      "@type": "Brand",
-      "name": "Premium IPTV Service"
-    },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "USD",
-      "lowPrice": "11",
-      "highPrice": "90",
-      "offerCount": "4"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "1250"
-    }
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://www.iptvservice.site/features/#webpage",
+        "url": "https://www.iptvservice.site/features",
+        "name": "IPTV Features & Benefits 2024",
+        "isPartOf": { "@id": "https://www.iptvservice.site/#website" },
+        "datePublished": "2024-01-01T08:00:00+00:00",
+        "dateModified": new Date().toISOString(),
+        "description": "Explore our premium IPTV features including HD/4K streaming, 18,000+ channels, VOD content, and more.",
+        "breadcrumb": { "@id": "https://www.iptvservice.site/features/#breadcrumb" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.iptvservice.site/features/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "WebPage",
+              "@id": "https://www.iptvservice.site",
+              "url": "https://www.iptvservice.site",
+              "name": "Home"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "WebPage",
+              "@id": "https://www.iptvservice.site/features",
+              "url": "https://www.iptvservice.site/features",
+              "name": "Features"
+            }
+          }
+        ]
+      }
+    ]
   };
 
   return (
     <>
       <Helmet>
         <title>IPTV Features & Benefits 2024 | Premium Streaming Service</title>
-        <meta name="description" content="Explore our premium IPTV features: 18,000+ channels worldwide, HD/4K streaming, catch-up TV, multi-device support, EPG guide, and extensive VOD library. Experience seamless streaming with 99.9% server uptime and anti-freeze technology." />
+        <meta name="description" content="Explore our premium IPTV features: 18,000+ channels worldwide, HD/4K streaming, catch-up TV, multi-device support, EPG guide, and extensive VOD library." />
         <meta name="keywords" content="IPTV features, IPTV benefits, streaming quality, VOD content, live TV channels, HD IPTV, 4K streaming, EPG guide" />
         <meta name="robots" content="index, follow, max-image-preview:large" />
-        <meta property="og:type" content="article" />
+        <link rel="canonical" href="https://www.iptvservice.site/features" />
+        
+        <meta property="og:type" content="website" />
         <meta property="og:title" content="Premium IPTV Features & Benefits 2024" />
         <meta property="og:description" content="Discover our advanced IPTV features: 18,000+ channels, HD/4K quality, catch-up TV, EPG, VOD library, and more!" />
         <meta property="og:url" content="https://www.iptvservice.site/features" />
+        <meta property="og:image" content="https://www.iptvservice.site/features-overview.jpg" />
+        
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Premium IPTV Features & Benefits 2024" />
-        <meta name="twitter:description" content="Experience next-level streaming with our premium IPTV features. HD/4K quality, 18,000+ channels, and more!" />
-        <link rel="canonical" href="https://www.iptvservice.site/features" />
+        <meta name="twitter:description" content="Experience next-level streaming with our premium IPTV features. HD/4K quality, 18,000+ channels!" />
+        
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>
