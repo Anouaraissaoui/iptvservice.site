@@ -5,19 +5,13 @@
   "description": "Premium IPTV subscription with 18,000+ channels, VOD content, and live sports. HD/4K quality and instant activation.",
   "brand": {
     "@type": "Brand",
-    "name": "Premium IPTV Service",
-    "slogan": "Experience the Future of TV"
+    "name": "Premium IPTV Service"
   },
-  "category": "Streaming Services",
-  "sku": "IPTV-PREMIUM",
-  "mpn": "IPTV2024",
   "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "11",
-    "highPrice": "90",
+    "@type": "Offer",
+    "url": "https://iptvservice.site/pricing",
     "priceCurrency": "USD",
-    "offerCount": "4",
-    "availability": "https://schema.org/InStock",
+    "price": "11.00",
     "seller": {
       "@type": "Organization",
       "name": "Premium IPTV Service"
@@ -46,14 +40,5 @@
     },
     "datePublished": "2024-02-15",
     "reviewBody": "Excellent IPTV service with great channel selection and reliable streaming quality."
-  }],
-  "video": {
-    "@type": "VideoObject",
-    "name": "IPTV Service Demo",
-    "description": "Watch how our premium IPTV service works with HD channels and VOD content",
-    "thumbnailUrl": "https://iptvservice.site/demo-thumbnail.jpg",
-    "uploadDate": "2024-02-01",
-    "duration": "PT2M30S",
-    "contentUrl": "https://iptvservice.site/demo-video.mp4"
-  }
+  }]
 }
