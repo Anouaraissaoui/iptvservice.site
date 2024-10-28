@@ -30,7 +30,7 @@ const Index = () => {
         "@type": "WebPage",
         "@id": "https://www.iptvservice.site/#webpage",
         "url": "https://www.iptvservice.site",
-        "name": "Premium IPTV Service | Best Streaming Experience 2024",
+        "name": "IPTV Service | IPTV Subscription",
         "isPartOf": { "@id": "https://www.iptvservice.site/#website" },
         "primaryImageOfPage": {
           "@type": "ImageObject",
@@ -62,7 +62,7 @@ const Index = () => {
     <>
       <Helmet>
         <html lang="en" />
-        <title>Buy IPTV Service | Best IPTV Subscription USA, UK & Worldwide 2024</title>
+        <title>IPTV Service | Best IPTV Subscription USA, UK & Worldwide</title>
         <meta name="description" content="Premium IPTV subscription with 18,000+ channels, VOD & sports in HD/4K quality. Instant activation, 24/7 support, and 99.9% uptime guaranteed. Try risk-free today!" />
         <meta name="keywords" content="buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV channels, HD IPTV, 4K IPTV, streaming service, live TV" />
         <meta name="author" content="Premium IPTV Service" />
