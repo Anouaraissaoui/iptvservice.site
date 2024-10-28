@@ -8,6 +8,14 @@
   to = "/404.html"
   status = 404
 
+# Force HTTPS for all requests
+[[redirects]]
+  from = "http://*"
+  to = "https://:splat"
+  status = 301
+  force = true
+
+# Redirect non-www to www
 [[redirects]]
   from = "https://iptvservice.site/*"
   to = "https://www.iptvservice.site/:splat"
@@ -37,5 +45,25 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
-    Content-Security-Policy = "upgrade-insecure-requests"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    Content-Security-Policy = """
+      default-src 'self';
+      img-src 'self' data: https: *.iptvservice.site ideogram.ai www.google-analytics.com;
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' https: www.googletagmanager.com www.google-analytics.com;
+      style-src 'self' 'unsafe-inline' https: fonts.googleapis.com;
+      connect-src 'self' https: www.google-analytics.com;
+      font-src 'self' fonts.gstatic.com;
+      frame-ancestors 'none';
+      form-action 'self';
+      upgrade-insecure-requests;
+    """
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=(), midi=(), interest-cohort=()"
+    NEL = """
+      {"report_to": "default", "max_age": 31536000, "include_subdomains": true}
+    """
+    Report-To = """
+      {"group": "default", "max_age": 31536000, "endpoints": [{"url": "https://www.iptvservice.site/_reporting"}], "include_subdomains": true}
+    """
+
+[build.processing]
+  skip_processing = false
