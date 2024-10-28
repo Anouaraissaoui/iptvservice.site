@@ -14,11 +14,11 @@ const Pricing = () => {
         <meta property="og:type" content="product" />
         <meta property="og:title" content="IPTV Subscription Plans & Pricing 2024 | From $11/month" />
         <meta property="og:description" content="Premium IPTV plans with 18,000+ channels, HD/4K quality, VOD content. 24/7 support and money-back guarantee included!" />
-        <meta property="og:url" content="https://www.iptvservice.site/pricing" />
+        <meta property="og:url" content="https://iptvservice.site/pricing" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="IPTV Subscription Plans & Pricing 2024" />
         <meta name="twitter:description" content="Get premium IPTV access from $11/month. 18,000+ channels, HD/4K quality, 24/7 support!" />
-        <link rel="canonical" href="https://www.iptvservice.site/pricing" />
+        <link rel="canonical" href="https://iptvservice.site/pricing" />
       </Helmet>
       <main className="min-h-screen bg-navy">
         <Navbar />

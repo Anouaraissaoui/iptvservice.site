@@ -5,7 +5,7 @@
   "alternateName": "Best IPTV Provider",
   "url": "https://iptvservice.site",
   "logo": "https://iptvservice.site/logo.svg",
-  "description": "Leading IPTV streaming service offering 18,000+ channels, VOD content, and live sports with HD/4K quality. Experience premium entertainment with 99.9% uptime and 24/7 support.",
+  "description": "Leading IPTV streaming service offering 18,000+ channels, VOD content, and live sports with HD/4K quality.",
   "foundingDate": "2020",
   "founders": [{
     "@type": "Person",
@@ -25,10 +25,9 @@
     "@type": "ContactPoint",
     "telephone": "+1-234-567-8900",
     "contactType": "customer service",
-    "availableLanguage": ["English", "French", "Spanish", "Arabic"],
+    "availableLanguage": ["English"],
     "contactOption": "TollFree",
-    "areaServed": "Worldwide",
-    "hoursAvailable": "Mo-Su 00:00-24:00"
+    "areaServed": "Worldwide"
   }],
   "aggregateRating": {
     "@type": "AggregateRating",
@@ -36,13 +35,5 @@
     "reviewCount": "1250",
     "bestRating": "5",
     "worstRating": "1"
-  },
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "11",
-    "highPrice": "90",
-    "priceCurrency": "USD",
-    "offerCount": "4",
-    "availability": "https://schema.org/InStock"
   }
 }

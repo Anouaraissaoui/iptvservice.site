@@ -1,25 +1,17 @@
-# Premium IPTV Service Robots.txt - Comprehensive SEO Configuration
+# Premium IPTV Service Robots.txt
 User-agent: *
 Allow: /
 
-# Critical Pages
+# Important pages
 Allow: /pricing
 Allow: /features
 Allow: /blog
 Allow: /contact
 
-# Language Variants
-Allow: /fr/
-Allow: /fr/pricing
-Allow: /fr/features
-Allow: /fr/blog
-Allow: /fr/contact
-
 # Sitemaps
 Sitemap: https://iptvservice.site/sitemap.xml
-Sitemap: https://iptvservice.site/fr/sitemap.xml
 
-# Protected Areas
+# Protect sensitive areas
 Disallow: /admin/
 Disallow: /private/
 Disallow: /checkout/
@@ -34,10 +26,10 @@ Disallow: /search/
 Disallow: /tag/
 Disallow: /category/
 
-# Rate Limiting
+# Rate limiting
 Crawl-delay: 5
 
-# Search Engine Specific Rules
+# Specific User agents
 User-agent: Googlebot
 Allow: /
 Allow: /*.js
@@ -46,7 +38,6 @@ Allow: /*.png
 Allow: /*.jpg
 Allow: /*.gif
 Allow: /*.svg
-Allow: /*.webp
 Crawl-delay: 2
 
 User-agent: Googlebot-Image
@@ -64,15 +55,11 @@ User-agent: Bingbot
 Allow: /
 Crawl-delay: 5
 
-User-agent: Yandexbot
-Allow: /
-Crawl-delay: 5
-
 User-agent: DuckDuckBot
 Allow: /
 Crawl-delay: 5
 
-# Block AI Crawlers
+# Block bad bots
 User-agent: GPTBot
 Disallow: /
 
@@ -87,19 +74,3 @@ Disallow: /
 
 User-agent: anthropic-ai
 Disallow: /
-
-User-agent: Claude-Web
-Disallow: /
-
-User-agent: Omgilibot
-Disallow: /
-
-User-agent: FacebookBot
-Allow: /
-Crawl-delay: 5
-
-# Clean Parameters
-Disallow: /*?*utm_
-Disallow: /*&utm_
-Disallow: /*?*fbclid
-Disallow: /*&fbclid

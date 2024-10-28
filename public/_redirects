@@ -1,6 +1,1 @@
-# Redirect non-www to www
-http://iptvservice.site/* https://www.iptvservice.site/:splat 301!
-https://iptvservice.site/* https://www.iptvservice.site/:splat 301!
-
-# Handle client-side routing
 /*    /index.html   200

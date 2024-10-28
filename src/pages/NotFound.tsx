@@ -17,8 +17,8 @@ const NotFound = () => {
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Page Not Found | 404 Error" />
         <meta property="og:description" content="Sorry, this page doesn't exist. Browse our IPTV features or contact support for help." />
-        <meta property="og:url" content="https://www.iptvservice.site/404" />
-        <link rel="canonical" href="https://www.iptvservice.site/404" />
+        <meta property="og:url" content="https://iptvservice.site/404" />
+        <link rel="canonical" href="https://iptvservice.site/404" />
       </Helmet>
       <main className="min-h-screen bg-navy">
         <Navbar />

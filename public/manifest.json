@@ -1,62 +1,23 @@
 {
   "name": "Premium IPTV Service",
-  "short_name": "IPTV Service",
-  "description": "Premium IPTV streaming service with 18,000+ channels worldwide",
+  "short_name": "IPTV",
+  "description": "Premium IPTV streaming service with 18,000+ channels",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0F172A",
   "theme_color": "#0F172A",
-  "orientation": "any",
   "icons": [
     {
-      "src": "/icon-192x192.png",
+      "src": "/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/icon-512x512.png",
+      "src": "/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     }
-  ],
-  "shortcuts": [
-    {
-      "name": "View Pricing",
-      "short_name": "Pricing",
-      "description": "View our IPTV subscription plans",
-      "url": "/pricing",
-      "icons": [{ "src": "/pricing-icon.png", "sizes": "192x192" }]
-    },
-    {
-      "name": "Contact Support",
-      "short_name": "Support",
-      "description": "Get help from our support team",
-      "url": "/contact",
-      "icons": [{ "src": "/support-icon.png", "sizes": "192x192" }]
-    }
-  ],
-  "related_applications": [],
-  "prefer_related_applications": false,
-  "categories": ["entertainment", "streaming"],
-  "screenshots": [
-    {
-      "src": "/screenshots/home.jpg",
-      "sizes": "1280x720",
-      "type": "image/jpeg",
-      "platform": "wide",
-      "label": "Homepage of IPTV Service"
-    }
-  ],
-  "lang": "en",
-  "dir": "ltr",
-  "scope": "/",
-  "id": "iptvservice",
-  "launch_handler": {
-    "client_mode": ["navigate-existing", "auto"]
-  },
-  "edge_side_panel": {
-    "preferred_width": 400
-  }
+  ]
 }
