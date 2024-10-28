@@ -44,7 +44,7 @@ const Contact = () => {
     "@type": "ContactPage",
     "name": "Contact IPTV Support",
     "description": "24/7 IPTV Support & Customer Service",
-    "url": "https://iptvservice.site/contact",
+    "url": "https://www.iptvservice.site/contact",
     "mainEntity": {
       "@type": "Organization",
       "name": "Premium IPTV Service",
