@@ -27,10 +27,10 @@ const Index = () => {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Premium IPTV Service",
-    "url": "https://iptvservice.site",
+    "url": "https://www.iptvservice.site",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://iptvservice.site/search?q={search_term_string}",
+      "target": "https://www.iptvservice.site/search?q={search_term_string}",
       "query-input": "required name=search_term_string"
     },
     "description": "Premium IPTV streaming service with 18,000+ channels, VOD content, and live sports in HD/4K quality",
@@ -39,7 +39,7 @@ const Index = () => {
       "name": "Premium IPTV Service",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://iptvservice.site/logo.svg"
+        "url": "https://www.iptvservice.site/logo.svg"
       }
     },
     "offers": {
@@ -61,12 +61,12 @@ const Index = () => {
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Premium IPTV Service 2024 | #1 Streaming Experience" />
         <meta property="og:description" content="Access 18,000+ live channels, VOD & sports. Premium IPTV with HD/4K quality, instant activation & 24/7 support. Risk-free trial with money-back guarantee!" />
-        <meta property="og:url" content="https://iptvservice.site/" />
+        <meta property="og:url" content="https://www.iptvservice.site/" />
         <meta property="og:site_name" content="Premium IPTV Service" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Premium IPTV Service 2024 | #1 Streaming Experience" />
         <meta name="twitter:description" content="18,000+ channels, HD/4K quality, instant activation & 24/7 support. Try risk-free with our money-back guarantee!" />
-        <link rel="canonical" href="https://iptvservice.site" />
+        <link rel="canonical" href="https://www.iptvservice.site" />
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>
