@@ -1,65 +1,73 @@
 # Premium IPTV Service Robots.txt
+# Updated: 2024-02-26
+
+# Global Rules
 User-agent: *
 Allow: /
+Allow: /sitemap.xml
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.webp$
+Allow: /assets/
+Allow: /images/
 
-# Important pages
+# Primary Sitemap
+Sitemap: https://www.iptvservice.site/sitemap.xml
+
+# Main Pages
 Allow: /pricing
 Allow: /features
 Allow: /blog
 Allow: /contact
+Allow: /terms
+Allow: /privacy
 
-# Sitemaps
-Sitemap: https://iptvservice.site/sitemap.xml
-
-# Protect sensitive areas
+# Protected Areas
 Disallow: /admin/
-Disallow: /private/
+Disallow: /api/
 Disallow: /checkout/
 Disallow: /account/
-Disallow: /api/
-Disallow: /*.json$
+Disallow: /private/
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /search
 Disallow: /*?*
+Disallow: /*&
+Disallow: /*.json$
 Disallow: /*/amp/
 Disallow: /*?amp
 Disallow: /*&amp
-Disallow: /search/
-Disallow: /tag/
-Disallow: /category/
 
-# Rate limiting
-Crawl-delay: 5
-
-# Specific User agents
-User-agent: Googlebot
-Allow: /
-Allow: /*.js
-Allow: /*.css
-Allow: /*.png
-Allow: /*.jpg
-Allow: /*.gif
-Allow: /*.svg
-Crawl-delay: 2
-
+# Media Crawlers
 User-agent: Googlebot-Image
 Allow: /images/
 Allow: /assets/
-Allow: /*.jpg
-Allow: /*.jpeg
-Allow: /*.gif
-Allow: /*.png
-Allow: /*.webp
-Allow: /*.svg
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.png$
+Allow: /*.webp$
+Allow: /*.svg$
 Disallow: /temp/
+
+# Major Search Engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 5
+Crawl-delay: 2
 
 User-agent: DuckDuckBot
 Allow: /
-Crawl-delay: 5
+Crawl-delay: 2
 
-# Block bad bots
+# Block AI/ML Crawlers
 User-agent: GPTBot
 Disallow: /
 
@@ -74,3 +82,15 @@ Disallow: /
 
 User-agent: anthropic-ai
 Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
+
+# Host
+Host: https://www.iptvservice.site
