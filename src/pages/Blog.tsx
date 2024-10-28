@@ -54,18 +54,30 @@ const Blog = () => {
   return (
     <>
       <Helmet>
-        <title>IPTV Blog | Latest Streaming News, Guides & Updates 2024</title>
+        <html lang="en" />
+        <title>IPTV Blog | Latest Streaming News & Updates 2024</title>
         <meta name="description" content="Stay informed with expert IPTV guides, streaming tips, industry news, and technical tutorials. Learn about new features, channel updates, and maximize your streaming experience with our comprehensive IPTV resources." />
-        <meta name="keywords" content="IPTV blog, streaming news, IPTV guides, streaming tips, IPTV tutorials, IPTV updates, streaming guides" />
-        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <meta name="keywords" content="IPTV blog, streaming news, IPTV guides, streaming tips, IPTV tutorials, IPTV updates, streaming guides, tech tutorials" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta property="og:type" content="blog" />
         <meta property="og:title" content="IPTV Blog - Latest News & Updates 2024" />
-        <meta property="og:description" content="Expert IPTV guides & streaming tips. Stay updated with the latest IPTV technology!" />
+        <meta property="og:description" content="Expert IPTV guides & streaming tips. Stay updated with the latest IPTV technology and industry news!" />
         <meta property="og:url" content="https://www.iptvservice.site/blog" />
+        <meta property="og:site_name" content="Premium IPTV Service" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:image" content="https://ideogram.ai/assets/progressive-image/balanced/response/C55t2k-_Qr-ZTxrcVHRZDA" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="IPTV Blog and News Updates" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="IPTV Blog - Latest News & Updates 2024" />
-        <meta name="twitter:description" content="Expert IPTV guides & streaming tips. Stay updated with the latest IPTV technology!" />
+        <meta name="twitter:description" content="Expert IPTV guides & streaming tips. Stay updated with the latest technology!" />
+        <meta name="twitter:image" content="https://ideogram.ai/assets/progressive-image/balanced/response/C55t2k-_Qr-ZTxrcVHRZDA" />
+        <meta name="twitter:image:alt" content="IPTV Blog" />
         <link rel="canonical" href="https://www.iptvservice.site/blog" />
+        <link rel="alternate" hrefLang="en" href="https://www.iptvservice.site/blog" />
+        <link rel="alternate" hrefLang="fr" href="https://www.iptvservice.site/fr/blog" />
+        <link rel="alternate" hrefLang="x-default" href="https://www.iptvservice.site/blog" />
       </Helmet>
       <main className="min-h-screen bg-navy">
         <Navbar />
