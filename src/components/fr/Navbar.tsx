@@ -24,7 +24,7 @@ const Navbar = () => {
             to="/fr"
             className="text-2xl font-bold text-white hover:text-primary transition-colors"
           >
-            IPTV
+            Service IPTV
           </Link>
 
           {/* Desktop Navigation */}
