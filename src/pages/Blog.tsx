@@ -34,18 +34,60 @@ const fetchPosts = async (): Promise<Post[]> => {
 const Blog = () => {
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Blog",
-    "name": "IPTV Blog",
-    "description": "Latest Streaming News, Guides & Updates 2024",
-    "url": "https://www.iptvservice.site/blog",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Premium IPTV Service",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.iptvservice.site/logo.svg"
+    "@graph": [
+      {
+        "@type": "Blog",
+        "@id": "https://www.iptvservice.site/blog/#blog",
+        "name": "IPTV Blog",
+        "description": "Latest Streaming News, Guides & Updates 2024",
+        "url": "https://www.iptvservice.site/blog",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Premium IPTV Service",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.iptvservice.site/logo.svg"
+          }
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://www.iptvservice.site/blog/#webpage",
+        "url": "https://www.iptvservice.site/blog",
+        "name": "IPTV Blog | Latest Streaming News & Updates 2024",
+        "isPartOf": { "@id": "https://www.iptvservice.site/#website" },
+        "datePublished": "2024-01-01T08:00:00+00:00",
+        "dateModified": new Date().toISOString(),
+        "description": "Stay informed with expert IPTV guides, streaming tips, industry news, and technical tutorials.",
+        "breadcrumb": { "@id": "https://www.iptvservice.site/blog/#breadcrumb" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.iptvservice.site/blog/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "WebPage",
+              "@id": "https://www.iptvservice.site",
+              "url": "https://www.iptvservice.site",
+              "name": "Home"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "WebPage",
+              "@id": "https://www.iptvservice.site/blog",
+              "url": "https://www.iptvservice.site/blog",
+              "name": "Blog"
+            }
+          }
+        ]
       }
-    }
+    ]
   };
 
   const { data: posts, isLoading, error } = useQuery({
@@ -53,39 +95,39 @@ const Blog = () => {
     queryFn: fetchPosts,
   });
 
-  if (error) {
-    return (
-      <div className="min-h-screen bg-navy">
-        <Navbar />
-        <div className="container mx-auto px-4 py-24">
-          <div className="text-center text-red-500">
-            Error loading blog posts. Please try again later.
-          </div>
-        </div>
-        <Footer />
-      </div>
-    );
-  }
-
   return (
     <>
       <Helmet>
         <title>IPTV Blog | Latest Streaming News, Guides & Updates 2024</title>
-        <meta name="description" content="Stay informed with expert IPTV guides, streaming tips, industry news, and technical tutorials. Learn about new features, channel updates, and maximize your streaming experience with our comprehensive IPTV resources." />
-        <meta name="keywords" content="IPTV blog, streaming news, IPTV guides, streaming tips, IPTV tutorials, IPTV updates, streaming guides" />
-        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <meta name="description" content="Stay informed with expert IPTV guides, streaming tips, industry news, and technical tutorials. Learn about new features, channel updates, and maximize your streaming experience." />
+        <meta name="keywords" content="IPTV blog, streaming news, IPTV guides, streaming tips, IPTV tutorials, IPTV updates 2024, streaming guides" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="author" content="Premium IPTV Service" />
+        
+        <link rel="canonical" href="https://www.iptvservice.site/blog" />
+        
         <meta property="og:type" content="blog" />
         <meta property="og:title" content="IPTV Blog - Latest Streaming News & Guides 2024" />
         <meta property="og:description" content="Expert IPTV guides, streaming tips, and industry updates. Stay informed about the latest in IPTV technology!" />
-        <meta property="og:url" content="https://iptvservice.site/blog" />
+        <meta property="og:url" content="https://www.iptvservice.site/blog" />
+        <meta property="og:site_name" content="Premium IPTV Service" />
+        <meta property="og:image" content="https://www.iptvservice.site/blog-overview.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="article:modified_time" content={new Date().toISOString()} />
+        <meta property="article:publisher" content="https://www.iptvservice.site" />
+        
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@iptvservice" />
         <meta name="twitter:title" content="IPTV Blog - Latest News & Updates 2024" />
         <meta name="twitter:description" content="Expert IPTV guides & streaming tips. Stay updated with the latest IPTV technology!" />
-        <link rel="canonical" href="https://iptvservice.site/blog" />
+        <meta name="twitter:image" content="https://www.iptvservice.site/blog-overview.jpg" />
+        
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>
       </Helmet>
+
       <main className="min-h-screen bg-navy">
         <Navbar />
         <div className="container mx-auto px-4 py-24">
