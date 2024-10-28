@@ -22,9 +22,9 @@ const NotFound = () => {
       </Helmet>
       <main className="min-h-screen bg-navy">
         <Navbar />
-        <div className="container mx-auto px-4 py-24">
+        <section aria-labelledby="error-heading" className="container mx-auto px-4 py-24">
           <div className="max-w-2xl mx-auto text-center space-y-8">
-            <h1 className="text-7xl md:text-9xl font-bold text-primary">404</h1>
+            <h1 id="error-heading" className="text-7xl md:text-9xl font-bold text-primary">404</h1>
             <div className="space-y-4">
               <h2 className="text-2xl md:text-3xl font-semibold text-white">
                 Oops! Page Not Found
@@ -53,7 +53,7 @@ const NotFound = () => {
               </Button>
             </div>
           </div>
-        </div>
+        </section>
         <Footer />
       </main>
     </>

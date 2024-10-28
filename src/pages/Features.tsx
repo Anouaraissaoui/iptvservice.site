@@ -72,9 +72,10 @@ const Features = () => {
       </Helmet>
       <main className="min-h-screen bg-navy">
         <Navbar />
-        <div className="pt-20">
+        <section aria-labelledby="features-heading" className="pt-20">
+          <h1 id="features-heading" className="sr-only">IPTV Features and Benefits</h1>
           <Benefits />
-        </div>
+        </section>
         <Footer />
       </main>
     </>

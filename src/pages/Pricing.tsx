@@ -86,9 +86,10 @@ const Pricing = () => {
       </Helmet>
       <main className="min-h-screen bg-navy">
         <Navbar />
-        <div className="pt-20">
+        <section aria-labelledby="pricing-heading" className="pt-20">
+          <h1 id="pricing-heading" className="sr-only">IPTV Subscription Plans and Pricing</h1>
           <PricingCards />
-        </div>
+        </section>
         <Footer />
       </main>
     </>
