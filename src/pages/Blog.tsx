@@ -1,9 +1,9 @@
 import { Helmet } from "react-helmet-async";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { BlogGrid } from "@/components/blog/BlogGrid";
-import { prefetchBlogPosts } from "@/utils/prerender";
+import { getQueryClient, prefetchData } from "@/utils/ssr";
 
 interface Post {
   id: number;
@@ -94,7 +94,7 @@ const Blog = () => {
   };
 
   return (
-    <>
+    <HydrationBoundary>
       <Helmet>
         <title>IPTV Blog | Latest Streaming News, Guides & Updates 2024</title>
         <meta name="description" content="Stay informed with expert IPTV guides, streaming tips, industry news, and technical tutorials. Learn about new features, channel updates, and maximize your streaming experience." />
@@ -147,16 +147,18 @@ const Blog = () => {
         
         <Footer />
       </main>
-    </>
+    </HydrationBoundary>
   );
 };
 
-// Pre-render the blog page with initial data
-export const prerender = async () => {
-  const queryClient = await prefetchBlogPosts();
+// Server-side rendering setup
+export const getServerSideProps = async () => {
+  const queryClient = getQueryClient();
+  await prefetchData(queryClient);
+  
   return {
     props: {
-      dehydratedState: queryClient.getQueryData(["posts"]),
+      dehydratedState: dehydrate(queryClient),
     },
   };
 };
