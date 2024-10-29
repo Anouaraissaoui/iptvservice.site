@@ -1,8 +1,8 @@
-import { Helmet } from "react-helmet-async";
-import { useQuery, dehydrate, HydrationBoundary } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { BlogGrid } from "@/components/blog/BlogGrid";
+import { SEO } from "@/components/SEO";
 import { getQueryClient, prefetchData } from "@/utils/ssr";
 
 interface Post {
@@ -37,94 +37,37 @@ const Blog = () => {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Blog",
-        "@id": "https://www.iptvservice.site/blog/#blog",
-        "name": "IPTV Blog",
-        "description": "Latest Streaming News, Guides & Updates 2024",
-        "url": "https://www.iptvservice.site/blog",
-        "publisher": {
-          "@type": "Organization",
-          "name": "IPTV Service",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://www.iptvservice.site/logo.svg"
-          }
-        }
-      },
-      {
-        "@type": "WebPage",
-        "@id": "https://www.iptvservice.site/blog/#webpage",
-        "url": "https://www.iptvservice.site/blog",
-        "name": "IPTV Blog | Latest Streaming News & Updates 2024",
-        "isPartOf": { "@id": "https://www.iptvservice.site/#website" },
-        "datePublished": "2024-01-01T08:00:00+00:00",
-        "dateModified": new Date().toISOString(),
-        "description": "Stay informed with expert IPTV guides, streaming tips, industry news, and technical tutorials.",
-        "breadcrumb": { "@id": "https://www.iptvservice.site/blog/#breadcrumb" }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://www.iptvservice.site/blog/#breadcrumb",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@type": "WebPage",
-              "@id": "https://www.iptvservice.site",
-              "url": "https://www.iptvservice.site",
-              "name": "Home"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "@type": "WebPage",
-              "@id": "https://www.iptvservice.site/blog",
-              "url": "https://www.iptvservice.site/blog",
-              "name": "Blog"
-            }
-          }
-        ]
+    "@type": "Blog",
+    "@id": "https://www.iptvservice.site/blog/#blog",
+    "name": "IPTV Blog",
+    "description": "Latest Streaming News, Guides & Updates 2024",
+    "url": "https://www.iptvservice.site/blog",
+    "publisher": {
+      "@type": "Organization",
+      "name": "IPTV Service",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.iptvservice.site/logo.svg"
       }
-    ]
+    },
+    "blogPost": posts?.map((post) => ({
+      "@type": "BlogPosting",
+      "headline": post.title.rendered,
+      "datePublished": post.date,
+      "url": post.link,
+      "image": post._embedded?.["wp:featuredmedia"]?.[0]?.source_url
+    }))
   };
 
   return (
-    <HydrationBoundary>
-      <Helmet>
-        <title>IPTV Blog | Latest Streaming News, Guides & Updates 2024</title>
-        <meta name="description" content="Stay informed with expert IPTV guides, streaming tips, industry news, and technical tutorials. Learn about new features, channel updates, and maximize your streaming experience." />
-        <meta name="keywords" content="IPTV blog, streaming news, IPTV guides, streaming tips, IPTV tutorials, IPTV updates 2024, streaming guides" />
-        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-        <meta name="author" content="Premium IPTV Service" />
-        
-        <link rel="canonical" href="https://www.iptvservice.site/blog" />
-        
-        <meta property="og:type" content="blog" />
-        <meta property="og:title" content="IPTV Blog - Latest Streaming News & Guides 2024" />
-        <meta property="og:description" content="Expert IPTV guides, streaming tips, and industry updates. Stay informed about the latest in IPTV technology!" />
-        <meta property="og:url" content="https://www.iptvservice.site/blog" />
-        <meta property="og:site_name" content="Premium IPTV Service" />
-        <meta property="og:image" content="https://www.iptvservice.site/blog-overview.jpg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="article:modified_time" content={new Date().toISOString()} />
-        <meta property="article:publisher" content="https://www.iptvservice.site" />
-        
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@iptvservice" />
-        <meta name="twitter:title" content="IPTV Blog - Latest News & Updates 2024" />
-        <meta name="twitter:description" content="Expert IPTV guides & streaming tips. Stay updated with the latest IPTV technology!" />
-        <meta name="twitter:image" content="https://www.iptvservice.site/blog-overview.jpg" />
-        
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
-      </Helmet>
+    <>
+      <SEO
+        title="IPTV Blog | Latest Streaming News, Guides & Updates 2024"
+        description="Stay informed with expert IPTV guides, streaming tips, industry news, and technical tutorials. Learn about new features, channel updates, and maximize your streaming experience."
+        keywords="IPTV blog, streaming news, IPTV guides, streaming tips, IPTV tutorials, IPTV updates 2024, streaming guides"
+        canonical="https://www.iptvservice.site/blog"
+        structuredData={structuredData}
+      />
 
       <main className="min-h-screen bg-navy">
         <Navbar />
@@ -147,18 +90,17 @@ const Blog = () => {
         
         <Footer />
       </main>
-    </HydrationBoundary>
+    </>
   );
 };
 
-// Server-side rendering setup
 export const getServerSideProps = async () => {
   const queryClient = getQueryClient();
   await prefetchData(queryClient);
   
   return {
     props: {
-      dehydratedState: dehydrate(queryClient),
+      dehydratedState: queryClient.dehydrate(),
     },
   };
 };
