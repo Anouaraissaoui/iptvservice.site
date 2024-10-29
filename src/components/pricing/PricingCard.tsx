@@ -1,10 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Smartphone, Tv, HeadphonesIcon, MessageCircle } from "lucide-react";
-
-interface PricingFeature {
-  text: string;
-  icon: React.ReactNode;
-}
+import { ArrowRight } from "lucide-react";
+import { PricingFeature } from "@/types/components";
 
 interface PricingCardProps {
   duration: string;
@@ -13,7 +9,7 @@ interface PricingCardProps {
   features: PricingFeature[];
 }
 
-const PricingCard = ({ duration, price, period, features }: PricingCardProps) => (
+const PricingCard = ({ duration, price, period, features }: PricingCardProps): JSX.Element => (
   <div className="relative group transform hover:scale-105 transition-all duration-500">
     <div className="absolute inset-0 bg-primary/5 blur-xl rounded-3xl group-hover:bg-primary/10 transition-all duration-300" />
     

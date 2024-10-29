@@ -1,21 +1,22 @@
 import { QueryClient } from "@tanstack/react-query";
+import { BlogPost } from "@/types/components";
+import { ApiResponse, QueryConfig } from "@/types/api";
 
-export const getQueryClient = () => new QueryClient({
+export const getQueryClient = (config?: QueryConfig): QueryClient => new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 1000 * 60 * 5, // 5 minutes
-      refetchOnWindowFocus: false,
-      refetchOnMount: false
+      staleTime: config?.staleTime || 1000 * 60 * 5,
+      refetchOnWindowFocus: config?.refetchOnWindowFocus || false,
+      refetchOnMount: config?.refetchOnMount || false
     }
   }
 });
 
-export const prefetchData = async (queryClient: QueryClient) => {
+export const prefetchData = async (queryClient: QueryClient): Promise<QueryClient> => {
   await Promise.all([
-    // Prefetch blog posts
     queryClient.prefetchQuery({
       queryKey: ["posts"],
-      queryFn: async () => {
+      queryFn: async (): Promise<ApiResponse<BlogPost[]>> => {
         const response = await fetch(
           "https://your-wordpress-site.com/wp-json/wp/v2/posts?_embed&per_page=9"
         );

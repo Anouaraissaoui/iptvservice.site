@@ -1,26 +1,14 @@
 import { BlogCard } from "./BlogCard";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-
-interface Post {
-  id: number;
-  date: string;
-  title: { rendered: string };
-  excerpt: { rendered: string };
-  _embedded?: {
-    "wp:featuredmedia"?: Array<{
-      source_url: string;
-    }>;
-  };
-  link: string;
-}
+import { BlogPost } from "@/types/components";
 
 interface BlogGridProps {
-  posts?: Post[];
+  posts?: BlogPost[];
   isLoading: boolean;
 }
 
-export const BlogGrid = ({ posts, isLoading }: BlogGridProps) => {
+export const BlogGrid = ({ posts, isLoading }: BlogGridProps): JSX.Element => {
   if (isLoading) {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
