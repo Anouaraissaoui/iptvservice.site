@@ -70,30 +70,27 @@ const Index = () => {
         <meta name="theme-color" content="#0F172A" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         
+        <link rel="cite" href="https://en.wikipedia.org/wiki/Internet_Protocol_television" />
         <link rel="canonical" href="https://www.iptvservice.site" />
-        
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Buy Best IPTV Service USA 2025 | Premium HD & 4K Channels" />
-        <meta property="og:description" content="Buy IPTV subscription with 18,000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support." />
-        <meta property="og:url" content="https://www.iptvservice.site" />
-        <meta property="og:site_name" content="IPTV Service" />
-        <meta property="og:image" content="https://ideogram.ai/assets/progressive-image/balanced/response/C55t2k-_Qr-ZTxrcVHRZDA" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@iptvservice" />
-        <meta name="twitter:title" content="Buy Best IPTV Service USA 2025 | Premium HD & 4K Channels" />
-        <meta name="twitter:description" content="Buy IPTV subscription with 18,000+ HD & 4K channels. Best IPTV service in USA with instant activation." />
-        <meta name="twitter:image" content="https://ideogram.ai/assets/progressive-image/balanced/response/C55t2k-_Qr-ZTxrcVHRZDA" />
-        
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
       </Helmet>
       <div className="min-h-screen bg-navy">
         <Navbar />
         <Hero />
+        <div className="container mx-auto px-4 py-8 text-sm text-gray-400">
+          <p className="max-w-3xl mx-auto text-center">
+            Learn more about{" "}
+            <a 
+              href="https://en.wikipedia.org/wiki/Internet_Protocol_television" 
+              target="_blank" 
+              rel="noopener noreferrer nofollow" 
+              className="text-primary hover:text-primary/80 underline"
+              aria-label="Learn more about IPTV on Wikipedia"
+            >
+              IPTV technology on Wikipedia
+            </a>
+            {" "}to understand how our service delivers high-quality streaming content over IP networks.
+          </p>
+        </div>
         <Suspense fallback={<SectionLoader />}>
           <Stats />
         </Suspense>
