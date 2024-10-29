@@ -1,4 +1,3 @@
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -23,30 +22,14 @@ const App = ({ dehydratedState }: { dehydratedState?: unknown }) => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
-            <div className="min-h-screen bg-navy">
-              <header className="container mx-auto px-4 py-6 flex justify-between items-center">
-                <h1 className="text-2xl font-bold text-white">IPTV Service</h1>
-                <div>
-                  <SignedOut>
-                    <Button asChild>
-                      <SignInButton />
-                    </Button>
-                  </SignedOut>
-                  <SignedIn>
-                    <UserButton afterSignOutUrl="/" />
-                  </SignedIn>
-                </div>
-              </header>
-              
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/pricing" element={<Pricing />} />
-                <Route path="/features" element={<Features />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </div>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/features" element={<Features />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
           </BrowserRouter>
         </TooltipProvider>
       </HydrationBoundary>
