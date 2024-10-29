@@ -13,12 +13,15 @@ export interface SEOData {
   alternates?: {
     [key: string]: string;
   };
+  breadcrumbs?: Array<{
+    name: string;
+    path: string;
+  }>;
 }
 
 export interface BreadcrumbItem {
   name: string;
-  item: string;
-  position: number;
+  path: string;
 }
 
 export interface MetaTag {

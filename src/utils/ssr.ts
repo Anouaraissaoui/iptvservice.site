@@ -1,7 +1,6 @@
 import { QueryClient } from "@tanstack/react-query";
 import { BlogPost } from "@/types/components";
 import { ApiResponse, QueryConfig } from "@/types/api";
-import { PreloadResource } from "@/types/seo";
 
 export const getQueryClient = (config?: QueryConfig): QueryClient => new QueryClient({
   defaultOptions: {
@@ -25,14 +24,14 @@ export const prefetchData = async (queryClient: QueryClient): Promise<QueryClien
           throw new Error("Network response was not ok");
         }
         return response.json();
-      },
+      }
     })
   ]);
 
   return queryClient;
 };
 
-export const generatePreloadTags = (resources: PreloadResource[]): string => {
+export const generatePreloadTags = (resources: Array<{ href: string; as: string; type?: string; crossOrigin?: boolean }>) => {
   return resources
     .map(({ href, as, type, crossOrigin }) => {
       let tag = `<link rel="preload" href="${href}" as="${as}"`;
@@ -44,7 +43,7 @@ export const generatePreloadTags = (resources: PreloadResource[]): string => {
     .join('\n');
 };
 
-export const generateMetaTags = (url: string, title: string, description: string): string => {
+export const generateMetaTags = (url: string, title: string, description: string) => {
   return `
     <title>${title}</title>
     <meta name="description" content="${description}">
@@ -53,26 +52,4 @@ export const generateMetaTags = (url: string, title: string, description: string
     <meta property="og:title" content="${title}">
     <meta property="og:description" content="${description}">
   `;
-};
-
-export const generateSitemapXML = async (): Promise<string> => {
-  const pages = await getAllPages();
-  const currentDate = new Date().toISOString();
-  
-  return `<?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-      ${pages.map(page => `
-        <url>
-          <loc>${page.url}</loc>
-          <lastmod>${currentDate}</lastmod>
-          <changefreq>${page.changeFreq}</changefreq>
-          <priority>${page.priority}</priority>
-        </url>
-      `).join('')}
-    </urlset>`;
-};
-
-const getAllPages = async () => {
-  // Implementation would depend on your content management system
-  return [];
 };

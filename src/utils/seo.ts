@@ -21,6 +21,40 @@ export const getMetaTags = ({
   ...(canonical ? [{ rel: "canonical", href: canonical }] : []),
 ];
 
-export const getStructuredData = (data: object): { __html: string } => ({
-  __html: JSON.stringify(data),
+export const generateBreadcrumbData = (items: Array<{ name: string; path: string }>) => ({
+  "@type": "BreadcrumbList",
+  "itemListElement": items.map((item, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": item.name,
+    "item": `https://www.iptvservice.site${item.path}`
+  }))
+});
+
+export const generateProductStructuredData = (price: number, title: string, description: string) => ({
+  "@type": "Product",
+  "name": title,
+  "description": description,
+  "offers": {
+    "@type": "Offer",
+    "price": price.toString(),
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock"
+  }
+});
+
+export const generateArticleStructuredData = (title: string, description: string, publishedTime: string, modifiedTime: string) => ({
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "datePublished": publishedTime,
+  "dateModified": modifiedTime,
+  "publisher": {
+    "@type": "Organization",
+    "name": "IPTV Service",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.iptvservice.site/logo.svg"
+    }
+  }
 });

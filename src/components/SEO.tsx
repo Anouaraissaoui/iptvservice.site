@@ -14,9 +14,42 @@ export const SEO = ({
   type = "website",
   structuredData,
   alternates,
+  breadcrumbs,
 }: SEOData) => {
   const baseUrl = "https://www.iptvservice.site";
   
+  // Generate breadcrumb structured data
+  const breadcrumbData = breadcrumbs ? {
+    "@type": "BreadcrumbList",
+    "itemListElement": breadcrumbs.map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": item.name,
+      "item": `${baseUrl}${item.path}`
+    }))
+  } : null;
+
+  // Combine all structured data
+  const fullStructuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      structuredData,
+      breadcrumbData,
+      {
+        "@type": "WebSite",
+        "@id": `${baseUrl}/#website`,
+        "url": baseUrl,
+        "name": "IPTV Service",
+        "description": "Premium IPTV Streaming Service",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": `${baseUrl}/search?q={search_term_string}`,
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ].filter(Boolean)
+  };
+
   return (
     <Helmet>
       {/* Basic Meta Tags */}
@@ -42,6 +75,7 @@ export const SEO = ({
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@iptvservice" />
+      <meta name="twitter:creator" content="@iptvservice" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
@@ -52,14 +86,9 @@ export const SEO = ({
       ))}
 
       {/* Structured Data */}
-      {structuredData && (
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            ...structuredData,
-          })}
-        </script>
-      )}
+      <script type="application/ld+json">
+        {JSON.stringify(fullStructuredData)}
+      </script>
 
       {/* PWA Tags */}
       <meta name="application-name" content="IPTV Service" />
