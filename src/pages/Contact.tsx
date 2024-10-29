@@ -103,7 +103,7 @@ const Contact = () => {
         <meta name="description" content="Get instant support for your IPTV service. Our 24/7 customer support team provides technical assistance, subscription help, and setup guidance. Reach us via live chat, WhatsApp, or email." />
         <meta name="keywords" content="IPTV support, IPTV customer service, IPTV help, IPTV technical support, IPTV setup help, contact IPTV service 2024" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-        <meta name="author" content="Premium IPTV Service" />
+        <meta name="author" content="IPTV Service" />
         
         <link rel="canonical" href="https://www.iptvservice.site/contact" />
         
@@ -111,7 +111,7 @@ const Contact = () => {
         <meta property="og:title" content="24/7 IPTV Customer Support & Technical Help 2024" />
         <meta property="og:description" content="Need help? Our 24/7 support team is ready to assist with technical issues, subscription inquiries, and setup guidance." />
         <meta property="og:url" content="https://www.iptvservice.site/contact" />
-        <meta property="og:site_name" content="Premium IPTV Service" />
+        <meta property="og:site_name" content="IPTV Service" />
         <meta property="og:image" content="https://www.iptvservice.site/contact-support.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />

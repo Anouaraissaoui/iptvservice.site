@@ -1,8 +1,8 @@
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Premium IPTV Service",
-  "alternateName": "Best IPTV Provider",
+  "name": "IPTV Service",
+  "alternateName": "IPTV Provider",
   "url": "https://iptvservice.site",
   "logo": "https://iptvservice.site/logo.svg",
   "description": "Leading IPTV streaming service offering 18,000+ channels, VOD content, and live sports with HD/4K quality.",

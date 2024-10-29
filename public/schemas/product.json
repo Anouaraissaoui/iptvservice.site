@@ -5,7 +5,7 @@
   "description": "Buy Premium IPTV subscription with 18,000+ HD & 4K channels, VOD content, and live sports. Best IPTV service in USA with instant activation and 24/7 support.",
   "brand": {
     "@type": "Brand",
-    "name": "Premium IPTV Service"
+    "name": "IPTV Service"
   },
   "offers": {
     "@type": "AggregateOffer",
@@ -16,7 +16,7 @@
     "availability": "https://schema.org/InStock",
     "seller": {
       "@type": "Organization",
-      "name": "Premium IPTV Service USA"
+      "name": "IPTV Service USA"
     },
     "priceValidUntil": "2024-12-31",
     "itemCondition": "https://schema.org/NewCondition",

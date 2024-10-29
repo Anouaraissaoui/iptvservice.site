@@ -65,7 +65,7 @@ const Index = () => {
         <title>Buy IPTV Subscription | Best IPTV Service USA 2024</title>
         <meta name="description" content="Buy Premium IPTV subscription with 18,000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support." />
         <meta name="keywords" content="buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV buy, best buy IPTV, IPTV channels, HD IPTV, 4K IPTV, premium IPTV service, IPTV provider USA" />
-        <meta name="author" content="Premium IPTV Service" />
+        <meta name="author" content="IPTV Service" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta name="theme-color" content="#0F172A" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -76,7 +76,7 @@ const Index = () => {
         <meta property="og:title" content="Buy Best IPTV Service USA 2024 | Premium HD & 4K Channels" />
         <meta property="og:description" content="Buy Premium IPTV subscription with 18,000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support." />
         <meta property="og:url" content="https://www.iptvservice.site" />
-        <meta property="og:site_name" content="Premium IPTV Service" />
+        <meta property="og:site_name" content="IPTV Service" />
         <meta property="og:image" content="https://www.iptvservice.site/og-image.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />

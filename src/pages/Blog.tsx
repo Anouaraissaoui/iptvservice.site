@@ -43,7 +43,7 @@ const Blog = () => {
         "url": "https://www.iptvservice.site/blog",
         "publisher": {
           "@type": "Organization",
-          "name": "Premium IPTV Service",
+          "name": "IPTV Service",
           "logo": {
             "@type": "ImageObject",
             "url": "https://www.iptvservice.site/logo.svg"
