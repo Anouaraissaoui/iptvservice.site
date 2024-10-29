@@ -2,11 +2,11 @@ import { BreadcrumbItem } from "@/types/seo";
 
 export const generateBreadcrumbData = (items: BreadcrumbItem[]) => ({
   "@type": "BreadcrumbList",
-  "itemListElement": items.map((item) => ({
+  "itemListElement": items.map((item, index) => ({
     "@type": "ListItem",
-    "position": item.position,
+    "position": item.position || index + 1,
     "name": item.name,
-    "item": `https://www.iptvservice.site${item.item}`
+    "item": item.item || `https://www.iptvservice.site${item.path}`
   }))
 });
 
