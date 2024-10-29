@@ -17,7 +17,7 @@ const alertVariants = cva(
       variant: "default",
     },
   }
-) as const
+)
 
 export interface AlertProps
   extends React.HTMLAttributes<HTMLDivElement>,
