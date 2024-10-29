@@ -4,6 +4,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
@@ -13,6 +14,7 @@
     <lastmod>2024-02-26T12:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" href="https://en.wikipedia.org/wiki/Internet_Protocol_television" hreflang="en" />
     <image:image>
       <image:loc>https://res.cloudinary.com/aste/image/upload/v1730132979/iptvservice.site.png</image:loc>
       <image:title>IPTV Service - HD &amp; 4K Streaming</image:title>
@@ -26,6 +28,7 @@
     <lastmod>2024-02-26T12:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" href="https://en.wikipedia.org/wiki/Internet_Protocol_television#Technology" hreflang="en" />
     <image:image>
       <image:loc>https://www.iptvservice.site/pricing-plans.jpg</image:loc>
       <image:title>IPTV Subscription Plans 2024</image:title>
@@ -38,6 +41,7 @@
     <lastmod>2024-02-26T12:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" href="https://en.wikipedia.org/wiki/Internet_Protocol_television#Advantages" hreflang="en" />
     <image:image>
       <image:loc>https://www.iptvservice.site/features-overview.jpg</image:loc>
       <image:title>IPTV Features and Benefits</image:title>
@@ -51,6 +55,7 @@
     <lastmod>2024-02-26T12:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" href="https://en.wikipedia.org/wiki/Internet_Protocol_television#Market_size" hreflang="en" />
     <news:news>
       <news:publication>
         <news:name>IPTV Service Blog</news:name>
