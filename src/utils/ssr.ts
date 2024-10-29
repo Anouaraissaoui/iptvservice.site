@@ -8,8 +8,7 @@ export const getQueryClient = (config?: QueryConfig): QueryClient => new QueryCl
     queries: {
       staleTime: config?.staleTime || 1000 * 60 * 5,
       refetchOnWindowFocus: config?.refetchOnWindowFocus || false,
-      refetchOnMount: config?.refetchOnMount || false,
-      suspense: true // Enable suspense mode for SSR
+      refetchOnMount: config?.refetchOnMount || false
     }
   }
 });
