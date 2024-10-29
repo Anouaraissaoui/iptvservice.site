@@ -30,7 +30,7 @@ const Index = () => {
         "@type": "WebPage",
         "@id": "https://www.iptvservice.site/#webpage",
         "url": "https://www.iptvservice.site",
-        "name": "IPTV Service | IPTV Subscription",
+        "name": "Buy IPTV Subscription | Best IPTV Service USA 2024",
         "isPartOf": { "@id": "https://www.iptvservice.site/#website" },
         "primaryImageOfPage": {
           "@type": "ImageObject",
@@ -38,7 +38,7 @@ const Index = () => {
         },
         "datePublished": "2024-01-01T08:00:00+00:00",
         "dateModified": new Date().toISOString(),
-        "description": "Premium IPTV streaming service with 18,000+ channels, VOD content, and live sports in HD/4K quality. 24/7 support and instant activation.",
+        "description": "Buy Premium IPTV subscription with 18,000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support.",
         "breadcrumb": { "@id": "https://www.iptvservice.site/#breadcrumb" }
       },
       {
@@ -62,9 +62,9 @@ const Index = () => {
     <>
       <Helmet>
         <html lang="en" />
-        <title>IPTV Service | Best IPTV Subscription USA, UK & Worldwide</title>
-        <meta name="description" content="Premium IPTV subscription with 18,000+ channels, VOD & sports in HD/4K quality. Instant activation, 24/7 support, and 99.9% uptime guaranteed. Try risk-free today!" />
-        <meta name="keywords" content="buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV channels, HD IPTV, 4K IPTV, streaming service, live TV" />
+        <title>Buy IPTV Subscription | Best IPTV Service USA 2024</title>
+        <meta name="description" content="Buy Premium IPTV subscription with 18,000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support." />
+        <meta name="keywords" content="buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV buy, best buy IPTV, IPTV channels, HD IPTV, 4K IPTV, premium IPTV service, IPTV provider USA" />
         <meta name="author" content="Premium IPTV Service" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta name="theme-color" content="#0F172A" />
@@ -72,22 +72,19 @@ const Index = () => {
         
         <link rel="canonical" href="https://www.iptvservice.site" />
         
-        {/* Open Graph */}
-        <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Premium IPTV Service 2024 | #1 Streaming Experience" />
-        <meta property="og:description" content="Access 18,000+ live channels, VOD & sports. Premium IPTV with HD/4K quality, instant activation & 24/7 support. Risk-free trial with money-back guarantee!" />
-        <meta property="og:url" content="https://www.iptvservice.site/" />
+        <meta property="og:title" content="Buy Best IPTV Service USA 2024 | Premium HD & 4K Channels" />
+        <meta property="og:description" content="Buy Premium IPTV subscription with 18,000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support." />
+        <meta property="og:url" content="https://www.iptvservice.site" />
         <meta property="og:site_name" content="Premium IPTV Service" />
         <meta property="og:image" content="https://www.iptvservice.site/og-image.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         
-        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@iptvservice" />
-        <meta name="twitter:title" content="Premium IPTV Service 2024 | Best Streaming Experience" />
-        <meta name="twitter:description" content="18,000+ channels, HD/4K quality, instant activation & 24/7 support. Try risk-free with our money-back guarantee!" />
+        <meta name="twitter:title" content="Buy Best IPTV Service USA 2024 | Premium HD & 4K Channels" />
+        <meta name="twitter:description" content="Buy Premium IPTV subscription with 18,000+ HD & 4K channels. Best IPTV service in USA with instant activation." />
         <meta name="twitter:image" content="https://www.iptvservice.site/og-image.jpg" />
         
         <script type="application/ld+json">

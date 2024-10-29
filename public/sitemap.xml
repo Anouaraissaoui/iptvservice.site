@@ -7,7 +7,6 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-  <!-- Homepage -->
   <url>
     <loc>https://www.iptvservice.site/</loc>
     <lastmod>2024-02-26T12:00:00+00:00</lastmod>
@@ -15,12 +14,11 @@
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://www.iptvservice.site/og-image.jpg</image:loc>
-      <image:title>Premium IPTV Service - Best Streaming Experience</image:title>
-      <image:caption>Premium IPTV streaming with 18,000+ channels in HD/4K quality</image:caption>
+      <image:title>Buy Best IPTV Service USA - HD & 4K Channels</image:title>
+      <image:caption>Premium IPTV subscription service with 18,000+ HD/4K channels</image:caption>
     </image:image>
   </url>
 
-  <!-- Main Pages -->
   <url>
     <loc>https://www.iptvservice.site/pricing</loc>
     <lastmod>2024-02-26T12:00:00+00:00</lastmod>
@@ -28,8 +26,8 @@
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://www.iptvservice.site/pricing-plans.jpg</image:loc>
-      <image:title>IPTV Subscription Plans and Pricing</image:title>
-      <image:caption>Affordable IPTV subscription plans with premium features</image:caption>
+      <image:title>Buy IPTV Subscription Plans - Best Prices USA</image:title>
+      <image:caption>Affordable IPTV subscription plans with HD & 4K channels</image:caption>
     </image:image>
   </url>
 
