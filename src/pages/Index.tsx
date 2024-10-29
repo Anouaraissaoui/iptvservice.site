@@ -4,14 +4,12 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import { Skeleton } from "@/components/ui/skeleton";
 
-// Lazy load heavy components
 const Stats = lazy(() => import("@/components/Stats"));
 const PricingCards = lazy(() => import("@/components/PricingCards"));
 const Benefits = lazy(() => import("@/components/Benefits"));
 const FaqSection = lazy(() => import("@/components/FaqSection"));
 const Footer = lazy(() => import("@/components/Footer"));
 
-// Loading placeholder for sections
 const SectionLoader = () => (
   <div className="w-full space-y-4 p-8">
     <Skeleton className="h-8 w-3/4 mx-auto" />
