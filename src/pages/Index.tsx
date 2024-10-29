@@ -30,7 +30,7 @@ const Index = () => {
         "@type": "WebPage",
         "@id": "https://www.iptvservice.site/#webpage",
         "url": "https://www.iptvservice.site",
-        "name": "Buy IPTV Subscription | Best IPTV Service USA 2024",
+        "name": "Buy IPTV Subscription | Best IPTV Service USA 2025",
         "isPartOf": { "@id": "https://www.iptvservice.site/#website" },
         "primaryImageOfPage": {
           "@type": "ImageObject",
@@ -62,7 +62,7 @@ const Index = () => {
     <>
       <Helmet>
         <html lang="en" />
-        <title>Buy IPTV Subscription | Best IPTV Service USA 2024</title>
+        <title>Buy IPTV Subscription | Best IPTV Service USA 2025</title>
         <meta name="description" content="Buy Premium IPTV subscription with 18,000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support." />
         <meta name="keywords" content="buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV buy, best buy IPTV, IPTV channels, HD IPTV, 4K IPTV, premium IPTV service, IPTV provider USA" />
         <meta name="author" content="IPTV Service" />
@@ -73,19 +73,19 @@ const Index = () => {
         <link rel="canonical" href="https://www.iptvservice.site" />
         
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Buy Best IPTV Service USA 2024 | Premium HD & 4K Channels" />
+        <meta property="og:title" content="Buy Best IPTV Service USA 2025 | Premium HD & 4K Channels" />
         <meta property="og:description" content="Buy Premium IPTV subscription with 18,000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support." />
         <meta property="og:url" content="https://www.iptvservice.site" />
         <meta property="og:site_name" content="IPTV Service" />
-        <meta property="og:image" content="https://www.iptvservice.site/og-image.jpg" />
+        <meta property="og:image" content="https://ideogram.ai/assets/progressive-image/balanced/response/C55t2k-_Qr-ZTxrcVHRZDA" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@iptvservice" />
-        <meta name="twitter:title" content="Buy Best IPTV Service USA 2024 | Premium HD & 4K Channels" />
+        <meta name="twitter:title" content="Buy Best IPTV Service USA 2025 | Premium HD & 4K Channels" />
         <meta name="twitter:description" content="Buy Premium IPTV subscription with 18,000+ HD & 4K channels. Best IPTV service in USA with instant activation." />
-        <meta name="twitter:image" content="https://www.iptvservice.site/og-image.jpg" />
+        <meta name="twitter:image" content="https://ideogram.ai/assets/progressive-image/balanced/response/C55t2k-_Qr-ZTxrcVHRZDA" />
         
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
