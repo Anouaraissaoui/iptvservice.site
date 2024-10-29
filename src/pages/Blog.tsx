@@ -1,9 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
+import { dehydrate, QueryClient } from "@tanstack/react-query";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { BlogGrid } from "@/components/blog/BlogGrid";
 import { SEO } from "@/components/SEO";
-import { getQueryClient, prefetchData } from "@/utils/ssr";
+import { prefetchData } from "@/utils/ssr";
 
 interface Post {
   id: number;
@@ -95,12 +96,12 @@ const Blog = () => {
 };
 
 export const getServerSideProps = async () => {
-  const queryClient = getQueryClient();
+  const queryClient = new QueryClient();
   await prefetchData(queryClient);
   
   return {
     props: {
-      dehydratedState: queryClient.dehydrate(),
+      dehydratedState: dehydrate(queryClient),
     },
   };
 };
