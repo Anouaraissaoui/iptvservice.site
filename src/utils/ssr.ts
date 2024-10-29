@@ -5,7 +5,8 @@ export const getQueryClient = () => new QueryClient({
     queries: {
       staleTime: 1000 * 60 * 5, // 5 minutes
       refetchOnWindowFocus: false,
-      refetchOnMount: false
+      refetchOnMount: false,
+      suspense: true, // Enable suspense mode for automatic loading states
     }
   }
 });
