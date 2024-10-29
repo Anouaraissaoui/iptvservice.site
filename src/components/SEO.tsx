@@ -27,9 +27,10 @@ export const SEO = ({
         return <TagName key={index} {...tag} />;
       })}
       {structuredData && (
-        <script type="application/ld+json">
-          {getStructuredData(structuredData)}
-        </script>
+        <script 
+          type="application/ld+json"
+          dangerouslySetInnerHTML={getStructuredData(structuredData)}
+        />
       )}
       <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
       <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
