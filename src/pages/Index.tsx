@@ -1,4 +1,4 @@
-import { SEO } from "@/components/SEO";
+import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Stats from "@/components/Stats";
@@ -6,10 +6,10 @@ import PricingCards from "@/components/PricingCards";
 import Benefits from "@/components/Benefits";
 import FaqSection from "@/components/FaqSection";
 import Footer from "@/components/Footer";
+import { SEO } from "@/components/SEO";
 
 const Index = () => {
   const structuredData = {
-    "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": "https://www.iptvservice.site/#webpage",
     "url": "https://www.iptvservice.site",
