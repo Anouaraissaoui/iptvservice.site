@@ -6,7 +6,7 @@ export const generateBreadcrumbData = (items: BreadcrumbItem[]) => ({
     "@type": "ListItem",
     "position": item.position,
     "name": item.name,
-    "item": `https://www.iptvservice.site${item.item}`
+    "item": item.item
   }))
 });
 
