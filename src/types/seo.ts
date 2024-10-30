@@ -1,3 +1,13 @@
+export interface StructuredData {
+  '@context': 'https://schema.org';
+  '@type': string;
+  '@id'?: string;
+  name?: string;
+  description?: string;
+  url?: string;
+  [key: string]: any;
+}
+
 export interface SEOData {
   title: string;
   description: string;
@@ -9,7 +19,7 @@ export interface SEOData {
   publishedTime?: string;
   modifiedTime?: string;
   type?: 'website' | 'article' | 'product' | 'blog';
-  structuredData?: object;
+  structuredData?: StructuredData;
   alternates?: {
     [key: string]: string;
   };

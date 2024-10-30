@@ -21,39 +21,18 @@ export const SEO = ({
   
   // Generate breadcrumb structured data
   const breadcrumbData = breadcrumbs ? {
-    "@type": "BreadcrumbList",
-    "itemListElement": breadcrumbs.map((item, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "name": item.name,
-      "item": `${baseUrl}${item.path}`
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': breadcrumbs.map((item, index) => ({
+      '@type': 'ListItem',
+      'position': index + 1,
+      'name': item.name,
+      'item': `${baseUrl}${item.path}`
     }))
   } : null;
 
-  // Combine all structured data
-  const fullStructuredData = {
-    "@context": "https://schema.org",
-    "@graph": [
-      structuredData,
-      breadcrumbData,
-      {
-        "@type": "WebSite",
-        "@id": `${baseUrl}/#website`,
-        "url": baseUrl,
-        "name": "IPTV Service",
-        "description": "Premium IPTV Streaming Service",
-        "potentialAction": [{
-          "@type": "SearchAction",
-          "target": `${baseUrl}/search?q={search_term_string}`,
-          "query-input": "required name=search_term_string"
-        }]
-      }
-    ].filter(Boolean)
-  };
-
   return (
     <Helmet>
-      {/* Basic Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
@@ -61,7 +40,6 @@ export const SEO = ({
       <meta name="robots" content={noindex ? "noindex,nofollow" : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"} />
       <link rel="canonical" href={canonical} />
 
-      {/* Open Graph */}
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content={type} />
@@ -73,7 +51,6 @@ export const SEO = ({
       {publishedTime && <meta property="article:published_time" content={publishedTime} />}
       {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
 
-      {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@iptvservice" />
       <meta name="twitter:creator" content="@iptvservice" />
@@ -81,17 +58,22 @@ export const SEO = ({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
 
-      {/* Language Alternates */}
       {alternates && Object.entries(alternates).map(([lang, url]) => (
         <link key={lang} rel="alternate" hrefLang={lang} href={`${baseUrl}${url}`} />
       ))}
 
-      {/* Structured Data */}
-      <script type="application/ld+json">
-        {JSON.stringify(fullStructuredData)}
-      </script>
+      {structuredData && (
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      )}
 
-      {/* PWA Tags */}
+      {breadcrumbData && (
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbData)}
+        </script>
+      )}
+
       <meta name="application-name" content="IPTV Service" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -100,7 +82,6 @@ export const SEO = ({
       <meta name="mobile-web-app-capable" content="yes" />
       <meta name="theme-color" content="#0F172A" />
       
-      {/* Preconnect to Important Origins */}
       <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       <link rel="dns-prefetch" href="https://api.iptvservice.site" />
