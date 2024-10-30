@@ -1,19 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { NavItem } from "@/types/components";
-import AuthButtons from "./auth/AuthButtons";
-import { useClerk } from "@clerk/clerk-react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const location = useLocation();
-  const { loaded } = useClerk();
 
-  const toggleMenu = useCallback((): void => {
-    setIsMenuOpen(prev => !prev);
-  }, []);
+  const toggleMenu = (): void => setIsMenuOpen(!isMenuOpen);
 
   const navItems: NavItem[] = [
     { name: "Home", path: "/" },
@@ -22,19 +17,6 @@ const Navbar = () => {
     { name: "Features", path: "/features" },
     { name: "Contact", path: "/contact" }
   ];
-
-  if (!loaded) {
-    return (
-      <nav className="fixed w-full bg-navy/90 backdrop-blur-sm z-50 border-b border-white/10">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between py-4 md:py-6">
-            <div className="h-8 w-32 bg-gray-200 animate-pulse rounded" />
-            <div className="h-8 w-8 bg-gray-200 animate-pulse rounded" />
-          </div>
-        </div>
-      </nav>
-    );
-  }
 
   return (
     <nav className="fixed w-full bg-navy/90 backdrop-blur-sm z-50 border-b border-white/10">
@@ -64,20 +46,30 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:flex items-center gap-4">
-            <AuthButtons />
+            <Button 
+              variant="ghost" 
+              className="text-primary hover:text-primary/90 hover:bg-primary/10"
+            >
+              Login
+            </Button>
+            <Button 
+              className="bg-primary text-navy hover:bg-primary/90 shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all duration-300"
+            >
+              Get Started
+            </Button>
           </div>
 
           <Button 
             variant="ghost" 
             className="md:hidden text-gray-300 hover:text-white"
             onClick={toggleMenu}
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
         </div>
       </div>
 
+      {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="md:hidden fixed inset-0 top-[73px] bg-navy/95 backdrop-blur-lg z-40">
           <div className="container px-4 py-8 flex flex-col gap-6">
@@ -93,8 +85,20 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
-            <div className="flex justify-center mt-4">
-              <AuthButtons />
+            <div className="flex flex-col gap-4 mt-4">
+              <Button 
+                variant="ghost" 
+                className="text-primary hover:text-primary/90 hover:bg-primary/10 w-full"
+                onClick={toggleMenu}
+              >
+                Login
+              </Button>
+              <Button 
+                className="bg-primary text-navy hover:bg-primary/90 shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all duration-300 w-full"
+                onClick={toggleMenu}
+              >
+                Get Started
+              </Button>
             </div>
           </div>
         </div>
