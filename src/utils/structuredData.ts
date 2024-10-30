@@ -1,4 +1,9 @@
-import { BreadcrumbItem } from "@/types/seo";
+interface BreadcrumbItem {
+  name: string;
+  path: string;
+  position?: number;
+  item?: string;
+}
 
 export const generateBreadcrumbData = (items: BreadcrumbItem[]) => ({
   "@type": "BreadcrumbList",
