@@ -3,7 +3,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { BlogGrid } from "@/components/blog/BlogGrid";
 import { SEO } from "@/components/SEO";
-import type { StructuredData } from "@/types/seo";
 
 interface Post {
   id: number;
@@ -35,27 +34,26 @@ const Blog = () => {
     staleTime: 1000 * 60 * 5,
   });
 
-  const structuredData: StructuredData = {
-    '@context': 'https://schema.org',
-    '@type': 'Blog',
-    '@id': 'https://www.iptvservice.site/blog/#blog',
-    'name': 'IPTV Blog',
-    'description': 'Latest Streaming News, Guides & Updates 2024',
-    'url': 'https://www.iptvservice.site/blog',
-    'publisher': {
-      '@type': 'Organization',
-      'name': 'IPTV Service',
-      'logo': {
-        '@type': 'ImageObject',
-        'url': 'https://www.iptvservice.site/logo.svg'
+  const structuredData = {
+    "@type": "Blog",
+    "@id": "https://www.iptvservice.site/blog/#blog",
+    "name": "IPTV Blog",
+    "description": "Latest Streaming News, Guides & Updates 2024",
+    "url": "https://www.iptvservice.site/blog",
+    "publisher": {
+      "@type": "Organization",
+      "name": "IPTV Service",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.iptvservice.site/logo.svg"
       }
     },
-    'blogPost': posts?.map((post) => ({
-      '@type': 'BlogPosting',
-      'headline': post.title.rendered,
-      'datePublished': post.date,
-      'url': post.link,
-      'image': post._embedded?.["wp:featuredmedia"]?.[0]?.source_url
+    "blogPost": posts?.map((post) => ({
+      "@type": "BlogPosting",
+      "headline": post.title.rendered,
+      "datePublished": post.date,
+      "url": post.link,
+      "image": post._embedded?.["wp:featuredmedia"]?.[0]?.source_url
     }))
   };
 
