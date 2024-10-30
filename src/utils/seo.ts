@@ -1,81 +1,60 @@
-import { SEOConfig, MetaTag, StructuredData, BreadcrumbItem } from '@/types/seo';
+import { SEOData } from "@/types/seo";
 
-export class SEOGenerator {
-  private config: SEOConfig;
-  private baseUrl: string = 'https://www.iptvservice.site';
+export const getMetaTags = ({
+  title,
+  description,
+  ogImage = "https://www.iptvservice.site/og-image.jpg",
+  canonical,
+  noindex,
+  keywords,
+}: SEOData): Array<Record<string, string>> => [
+  { name: "description", content: description },
+  { name: "keywords", content: keywords || "" },
+  { name: "robots", content: noindex ? "noindex,nofollow" : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" },
+  { property: "og:title", content: title },
+  { property: "og:description", content: description },
+  { property: "og:type", content: "website" },
+  { property: "og:image", content: ogImage },
+  { property: "og:image:width", content: "1200" },
+  { property: "og:image:height", content: "630" },
+  { property: "og:site_name", content: "IPTV Service" },
+  ...(canonical ? [{ rel: "canonical", href: canonical }] : []),
+];
 
-  constructor(config: SEOConfig) {
-    this.config = config;
+export const generateBreadcrumbData = (items: Array<{ name: string; path: string }>) => ({
+  "@type": "BreadcrumbList",
+  "itemListElement": items.map((item, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": item.name,
+    "item": `https://www.iptvservice.site${item.path}`
+  }))
+});
+
+export const generateProductStructuredData = (price: number, title: string, description: string) => ({
+  "@type": "Product",
+  "name": title,
+  "description": description,
+  "offers": {
+    "@type": "Offer",
+    "price": price.toString(),
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock"
   }
+});
 
-  private generateMetaTags(): MetaTag[] {
-    const tags: MetaTag[] = [
-      { name: 'description', content: this.config.description },
-      { name: 'robots', content: this.config.noindex ? 'noindex,nofollow' : 'index,follow,max-image-preview:large' },
-      { property: 'og:title', content: this.config.title },
-      { property: 'og:description', content: this.config.description },
-      { property: 'og:type', content: this.config.type || 'website' },
-      { property: 'og:url', content: `${this.baseUrl}${this.config.canonical || ''}` },
-      { property: 'og:image', content: this.config.ogImage || `${this.baseUrl}/og-image.jpg` },
-      { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:title', content: this.config.title },
-      { name: 'twitter:description', content: this.config.description }
-    ];
-
-    if (this.config.keywords) {
-      tags.push({ name: 'keywords', content: this.config.keywords });
+export const generateArticleStructuredData = (title: string, description: string, publishedTime: string, modifiedTime: string) => ({
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "datePublished": publishedTime,
+  "dateModified": modifiedTime,
+  "publisher": {
+    "@type": "Organization",
+    "name": "IPTV Service",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.iptvservice.site/logo.svg"
     }
-
-    if (this.config.author) {
-      tags.push({ name: 'author', content: this.config.author });
-    }
-
-    return tags;
   }
-
-  private generateBreadcrumbData(): StructuredData {
-    if (!this.config.breadcrumbs?.length) return {} as StructuredData;
-
-    return {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      'itemListElement': this.config.breadcrumbs.map((item, index) => ({
-        '@type': 'ListItem',
-        'position': item.position || index + 1,
-        'name': item.name,
-        'item': `${this.baseUrl}${item.path}`
-      }))
-    };
-  }
-
-  private generateWebsiteData(): StructuredData {
-    return {
-      '@context': 'https://schema.org',
-      '@type': 'WebSite',
-      'url': this.baseUrl,
-      'name': 'IPTV Service',
-      'description': this.config.description,
-      'potentialAction': {
-        '@type': 'SearchAction',
-        'target': `${this.baseUrl}/search?q={search_term_string}`,
-        'query-input': 'required name=search_term_string'
-      }
-    };
-  }
-
-  public generate() {
-    return {
-      title: this.config.title,
-      metaTags: this.generateMetaTags(),
-      structuredData: {
-        website: this.generateWebsiteData(),
-        breadcrumbs: this.generateBreadcrumbData(),
-        custom: this.config.structuredData
-      },
-      canonical: this.config.canonical ? `${this.baseUrl}${this.config.canonical}` : this.baseUrl,
-      alternateLanguages: this.config.alternateLanguages
-    };
-  }
-}
-
-export const createSEO = (config: SEOConfig) => new SEOGenerator(config).generate();
+});
