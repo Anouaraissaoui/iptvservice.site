@@ -1,10 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-import { dehydrate, QueryClient } from "@tanstack/react-query";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { BlogGrid } from "@/components/blog/BlogGrid";
 import { SEO } from "@/components/SEO";
-import { prefetchData } from "@/utils/ssr";
 
 interface Post {
   id: number;
@@ -33,11 +31,10 @@ const Blog = () => {
   const { data: posts, isLoading } = useQuery({
     queryKey: ["posts"],
     queryFn: fetchPosts,
-    staleTime: 1000 * 60 * 5, // 5 minutes
+    staleTime: 1000 * 60 * 5,
   });
 
   const structuredData = {
-    "@context": "https://schema.org",
     "@type": "Blog",
     "@id": "https://www.iptvservice.site/blog/#blog",
     "name": "IPTV Blog",
@@ -63,13 +60,17 @@ const Blog = () => {
   return (
     <>
       <SEO
-        title="IPTV Blog | Latest Streaming News, Guides & Updates 2024"
+        title="IPTV Blog | Latest Streaming News & Guides 2024"
         description="Stay informed with expert IPTV guides, streaming tips, industry news, and technical tutorials. Learn about new features, channel updates, and maximize your streaming experience."
         keywords="IPTV blog, streaming news, IPTV guides, streaming tips, IPTV tutorials, IPTV updates 2024, streaming guides"
         canonical="https://www.iptvservice.site/blog"
         structuredData={structuredData}
+        type="blog"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Blog", path: "/blog" }
+        ]}
       />
-
       <main className="min-h-screen bg-navy">
         <Navbar />
         <div className="container mx-auto px-4 py-24">
@@ -85,25 +86,12 @@ const Blog = () => {
               Stay updated with the latest news, guides, and insights about IPTV streaming
             </p>
           </div>
-
           <BlogGrid posts={posts} isLoading={isLoading} />
         </div>
-        
         <Footer />
       </main>
     </>
   );
-};
-
-export const getServerSideProps = async () => {
-  const queryClient = new QueryClient();
-  await prefetchData(queryClient);
-  
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
-  };
 };
 
 export default Blog;

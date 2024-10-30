@@ -7,39 +7,42 @@ import Benefits from "@/components/Benefits";
 import FaqSection from "@/components/FaqSection";
 import Footer from "@/components/Footer";
 import { SEO } from "@/components/SEO";
-import { generateOrganizationData, generateWebsiteData, generateProductData } from "@/utils/structuredData";
 
 const Index = () => {
   const structuredData = {
-    "@graph": [
-      generateOrganizationData(),
-      generateWebsiteData(),
-      generateProductData(11),
-      {
-        "@type": "WebPage",
-        "@id": "https://www.iptvservice.site/#webpage",
-        "url": "https://www.iptvservice.site",
-        "name": "Buy IPTV Subscription | Best IPTV Service USA 2025",
-        "isPartOf": { "@id": "https://www.iptvservice.site/#website" },
-        "about": { "@id": "https://www.iptvservice.site/#organization" },
-        "primaryImageOfPage": {
-          "@type": "ImageObject",
-          "url": "https://ideogram.ai/assets/progressive-image/balanced/response/T-JUnqqgRsmp3yYR7L_s0g"
-        },
-        "datePublished": "2024-01-01T08:00:00+00:00",
-        "dateModified": new Date().toISOString()
-      }
-    ]
+    "@type": "WebPage",
+    "@id": "https://www.iptvservice.site/#webpage",
+    "url": "https://www.iptvservice.site",
+    "name": "Buy IPTV Subscription | Best IPTV Service USA 2024",
+    "description": "Premium IPTV subscription with 18,000+ HD & 4K channels. Best IPTV service in USA with instant activation and 24/7 support.",
+    "isPartOf": { "@id": "https://www.iptvservice.site/#website" },
+    "about": { "@id": "https://www.iptvservice.site/#organization" },
+    "primaryImageOfPage": {
+      "@type": "ImageObject",
+      "url": "https://www.iptvservice.site/og-image.jpg"
+    },
+    "datePublished": "2024-01-01T08:00:00+00:00",
+    "dateModified": new Date().toISOString(),
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.iptvservice.site"
+      }]
+    }
   };
 
   return (
     <>
       <SEO
-        title="Buy IPTV Subscription | Best IPTV Service USA 2025"
+        title="Buy IPTV Subscription | Best IPTV Service USA 2024"
         description="Buy Premium IPTV subscription with 18,000+ HD & 4K channels. Best IPTV service in USA with instant activation and 24/7 support."
-        keywords="buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV channels, HD IPTV, 4K IPTV"
+        keywords="buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV channels, HD IPTV, 4K IPTV, premium IPTV service, IPTV provider USA"
         structuredData={structuredData}
         type="website"
+        breadcrumbs={[{ name: "Home", path: "/" }]}
       />
       <div className="min-h-screen bg-navy">
         <Navbar />
