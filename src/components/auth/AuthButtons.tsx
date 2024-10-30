@@ -26,7 +26,7 @@ const AuthButtons = () => {
           className="text-primary hover:text-primary/90 hover:bg-primary/10"
           asChild
         >
-          <SignInButton afterSignInUrl="/" afterSignUpUrl="/" onError={handleSignInError} />
+          <SignInButton mode="modal" />
         </Button>
       </SignedOut>
       <SignedIn>
