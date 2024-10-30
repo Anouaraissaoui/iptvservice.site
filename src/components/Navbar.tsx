@@ -45,6 +45,20 @@ const Navbar = () => {
             ))}
           </div>
 
+          <div className="hidden md:flex items-center gap-4">
+            <Button 
+              variant="ghost" 
+              className="text-primary hover:text-primary/90 hover:bg-primary/10"
+            >
+              Login
+            </Button>
+            <Button 
+              className="bg-primary text-navy hover:bg-primary/90 shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all duration-300"
+            >
+              Get Started
+            </Button>
+          </div>
+
           <Button 
             variant="ghost" 
             className="md:hidden text-gray-300 hover:text-white"
@@ -71,6 +85,21 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
+            <div className="flex flex-col gap-4 mt-4">
+              <Button 
+                variant="ghost" 
+                className="text-primary hover:text-primary/90 hover:bg-primary/10 w-full"
+                onClick={toggleMenu}
+              >
+                Login
+              </Button>
+              <Button 
+                className="bg-primary text-navy hover:bg-primary/90 shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all duration-300 w-full"
+                onClick={toggleMenu}
+              >
+                Get Started
+              </Button>
+            </div>
           </div>
         </div>
       )}

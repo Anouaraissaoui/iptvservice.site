@@ -17,7 +17,6 @@ export const SEO = ({
   breadcrumbs,
 }: SEOData) => {
   const baseUrl = "https://www.iptvservice.site";
-  const fullTitle = `${title} | Premium IPTV Service`;
   
   // Generate breadcrumb structured data
   const breadcrumbData = breadcrumbs ? {
@@ -42,11 +41,11 @@ export const SEO = ({
         "url": baseUrl,
         "name": "IPTV Service",
         "description": "Premium IPTV Streaming Service",
-        "potentialAction": [{
+        "potentialAction": {
           "@type": "SearchAction",
           "target": `${baseUrl}/search?q={search_term_string}`,
           "query-input": "required name=search_term_string"
-        }]
+        }
       }
     ].filter(Boolean)
   };
@@ -54,7 +53,7 @@ export const SEO = ({
   return (
     <Helmet>
       {/* Basic Meta Tags */}
-      <title>{fullTitle}</title>
+      <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
       <meta name="author" content={author} />
@@ -62,7 +61,7 @@ export const SEO = ({
       <link rel="canonical" href={canonical} />
 
       {/* Open Graph */}
-      <meta property="og:title" content={fullTitle} />
+      <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content={type} />
       <meta property="og:url" content={canonical} />
@@ -77,7 +76,7 @@ export const SEO = ({
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@iptvservice" />
       <meta name="twitter:creator" content="@iptvservice" />
-      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
 
@@ -103,7 +102,7 @@ export const SEO = ({
       {/* Preconnect to Important Origins */}
       <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link rel="dns-prefetch" href="https://api.iptvservice.site" />
+      <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
     </Helmet>
   );
 };
