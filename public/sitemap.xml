@@ -88,12 +88,4 @@
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
-
-  <!-- Error Page -->
-  <url>
-    <loc>https://www.iptvservice.site/404</loc>
-    <lastmod>2024-02-26T12:00:00+00:00</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.1</priority>
-  </url>
 </urlset>
