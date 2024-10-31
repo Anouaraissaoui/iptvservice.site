@@ -11,11 +11,11 @@ const Features = () => {
         "@type": "WebPage",
         "@id": "https://www.iptvservice.site/features/#webpage",
         "url": "https://www.iptvservice.site/features",
-        "name": "IPTV Features & Benefits 2024",
+        "name": "IPTV Features & Benefits | HD/4K Streaming with 18,000+ Channels",
         "isPartOf": { "@id": "https://www.iptvservice.site/#website" },
         "datePublished": "2024-01-01T08:00:00+00:00",
         "dateModified": new Date().toISOString(),
-        "description": "Explore our premium IPTV features including HD/4K streaming, 18,000+ channels, VOD content, and more.",
+        "description": "Explore our premium IPTV features: 18,000+ channels worldwide, HD/4K streaming, catch-up TV, multi-device support, EPG guide, and extensive VOD library.",
         "breadcrumb": { "@id": "https://www.iptvservice.site/features/#breadcrumb" }
       },
       {
@@ -50,7 +50,7 @@ const Features = () => {
   return (
     <>
       <Helmet>
-        <title>IPTV Features & Benefits 2024 | Premium Streaming Service</title>
+        <title>IPTV Features & Benefits | HD/4K Streaming with 18,000+ Channels</title>
         <meta name="description" content="Explore our premium IPTV features: 18,000+ channels worldwide, HD/4K streaming, catch-up TV, multi-device support, EPG guide, and extensive VOD library." />
         <meta name="keywords" content="IPTV features, IPTV benefits, streaming quality, VOD content, live TV channels, HD IPTV, 4K streaming, EPG guide" />
         <meta name="robots" content="index, follow, max-image-preview:large" />

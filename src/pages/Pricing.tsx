@@ -64,7 +64,7 @@ const Pricing = () => {
   return (
     <>
       <Helmet>
-        <title>IPTV Subscription Plans & Pricing 2024 | Premium IPTV Service</title>
+        <title>IPTV Subscription Plans & Pricing 2024 | Starting at $11/month</title>
         <meta name="description" content="Choose from our flexible IPTV subscription plans starting at $11/month. All plans include 18,000+ channels, HD/4K quality, VOD content, and 24/7 support." />
         <meta name="keywords" content="IPTV subscription plans, IPTV pricing, buy IPTV subscription, IPTV packages, cheap IPTV service, IPTV deals 2024" />
         <meta name="robots" content="index, follow, max-image-preview:large" />

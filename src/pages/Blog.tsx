@@ -40,7 +40,7 @@ const Blog = () => {
     "@context": "https://schema.org",
     "@type": "Blog",
     "@id": "https://www.iptvservice.site/blog/#blog",
-    "name": "IPTV Blog",
+    "name": "IPTV Blog - Latest Streaming News & Updates",
     "description": "Latest Streaming News, Guides & Updates 2024",
     "url": "https://www.iptvservice.site/blog",
     "publisher": {
@@ -63,7 +63,7 @@ const Blog = () => {
   return (
     <>
       <SEO
-        title="IPTV Blog | Latest Streaming News, Guides & Updates 2024"
+        title="IPTV Blog - Latest Streaming News & Updates 2024"
         description="Stay informed with expert IPTV guides, streaming tips, industry news, and technical tutorials. Learn about new features, channel updates, and maximize your streaming experience."
         keywords="IPTV blog, streaming news, IPTV guides, streaming tips, IPTV tutorials, IPTV updates 2024, streaming guides"
         canonical="https://www.iptvservice.site/blog"

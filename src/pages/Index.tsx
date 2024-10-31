@@ -19,7 +19,7 @@ const Index = () => {
         "@type": "WebPage",
         "@id": "https://www.iptvservice.site/#webpage",
         "url": "https://www.iptvservice.site",
-        "name": "Buy IPTV Subscription | Best IPTV Service USA 2025",
+        "name": "Premium IPTV Service | 18,000+ Channels in HD & 4K Quality",
         "isPartOf": { "@id": "https://www.iptvservice.site/#website" },
         "about": { "@id": "https://www.iptvservice.site/#organization" },
         "primaryImageOfPage": {
@@ -35,7 +35,7 @@ const Index = () => {
   return (
     <>
       <SEO
-        title="Buy IPTV Subscription | Best IPTV Service USA 2025"
+        title="Premium IPTV Service | 18,000+ Channels in HD & 4K Quality"
         description="Buy Premium IPTV subscription with 18,000+ HD & 4K channels. Best IPTV service in USA with instant activation and 24/7 support."
         keywords="buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV channels, HD IPTV, 4K IPTV"
         structuredData={structuredData}
