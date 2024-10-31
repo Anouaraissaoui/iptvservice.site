@@ -20,10 +20,13 @@ const Footer = () => {
   ];
 
   const legalLinks = [
-    { name: "Terms of Service", path: "/terms" },
-    { name: "Privacy Policy", path: "/privacy" },
-    { name: "Refund Policy", path: "/refund" },
-    { name: "FAQ", path: "/faq" }
+    { name: "Terms", path: "/terms" },
+    { name: "Privacy", path: "/privacy" }
+  ];
+
+  const supportLinks = [
+    { name: "24/7 Support", path: "/contact" },
+    { name: "FAQs", path: "/features#faq" }
   ];
 
   return (
@@ -85,26 +88,16 @@ const Footer = () => {
             <div className="space-y-4">
               <h3 className="text-white font-semibold text-lg">Support</h3>
               <ul className="space-y-2">
-                <li>
-                  <Link to="/contact" className="text-gray-400 hover:text-primary transition-colors">
-                    24/7 Support
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/faq" className="text-gray-400 hover:text-primary transition-colors">
-                    FAQs
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/setup-guide" className="text-gray-400 hover:text-primary transition-colors">
-                    Setup Guide
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/troubleshooting" className="text-gray-400 hover:text-primary transition-colors">
-                    Troubleshooting
-                  </Link>
-                </li>
+                {supportLinks.map((link) => (
+                  <li key={link.path}>
+                    <Link 
+                      to={link.path}
+                      className="text-gray-400 hover:text-primary transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
