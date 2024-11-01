@@ -1,8 +1,8 @@
-import type { Request, Response } from 'express';
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 export default async function handler(
-  req: Request,
-  res: Response
+  req: VercelRequest,
+  res: VercelResponse
 ) {
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method not allowed' });
