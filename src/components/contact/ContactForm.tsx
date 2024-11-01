@@ -8,13 +8,14 @@ const ContactForm = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const form = e.target as HTMLFormElement;
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData);
     
     try {
-      const response = await fetch("/", {
+      const response = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(new FormData(form) as any).toString(),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
       });
       
       if (response.ok) {
@@ -22,7 +23,7 @@ const ContactForm = () => {
           title: "Message sent",
           description: "We'll get back to you as soon as possible.",
         });
-        form.reset();
+        e.currentTarget.reset();
       } else {
         throw new Error('Form submission failed');
       }
@@ -37,24 +38,10 @@ const ContactForm = () => {
 
   return (
     <div className="bg-navy-light/50 border border-white/10 rounded-2xl p-8 backdrop-blur-sm">
-      <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
-        <input type="text" name="name" />
-        <input type="email" name="email" />
-        <textarea name="message"></textarea>
-      </form>
-      
       <form 
-        name="contact" 
-        method="POST"
         onSubmit={handleSubmit}
         className="space-y-6"
       >
-        <input type="hidden" name="form-name" value="contact" />
-        <p className="hidden">
-          <label>
-            Don't fill this out if you're human: <input name="bot-field" />
-          </label>
-        </p>
         <div className="space-y-4">
           <Input 
             type="text" 
