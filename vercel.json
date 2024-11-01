@@ -1,4 +1,8 @@
 {
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/$1" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
   "redirects": [
     { "source": "/blog/:path*", "destination": "/blog/:path*", "permanent": true },
     { "source": "/features/:path*", "destination": "/features/:path*", "permanent": true },
