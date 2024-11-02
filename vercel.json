@@ -4,20 +4,18 @@
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "redirects": [
-    { "source": "http://:domain/:path*", "destination": "https://:domain/:path*", "permanent": true },
-    { "source": "m.:domain/:path*", "destination": "https://www.:domain/:path*", "permanent": true },
-    { "source": "blog/:path*", "destination": "/blog/:path*", "permanent": true },
-    { "source": "features/:path*", "destination": "/features/:path*", "permanent": true },
-    { "source": "pricing/:path*", "destination": "/pricing/:path*", "permanent": true },
-    { "source": "contact/:path*", "destination": "/contact/:path*", "permanent": true },
-    { "source": "refund", "destination": "/terms", "permanent": true },
-    { "source": "setup-guide", "destination": "/features", "permanent": true },
-    { "source": "troubleshooting", "destination": "/contact", "permanent": true },
-    { "source": "faq", "destination": "/features#faq", "permanent": true },
-    { "source": "packages", "destination": "/pricing", "permanent": true },
-    { "source": "services", "destination": "/features", "permanent": true },
-    { "source": "support", "destination": "/contact", "permanent": true },
-    { "source": "news", "destination": "/blog", "permanent": true }
+    { "source": "/blog/:path*", "destination": "/blog/:path*", "permanent": true },
+    { "source": "/features/:path*", "destination": "/features/:path*", "permanent": true },
+    { "source": "/pricing/:path*", "destination": "/pricing/:path*", "permanent": true },
+    { "source": "/contact/:path*", "destination": "/contact/:path*", "permanent": true },
+    { "source": "/refund", "destination": "/terms", "permanent": true },
+    { "source": "/setup-guide", "destination": "/features", "permanent": true },
+    { "source": "/troubleshooting", "destination": "/contact", "permanent": true },
+    { "source": "/faq", "destination": "/features#faq", "permanent": true },
+    { "source": "/packages", "destination": "/pricing", "permanent": true },
+    { "source": "/services", "destination": "/features", "permanent": true },
+    { "source": "/support", "destination": "/contact", "permanent": true },
+    { "source": "/news", "destination": "/blog", "permanent": true }
   ],
   "headers": [
     {
@@ -31,8 +29,7 @@
         { "key": "X-XSS-Protection", "value": "1; mode=block" },
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), payment=()" },
-        { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload" }
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), payment=()" }
       ]
     },
     {
@@ -81,16 +78,7 @@
       ]
     }
   ],
-  "regions": ["sfo1", "iad1", "hnd1"],
+  "regions": ["sfo1", "iad1"],
   "cleanUrls": true,
-  "trailingSlash": false,
-  "dns": {
-    "verification": [
-      {
-        "type": "TXT",
-        "name": "@",
-        "value": "vercel-dns-verification=YOUR_VERIFICATION_CODE"
-      }
-    ]
-  }
+  "trailingSlash": false
 }
