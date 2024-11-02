@@ -1,10 +1,7 @@
 import { Shield, Tv, Globe, CreditCard } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 
 const Benefits = () => {
-  const [imageLoading, setImageLoading] = useState(true);
-  
   const benefits = [
     {
       title: "Cost-Effective",
@@ -48,20 +45,14 @@ const Benefits = () => {
             <div className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full animate-pulse" aria-hidden="true" />
             <Link to="/features" className="block relative transform group-hover:scale-[1.02] transition-all duration-500">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent blur-2xl" aria-hidden="true" />
-              <div className={`relative ${imageLoading ? 'blur-xl animate-pulse' : 'blur-0'} transition-all duration-300`}>
-                <img 
-                  src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&w=600&q=80"
-                  alt="Family enjoying IPTV entertainment together" 
-                  className="relative rounded-3xl shadow-2xl border border-white/10 group-hover:border-primary/50 transition-colors duration-300"
-                  loading="lazy"
-                  width="600"
-                  height="400"
-                  onLoad={() => setImageLoading(false)}
-                />
-                {imageLoading && (
-                  <div className="absolute inset-0 bg-navy-light/50 animate-pulse rounded-3xl" />
-                )}
-              </div>
+              <img 
+                src="https://ideogram.ai/assets/progressive-image/balanced/response/rjBDn08hT6OtKawxA6EQPg" 
+                alt="Family enjoying IPTV entertainment together" 
+                className="relative rounded-3xl shadow-2xl border border-white/10 group-hover:border-primary/50 transition-colors duration-300"
+                loading="lazy"
+                width="600"
+                height="400"
+              />
               <figcaption className="absolute -bottom-6 -right-6 bg-navy-light/90 border border-white/10 rounded-2xl px-6 py-3 shadow-xl backdrop-blur-xl">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-primary animate-pulse" aria-hidden="true" />
