@@ -4,6 +4,9 @@
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "redirects": [
+    { "source": "http://:domain/:path*", "destination": "https://:domain/:path*", "permanent": true },
+    { "source": "http://m.:domain/:path*", "destination": "https://www.:domain/:path*", "permanent": true },
+    { "source": "https://m.:domain/:path*", "destination": "https://www.:domain/:path*", "permanent": true },
     { "source": "/blog/:path*", "destination": "/blog/:path*", "permanent": true },
     { "source": "/features/:path*", "destination": "/features/:path*", "permanent": true },
     { "source": "/pricing/:path*", "destination": "/pricing/:path*", "permanent": true },
@@ -29,7 +32,8 @@
         { "key": "X-XSS-Protection", "value": "1; mode=block" },
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), payment=()" }
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), payment=()" },
+        { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload" }
       ]
     },
     {
@@ -80,5 +84,10 @@
   ],
   "regions": ["sfo1", "iad1"],
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "dns": {
+    "verification": [
+      { "type": "TXT", "name": "@", "value": "iptvservice-site-verification=123456" }
+    ]
+  }
 }
