@@ -19,7 +19,7 @@ const Index = () => {
         "@type": "WebPage",
         "@id": "https://www.iptvservice.site/#webpage",
         "url": "https://www.iptvservice.site",
-        "name": "Premium IPTV Service | 18,000+ Channels in HD & 4K Quality",
+        "name": "Buy IPTV Subscription | Best IPTV Service USA 2025",
         "isPartOf": { "@id": "https://www.iptvservice.site/#website" },
         "about": { "@id": "https://www.iptvservice.site/#organization" },
         "primaryImageOfPage": {
