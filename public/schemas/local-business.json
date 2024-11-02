@@ -1,11 +1,11 @@
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": "Premium IPTV Service",
-  "image": "https://iptvservice.site/og-image.jpg",
+  "name": "IPTV Service",
+  "image": "https://ideogram.ai/assets/progressive-image/balanced/response/T-JUnqqgRsmp3yYR7L_s0g",
   "priceRange": "$$",
-  "@id": "https://iptvservice.site/#localbusiness",
-  "url": "https://iptvservice.site",
+  "@id": "https://www.iptvservice.site/#localbusiness",
+  "url": "https://www.iptvservice.site/",
   "telephone": "+1-234-567-8900",
   "address": {
     "@type": "PostalAddress",
@@ -53,7 +53,7 @@
     "@type": "OrderAction",
     "target": {
       "@type": "EntryPoint",
-      "urlTemplate": "https://iptvservice.site/pricing",
+      "urlTemplate": "https://www.iptvservice.site/pricing",
       "inLanguage": "en-US",
       "actionPlatform": [
         "http://schema.org/DesktopWebPlatform",

@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "url": "https://iptvservice.site",
+  "url": "https://www.iptvservice.site/",
   "name": "IPTV Service",
-  "description": "Premium IPTV streaming service with 18,000+ channels, VOD content, and live sports in HD/4K quality",
+  "description": "Buy IPTV subscription with 18,000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support.",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://iptvservice.site/search?q={search_term_string}",
+    "target": "https://www.iptvservice.site/search?q={search_term_string}",
     "query-input": "required name=search_term_string"
   }
 }

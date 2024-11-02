@@ -4,7 +4,7 @@
   "mainEntity": [{
     "@type": "Question",
     "name": "What devices are compatible with your IPTV service?",
-    "url": "https://iptvservice.site/#devices-compatibility",
+    "url": "https://www.iptvservice.site/#devices-compatibility",
     "acceptedAnswer": {
       "@type": "Answer",
       "text": "Our IPTV service is compatible with Smart TVs (Samsung, LG, Android TV), mobile devices (iOS/Android), streaming devices (Amazon Fire Stick, Roku, Apple TV), and MAG boxes. You can watch on any device with an internet connection."
@@ -12,7 +12,7 @@
   }, {
     "@type": "Question",
     "name": "Do you offer customer support?",
-    "url": "https://iptvservice.site/#customer-support",
+    "url": "https://www.iptvservice.site/#customer-support",
     "acceptedAnswer": {
       "@type": "Answer",
       "text": "Yes, we provide 24/7 customer support via live chat, WhatsApp, and email. Our technical team is always ready to help with setup, troubleshooting, or any questions you may have."
@@ -20,7 +20,7 @@
   }, {
     "@type": "Question",
     "name": "What channels are included in the subscription?",
-    "url": "https://iptvservice.site/#channel-list",
+    "url": "https://www.iptvservice.site/#channel-list",
     "acceptedAnswer": {
       "@type": "Answer",
       "text": "Our service includes 18,000+ channels from around the world, including sports, movies, news, entertainment, and children's programming. We regularly update our channel list to ensure the best content."
@@ -28,7 +28,7 @@
   }, {
     "@type": "Question",
     "name": "Is there a money-back guarantee?",
-    "url": "https://iptvservice.site/#money-back-guarantee",
+    "url": "https://www.iptvservice.site/#money-back-guarantee",
     "acceptedAnswer": {
       "@type": "Answer",
       "text": "Yes, we offer a 100% satisfaction guarantee. If you're not completely satisfied with our service within the first 24 hours, we'll provide a full refund."
@@ -36,7 +36,7 @@
   }, {
     "@type": "Question",
     "name": "What video quality do you offer?",
-    "url": "https://iptvservice.site/#video-quality",
+    "url": "https://www.iptvservice.site/#video-quality",
     "acceptedAnswer": {
       "@type": "Answer",
       "text": "We offer HD (720p/1080p) and 4K quality streams where available. The actual quality depends on your internet connection speed and the source broadcast quality."
@@ -44,7 +44,7 @@
   }, {
     "@type": "Question",
     "name": "How many devices can I use simultaneously?",
-    "url": "https://iptvservice.site/#device-limit",
+    "url": "https://www.iptvservice.site/#device-limit",
     "acceptedAnswer": {
       "@type": "Answer",
       "text": "Different subscription plans allow for different numbers of simultaneous connections, ranging from 1 to 4 devices. Check our pricing page for detailed information about each plan."
