@@ -4,9 +4,6 @@
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "redirects": [
-    { "source": "http://:domain/:path*", "destination": "https://:domain/:path*", "permanent": true },
-    { "source": "http://m.:domain/:path*", "destination": "https://www.:domain/:path*", "permanent": true },
-    { "source": "https://m.:domain/:path*", "destination": "https://www.:domain/:path*", "permanent": true },
     { "source": "/blog/:path*", "destination": "/blog/:path*", "permanent": true },
     { "source": "/features/:path*", "destination": "/features/:path*", "permanent": true },
     { "source": "/pricing/:path*", "destination": "/pricing/:path*", "permanent": true },
@@ -24,70 +21,30 @@
     {
       "source": "/(.*)",
       "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=31536000"
-        },
         { "key": "X-Frame-Options", "value": "DENY" },
         { "key": "X-XSS-Protection", "value": "1; mode=block" },
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), payment=()" },
-        { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload" }
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), payment=()" }
       ]
     },
     {
       "source": "/(.+\\.js)",
       "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
     },
     {
       "source": "/(.+\\.css)",
       "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
     },
     {
       "source": "/images/(.*)",
       "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/_next/static/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/api/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=60, stale-while-revalidate=600"
-        }
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
     }
-  ],
-  "regions": ["sfo1", "iad1"],
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "dns": {
-    "verification": [
-      { "type": "TXT", "name": "@", "value": "iptvservice-site-verification=123456" }
-    ]
-  }
+  ]
 }
