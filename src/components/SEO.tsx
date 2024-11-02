@@ -58,7 +58,11 @@ export const SEO = ({
       <meta name="keywords" content={keywords} />
       <meta name="author" content={author} />
       <meta name="robots" content={noindex ? "noindex,nofollow" : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"} />
+      <meta name="googlebot" content={noindex ? "noindex,nofollow" : "index,follow"} />
       <link rel="canonical" href={canonical} />
+
+      {/* HTTP Headers for Indexing */}
+      <meta httpEquiv="X-Robots-Tag" content={noindex ? "noindex,nofollow" : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"} />
 
       {/* Open Graph */}
       <meta property="og:title" content={title} />
@@ -103,6 +107,12 @@ export const SEO = ({
       <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
+
+      {/* Indexing Directives */}
+      <meta name="revisit-after" content="1 days" />
+      <meta name="rating" content="general" />
+      <meta name="distribution" content="global" />
+      <meta name="coverage" content="Worldwide" />
     </Helmet>
   );
 };
