@@ -1,55 +1,24 @@
-import { formatDistanceToNow } from "date-fns";
 import { CalendarDays, ChevronRight, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { useState } from "react";
-
-interface Post {
-  id: number;
-  date: string;
-  title: { rendered: string };
-  excerpt: { rendered: string };
-  _embedded?: {
-    "wp:featuredmedia"?: Array<{
-      source_url: string;
-    }>;
-  };
-  link: string;
-}
+import { Image } from "@/components/ui/image";
+import { BlogPost } from "@/types/components";
 
 interface BlogCardProps {
-  post: Post;
+  post: BlogPost;
 }
 
 export const BlogCard = ({ post }: BlogCardProps) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(false);
-
   return (
     <Card className="bg-navy-light border-white/10 hover:border-primary/50 transition-all duration-300 group">
       <CardHeader>
         {post._embedded?.["wp:featuredmedia"]?.[0]?.source_url && (
           <div className="relative h-48 overflow-hidden rounded-t-lg">
-            {isLoading && (
-              <div className="absolute inset-0 bg-navy animate-pulse rounded-t-lg" />
-            )}
-            <img
+            <Image
               src={post._embedded["wp:featuredmedia"][0].source_url}
               alt={post.title.rendered}
-              className={`object-cover w-full h-full group-hover:scale-105 transition-all duration-300 ${
-                isLoading ? 'opacity-0' : 'opacity-100'
-              }`}
-              onLoad={() => setIsLoading(false)}
-              onError={() => {
-                setError(true);
-                setIsLoading(false);
-              }}
+              className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
             />
-            {error && (
-              <div className="absolute inset-0 flex items-center justify-center bg-navy rounded-t-lg">
-                <p className="text-gray-400">Failed to load image</p>
-              </div>
-            )}
           </div>
         )}
         <CardTitle className="text-white group-hover:text-primary transition-colors line-clamp-2">
