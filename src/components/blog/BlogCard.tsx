@@ -2,6 +2,7 @@ import { formatDistanceToNow } from "date-fns";
 import { CalendarDays, ChevronRight, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { useState } from "react";
 
 interface Post {
   id: number;
@@ -21,16 +22,24 @@ interface BlogCardProps {
 }
 
 export const BlogCard = ({ post }: BlogCardProps) => {
+  const [imageLoading, setImageLoading] = useState(true);
+
   return (
     <Card className="bg-navy-light border-white/10 hover:border-primary/50 transition-all duration-300 group">
       <CardHeader>
         {post._embedded?.["wp:featuredmedia"]?.[0]?.source_url && (
           <div className="relative h-48 overflow-hidden rounded-t-lg">
-            <img
-              src={post._embedded["wp:featuredmedia"][0].source_url}
-              alt={post.title.rendered}
-              className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
-            />
+            <div className={`${imageLoading ? 'blur-xl animate-pulse' : 'blur-0'} transition-all duration-300`}>
+              <img
+                src={post._embedded["wp:featuredmedia"][0].source_url}
+                alt={post.title.rendered}
+                className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+                onLoad={() => setImageLoading(false)}
+              />
+              {imageLoading && (
+                <div className="absolute inset-0 bg-navy-light/50 animate-pulse rounded-t-lg" />
+              )}
+            </div>
           </div>
         )}
         <CardTitle className="text-white group-hover:text-primary transition-colors line-clamp-2">
