@@ -4,6 +4,9 @@
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "redirects": [
+    { "source": "http://:domain/:path*", "destination": "https://:domain/:path*", "permanent": true },
+    { "source": "http://m.:domain/:path*", "destination": "https://www.:domain/:path*", "permanent": true },
+    { "source": "https://m.:domain/:path*", "destination": "https://www.:domain/:path*", "permanent": true },
     { "source": "/blog/:path*", "destination": "/blog/:path*", "permanent": true },
     { "source": "/features/:path*", "destination": "/features/:path*", "permanent": true },
     { "source": "/pricing/:path*", "destination": "/pricing/:path*", "permanent": true },
@@ -25,6 +28,7 @@
         { "key": "X-XSS-Protection", "value": "1; mode=block" },
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains" },
         { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), payment=()" }
       ]
     },
@@ -46,5 +50,22 @@
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
     }
-  ]
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "regions": ["all"],
+  "dns": {
+    "records": [
+      {
+        "type": "A",
+        "name": "@",
+        "value": "76.76.21.21"
+      },
+      {
+        "type": "A",
+        "name": "www",
+        "value": "76.76.21.21"
+      }
+    ]
+  }
 }
