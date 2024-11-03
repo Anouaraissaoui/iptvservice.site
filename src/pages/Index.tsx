@@ -22,7 +22,7 @@ const Index = () => {
         "@type": "WebPage",
         "@id": "https://www.iptvservice.site/#webpage",
         "url": "https://www.iptvservice.site",
-        "name": `Premium IPTV Service ${currentDate} | 18,000+ HD Channels`,
+        "name": `Buy IPTV Subscription | Best IPTV Service USA 2025`,
         "isPartOf": { "@id": "https://www.iptvservice.site/#website" },
         "about": { "@id": "https://www.iptvservice.site/#organization" },
         "primaryImageOfPage": {
@@ -33,7 +33,7 @@ const Index = () => {
         },
         "datePublished": "2024-01-01T08:00:00+00:00",
         "dateModified": new Date().toISOString(),
-        "description": "Experience premium IPTV streaming with 18,000+ HD & 4K channels. Instant activation, 24/7 support, and VOD content. Try risk-free with money-back guarantee!",
+        "description": "Buy IPTV subscription with 18,000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support.",
         "inLanguage": "en-US",
         "potentialAction": [{
           "@type": "ReadAction",
@@ -46,8 +46,8 @@ const Index = () => {
   return (
     <>
       <SEO
-        title={`Premium IPTV Service ${currentDate} | 18,000+ HD Channels`}
-        description="Experience premium IPTV streaming with 18,000+ HD & 4K channels. Instant activation, 24/7 support, and VOD content. Try risk-free with money-back guarantee!"
+        title={`Buy IPTV Subscription | Best IPTV Service USA 2025`}
+        description="Buy IPTV subscription with 18,000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support."
         keywords="IPTV service, HD channels, 4K streaming, premium IPTV, buy IPTV subscription, best IPTV service, IPTV provider USA, live TV streaming"
         structuredData={structuredData}
         type="website"
