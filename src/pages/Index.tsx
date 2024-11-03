@@ -10,7 +10,10 @@ import { SEO } from "@/components/SEO";
 import { generateOrganizationData, generateWebsiteData, generateProductData } from "@/utils/structuredData";
 
 const Index = () => {
+  const currentDate = new Date().getFullYear();
+  
   const structuredData = {
+    "@context": "https://schema.org",
     "@graph": [
       generateOrganizationData(),
       generateWebsiteData(),
@@ -19,15 +22,23 @@ const Index = () => {
         "@type": "WebPage",
         "@id": "https://www.iptvservice.site/#webpage",
         "url": "https://www.iptvservice.site",
-        "name": "Buy IPTV Subscription | Best IPTV Service USA 2025",
+        "name": `Premium IPTV Service ${currentDate} | 18,000+ HD Channels`,
         "isPartOf": { "@id": "https://www.iptvservice.site/#website" },
         "about": { "@id": "https://www.iptvservice.site/#organization" },
         "primaryImageOfPage": {
           "@type": "ImageObject",
-          "url": "https://ideogram.ai/assets/progressive-image/balanced/response/T-JUnqqgRsmp3yYR7L_s0g"
+          "url": "https://ideogram.ai/assets/progressive-image/balanced/response/T-JUnqqgRsmp3yYR7L_s0g",
+          "width": "1200",
+          "height": "630"
         },
         "datePublished": "2024-01-01T08:00:00+00:00",
-        "dateModified": new Date().toISOString()
+        "dateModified": new Date().toISOString(),
+        "description": "Experience premium IPTV streaming with 18,000+ HD & 4K channels. Instant activation, 24/7 support, and VOD content. Try risk-free with money-back guarantee!",
+        "inLanguage": "en-US",
+        "potentialAction": [{
+          "@type": "ReadAction",
+          "target": ["https://www.iptvservice.site/pricing"]
+        }]
       }
     ]
   };
@@ -35,11 +46,25 @@ const Index = () => {
   return (
     <>
       <SEO
-        title="Buy IPTV Subscription | Best IPTV Service USA 2025"
-        description="Buy Premium IPTV subscription with 18,000+ HD & 4K channels. Best IPTV service in USA with instant activation and 24/7 support."
-        keywords="buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV channels, HD IPTV, 4K IPTV"
+        title={`Premium IPTV Service ${currentDate} | 18,000+ HD Channels`}
+        description="Experience premium IPTV streaming with 18,000+ HD & 4K channels. Instant activation, 24/7 support, and VOD content. Try risk-free with money-back guarantee!"
+        keywords="IPTV service, HD channels, 4K streaming, premium IPTV, buy IPTV subscription, best IPTV service, IPTV provider USA, live TV streaming"
         structuredData={structuredData}
         type="website"
+        ogImage="https://ideogram.ai/assets/progressive-image/balanced/response/T-JUnqqgRsmp3yYR7L_s0g"
+        alternates={{
+          "en": "/",
+          "es": "/es",
+          "fr": "/fr"
+        }}
+        breadcrumbs={[
+          {
+            name: "Home",
+            path: "/",
+            position: 1,
+            item: "https://www.iptvservice.site"
+          }
+        ]}
       />
       <div className="min-h-screen bg-navy">
         <Navbar />

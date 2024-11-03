@@ -17,8 +17,8 @@ export const SEO = ({
   breadcrumbs,
 }: SEOData) => {
   const baseUrl = "https://www.iptvservice.site";
+  const currentYear = new Date().getFullYear();
   
-  // Generate breadcrumb structured data
   const breadcrumbData = breadcrumbs ? {
     "@type": "BreadcrumbList",
     "itemListElement": breadcrumbs.map((item, index) => ({
@@ -29,7 +29,6 @@ export const SEO = ({
     }))
   } : null;
 
-  // Combine all structured data
   const fullStructuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -39,7 +38,7 @@ export const SEO = ({
         "@type": "WebSite",
         "@id": `${baseUrl}/#website`,
         "url": baseUrl,
-        "name": "IPTV Service",
+        "name": `IPTV Service - Premium Streaming ${currentYear}`,
         "description": "Premium IPTV Streaming Service",
         "potentialAction": {
           "@type": "SearchAction",
@@ -52,7 +51,6 @@ export const SEO = ({
 
   return (
     <Helmet>
-      {/* Basic Meta Tags */}
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
@@ -60,10 +58,7 @@ export const SEO = ({
       <meta name="robots" content={noindex ? "noindex,nofollow" : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"} />
       <meta name="googlebot" content={noindex ? "noindex,nofollow" : "index,follow"} />
       <link rel="canonical" href={canonical} />
-
-      {/* HTTP Headers for Indexing */}
-      <meta httpEquiv="X-Robots-Tag" content={noindex ? "noindex,nofollow" : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"} />
-
+      
       {/* Open Graph */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
@@ -72,7 +67,7 @@ export const SEO = ({
       <meta property="og:image" content={ogImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:site_name" content="IPTV Service" />
+      <meta property="og:site_name" content={`IPTV Service ${currentYear}`} />
       {publishedTime && <meta property="article:published_time" content={publishedTime} />}
       {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
 
@@ -89,30 +84,17 @@ export const SEO = ({
         <link key={lang} rel="alternate" hrefLang={lang} href={`${baseUrl}${url}`} />
       ))}
 
+      {/* Mobile Meta Tags */}
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+      <meta name="theme-color" content="#0F172A" />
+      <meta name="mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
       {/* Structured Data */}
       <script type="application/ld+json">
         {JSON.stringify(fullStructuredData)}
       </script>
-
-      {/* PWA Tags */}
-      <meta name="application-name" content="IPTV Service" />
-      <meta name="apple-mobile-web-app-capable" content="yes" />
-      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-      <meta name="apple-mobile-web-app-title" content="IPTV Service" />
-      <meta name="format-detection" content="telephone=no" />
-      <meta name="mobile-web-app-capable" content="yes" />
-      <meta name="theme-color" content="#0F172A" />
-      
-      {/* Preconnect to Important Origins */}
-      <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
-
-      {/* Indexing Directives */}
-      <meta name="revisit-after" content="1 days" />
-      <meta name="rating" content="general" />
-      <meta name="distribution" content="global" />
-      <meta name="coverage" content="Worldwide" />
     </Helmet>
   );
 };
