@@ -35,11 +35,24 @@ export const SEO = ({
       structuredData,
       breadcrumbData,
       {
+        "@type": "Organization",
+        "@id": `${baseUrl}/#organization`,
+        "name": "IPTV Service",
+        "url": baseUrl,
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${baseUrl}/logo.svg`,
+          "width": "180",
+          "height": "60"
+        }
+      },
+      {
         "@type": "WebSite",
         "@id": `${baseUrl}/#website`,
         "url": baseUrl,
         "name": `IPTV Service - Premium Streaming ${currentYear}`,
         "description": "Premium IPTV Streaming Service",
+        "publisher": { "@id": `${baseUrl}/#organization` },
         "potentialAction": {
           "@type": "SearchAction",
           "target": `${baseUrl}/search?q={search_term_string}`,
@@ -53,7 +66,7 @@ export const SEO = ({
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta name="keywords" content={keywords} />
+      {keywords && <meta name="keywords" content={keywords} />}
       <meta name="author" content={author} />
       <meta name="robots" content={noindex ? "noindex,nofollow" : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"} />
       <meta name="googlebot" content={noindex ? "noindex,nofollow" : "index,follow"} />
@@ -86,11 +99,19 @@ export const SEO = ({
 
       {/* Mobile Meta Tags */}
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-      <meta name="theme-color" content="#0F172A" />
+      <meta name="theme-color" content="#0F172A" media="(prefers-color-scheme: dark)" />
+      <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
       <meta name="mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      <meta name="format-detection" content="telephone=no" />
 
+      {/* Performance & Security Headers */}
+      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+      <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+      <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
+      <meta httpEquiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+      
       {/* Structured Data */}
       <script type="application/ld+json">
         {JSON.stringify(fullStructuredData)}
