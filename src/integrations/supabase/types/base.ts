@@ -1,3 +1,5 @@
+import { OrdersTable, PaymentsTable, ProfilesTable } from './tables';
+
 export type Json =
   | string
   | number

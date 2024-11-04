@@ -1,6 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "../client";
-import type { ProfilesTable } from "../types";
+import { ProfilesTable } from "../types/tables";
 
 export const useProfile = (userId: string | undefined) => {
   const queryClient = useQueryClient();
