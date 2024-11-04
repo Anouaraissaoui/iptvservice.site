@@ -11,9 +11,9 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      orders: OrdersTable
-      payments: PaymentsTable
-      profiles: ProfilesTable
+      orders: OrdersTable;
+      payments: PaymentsTable;
+      profiles: ProfilesTable;
     }
     Views: {
       [_ in never]: never
