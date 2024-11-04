@@ -6,7 +6,7 @@ export type Json =
   | boolean
   | null
   | { [key: string]: Json | undefined }
-  | Json[]
+  | Json[];
 
 export type Database = {
   public: {
@@ -14,20 +14,20 @@ export type Database = {
       orders: OrdersTable;
       payments: PaymentsTable;
       profiles: ProfilesTable;
-    }
+    };
     Views: {
-      [_ in never]: never
-    }
+      [_ in never]: never;
+    };
     Functions: {
-      [_ in never]: never
-    }
+      [_ in never]: never;
+    };
     Enums: {
-      [_ in never]: never
-    }
+      [_ in never]: never;
+    };
     CompositeTypes: {
-      [_ in never]: never
-    }
-  }
-}
+      [_ in never]: never;
+    };
+  };
+};
 
-export type PublicSchema = Database[Extract<keyof Database, "public">]
+export type PublicSchema = Database[Extract<keyof Database, "public">];
