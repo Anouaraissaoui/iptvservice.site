@@ -6,6 +6,8 @@
   "display": "standalone",
   "background_color": "#0F172A",
   "theme_color": "#0F172A",
+  "orientation": "any",
+  "categories": ["entertainment", "streaming"],
   "icons": [
     {
       "src": "https://res.cloudinary.com/aste/image/upload/v1730132979/iptvservice.site.png",
@@ -18,6 +20,18 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Features",
+      "url": "/features",
+      "description": "View IPTV features"
+    },
+    {
+      "name": "Pricing",
+      "url": "/pricing",
+      "description": "View IPTV pricing plans"
     }
   ]
 }
