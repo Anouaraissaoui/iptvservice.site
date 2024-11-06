@@ -27,7 +27,7 @@ const Index = () => {
         "about": { "@id": "https://www.iptvservice.site/#organization" },
         "primaryImageOfPage": {
           "@type": "ImageObject",
-          "url": "https://ideogram.ai/assets/progressive-image/balanced/response/T-JUnqqgRsmp3yYR7L_s0g",
+          "url": "https://www.iptvservice.site/images/IPTV-Service.webp",
           "width": "1200",
           "height": "630"
         },
@@ -51,7 +51,7 @@ const Index = () => {
         keywords="buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV buy, best buy IPTV, IPTV channels, HD IPTV, 4K IPTV, premium IPTV service, IPTV provider USA"
         structuredData={structuredData}
         type="website"
-        ogImage="https://ideogram.ai/assets/progressive-image/balanced/response/T-JUnqqgRsmp3yYR7L_s0g"
+        ogImage="https://www.iptvservice.site/images/IPTV-Service.webp"
         alternates={{
           "en": "/",
           "es": "/es",

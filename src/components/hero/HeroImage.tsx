@@ -6,7 +6,7 @@ const HeroImage = () => {
       <div className="absolute inset-0 bg-primary/20 blur-[120px] rounded-full animate-pulse" aria-hidden="true" />
       <div className="relative bg-navy-light rounded-3xl border border-white/10 p-2 md:p-3 shadow-2xl transform hover:scale-[1.02] transition-transform duration-300 hover:border-primary/50">
         <Image 
-          src="/images/IPTV-Service.avif"
+          src="/images/IPTV-Service.webp"
           alt="Person enjoying IPTV streaming service on a large screen TV in a modern living room setting" 
           className="relative rounded-2xl shadow-2xl w-full object-cover aspect-video"
           loading="eager"
