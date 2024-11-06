@@ -2,7 +2,7 @@
   "@context": "https://schema.org",
   "@type": "WebSite",
   "url": "https://www.iptvservice.site/",
-  "name": "IPTV Service",
+  "name": "Buy IPTV Subscription | Best IPTV Service Provider",
   "description": "Buy IPTV subscription with 18,000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support.",
   "potentialAction": {
     "@type": "SearchAction",
@@ -16,19 +16,20 @@
   "inLanguage": "en-US",
   "copyrightYear": "2024",
   "keywords": [
+    "buy IPTV",
     "IPTV service",
-    "streaming service",
-    "live TV",
-    "HD channels",
-    "4K streaming",
-    "sports streaming",
-    "VOD content"
+    "best IPTV service",
+    "IPTV subscription",
+    "buy IPTV subscription",
+    "premium IPTV service",
+    "HD IPTV channels",
+    "4K IPTV streaming"
   ],
   "mainEntity": {
     "@type": "WebPage",
     "@id": "https://www.iptvservice.site/#webpage",
     "url": "https://www.iptvservice.site",
-    "name": "Premium IPTV Service - HD & 4K Streaming",
+    "name": "Buy Premium IPTV Subscription | Best IPTV Service 2024",
     "isPartOf": {
       "@id": "https://www.iptvservice.site/#website"
     }

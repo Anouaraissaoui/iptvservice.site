@@ -1,15 +1,15 @@
 {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "Premium IPTV Subscription Service USA",
-  "description": "Buy Premium IPTV subscription with 18,000+ HD & 4K channels, VOD content, and live sports. Best IPTV service in USA with instant activation and 24/7 support.",
+  "name": "Buy Premium IPTV Subscription | Best IPTV Service USA",
+  "description": "Buy the best IPTV subscription service with 18,000+ HD & 4K channels. Premium IPTV service with instant activation and 24/7 support. Top-rated IPTV provider in USA.",
   "brand": {
     "@type": "Brand",
     "name": "IPTV Service",
     "slogan": "Your Ultimate Entertainment Solution",
     "logo": "https://www.iptvservice.site/logo.svg"
   },
-  "category": "Streaming Services",
+  "category": "IPTV Subscription Services",
   "offers": {
     "@type": "AggregateOffer",
     "priceCurrency": "USD",
@@ -19,7 +19,7 @@
     "availability": "https://schema.org/InStock",
     "seller": {
       "@type": "Organization",
-      "name": "IPTV Service USA"
+      "name": "Best IPTV Service USA"
     },
     "priceValidUntil": "2024-12-31",
     "itemCondition": "https://schema.org/NewCondition",
@@ -46,7 +46,7 @@
     "datePublished": "2024-02-15",
     "reviewBody": "Best IPTV service I've used. HD & 4K channels work perfectly with great support."
   }],
-  "keywords": "buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV channels, HD IPTV, 4K IPTV",
+  "keywords": "buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV subscription, premium IPTV service, best IPTV provider USA",
   "additionalProperty": [{
     "@type": "PropertyValue",
     "name": "Number of Channels",
