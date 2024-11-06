@@ -34,7 +34,7 @@ const Index = () => {
         },
         "datePublished": "2024-01-01T08:00:00+00:00",
         "dateModified": new Date().toISOString(),
-        "description": "Buy IPTV subscription service with 18,000+ HD & 4K channels. Premium IPTV service with instant activation and 24/7 support. Top-rated IPTV provider in USA.",
+        "description": "Buy IPTV subscription with 18000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support.",
         "inLanguage": "en-US",
         "potentialAction": [{
           "@type": "ReadAction",
@@ -48,12 +48,12 @@ const Index = () => {
     <>
       <ServerSEO 
         title="Buy IPTV Subscription | Best IPTV Service Provider 2025"
-        description="Buy IPTV subscription service with 18,000+ HD & 4K channels. Premium IPTV service with instant activation and 24/7 support. Top-rated IPTV provider in USA."
+        description="Buy IPTV subscription with 18000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support."
         structuredData={structuredData}
       />
       <SEO
         title="Buy IPTV Subscription | Best IPTV Service Provider 2025"
-        description="Buy IPTV subscription service with 18,000+ HD & 4K channels. Premium IPTV service with instant activation and 24/7 support. Top-rated IPTV provider in USA."
+        description="Buy IPTV subscription with 18000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support."
         keywords="buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV buy, best buy IPTV, IPTV channels, HD IPTV, 4K IPTV, premium IPTV service, IPTV provider USA"
         structuredData={structuredData}
         type="website"
