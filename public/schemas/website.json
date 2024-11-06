@@ -8,5 +8,29 @@
     "@type": "SearchAction",
     "target": "https://www.iptvservice.site/search?q={search_term_string}",
     "query-input": "required name=search_term_string"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://www.iptvservice.site/#organization"
+  },
+  "inLanguage": "en-US",
+  "copyrightYear": "2024",
+  "keywords": [
+    "IPTV service",
+    "streaming service",
+    "live TV",
+    "HD channels",
+    "4K streaming",
+    "sports streaming",
+    "VOD content"
+  ],
+  "mainEntity": {
+    "@type": "WebPage",
+    "@id": "https://www.iptvservice.site/#webpage",
+    "url": "https://www.iptvservice.site",
+    "name": "Premium IPTV Service - HD & 4K Streaming",
+    "isPartOf": {
+      "@id": "https://www.iptvservice.site/#website"
+    }
   }
 }

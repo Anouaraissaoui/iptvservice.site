@@ -13,7 +13,9 @@
   }],
   "address": {
     "@type": "PostalAddress",
-    "addressCountry": "United States"
+    "addressCountry": "United States",
+    "addressRegion": "NY",
+    "addressLocality": "New York"
   },
   "sameAs": [
     "https://facebook.com/iptvservice",
@@ -27,7 +29,8 @@
     "contactType": "customer service",
     "availableLanguage": ["English"],
     "contactOption": "TollFree",
-    "areaServed": "Worldwide"
+    "areaServed": "Worldwide",
+    "hoursAvailable": "Mo-Su 00:00-24:00"
   }],
   "aggregateRating": {
     "@type": "AggregateRating",
@@ -35,5 +38,26 @@
     "reviewCount": "1250",
     "bestRating": "5",
     "worstRating": "1"
+  },
+  "knowsAbout": [
+    "IPTV Streaming",
+    "Digital Television",
+    "Video on Demand",
+    "Live Sports Streaming",
+    "HD Content Delivery"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "IPTV Subscription Plans",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Monthly IPTV Subscription",
+          "description": "Access to 18,000+ channels with HD/4K quality"
+        }
+      }
+    ]
   }
 }

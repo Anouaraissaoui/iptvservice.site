@@ -9,12 +9,20 @@
   }, {
     "@type": "ListItem",
     "position": 2,
-    "name": "Pricing",
-    "item": "https://www.iptvservice.site/pricing"
+    "name": "Features",
+    "item": "https://www.iptvservice.site/features",
+    "description": "Explore our IPTV features and benefits"
   }, {
     "@type": "ListItem",
     "position": 3,
-    "name": "Features",
-    "item": "https://www.iptvservice.site/features"
+    "name": "Pricing",
+    "item": "https://www.iptvservice.site/pricing",
+    "description": "View our competitive IPTV subscription plans"
+  }, {
+    "@type": "ListItem",
+    "position": 4,
+    "name": "Blog",
+    "item": "https://www.iptvservice.site/blog",
+    "description": "Latest IPTV news and updates"
   }]
 }
