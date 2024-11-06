@@ -22,7 +22,7 @@ const Index = () => {
         "@type": "WebPage",
         "@id": "https://www.iptvservice.site/#webpage",
         "url": "https://www.iptvservice.site",
-        "name": `Buy IPTV Subscription | Best IPTV Service USA 2025`,
+        "name": `Buy IPTV Subscription | Best IPTV Service Provider 2025`,
         "isPartOf": { "@id": "https://www.iptvservice.site/#website" },
         "about": { "@id": "https://www.iptvservice.site/#organization" },
         "primaryImageOfPage": {
@@ -33,7 +33,7 @@ const Index = () => {
         },
         "datePublished": "2024-01-01T08:00:00+00:00",
         "dateModified": new Date().toISOString(),
-        "description": "Buy IPTV subscription with 18,000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support.",
+        "description": "Buy IPTV subscription service with 18,000+ HD & 4K channels. Premium IPTV service with instant activation and 24/7 support. Top-rated IPTV provider in USA.",
         "inLanguage": "en-US",
         "potentialAction": [{
           "@type": "ReadAction",
@@ -46,9 +46,9 @@ const Index = () => {
   return (
     <>
       <SEO
-        title={`Buy IPTV Subscription | Best IPTV Service USA 2025`}
-        description="Buy IPTV subscription with 18,000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support."
-        keywords="IPTV service, HD channels, 4K streaming, premium IPTV, buy IPTV subscription, best IPTV service, IPTV provider USA, live TV streaming"
+        title={`Buy IPTV Subscription | Best IPTV Service Provider 2025`}
+        description="Buy IPTV subscription service with 18,000+ HD & 4K channels. Premium IPTV service with instant activation and 24/7 support. Top-rated IPTV provider in USA."
+        keywords="buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV buy, best buy IPTV, IPTV channels, HD IPTV, 4K IPTV, premium IPTV service, IPTV provider USA"
         structuredData={structuredData}
         type="website"
         ogImage="https://ideogram.ai/assets/progressive-image/balanced/response/T-JUnqqgRsmp3yYR7L_s0g"
