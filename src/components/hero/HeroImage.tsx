@@ -12,7 +12,6 @@ const HeroImage = () => {
           loading="eager"
           width={800}
           height={450}
-          fetchPriority="high"
         />
         <figcaption className="absolute -bottom-4 md:-bottom-6 left-1/2 -translate-x-1/2 bg-navy-light/90 border border-white/10 rounded-2xl p-3 md:p-4 shadow-xl backdrop-blur-xl w-max">
           <div className="flex items-center gap-3 md:gap-4">

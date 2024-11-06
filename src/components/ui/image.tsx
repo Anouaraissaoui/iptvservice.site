@@ -22,7 +22,6 @@ export const Image = ({ alt, className = "", width, height, loading = "lazy", ..
             backgroundSize: 'cover',
             backgroundPosition: 'center'
           }}
-          aria-hidden="true"
         />
       )}
       <img
@@ -31,7 +30,7 @@ export const Image = ({ alt, className = "", width, height, loading = "lazy", ..
         height={height}
         loading={loading}
         decoding="async"
-        fetchPriority={loading === "eager" ? "high" : "auto"}
+        fetchpriority={loading === "eager" ? "high" : "auto"}
         className={`transition-opacity duration-300 ${
           isLoading ? "opacity-0" : "opacity-100"
         } ${className}`}
