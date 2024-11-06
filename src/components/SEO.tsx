@@ -50,16 +50,18 @@ export const SEO = ({
   };
 
   return (
-    <Helmet>
+    <Helmet prioritizeSeoTags={true}>
+      {/* Primary Meta Tags - High Priority */}
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta name="keywords" content={keywords} />
-      <meta name="author" content={author} />
       <meta name="robots" content={noindex ? "noindex,nofollow" : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"} />
-      <meta name="googlebot" content={noindex ? "noindex,nofollow" : "index,follow"} />
       <link rel="canonical" href={canonical} />
       
-      {/* Open Graph */}
+      {/* Preconnect to required origins */}
+      <link rel="preconnect" href={baseUrl} />
+      <link rel="dns-prefetch" href={baseUrl} />
+      
+      {/* Open Graph - Medium Priority */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content={type} />
@@ -68,30 +70,34 @@ export const SEO = ({
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:site_name" content={`IPTV Service ${currentYear}`} />
+      
+      {/* Article Metadata - Medium Priority */}
       {publishedTime && <meta property="article:published_time" content={publishedTime} />}
       {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
 
-      {/* Twitter Card */}
+      {/* Twitter Card - Lower Priority */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@iptvservice" />
-      <meta name="twitter:creator" content="@iptvservice" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
-
-      {/* Language Alternates */}
+      
+      {/* Additional Meta Tags - Lower Priority */}
+      <meta name="keywords" content={keywords} />
+      <meta name="author" content={author} />
+      
+      {/* Language Alternates - Lower Priority */}
       {alternates && Object.entries(alternates).map(([lang, url]) => (
         <link key={lang} rel="alternate" hrefLang={lang} href={`${baseUrl}${url}`} />
       ))}
 
-      {/* Mobile Meta Tags */}
+      {/* Mobile Meta Tags - High Priority */}
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
       <meta name="theme-color" content="#0F172A" />
       <meta name="mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-      {/* Structured Data */}
+      {/* Structured Data - High Priority */}
       <script type="application/ld+json">
         {JSON.stringify(fullStructuredData)}
       </script>
