@@ -53,7 +53,7 @@ const Benefits = () => {
                 <div className="absolute inset-0 bg-navy animate-pulse rounded-3xl" />
               )}
               <img 
-                src="/images/IPTV-Subscription.avif" 
+                src="/images/IPTV-Subscription.webp" 
                 alt="Family enjoying IPTV entertainment together" 
                 className={`relative rounded-3xl shadow-2xl border border-white/10 group-hover:border-primary/50 transition-all duration-300 ${
                   isLoading ? 'opacity-0' : 'opacity-100'
