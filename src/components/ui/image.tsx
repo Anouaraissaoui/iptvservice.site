@@ -22,6 +22,7 @@ export const Image = ({ alt, className = "", width, height, loading = "lazy", ..
             backgroundSize: 'cover',
             backgroundPosition: 'center'
           }}
+          aria-hidden="true"
         />
       )}
       <img
