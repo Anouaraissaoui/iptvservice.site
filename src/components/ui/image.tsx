@@ -30,7 +30,7 @@ export const Image = ({ alt, className = "", width, height, loading = "lazy", ..
         height={height}
         loading={loading}
         decoding="async"
-        fetchpriority={loading === "eager" ? "high" : "auto"}
+        fetchPriority={loading === "eager" ? "high" : "auto"}
         className={`transition-opacity duration-300 ${
           isLoading ? "opacity-0" : "opacity-100"
         } ${className}`}
