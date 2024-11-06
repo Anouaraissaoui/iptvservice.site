@@ -53,7 +53,7 @@ const Benefits = () => {
                 <div className="absolute inset-0 bg-navy animate-pulse rounded-3xl" />
               )}
               <img 
-                src="https://ideogram.ai/assets/progressive-image/balanced/response/rjBDn08hT6OtKawxA6EQPg" 
+                src="/images/benefits-iptv.webp" 
                 alt="Family enjoying IPTV entertainment together" 
                 className={`relative rounded-3xl shadow-2xl border border-white/10 group-hover:border-primary/50 transition-all duration-300 ${
                   isLoading ? 'opacity-0' : 'opacity-100'
