@@ -7,6 +7,7 @@ import Benefits from "@/components/Benefits";
 import FaqSection from "@/components/FaqSection";
 import Footer from "@/components/Footer";
 import { SEO } from "@/components/SEO";
+import { ServerSEO } from "@/components/ServerSEO";
 import { generateOrganizationData, generateWebsiteData, generateProductData } from "@/utils/structuredData";
 
 const Index = () => {
@@ -45,8 +46,13 @@ const Index = () => {
 
   return (
     <>
+      <ServerSEO 
+        title="Buy IPTV Subscription | Best IPTV Service Provider 2025"
+        description="Buy IPTV subscription service with 18,000+ HD & 4K channels. Premium IPTV service with instant activation and 24/7 support. Top-rated IPTV provider in USA."
+        structuredData={structuredData}
+      />
       <SEO
-        title={`Buy IPTV Subscription | Best IPTV Service Provider 2025`}
+        title="Buy IPTV Subscription | Best IPTV Service Provider 2025"
         description="Buy IPTV subscription service with 18,000+ HD & 4K channels. Premium IPTV service with instant activation and 24/7 support. Top-rated IPTV provider in USA."
         keywords="buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV buy, best buy IPTV, IPTV channels, HD IPTV, 4K IPTV, premium IPTV service, IPTV provider USA"
         structuredData={structuredData}
