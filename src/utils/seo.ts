@@ -3,7 +3,7 @@ import { SEOData } from "@/types/seo";
 export const getMetaTags = ({
   title,
   description,
-  ogImage = "https://www.iptvservice.site/Buy-IPTV.jpg",
+  ogImage = "https://www.iptvservice.site/twitter-card.jpg",
   canonical,
   noindex,
   keywords,

@@ -5,7 +5,7 @@ export const SEO = ({
   title,
   description,
   canonical = "https://www.iptvservice.site",
-  ogImage = "https://www.iptvservice.site/Buy-IPTV.jpg",
+  ogImage = "https://www.iptvservice.site/twitter-card.jpg",
   noindex = false,
   keywords,
   author = "IPTV Service",
