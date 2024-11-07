@@ -8,7 +8,7 @@ export const getQueryClient = (config?: QueryConfig): QueryClient => new QueryCl
       staleTime: config?.staleTime || 1000 * 60 * 5,
       refetchOnWindowFocus: config?.refetchOnWindowFocus || false,
       refetchOnMount: config?.refetchOnMount || false,
-      gcTime: 1000 * 60 * 30 // 30 minutes cache (renamed from cacheTime to gcTime)
+      gcTime: 1000 * 60 * 30 // 30 minutes cache
     }
   }
 });
@@ -19,7 +19,7 @@ export const prefetchData = async (queryClient: QueryClient): Promise<QueryClien
       queryKey: ["posts"],
       queryFn: async (): Promise<ApiResponse<BlogPost[]>> => {
         const response = await fetch(
-          "https://your-wordpress-site.com/wp-json/wp/v2/posts?_embed&per_page=9",
+          "https://dev-iptvservicesite.pantheonsite.io/wp-json/wp/v2/posts?_embed&per_page=9",
           {
             headers: {
               'Cache-Control': 'max-age=3600' // 1 hour cache
