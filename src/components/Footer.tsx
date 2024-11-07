@@ -27,10 +27,6 @@ const Footer = () => {
                 IPTV Service
               </span>
             </Link>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
-              Experience premium IPTV streaming with our reliable and high-quality service. 
-              Watch your favorite content anytime, anywhere.
-            </p>
           </div>
 
           {/* Social Links */}
