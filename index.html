@@ -7,9 +7,8 @@
   <meta name="google-site-verification" content="-9tOh9Oe5dOljUAOkEsn23HsiUTS8QB5MMvwzU-AQgM" />
   
   <!-- Preload Critical Resources -->
-  <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/react@18.3.1/+esm" as="script" crossorigin />
-  <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/react-dom@18.3.1/+esm" as="script" crossorigin />
-  <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.17/files/inter-latin-variable-wghtOnly-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="modulepreload" href="/src/main.tsx" as="script" crossorigin />
+  <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" as="image" href="/images/IPTV-Service.webp" type="image/webp" fetchpriority="high" />
   
   <!-- Inline Critical CSS -->
@@ -21,16 +20,11 @@
     .no-js{display:block}
   </style>
   
-  <!-- CDN CSS Resources -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" media="print" onload="this.media='all'" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@radix-ui/themes@2.0.3/styles/radix-ui.min.css" media="print" onload="this.media='all'" />
-  <noscript>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@radix-ui/themes@2.0.3/styles/radix-ui.min.css">
-  </noscript>
+  <!-- Async CSS Loading -->
+  <link rel="stylesheet" href="/src/index.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="/src/index.css"></noscript>
   
-  <!-- Preconnect to CDNs -->
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <!-- Preconnect to External Domains -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://www.iptvservice.site" crossorigin />
@@ -57,10 +51,6 @@
 <body class="overflow-x-hidden">
   <noscript><div class="no-js">Please enable JavaScript to use this application.</div></noscript>
   <div id="root"></div>
-  
-  <!-- CDN JavaScript Resources -->
-  <script src="https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js" crossorigin></script>
-  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin></script>
   <script type="module" src="/src/main.tsx" defer></script>
 </body>
 </html>
