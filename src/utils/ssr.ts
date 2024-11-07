@@ -7,7 +7,8 @@ export const getQueryClient = (config?: QueryConfig): QueryClient => new QueryCl
     queries: {
       staleTime: config?.staleTime || 1000 * 60 * 5,
       refetchOnWindowFocus: config?.refetchOnWindowFocus || false,
-      refetchOnMount: config?.refetchOnMount || false
+      refetchOnMount: config?.refetchOnMount || false,
+      cacheTime: 1000 * 60 * 30 // 30 minutes cache
     }
   }
 });
@@ -18,7 +19,10 @@ export const prefetchData = async (queryClient: QueryClient): Promise<QueryClien
       queryKey: ["posts"],
       queryFn: async (): Promise<ApiResponse<BlogPost[]>> => {
         const response = await fetch(
-          "https://your-wordpress-site.com/wp-json/wp/v2/posts?_embed&per_page=9"
+          "https://your-wordpress-site.com/wp-json/wp/v2/posts?_embed&per_page=9",
+          {
+            next: { revalidate: 3600 } // Revalidate every hour
+          }
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -43,13 +47,20 @@ export const generatePreloadTags = (resources: Array<{ href: string; as: string;
     .join('\n');
 };
 
-export const generateMetaTags = (url: string, title: string, description: string) => {
-  return `
-    <title>${title}</title>
-    <meta name="description" content="${description}">
-    <link rel="canonical" href="${url}">
-    <meta property="og:url" content="${url}">
-    <meta property="og:title" content="${title}">
-    <meta property="og:description" content="${description}">
-  `;
+export const generateMetaTags = (url: string, title: string, description: string, lastModified?: string) => {
+  const tags = [
+    `<title>${title}</title>`,
+    `<meta name="description" content="${description}">`,
+    `<link rel="canonical" href="${url}">`,
+    `<meta property="og:url" content="${url}">`,
+    `<meta property="og:title" content="${title}">`,
+    `<meta property="og:description" content="${description}">`
+  ];
+
+  if (lastModified) {
+    tags.push(`<meta property="article:modified_time" content="${lastModified}">`);
+    tags.push(`<meta http-equiv="last-modified" content="${lastModified}">`);
+  }
+
+  return tags.join('\n');
 };
