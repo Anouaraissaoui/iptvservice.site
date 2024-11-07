@@ -3,6 +3,13 @@
   "@type": "Product",
   "name": "Buy Premium IPTV Subscription | Best IPTV Service USA",
   "description": "Buy the best IPTV subscription service with 18,000+ HD & 4K channels. Premium IPTV service with instant activation and 24/7 support. Top-rated IPTV provider in USA.",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
+    "width": 6052,
+    "height": 4035,
+    "caption": "Premium IPTV Streaming Experience"
+  },
   "brand": {
     "@type": "Brand",
     "name": "IPTV Service",
@@ -23,7 +30,14 @@
     },
     "priceValidUntil": "2024-12-31",
     "itemCondition": "https://schema.org/NewCondition",
-    "warranty": "30-day money-back guarantee"
+    "warranty": "30-day money-back guarantee",
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": 30,
+      "returnMethod": "https://schema.org/ReturnByMail"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",
