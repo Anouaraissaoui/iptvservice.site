@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { useLocation } from "react-router-dom"; // Add this import
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Stats from "@/components/Stats";
@@ -11,7 +12,7 @@ import { ServerSEO } from "@/components/ServerSEO";
 import { generateOrganizationData, generateWebsiteData, generateProductData } from "@/utils/structuredData";
 
 const Index = () => {
-  const location = useLocation();
+  const location = useLocation(); // Use useLocation hook
   const isFrench = location.pathname.startsWith("/fr");
   const currentDate = new Date().getFullYear();
   
