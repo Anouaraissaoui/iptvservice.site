@@ -4,8 +4,8 @@ import Footer from "@/components/Footer";
 import { SEO } from "@/components/SEO";
 import { BlogGrid } from "@/components/blog/BlogGrid";
 
-// Import the blog post
-import FirestickGuide from "../content/blog/firestick-setup-guide.mdx";
+// Import the blog post and its metadata
+import FirestickGuide, { meta as firestickMeta } from "../content/blog/firestick-setup-guide.mdx";
 
 const Blog = () => {
   const { data: posts, isLoading } = useQuery({
@@ -15,14 +15,14 @@ const Blog = () => {
       // In a real app, you'd fetch this from an API
       return [{
         id: 1,
-        date: "2024-03-19",
-        title: { rendered: "How to Easily Set Up IPTV on FireStick? – Step-By-Step Guide 2024" },
-        excerpt: { rendered: "Complete step-by-step guide to install and set up IPTV on your Amazon FireStick..." },
+        date: firestickMeta.date,
+        title: { rendered: firestickMeta.title },
+        excerpt: { rendered: firestickMeta.description },
         content: FirestickGuide,
         link: "/blog/firestick-setup-guide",
         _embedded: {
           "wp:featuredmedia": [{
-            source_url: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
+            source_url: firestickMeta.image
           }]
         }
       }]
