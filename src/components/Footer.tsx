@@ -11,6 +11,24 @@ const Footer = () => {
     { icon: <Youtube className="w-5 h-5" />, href: "#", label: "YouTube" }
   ];
 
+  const mainLinks = [
+    { name: "Home", path: "/" },
+    { name: "Features", path: "/features" },
+    { name: "Pricing", path: "/pricing" },
+    { name: "Blog", path: "/blog" },
+    { name: "Contact", path: "/contact" }
+  ];
+
+  const legalLinks = [
+    { name: "Terms", path: "/terms" },
+    { name: "Privacy", path: "/privacy" }
+  ];
+
+  const supportLinks = [
+    { name: "24/7 Support", path: "/contact" },
+    { name: "FAQs", path: "/features#faq" }
+  ];
+
   return (
     <footer className="bg-navy-light relative overflow-hidden border-t border-white/10">
       {/* Background Effects */}
@@ -27,28 +45,86 @@ const Footer = () => {
                 IPTV Service
               </span>
             </Link>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
+              Experience premium IPTV streaming with our reliable and high-quality service. 
+              Watch your favorite content anytime, anywhere.
+            </p>
           </div>
 
-          {/* Social Links */}
-          <div className="flex justify-center gap-4">
-            {socialLinks.map((social, index) => (
-              <Button
-                key={index}
-                variant="ghost"
-                size="icon"
-                className="rounded-full bg-white/5 hover:bg-primary/20 hover:text-primary text-gray-400 transition-all duration-300"
-                asChild
-              >
-                <a 
-                  href={social.href} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  aria-label={social.label}
-                >
-                  {social.icon}
-                </a>
-              </Button>
-            ))}
+          {/* Navigation Links */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center md:text-left">
+            <div className="space-y-4">
+              <h3 className="text-white font-semibold text-lg">Main Pages</h3>
+              <ul className="space-y-2">
+                {mainLinks.map((link) => (
+                  <li key={link.path}>
+                    <Link 
+                      to={link.path}
+                      className="text-gray-400 hover:text-primary transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            <div className="space-y-4">
+              <h3 className="text-white font-semibold text-lg">Legal</h3>
+              <ul className="space-y-2">
+                {legalLinks.map((link) => (
+                  <li key={link.path}>
+                    <Link 
+                      to={link.path}
+                      className="text-gray-400 hover:text-primary transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="space-y-4">
+              <h3 className="text-white font-semibold text-lg">Support</h3>
+              <ul className="space-y-2">
+                {supportLinks.map((link) => (
+                  <li key={link.path}>
+                    <Link 
+                      to={link.path}
+                      className="text-gray-400 hover:text-primary transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="space-y-4">
+              <h3 className="text-white font-semibold text-lg">Connect</h3>
+              {/* Social Links */}
+              <div className="flex flex-wrap justify-center md:justify-start gap-4">
+                {socialLinks.map((social, index) => (
+                  <Button
+                    key={index}
+                    variant="ghost"
+                    size="icon"
+                    className="rounded-full bg-white/5 hover:bg-primary/20 hover:text-primary text-gray-400 transition-all duration-300"
+                    asChild
+                  >
+                    <a 
+                      href={social.href} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      aria-label={social.label}
+                    >
+                      {social.icon}
+                    </a>
+                  </Button>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Bottom Section */}
