@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
+import { dehydrate, QueryClient } from "@tanstack/react-query";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { BlogGrid } from "@/components/blog/BlogGrid";
 import { SEO } from "@/components/SEO";
 import { prefetchData } from "@/utils/ssr";
-import { dehydrate, QueryClient } from "@tanstack/react-query";
 
 interface Post {
   id: number;
@@ -21,7 +21,7 @@ interface Post {
 
 const fetchPosts = async (): Promise<Post[]> => {
   const response = await fetch(
-    "https://dev-iptvservicesite.pantheonsite.io/wp-json/wp/v2/posts?_embed&per_page=9"
+    "https://your-wordpress-site.com/wp-json/wp/v2/posts?_embed&per_page=9"
   );
   if (!response.ok) {
     throw new Error("Network response was not ok");
