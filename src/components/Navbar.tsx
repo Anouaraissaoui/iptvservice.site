@@ -20,7 +20,7 @@ const Navbar = () => {
 
   return (
     <nav className="fixed w-full bg-navy/90 backdrop-blur-sm z-50 border-b border-white/10">
-      <div className="container mx-auto px-4">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between py-4 md:py-6">
           <Link 
             to="/" 
@@ -69,7 +69,7 @@ const Navbar = () => {
           id="mobile-menu"
           className="md:hidden fixed inset-0 top-[73px] bg-navy/95 backdrop-blur-lg z-40"
         >
-          <div className="container px-4 py-8 flex flex-col gap-6">
+          <div className="px-4 py-8 flex flex-col gap-6">
             {navItems.map((item) => (
               <Link
                 key={item.path}
