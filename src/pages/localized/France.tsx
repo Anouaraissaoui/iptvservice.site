@@ -1,8 +1,45 @@
 import { LocalizedPage } from "@/components/LocalizedPage";
 import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import Stats from "@/components/Stats";
+import PricingCards from "@/components/PricingCards";
+import Benefits from "@/components/Benefits";
+import FaqSection from "@/components/FaqSection";
 import Footer from "@/components/Footer";
 
 const France = () => {
+  const translations = {
+    hero: {
+      title: "Découvrez le Meilleur Service IPTV",
+      subtitle: "Profitez d'une expérience de streaming inégalée avec plus de 18 000 chaînes en direct",
+      cta: "Voir les forfaits",
+      contactUs: "Nous contacter",
+      newFeature: "Nouveau",
+      experienceText: "Découvrez l'avenir de la télévision →"
+    },
+    benefits: {
+      title: "Avantages de l'IPTV",
+      items: [
+        {
+          title: "Économique",
+          description: "Plus abordable que les forfaits de télévision par câble ou satellite traditionnels."
+        },
+        {
+          title: "Streaming Haute Qualité",
+          description: "Profitez d'une qualité vidéo et audio haute définition."
+        },
+        {
+          title: "Visionnage Flexible",
+          description: "Regardez vos contenus préférés n'importe quand, n'importe où avec une connexion Internet."
+        },
+        {
+          title: "Portée Mondiale",
+          description: "Accédez à une large gamme de chaînes et contenus internationaux."
+        }
+      ]
+    }
+  };
+
   return (
     <LocalizedPage
       country="France"
@@ -12,29 +49,12 @@ const France = () => {
     >
       <div className="min-h-screen bg-navy">
         <Navbar />
-        <main className="container mx-auto px-4 py-8">
-          <div className="max-w-4xl mx-auto space-y-12">
-            <h1 className="text-4xl font-bold mb-8 text-white">Service IPTV Premium en France</h1>
-            
-            <section className="space-y-6">
-              <h2 className="text-2xl font-semibold text-white">Découvrez Notre Service IPTV Premium</h2>
-              <p className="text-gray-300">
-                Profitez d'une expérience télévisuelle incomparable avec notre service IPTV haut de gamme. 
-                Accédez à plus de 18 000 chaînes en direct, films et séries en qualité HD et 4K.
-              </p>
-            </section>
-
-            <section className="space-y-6">
-              <h2 className="text-2xl font-semibold text-white">Caractéristiques Principales</h2>
-              <ul className="space-y-4 text-gray-300">
-                <li>✓ Plus de 18 000 chaînes françaises et internationales</li>
-                <li>✓ Qualité HD/4K garantie</li>
-                <li>✓ Compatible avec tous les appareils</li>
-                <li>✓ Support technique 24/7 en français</li>
-                <li>✓ Installation facile et rapide</li>
-              </ul>
-            </section>
-          </div>
+        <main>
+          <Hero translations={translations.hero} />
+          <Stats />
+          <PricingCards />
+          <Benefits translations={translations.benefits} />
+          <FaqSection />
         </main>
         <Footer />
       </div>

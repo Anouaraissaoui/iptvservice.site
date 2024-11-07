@@ -1,8 +1,45 @@
 import { LocalizedPage } from "@/components/LocalizedPage";
 import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import Stats from "@/components/Stats";
+import PricingCards from "@/components/PricingCards";
+import Benefits from "@/components/Benefits";
+import FaqSection from "@/components/FaqSection";
 import Footer from "@/components/Footer";
 
 const UK = () => {
+  const translations = {
+    hero: {
+      title: "Experience the Best IPTV Service",
+      subtitle: "Enjoy unmatched streaming experience with over 18,000 live channels",
+      cta: "View Plans",
+      contactUs: "Contact Us",
+      newFeature: "New",
+      experienceText: "Experience the future of TV →"
+    },
+    benefits: {
+      title: "Benefits of IPTV",
+      items: [
+        {
+          title: "Cost-Effective",
+          description: "More affordable than traditional cable or satellite TV packages."
+        },
+        {
+          title: "High-Quality Streaming",
+          description: "Enjoy crisp, high-definition video and audio quality."
+        },
+        {
+          title: "Flexible Viewing",
+          description: "Watch your favourite content anytime, anywhere with an internet connection."
+        },
+        {
+          title: "Global Reach",
+          description: "Access a wide range of international channels and content."
+        }
+      ]
+    }
+  };
+
   return (
     <LocalizedPage
       country="United Kingdom"
@@ -12,29 +49,12 @@ const UK = () => {
     >
       <div className="min-h-screen bg-navy">
         <Navbar />
-        <main className="container mx-auto px-4 py-8">
-          <div className="max-w-4xl mx-auto space-y-12">
-            <h1 className="text-4xl font-bold mb-8 text-white">Premium IPTV Service in the UK</h1>
-            
-            <section className="space-y-6">
-              <h2 className="text-2xl font-semibold text-white">Discover Our Premium IPTV Service</h2>
-              <p className="text-gray-300">
-                Experience unmatched television with our premium IPTV service. 
-                Access over 18,000 live channels, films, and series in HD and 4K quality.
-              </p>
-            </section>
-
-            <section className="space-y-6">
-              <h2 className="text-2xl font-semibold text-white">Key Features</h2>
-              <ul className="space-y-4 text-gray-300">
-                <li>✓ Over 18,000 UK and international channels</li>
-                <li>✓ Guaranteed HD/4K quality</li>
-                <li>✓ Compatible with all devices</li>
-                <li>✓ 24/7 technical support</li>
-                <li>✓ Quick and easy setup</li>
-              </ul>
-            </section>
-          </div>
+        <main>
+          <Hero translations={translations.hero} />
+          <Stats />
+          <PricingCards />
+          <Benefits translations={translations.benefits} />
+          <FaqSection />
         </main>
         <Footer />
       </div>
