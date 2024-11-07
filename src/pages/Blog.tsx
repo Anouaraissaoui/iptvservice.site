@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import { BlogGrid } from "@/components/blog/BlogGrid";
 import { SEO } from "@/components/SEO";
 import { client } from "@/lib/apollo-client";
+import { BlogPost } from "@/types/components";
 
 const GET_POSTS = gql`
   query GetPosts {
@@ -27,20 +28,6 @@ const GET_POSTS = gql`
   }
 `;
 
-interface Post {
-  id: string;
-  date: string;
-  title: { rendered: string };
-  excerpt: { rendered: string };
-  featuredImage?: {
-    node: {
-      sourceUrl: string;
-      altText: string;
-    };
-  };
-  link: string;
-}
-
 const Blog = () => {
   const { data, loading: isLoading } = useQuery(GET_POSTS, {
     client,
@@ -60,7 +47,6 @@ const Blog = () => {
   }));
 
   const structuredData = {
-    "@context": "https://schema.org",
     "@type": "Blog",
     "@id": "https://www.iptvservice.site/blog/#blog",
     "name": "IPTV Blog - Latest Streaming News & Updates",
@@ -74,7 +60,7 @@ const Blog = () => {
         "url": "https://www.iptvservice.site/logo.svg"
       }
     },
-    "blogPost": posts?.map((post: Post) => ({
+    "blogPost": posts?.map((post: BlogPost) => ({
       "@type": "BlogPosting",
       "headline": post.title.rendered,
       "datePublished": post.date,
