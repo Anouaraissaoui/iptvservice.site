@@ -1,7 +1,11 @@
-import { ApolloClient, InMemoryCache } from '@apollo/client';
+import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
+
+const httpLink = createHttpLink({
+  uri: 'https://your-wordpress-site.com/graphql',
+});
 
 export const client = new ApolloClient({
-  uri: '/api/posts', // This will be handled by our local API
+  link: httpLink,
   cache: new InMemoryCache(),
   defaultOptions: {
     query: {
