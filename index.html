@@ -7,10 +7,9 @@
   <meta name="google-site-verification" content="-9tOh9Oe5dOljUAOkEsn23HsiUTS8QB5MMvwzU-AQgM" />
   
   <!-- Preload Critical Resources -->
-  <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js" as="script" crossorigin />
-  <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js" as="script" crossorigin />
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" crossorigin />
-  <link rel="preload" as="image" href="https://res.cloudinary.com/aste/image/upload/v1730132979/IPTV-Service.webp" type="image/webp" fetchpriority="high" />
+  <link rel="modulepreload" href="/src/main.tsx" as="script" crossorigin />
+  <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" as="image" href="/images/IPTV-Service.webp" type="image/webp" fetchpriority="high" />
   
   <!-- Inline Critical CSS -->
   <style>
@@ -22,18 +21,13 @@
   </style>
   
   <!-- Async CSS Loading -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2/dist/tailwind.min.css" media="print" onload="this.media='all'" />
   <link rel="stylesheet" href="/src/index.css" media="print" onload="this.media='all'" />
-  <noscript>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2/dist/tailwind.min.css">
-    <link rel="stylesheet" href="/src/index.css">
-  </noscript>
+  <noscript><link rel="stylesheet" href="/src/index.css"></noscript>
   
   <!-- Preconnect to External Domains -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-  <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
+  <link rel="preconnect" href="https://www.iptvservice.site" crossorigin />
   
   <!-- SEO Meta Tags -->
   <title>Buy IPTV Subscription | Best IPTV Service Provider 2025</title>
@@ -41,8 +35,8 @@
   <meta name="keywords" content="buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV buy, best buy IPTV, IPTV channels, HD IPTV, 4K IPTV, premium IPTV service, IPTV provider USA" />
   
   <!-- PWA -->
-  <link rel="icon" type="image/png" href="https://res.cloudinary.com/aste/image/upload/v1730132979/logo.png" />
-  <link rel="apple-touch-icon" href="https://res.cloudinary.com/aste/image/upload/v1730132979/logo.png" sizes="180x180" />
+  <link rel="icon" type="image/png" href="/images/logo.png" />
+  <link rel="apple-touch-icon" href="/images/logo.png" sizes="180x180" />
   <link rel="manifest" href="/manifest.json" />
   
   <!-- Open Graph -->
