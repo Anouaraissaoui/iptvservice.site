@@ -1,13 +1,21 @@
 {
   "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/$1" },
     { "source": "/(.*)", "destination": "/index.html" }
   ],
-  "routes": [
-    { "src": "/pricing", "dest": "/index.html", "status": 200 },
-    { "src": "/features", "dest": "/index.html", "status": 200 },
-    { "src": "/contact", "dest": "/index.html", "status": 200 },
-    { "src": "/blog", "dest": "/index.html", "status": 200 },
-    { "src": "/", "dest": "/index.html", "status": 200 }
+  "redirects": [
+    { "source": "/blog/:path*", "destination": "/blog/:path*", "permanent": true },
+    { "source": "/features/:path*", "destination": "/features/:path*", "permanent": true },
+    { "source": "/pricing/:path*", "destination": "/pricing/:path*", "permanent": true },
+    { "source": "/contact/:path*", "destination": "/contact/:path*", "permanent": true },
+    { "source": "/refund", "destination": "/terms", "permanent": true },
+    { "source": "/setup-guide", "destination": "/features", "permanent": true },
+    { "source": "/troubleshooting", "destination": "/contact", "permanent": true },
+    { "source": "/faq", "destination": "/features#faq", "permanent": true },
+    { "source": "/packages", "destination": "/pricing", "permanent": true },
+    { "source": "/services", "destination": "/features", "permanent": true },
+    { "source": "/support", "destination": "/contact", "permanent": true },
+    { "source": "/news", "destination": "/blog", "permanent": true }
   ],
   "headers": [
     {
