@@ -1,7 +1,7 @@
 import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 
 const httpLink = createHttpLink({
-  uri: 'https://your-wordpress-site.com/graphql',
+  uri: 'https://dev-seatogel.pantheonsite.io/graphql',
 });
 
 export const client = new ApolloClient({
