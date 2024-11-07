@@ -1,5 +1,5 @@
 import React from 'react';
-import SEO from '@/components/SEO';
+import { SEO } from '@/components/SEO';
 import BlogPost from '@/components/blog/BlogPost';
 
 const Blog = () => {
@@ -9,11 +9,12 @@ const Blog = () => {
         title="How to Easily Set Up IPTV on FireStick? - Complete Guide"
         description="Learn how to set up IPTV on your FireStick with our step-by-step guide. Includes installation tips, troubleshooting, and performance optimization."
         canonical="/blog"
-        openGraph={{
-          title: "How to Easily Set Up IPTV on FireStick? - Complete Guide",
-          description: "Learn how to set up IPTV on your FireStick with our step-by-step guide. Includes installation tips, troubleshooting, and performance optimization.",
-          url: "/blog",
-          type: "article",
+        type="article"
+        keywords="IPTV, FireStick, setup guide, streaming"
+        structuredData={{
+          "@type": "BlogPosting",
+          "headline": "How to Easily Set Up IPTV on FireStick? - Complete Guide",
+          "description": "Learn how to set up IPTV on your FireStick with our step-by-step guide. Includes installation tips, troubleshooting, and performance optimization."
         }}
       />
       <BlogPost />
