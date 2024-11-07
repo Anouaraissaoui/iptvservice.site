@@ -61,8 +61,6 @@ const Checkout = () => {
         description: "You will be redirected to complete the payment",
       });
 
-      // Here you would typically redirect to a payment processor
-      // For now, we'll just redirect to a success page
       setTimeout(() => {
         navigate("/");
       }, 2000);
@@ -117,37 +115,6 @@ const Checkout = () => {
                   className="bg-white/5 border-white/10 text-white"
                   placeholder="john@example.com"
                 />
-              </div>
-
-              <div>
-                <Label htmlFor="card" className="text-white">Card Number</Label>
-                <Input
-                  id="card"
-                  required
-                  className="bg-white/5 border-white/10 text-white"
-                  placeholder="Enter card number"
-                />
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <Label htmlFor="expiry" className="text-white">Expiry Date</Label>
-                  <Input
-                    id="expiry"
-                    required
-                    className="bg-white/5 border-white/10 text-white"
-                    placeholder="MM/YY"
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="cvc" className="text-white">CVC</Label>
-                  <Input
-                    id="cvc"
-                    required
-                    className="bg-white/5 border-white/10 text-white"
-                    placeholder="Enter CVC"
-                  />
-                </div>
               </div>
 
               <Button 
