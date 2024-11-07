@@ -1,5 +1,6 @@
 import { formatDistanceToNow } from "date-fns";
 import { CalendarDays, ChevronRight, Clock } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Image } from "@/components/ui/image";
@@ -52,15 +53,13 @@ export const BlogCard = ({ post }: BlogCardProps) => {
           className="w-full group-hover:text-primary group-hover:bg-primary/10"
           asChild
         >
-          <a 
-            href={post.link} 
-            target="_blank" 
-            rel="noopener noreferrer"
+          <Link 
+            to={post.link}
             className="flex items-center justify-center gap-2"
           >
             Read More
             <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </a>
+          </Link>
         </Button>
       </CardFooter>
     </Card>

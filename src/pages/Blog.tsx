@@ -62,7 +62,7 @@ const Blog = () => {
       "@type": "BlogPosting",
       "headline": post.title.rendered,
       "datePublished": post.date,
-      "url": post.link,
+      "url": `https://www.iptvservice.site${post.link}`,
       "image": post._embedded?.["wp:featuredmedia"]?.[0]?.source_url
     }))
   };
