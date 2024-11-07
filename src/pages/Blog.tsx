@@ -79,23 +79,29 @@ const Blog = () => {
 
       <main className="min-h-screen bg-navy">
         <Navbar />
-        <div className="container mx-auto px-4 py-24">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Latest from Our{" "}
-              <span className="text-primary relative inline-block">
-                Blog
-                <span className="absolute -bottom-2 left-0 right-0 h-1 bg-primary/30 blur-sm" />
-              </span>
-            </h1>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              Stay updated with the latest news, guides, and insights about IPTV streaming
-            </p>
-          </div>
+        <div className="relative overflow-hidden">
+          {/* Background Effects */}
+          <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px] animate-[grid_20s_linear_infinite]" aria-hidden="true" />
+          <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] animate-pulse" aria-hidden="true" />
+          <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] animate-pulse" aria-hidden="true" />
+          
+          <div className="container mx-auto px-4 py-24 relative">
+            <div className="text-center mb-16">
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                Latest from Our{" "}
+                <span className="text-primary relative inline-block">
+                  Blog
+                  <span className="absolute -bottom-2 left-0 right-0 h-1 bg-primary/30 blur-sm" />
+                </span>
+              </h1>
+              <p className="text-gray-400 max-w-2xl mx-auto">
+                Stay updated with the latest news, guides, and insights about IPTV streaming
+              </p>
+            </div>
 
-          <BlogGrid posts={staticPosts} isLoading={false} />
+            <BlogGrid posts={staticPosts} isLoading={false} />
+          </div>
         </div>
-        
         <Footer />
       </main>
     </>

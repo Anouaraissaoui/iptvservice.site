@@ -12,7 +12,7 @@ interface BlogCardProps {
 
 export const BlogCard = ({ post }: BlogCardProps) => {
   return (
-    <Card className="bg-navy-light border-white/10 hover:border-primary/50 transition-all duration-300 group">
+    <Card className="bg-navy-light border-white/10 hover:border-primary/50 transition-all duration-300 group overflow-hidden">
       <CardHeader>
         {post._embedded?.["wp:featuredmedia"]?.[0]?.source_url && (
           <div className="relative h-48 overflow-hidden rounded-t-lg">
