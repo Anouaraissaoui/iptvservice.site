@@ -24,20 +24,14 @@ export interface ContactMethodProps {
 }
 
 export interface BlogPost {
-  id: string;
+  id: number;
   date: string;
   title: { rendered: string };
   excerpt: { rendered: string };
-  featuredImage?: {
-    node: {
-      sourceUrl: string;
-      altText: string;
-    };
-  };
-  link: string;
   _embedded?: {
     "wp:featuredmedia"?: Array<{
       source_url: string;
     }>;
   };
+  link: string;
 }

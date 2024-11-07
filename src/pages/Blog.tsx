@@ -1,52 +1,43 @@
-import { useQuery } from "@apollo/client";
-import { gql } from "@apollo/client";
+import { useQuery } from "@tanstack/react-query";
+import { dehydrate, QueryClient } from "@tanstack/react-query";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { BlogGrid } from "@/components/blog/BlogGrid";
 import { SEO } from "@/components/SEO";
-import { client } from "@/lib/apollo-client";
-import { BlogPost } from "@/types/components";
+import { prefetchData } from "@/utils/ssr";
 
-const GET_POSTS = gql`
-  query GetPosts {
-    posts(first: 9) {
-      nodes {
-        id
-        date
-        title
-        excerpt
-        slug
-        featuredImage {
-          node {
-            sourceUrl
-            altText
-          }
-        }
-        link
-      }
-    }
+interface Post {
+  id: number;
+  date: string;
+  title: { rendered: string };
+  excerpt: { rendered: string };
+  _embedded?: {
+    "wp:featuredmedia"?: Array<{
+      source_url: string;
+    }>;
+  };
+  link: string;
+}
+
+const fetchPosts = async (): Promise<Post[]> => {
+  const response = await fetch(
+    "https://your-wordpress-site.com/wp-json/wp/v2/posts?_embed&per_page=9"
+  );
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
   }
-`;
+  return response.json();
+};
 
 const Blog = () => {
-  const { data, loading: isLoading } = useQuery(GET_POSTS, {
-    client,
+  const { data: posts, isLoading } = useQuery({
+    queryKey: ["posts"],
+    queryFn: fetchPosts,
+    staleTime: 1000 * 60 * 5, // 5 minutes
   });
 
-  const posts = data?.posts?.nodes?.map((post: any) => ({
-    id: post.id,
-    date: post.date,
-    title: { rendered: post.title },
-    excerpt: { rendered: post.excerpt },
-    _embedded: post.featuredImage ? {
-      "wp:featuredmedia": [{
-        source_url: post.featuredImage.node.sourceUrl
-      }]
-    } : undefined,
-    link: post.link
-  }));
-
   const structuredData = {
+    "@context": "https://schema.org",
     "@type": "Blog",
     "@id": "https://www.iptvservice.site/blog/#blog",
     "name": "IPTV Blog - Latest Streaming News & Updates",
@@ -60,7 +51,7 @@ const Blog = () => {
         "url": "https://www.iptvservice.site/logo.svg"
       }
     },
-    "blogPost": posts?.map((post: BlogPost) => ({
+    "blogPost": posts?.map((post) => ({
       "@type": "BlogPosting",
       "headline": post.title.rendered,
       "datePublished": post.date,
@@ -102,6 +93,17 @@ const Blog = () => {
       </main>
     </>
   );
+};
+
+export const getServerSideProps = async () => {
+  const queryClient = new QueryClient();
+  await prefetchData(queryClient);
+  
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
 };
 
 export default Blog;
