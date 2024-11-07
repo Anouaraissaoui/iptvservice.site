@@ -1,43 +1,9 @@
-import { useQuery } from "@tanstack/react-query";
-import { dehydrate, QueryClient } from "@tanstack/react-query";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { BlogGrid } from "@/components/blog/BlogGrid";
 import { SEO } from "@/components/SEO";
-import { prefetchData } from "@/utils/ssr";
-
-interface Post {
-  id: number;
-  date: string;
-  title: { rendered: string };
-  excerpt: { rendered: string };
-  _embedded?: {
-    "wp:featuredmedia"?: Array<{
-      source_url: string;
-    }>;
-  };
-  link: string;
-}
-
-const fetchPosts = async (): Promise<Post[]> => {
-  const response = await fetch(
-    "https://your-wordpress-site.com/wp-json/wp/v2/posts?_embed&per_page=9"
-  );
-  if (!response.ok) {
-    throw new Error("Network response was not ok");
-  }
-  return response.json();
-};
 
 const Blog = () => {
-  const { data: posts, isLoading } = useQuery({
-    queryKey: ["posts"],
-    queryFn: fetchPosts,
-    staleTime: 1000 * 60 * 5, // 5 minutes
-  });
-
   const structuredData = {
-    "@context": "https://schema.org",
     "@type": "Blog",
     "@id": "https://www.iptvservice.site/blog/#blog",
     "name": "IPTV Blog - Latest Streaming News & Updates",
@@ -50,14 +16,7 @@ const Blog = () => {
         "@type": "ImageObject",
         "url": "https://www.iptvservice.site/logo.svg"
       }
-    },
-    "blogPost": posts?.map((post) => ({
-      "@type": "BlogPosting",
-      "headline": post.title.rendered,
-      "datePublished": post.date,
-      "url": post.link,
-      "image": post._embedded?.["wp:featuredmedia"]?.[0]?.source_url
-    }))
+    }
   };
 
   return (
@@ -86,24 +45,15 @@ const Blog = () => {
             </p>
           </div>
 
-          <BlogGrid posts={posts} isLoading={isLoading} />
+          <div className="text-white text-center">
+            Coming soon! Our blog is under construction.
+          </div>
         </div>
         
         <Footer />
       </main>
     </>
   );
-};
-
-export const getServerSideProps = async () => {
-  const queryClient = new QueryClient();
-  await prefetchData(queryClient);
-  
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
-  };
 };
 
 export default Blog;
