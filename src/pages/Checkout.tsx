@@ -28,28 +28,47 @@ const Checkout = () => {
     }
     setPlan(planData);
 
-    // Check if user is authenticated
-    const checkUser = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (user) {
-        // Pre-fill email if user is logged in
-        setFormData(prev => ({ ...prev, email: user.email || '' }));
+    const checkAuthAndFetchProfile = async () => {
+      try {
+        const { data: { user } } = await supabase.auth.getUser();
         
-        // Try to get existing profile data
-        const { data: profile } = await supabase
+        if (!user) {
+          toast({
+            title: "Please sign in",
+            description: "You need to be signed in to make a purchase",
+            variant: "destructive",
+          });
+          navigate("/login");
+          return;
+        }
+
+        // Set email from auth
+        setFormData(prev => ({ ...prev, email: user.email || '' }));
+
+        // Fetch profile data
+        const { data: profile, error: profileError } = await supabase
           .from('profiles')
           .select('full_name')
           .eq('id', user.id)
           .single();
-          
+
+        if (profileError) throw profileError;
+
         if (profile?.full_name) {
           setFormData(prev => ({ ...prev, fullName: profile.full_name }));
         }
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+        toast({
+          title: "Error",
+          description: "Failed to load user data. Please try again.",
+          variant: "destructive",
+        });
       }
     };
-    
-    checkUser();
-  }, [location.state, navigate]);
+
+    checkAuthAndFetchProfile();
+  }, [location.state, navigate, toast]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -72,9 +91,7 @@ const Checkout = () => {
       // Update profile information
       const { error: profileError } = await supabase
         .from('profiles')
-        .update({ 
-          full_name: formData.fullName,
-        })
+        .update({ full_name: formData.fullName })
         .eq('id', user.id);
 
       if (profileError) throw profileError;
@@ -98,11 +115,13 @@ const Checkout = () => {
         description: "You will be redirected to complete the payment",
       });
 
+      // Redirect after successful order creation
       setTimeout(() => {
-        navigate("/");
+        navigate("/dashboard");
       }, 2000);
 
     } catch (error) {
+      console.error('Error processing order:', error);
       toast({
         title: "Error processing order",
         description: "Please try again later",
@@ -163,6 +182,7 @@ const Checkout = () => {
                   required
                   className="bg-white/5 border-white/10 text-white"
                   placeholder="john@example.com"
+                  readOnly
                 />
               </div>
 
