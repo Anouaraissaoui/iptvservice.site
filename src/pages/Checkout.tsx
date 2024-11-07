@@ -3,6 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { toast } from "sonner";
+import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -26,6 +27,15 @@ const formSchema = z.object({
 });
 
 const Checkout = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const selectedPlan = location.state?.plan;
+
+  if (!selectedPlan) {
+    navigate('/pricing');
+    return null;
+  }
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -43,6 +53,7 @@ const Checkout = () => {
       // Here you would typically process the payment and create the order
       console.log("Form submitted:", values);
       toast.success("Order placed successfully!");
+      navigate('/');
     } catch (error) {
       toast.error("Failed to process order. Please try again.");
     }
@@ -62,6 +73,25 @@ const Checkout = () => {
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-2xl mx-auto bg-navy-light/80 rounded-xl p-8 backdrop-blur-sm border border-white/10">
             <h1 className="text-3xl font-bold text-white mb-8">Checkout</h1>
+            
+            <div className="mb-8 p-4 rounded-lg bg-white/5 border border-white/10">
+              <h2 className="text-xl font-semibold text-white mb-4">Order Summary</h2>
+              <div className="flex justify-between items-center text-gray-300 mb-2">
+                <span>Plan Duration:</span>
+                <span>{selectedPlan.duration}</span>
+              </div>
+              <div className="flex justify-between items-center text-gray-300 mb-2">
+                <span>Price:</span>
+                <span>${selectedPlan.price}{selectedPlan.period}</span>
+              </div>
+              <div className="border-t border-white/10 mt-4 pt-4">
+                <div className="flex justify-between items-center text-white">
+                  <span className="font-semibold">Total:</span>
+                  <span className="font-semibold">${selectedPlan.price}</span>
+                </div>
+              </div>
+            </div>
+
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}
