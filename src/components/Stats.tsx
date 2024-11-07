@@ -1,31 +1,11 @@
 import { Users, Tv, Radio, Film } from "lucide-react";
-import { useLocation } from "react-router-dom";
 
 const Stats = () => {
-  const location = useLocation();
-  const isFrench = location.pathname.startsWith("/fr");
-
   const stats = [
-    { 
-      number: "+50K", 
-      label: isFrench ? "Clients Satisfaits" : "Happy Customers", 
-      icon: <Users className="w-8 h-8" /> 
-    },
-    { 
-      number: "+40K", 
-      label: isFrench ? "Chaînes TV" : "Channels", 
-      icon: <Tv className="w-8 h-8" /> 
-    },
-    { 
-      number: "+1,500", 
-      label: isFrench ? "Chaînes Sport" : "Sport Channels", 
-      icon: <Radio className="w-8 h-8" /> 
-    },
-    { 
-      number: "+50K", 
-      label: isFrench ? "Films & Séries" : "VOD & Movies", 
-      icon: <Film className="w-8 h-8" /> 
-    }
+    { number: "+50K", label: "Happy Customers", icon: <Users className="w-8 h-8" /> },
+    { number: "+40K", label: "Channels", icon: <Tv className="w-8 h-8" /> },
+    { number: "+1,500", label: "Sport Channels", icon: <Radio className="w-8 h-8" /> },
+    { number: "+50K", label: "VOD & Movies", icon: <Film className="w-8 h-8" /> }
   ];
 
   return (
@@ -38,13 +18,13 @@ const Stats = () => {
         <div className="max-w-3xl mx-auto text-center mb-12 md:mb-20">
           <span className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 md:px-6 py-2 backdrop-blur-xl text-sm mb-6">
             <span className="w-2 h-2 rounded-full bg-primary" />
-            <span className="text-white">{isFrench ? "Pourquoi Nous Choisir ?" : "Why Choose Us?"}</span>
+            <span className="text-white">Why Choose Us?</span>
           </span>
           
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tight bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
-            {isFrench ? "Pourquoi Nous Choisir Pour Votre " : "Why Choose Us For Your "}
+            Why Choose Us For Your{" "}
             <span className="text-primary relative inline-block">
-              {isFrench ? "Abonnement IPTV" : "IPTV Subscription"}
+              IPTV Subscription
               <span className="absolute -bottom-2 left-0 right-0 h-1 bg-primary/30 blur-sm" />
             </span>
           </h2>
@@ -52,9 +32,7 @@ const Stats = () => {
           <div className="h-1 w-24 bg-gradient-to-r from-primary to-primary/50 mx-auto rounded-full mb-8" />
           
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            {isFrench 
-              ? "Profitez d'une qualité et d'une fiabilité inégalées avec notre service IPTV premium, choisi par des milliers d'utilisateurs dans le monde."
-              : "Experience unmatched quality and reliability with our premium IPTV service, trusted by thousands worldwide."}
+            Experience unmatched quality and reliability with our premium IPTV service, trusted by thousands worldwide.
           </p>
         </div>
         
