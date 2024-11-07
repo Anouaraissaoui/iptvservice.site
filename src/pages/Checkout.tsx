@@ -15,6 +15,10 @@ const Checkout = () => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
   const [plan, setPlan] = useState<{ name: string; price: number } | null>(null);
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: ''
+  });
 
   useEffect(() => {
     const planData = location.state?.plan;
@@ -23,6 +27,28 @@ const Checkout = () => {
       return;
     }
     setPlan(planData);
+
+    // Check if user is authenticated
+    const checkUser = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        // Pre-fill email if user is logged in
+        setFormData(prev => ({ ...prev, email: user.email || '' }));
+        
+        // Try to get existing profile data
+        const { data: profile } = await supabase
+          .from('profiles')
+          .select('full_name')
+          .eq('id', user.id)
+          .single();
+          
+        if (profile?.full_name) {
+          setFormData(prev => ({ ...prev, fullName: profile.full_name }));
+        }
+      }
+    };
+    
+    checkUser();
   }, [location.state, navigate]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -43,7 +69,18 @@ const Checkout = () => {
         return;
       }
 
-      const { error } = await supabase
+      // Update profile information
+      const { error: profileError } = await supabase
+        .from('profiles')
+        .update({ 
+          full_name: formData.fullName,
+        })
+        .eq('id', user.id);
+
+      if (profileError) throw profileError;
+
+      // Create order
+      const { error: orderError } = await supabase
         .from('orders')
         .insert([
           {
@@ -54,7 +91,7 @@ const Checkout = () => {
           }
         ]);
 
-      if (error) throw error;
+      if (orderError) throw orderError;
 
       toast({
         title: "Order placed successfully",
@@ -74,6 +111,14 @@ const Checkout = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [id === 'name' ? 'fullName' : 'email']: value
+    }));
   };
 
   if (!plan) return null;
@@ -100,6 +145,8 @@ const Checkout = () => {
                 <Label htmlFor="name" className="text-white">Full Name</Label>
                 <Input
                   id="name"
+                  value={formData.fullName}
+                  onChange={handleInputChange}
                   required
                   className="bg-white/5 border-white/10 text-white"
                   placeholder="John Doe"
@@ -111,6 +158,8 @@ const Checkout = () => {
                 <Input
                   id="email"
                   type="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   required
                   className="bg-white/5 border-white/10 text-white"
                   placeholder="john@example.com"
