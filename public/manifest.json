@@ -10,13 +10,13 @@
   "categories": ["entertainment", "streaming"],
   "icons": [
     {
-      "src": "/images/logo.png",
+      "src": "https://res.cloudinary.com/aste/image/upload/v1730132979/iptvservice.site.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/images/logo.png",
+      "src": "https://res.cloudinary.com/aste/image/upload/v1730132979/iptvservice.site.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
