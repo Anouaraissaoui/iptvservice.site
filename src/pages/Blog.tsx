@@ -5,7 +5,7 @@ import { SEO } from "@/components/SEO";
 import { BlogGrid } from "@/components/blog/BlogGrid";
 
 // Import the blog post and its metadata
-import FirestickGuide, { frontmatter } from "../content/blog/firestick-setup-guide.mdx";
+import FirestickGuide, { frontmatter as firestickFrontmatter } from "../content/blog/firestick-setup-guide.mdx";
 
 const Blog = () => {
   const { data: posts, isLoading } = useQuery({
@@ -15,14 +15,14 @@ const Blog = () => {
       // In a real app, you'd fetch this from an API
       return [{
         id: 1,
-        date: frontmatter.date,
-        title: { rendered: frontmatter.title },
-        excerpt: { rendered: frontmatter.description },
+        date: firestickFrontmatter.date,
+        title: { rendered: firestickFrontmatter.title },
+        excerpt: { rendered: firestickFrontmatter.description },
         content: FirestickGuide,
         link: "/blog/firestick-setup-guide",
         _embedded: {
           "wp:featuredmedia": [{
-            source_url: frontmatter.image
+            source_url: firestickFrontmatter.image
           }]
         }
       }]
