@@ -10,7 +10,7 @@ const HeroImage = () => {
           alt="Person enjoying IPTV streaming service on a large screen TV in a modern living room setting" 
           className="relative rounded-2xl shadow-2xl w-full object-cover aspect-video"
           loading="eager"
-          fetchpriority="high"
+          fetchPriority="high"  // Corrected property name
           width={800}
           height={450}
           decoding="async"
