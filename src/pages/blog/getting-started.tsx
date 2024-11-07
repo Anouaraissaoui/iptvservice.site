@@ -3,6 +3,63 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { CalendarDays, Clock } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
+import ReactMarkdown from 'react-markdown';
+
+const blogContent = `
+# Getting Started with IPTV - Complete Guide 2024
+
+## What is IPTV?
+IPTV (Internet Protocol Television) is a modern way to receive television content over the internet rather than through traditional terrestrial, satellite, or cable formats. This technology allows you to stream your favorite channels and content directly to various devices.
+
+## Key Benefits of IPTV
+* **Extensive Content Library:** Access thousands of channels worldwide
+* **High Quality:** Stream in HD and 4K resolution
+* **On-Demand Content:** Enjoy VOD (Video on Demand) services
+* **Device Flexibility:** Watch on multiple devices
+* **Cost-Effective:** Save money compared to traditional cable
+
+## Essential Requirements
+Three key components are needed for optimal IPTV streaming:
+
+1. **Internet Connection**
+   - Minimum 10Mbps broadband connection recommended for smooth streaming
+
+2. **IPTV Subscription**
+   - Choose a reliable provider with good reviews and customer support
+
+3. **Compatible Device**
+   - Smart TV, Android Box, or Mobile Device
+
+## Supported Devices
+### Smart TVs
+* Samsung Smart TV
+* LG WebOS TV
+* Android TV
+
+### Streaming Devices
+* Amazon Fire TV Stick
+* Android TV Box
+* Apple TV
+
+## Quick Setup Guide
+1. Download your preferred IPTV player app
+2. Enter your subscription credentials
+3. Configure video quality settings
+4. Start enjoying your content
+
+## Pro Tips
+* **Use Ethernet When Possible**
+  - Wired connections provide more stable streaming
+
+* **Keep Software Updated**
+  - Regular updates ensure optimal performance
+
+* **Optimize Quality Settings**
+  - Match video quality to your internet speed
+
+* **Consider Using a VPN**
+  - Enhanced privacy and security while streaming
+`;
 
 const GettingStartedWithIPTV = () => {
   const publishDate = new Date().toISOString();
@@ -63,95 +120,12 @@ const GettingStartedWithIPTV = () => {
                 alt="Getting Started with IPTV"
                 className="w-full rounded-lg mb-8"
               />
-
-              <h2 className="text-3xl font-bold mt-12 mb-6">What is IPTV?</h2>
-              <p>
-                IPTV (Internet Protocol Television) is a modern way to receive television content over the internet rather than through traditional terrestrial, satellite, or cable formats. This technology allows you to stream your favorite channels and content directly to various devices.
-              </p>
-
-              <h2 className="text-3xl font-bold mt-12 mb-6">Key Benefits of IPTV</h2>
-              <ul className="space-y-2 list-disc pl-6">
-                <li><strong>Extensive Content Library:</strong> Access thousands of channels worldwide</li>
-                <li><strong>High Quality:</strong> Stream in HD and 4K resolution</li>
-                <li><strong>On-Demand Content:</strong> Enjoy VOD (Video on Demand) services</li>
-                <li><strong>Device Flexibility:</strong> Watch on multiple devices</li>
-                <li><strong>Cost-Effective:</strong> Save money compared to traditional cable</li>
-              </ul>
-
-              <h2 className="text-3xl font-bold mt-12 mb-6">Essential Requirements</h2>
-              <div className="bg-white/5 p-6 rounded-lg mb-8">
-                <h3 className="text-xl font-semibold mb-4">Three Key Components:</h3>
-                <ol className="space-y-4 list-decimal pl-6">
-                  <li>
-                    <strong>Internet Connection</strong>
-                    <p className="mt-2">Minimum 10Mbps broadband connection recommended for smooth streaming</p>
-                  </li>
-                  <li>
-                    <strong>IPTV Subscription</strong>
-                    <p className="mt-2">Choose a reliable provider with good reviews and customer support</p>
-                  </li>
-                  <li>
-                    <strong>Compatible Device</strong>
-                    <p className="mt-2">Smart TV, Android Box, or Mobile Device</p>
-                  </li>
-                </ol>
-              </div>
-
-              <h2 className="text-3xl font-bold mt-12 mb-6">Supported Devices</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <div className="bg-white/5 p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold mb-4">Smart TVs</h3>
-                  <ul className="space-y-2 list-disc pl-6">
-                    <li>Samsung Smart TV</li>
-                    <li>LG WebOS TV</li>
-                    <li>Android TV</li>
-                  </ul>
-                </div>
-                <div className="bg-white/5 p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold mb-4">Streaming Devices</h3>
-                  <ul className="space-y-2 list-disc pl-6">
-                    <li>Amazon Fire TV Stick</li>
-                    <li>Android TV Box</li>
-                    <li>Apple TV</li>
-                  </ul>
-                </div>
-              </div>
-
-              <h2 className="text-3xl font-bold mt-12 mb-6">Quick Setup Guide</h2>
-              <div className="bg-white/5 p-6 rounded-lg mb-8">
-                <ol className="space-y-4 list-decimal pl-6">
-                  <li>Download your preferred IPTV player app</li>
-                  <li>Enter your subscription credentials</li>
-                  <li>Configure video quality settings</li>
-                  <li>Start enjoying your content</li>
-                </ol>
-              </div>
-
-              <h2 className="text-3xl font-bold mt-12 mb-6">Pro Tips</h2>
-              <div className="bg-white/5 p-6 rounded-lg">
-                <ul className="space-y-4 list-disc pl-6">
-                  <li>
-                    <strong>Use Ethernet When Possible</strong>
-                    <p className="mt-2">Wired connections provide more stable streaming</p>
-                  </li>
-                  <li>
-                    <strong>Keep Software Updated</strong>
-                    <p className="mt-2">Regular updates ensure optimal performance</p>
-                  </li>
-                  <li>
-                    <strong>Optimize Quality Settings</strong>
-                    <p className="mt-2">Match video quality to your internet speed</p>
-                  </li>
-                  <li>
-                    <strong>Consider Using a VPN</strong>
-                    <p className="mt-2">Enhanced privacy and security while streaming</p>
-                  </li>
-                </ul>
-              </div>
+              
+              <ReactMarkdown>{blogContent}</ReactMarkdown>
             </div>
           </div>
         </article>
-
+        
         <Footer />
       </main>
     </>
