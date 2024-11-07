@@ -9,7 +9,7 @@ import { BlogPost } from "@/types/components";
 
 const GET_POSTS = gql`
   query GetPosts {
-    posts(first: 9) {
+    posts {
       nodes {
         id
         date
@@ -22,7 +22,7 @@ const GET_POSTS = gql`
             altText
           }
         }
-        link
+        uri
       }
     }
   }
@@ -45,7 +45,7 @@ const Blog = () => {
       }]
     } : undefined,
     featuredImage: post.featuredImage,
-    link: post.link
+    link: `https://dev-iptvservicesite.pantheonsite.io${post.uri}`
   }));
 
   const structuredData = {
