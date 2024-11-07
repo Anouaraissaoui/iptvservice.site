@@ -9,49 +9,18 @@
   <!-- Preload Critical Resources -->
   <link rel="modulepreload" href="/src/main.tsx" as="script" crossorigin />
   <link rel="preload" href="/src/index.css" as="style" />
+  <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
   
-  <!-- Optimized Font Loading -->
-  <link 
-    rel="preload" 
-    href="/fonts/inter-var.woff2" 
-    as="font" 
-    type="font/woff2" 
-    crossorigin="anonymous"
-    fetchpriority="high"
-  />
+  <!-- Critical CSS -->
   <style>
-    @font-face {
-      font-family: 'Inter';
-      font-style: normal;
-      font-weight: 100 900;
-      font-display: optional;
-      src: url('/fonts/inter-var.woff2') format('woff2');
-      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-    }
+    :root{color-scheme:light dark}body{margin:0;background:#0F172A;opacity:0;animation:fade-in .3s ease-out forwards;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif}@keyframes fade-in{to{opacity:1}}.no-js{display:block}
+    @font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:optional;src:url('/fonts/inter-var.woff2')format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
   </style>
   
   <!-- Preconnect to External Domains -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://www.iptvservice.site" crossorigin />
-  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
-  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
-  
-  <!-- Critical CSS -->
-  <style>
-    :root { color-scheme: light dark; }
-    body {
-      margin: 0;
-      background: #0F172A;
-      opacity: 0;
-      animation: fade-in 0.3s ease-out forwards;
-      text-rendering: optimizeLegibility;
-      -webkit-font-smoothing: antialiased;
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    }
-    @keyframes fade-in { to { opacity: 1; } }
-    .no-js { display: block; }
-  </style>
   
   <link rel="stylesheet" href="/src/index.css" media="print" onload="this.media='all'" />
   
@@ -60,7 +29,7 @@
   <meta name="description" content="Buy IPTV subscription with 18000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support." />
   <meta name="keywords" content="buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV buy, best buy IPTV, IPTV channels, HD IPTV, 4K IPTV, premium IPTV service, IPTV provider USA" />
   
-  <!-- Icons & PWA -->
+  <!-- PWA -->
   <link rel="icon" type="image/png" href="/images/logo.png" />
   <link rel="apple-touch-icon" href="/images/logo.png" sizes="180x180" />
   <link rel="manifest" href="/manifest.json" />
@@ -73,29 +42,9 @@
   <meta property="og:image" content="/images/Buy-IPTV.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Premium IPTV Service 2025 | #1 Streaming Experience" />
-  <meta name="twitter:description" content="18,000+ channels, HD/4K quality, instant activation & 24/7 support. Try risk-free with our money-back guarantee!" />
-  <meta name="twitter:image" content="/images/twitter-card.jpg" />
-  
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "IPTV Service",
-      "url": "https://www.iptvservice.site",
-      "logo": "/images/logo.png",
-      "image": "/images/og-image.jpg"
-    }
-  </script>
 </head>
 <body class="overflow-x-hidden">
-  <noscript>
-    <div class="no-js">Please enable JavaScript to use this application.</div>
-  </noscript>
+  <noscript><div class="no-js">Please enable JavaScript to use this application.</div></noscript>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx" defer></script>
 </body>
