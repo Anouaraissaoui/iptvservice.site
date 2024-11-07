@@ -1,60 +1,32 @@
 import { Shield, Tv, Globe, CreditCard } from "lucide-react";
 import { useState } from "react";
 
-interface BenefitsTranslations {
-  title: string;
-  items: Array<{
-    title: string;
-    description: string;
-  }>;
-}
-
-const Benefits = ({ translations }: { translations?: BenefitsTranslations }) => {
+const Benefits = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  const defaultTranslations: BenefitsTranslations = {
-    title: "Benefits of IPTV",
-    items: [
-      {
-        title: "Cost-Effective",
-        description: "More affordable than traditional cable or satellite TV packages."
-      },
-      {
-        title: "High-Quality Streaming",
-        description: "Enjoy crisp, high-definition video and audio quality."
-      },
-      {
-        title: "Flexible Viewing",
-        description: "Watch your favorite content anytime, anywhere with an internet connection."
-      },
-      {
-        title: "Global Reach",
-        description: "Access a wide range of international channels and content."
-      }
-    ]
-  };
-
-  const t = translations || defaultTranslations;
-
   const benefits = [
     {
-      ...t.items[0],
+      title: "Cost-Effective",
+      description: "More affordable than traditional cable or satellite TV packages.",
       icon: <CreditCard className="w-6 h-6" />,
       link: "/pricing"
     },
     {
-      ...t.items[1],
+      title: "High-Quality Streaming",
+      description: "Enjoy crisp, high-definition video and audio quality.",
       icon: <Tv className="w-6 h-6" />,
       link: "/features"
     },
     {
-      ...t.items[2],
+      title: "Flexible Viewing",
+      description: "Watch your favorite content anytime, anywhere with an internet connection.",
       icon: <Shield className="w-6 h-6" />,
       link: "/features#streaming"
     },
     {
-      ...t.items[3],
+      title: "Global Reach",
+      description: "Access a wide range of international channels and content.",
       icon: <Globe className="w-6 h-6" />,
       link: "/features#channels"
     }
@@ -116,7 +88,11 @@ const Benefits = ({ translations }: { translations?: BenefitsTranslations }) => 
               </a>
               
               <h2 id="benefits-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
-                {t.title}
+                Benefits of{" "}
+                <a href="/pricing" className="text-primary relative inline-block hover:text-primary/90 transition-colors">
+                  IPTV
+                  <span className="absolute -bottom-2 left-0 right-0 h-1 bg-primary/30 blur-sm" aria-hidden="true" />
+                </a>
               </h2>
             </header>
             
