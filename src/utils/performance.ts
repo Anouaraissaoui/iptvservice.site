@@ -1,9 +1,9 @@
-import { getCLS, getFID, getLCP } from 'web-vitals';
+import { onCLS, onFID, onLCP } from 'web-vitals';
 
 export const reportWebVitals = () => {
-  getCLS(console.log);
-  getFID(console.log);
-  getLCP(console.log);
+  onCLS(console.log);
+  onFID(console.log);
+  onLCP(console.log);
 };
 
 export const measureTTFB = () => {
