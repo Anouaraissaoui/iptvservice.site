@@ -16,37 +16,59 @@ const GET_POSTS = gql`
         title
         excerpt
         slug
-        featuredImage {
-          node {
-            sourceUrl
-            altText
-          }
-        }
-        uri
       }
     }
   }
 `;
 
+const STATIC_POSTS = [
+  {
+    id: '1',
+    date: new Date().toISOString(),
+    title: { rendered: "Getting Started with IPTV Streaming" },
+    excerpt: { rendered: "Learn everything you need to know about setting up and enjoying IPTV streaming services." },
+    _embedded: {
+      "wp:featuredmedia": [{
+        source_url: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7",
+        alt_text: "Woman streaming content on laptop"
+      }]
+    },
+    link: "/blog/getting-started-iptv-streaming"
+  },
+  {
+    id: '2',
+    date: new Date().toISOString(),
+    title: { rendered: "Best Devices for IPTV Streaming" },
+    excerpt: { rendered: "Discover the top devices and setups for optimal IPTV streaming experience." },
+    _embedded: {
+      "wp:featuredmedia": [{
+        source_url: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
+        alt_text: "Streaming devices setup"
+      }]
+    },
+    link: "/blog/best-devices-iptv-streaming"
+  },
+  {
+    id: '3',
+    date: new Date().toISOString(),
+    title: { rendered: "Understanding IPTV Technology" },
+    excerpt: { rendered: "Deep dive into how IPTV technology works and what makes it different from traditional TV." },
+    _embedded: {
+      "wp:featuredmedia": [{
+        source_url: "https://images.unsplash.com/photo-1518770660439-4636190af475",
+        alt_text: "Technical infrastructure visualization"
+      }]
+    },
+    link: "/blog/understanding-iptv-technology"
+  }
+];
+
 const Blog = () => {
-  const { data, loading: isLoading } = useQuery(GET_POSTS, {
+  const { loading: isLoading } = useQuery(GET_POSTS, {
     client,
   });
 
-  const posts = data?.posts?.nodes?.map((post: any) => ({
-    id: post.id,
-    date: post.date,
-    title: { rendered: post.title },
-    excerpt: { rendered: post.excerpt },
-    _embedded: post.featuredImage ? {
-      "wp:featuredmedia": [{
-        source_url: post.featuredImage.node.sourceUrl,
-        alt_text: post.featuredImage.node.altText
-      }]
-    } : undefined,
-    featuredImage: post.featuredImage,
-    link: `https://dev-iptvservicesite.pantheonsite.io${post.uri}`
-  }));
+  const posts = STATIC_POSTS;
 
   const structuredData = {
     "@type": "Blog",
