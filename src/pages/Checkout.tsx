@@ -125,7 +125,7 @@ const Checkout = () => {
                   id="card"
                   required
                   className="bg-white/5 border-white/10 text-white"
-                  placeholder="4242 4242 4242 4242"
+                  placeholder="Enter card number"
                 />
               </div>
 
@@ -145,7 +145,7 @@ const Checkout = () => {
                     id="cvc"
                     required
                     className="bg-white/5 border-white/10 text-white"
-                    placeholder="123"
+                    placeholder="Enter CVC"
                   />
                 </div>
               </div>
