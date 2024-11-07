@@ -5,7 +5,10 @@ import { SEO } from "@/components/SEO";
 import { BlogGrid } from "@/components/blog/BlogGrid";
 
 // Import the blog post and its metadata
-import FirestickGuide, { frontmatter as firestickFrontmatter } from "../content/blog/firestick-setup-guide.mdx";
+import FirestickGuide from "../content/blog/firestick-setup-guide.mdx";
+import type { FrontMatter } from "../types/components";
+
+const firestickFrontmatter = FirestickGuide.frontmatter as FrontMatter;
 
 const Blog = () => {
   const { data: posts, isLoading } = useQuery({
