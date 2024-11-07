@@ -12,9 +12,6 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
-    "@mdx-js/loader": "^3.1.0",
-    "@mdx-js/react": "^3.1.0",
-    "@mdx-js/rollup": "^3.1.0",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",
     "@radix-ui/react-aspect-ratio": "^1.1.0",
@@ -47,7 +44,6 @@
     "@vercel/analytics": "^1.3.2",
     "@vercel/node": "^3.2.24",
     "@vercel/speed-insights": "^1.0.14",
-    "@vitejs/plugin-react": "^4.3.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",

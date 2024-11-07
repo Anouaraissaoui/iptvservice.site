@@ -35,13 +35,3 @@ export interface BlogPost {
   };
   link: string;
 }
-
-export interface FrontMatter {
-  title: string;
-  description: string;
-  date: string;
-  image: string;
-  author: string;
-  category: string;
-  tags: string[];
-}

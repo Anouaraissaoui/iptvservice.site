@@ -1,32 +1,38 @@
 import { useQuery } from "@tanstack/react-query";
+import { dehydrate, QueryClient } from "@tanstack/react-query";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { SEO } from "@/components/SEO";
 import { BlogGrid } from "@/components/blog/BlogGrid";
+import { SEO } from "@/components/SEO";
+import { prefetchData } from "@/utils/ssr";
 
-// Import the blog post and its metadata
-import { frontmatter as firestickFrontmatter } from "../content/blog/firestick-setup-guide.mdx";
-import type { FrontMatter } from "../types/components";
+interface Post {
+  id: number;
+  date: string;
+  title: { rendered: string };
+  excerpt: { rendered: string };
+  _embedded?: {
+    "wp:featuredmedia"?: Array<{
+      source_url: string;
+    }>;
+  };
+  link: string;
+}
+
+const fetchPosts = async (): Promise<Post[]> => {
+  const response = await fetch(
+    "https://your-wordpress-site.com/wp-json/wp/v2/posts?_embed&per_page=9"
+  );
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+  return response.json();
+};
 
 const Blog = () => {
   const { data: posts, isLoading } = useQuery({
     queryKey: ["posts"],
-    queryFn: async () => {
-      // For now we'll return just the Firestick guide
-      // In a real app, you'd fetch this from an API
-      return [{
-        id: 1,
-        date: firestickFrontmatter.date,
-        title: { rendered: firestickFrontmatter.title },
-        excerpt: { rendered: firestickFrontmatter.description },
-        link: "/blog/firestick-setup-guide",
-        _embedded: {
-          "wp:featuredmedia": [{
-            source_url: firestickFrontmatter.image
-          }]
-        }
-      }]
-    },
+    queryFn: fetchPosts,
     staleTime: 1000 * 60 * 5, // 5 minutes
   });
 
@@ -35,7 +41,7 @@ const Blog = () => {
     "@type": "Blog",
     "@id": "https://www.iptvservice.site/blog/#blog",
     "name": "IPTV Blog - Latest Streaming News & Updates",
-    "description": "Latest IPTV guides, news, and updates",
+    "description": "Latest Streaming News, Guides & Updates 2024",
     "url": "https://www.iptvservice.site/blog",
     "publisher": {
       "@type": "Organization",
@@ -87,6 +93,17 @@ const Blog = () => {
       </main>
     </>
   );
+};
+
+export const getServerSideProps = async () => {
+  const queryClient = new QueryClient();
+  await prefetchData(queryClient);
+  
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
 };
 
 export default Blog;

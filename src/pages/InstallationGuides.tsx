@@ -1,4 +1,4 @@
-import { Tv, Smartphone, Computer, Tv as TvIcon, Phone, Laptop, Cast } from "lucide-react";
+import { FireTv, Smartphone, Computer, Tv, Phone, Laptop, Cast } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { SEO } from "@/components/SEO";
@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 const InstallationGuides = () => {
   const guides = [
     {
-      icon: <Tv className="w-8 h-8 text-primary" />,
+      icon: <FireTv className="w-8 h-8 text-primary" />,
       title: "Fire TV Devices",
       description: "Firestick/Firebox/FireTV",
       link: "/guides/firetv"
@@ -27,7 +27,7 @@ const InstallationGuides = () => {
       link: "/guides/windows"
     },
     {
-      icon: <TvIcon className="w-8 h-8 text-primary" />,
+      icon: <Tv className="w-8 h-8 text-primary" />,
       title: "Smart TVs",
       description: "Smart TVs (ALL)",
       link: "/guides/smarttv"
@@ -45,13 +45,13 @@ const InstallationGuides = () => {
       link: "/guides/mac"
     },
     {
-      icon: <TvIcon className="w-8 h-8 text-primary" />,
+      icon: <Tv className="w-8 h-8 text-primary" />,
       title: "MAG Devices",
       description: "MAG Devices (STB, TVIP, Formular..)",
       link: "/guides/mag"
     },
     {
-      icon: <TvIcon className="w-8 h-8 text-primary" />,
+      icon: <Tv className="w-8 h-8 text-primary" />,
       title: "ENIGMA2/ZGEMMA",
       description: "Setup guide for ENIGMA2/ZGEMMA",
       link: "/guides/enigma2"
@@ -116,7 +116,7 @@ const InstallationGuides = () => {
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="flex items-center gap-4">
                 <div className="p-4 rounded-full bg-primary/10">
-                  <Tv className="w-8 h-8 text-primary" />
+                  <FireTv className="w-8 h-8 text-primary" />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-white">7-Day Money-Back Guarantee</h3>
