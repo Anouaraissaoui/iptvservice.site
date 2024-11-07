@@ -40,9 +40,11 @@ const Blog = () => {
     excerpt: { rendered: post.excerpt },
     _embedded: post.featuredImage ? {
       "wp:featuredmedia": [{
-        source_url: post.featuredImage.node.sourceUrl
+        source_url: post.featuredImage.node.sourceUrl,
+        alt_text: post.featuredImage.node.altText
       }]
     } : undefined,
+    featuredImage: post.featuredImage,
     link: post.link
   }));
 

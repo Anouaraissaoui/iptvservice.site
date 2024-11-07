@@ -28,16 +28,17 @@ export interface BlogPost {
   date: string;
   title: { rendered: string };
   excerpt: { rendered: string };
+  link: string;
+  _embedded?: {
+    "wp:featuredmedia"?: Array<{
+      source_url: string;
+      alt_text?: string;
+    }>;
+  };
   featuredImage?: {
     node: {
       sourceUrl: string;
       altText: string;
     };
-  };
-  link: string;
-  _embedded?: {
-    "wp:featuredmedia"?: Array<{
-      source_url: string;
-    }>;
   };
 }
