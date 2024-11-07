@@ -1,38 +1,32 @@
 import { useQuery } from "@tanstack/react-query";
-import { dehydrate, QueryClient } from "@tanstack/react-query";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { BlogGrid } from "@/components/blog/BlogGrid";
 import { SEO } from "@/components/SEO";
-import { prefetchData } from "@/utils/ssr";
+import { BlogGrid } from "@/components/blog/BlogGrid";
 
-interface Post {
-  id: number;
-  date: string;
-  title: { rendered: string };
-  excerpt: { rendered: string };
-  _embedded?: {
-    "wp:featuredmedia"?: Array<{
-      source_url: string;
-    }>;
-  };
-  link: string;
-}
-
-const fetchPosts = async (): Promise<Post[]> => {
-  const response = await fetch(
-    "https://your-wordpress-site.com/wp-json/wp/v2/posts?_embed&per_page=9"
-  );
-  if (!response.ok) {
-    throw new Error("Network response was not ok");
-  }
-  return response.json();
-};
+// Import the blog post
+import FirestickGuide from "../content/blog/firestick-setup-guide.mdx";
 
 const Blog = () => {
   const { data: posts, isLoading } = useQuery({
     queryKey: ["posts"],
-    queryFn: fetchPosts,
+    queryFn: async () => {
+      // For now we'll return just the Firestick guide
+      // In a real app, you'd fetch this from an API
+      return [{
+        id: 1,
+        date: "2024-03-19",
+        title: { rendered: "How to Easily Set Up IPTV on FireStick? – Step-By-Step Guide 2024" },
+        excerpt: { rendered: "Complete step-by-step guide to install and set up IPTV on your Amazon FireStick..." },
+        content: FirestickGuide,
+        link: "/blog/firestick-setup-guide",
+        _embedded: {
+          "wp:featuredmedia": [{
+            source_url: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
+          }]
+        }
+      }]
+    },
     staleTime: 1000 * 60 * 5, // 5 minutes
   });
 
@@ -41,7 +35,7 @@ const Blog = () => {
     "@type": "Blog",
     "@id": "https://www.iptvservice.site/blog/#blog",
     "name": "IPTV Blog - Latest Streaming News & Updates",
-    "description": "Latest Streaming News, Guides & Updates 2024",
+    "description": "Latest IPTV guides, news, and updates",
     "url": "https://www.iptvservice.site/blog",
     "publisher": {
       "@type": "Organization",
@@ -93,17 +87,6 @@ const Blog = () => {
       </main>
     </>
   );
-};
-
-export const getServerSideProps = async () => {
-  const queryClient = new QueryClient();
-  await prefetchData(queryClient);
-  
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
-  };
 };
 
 export default Blog;
