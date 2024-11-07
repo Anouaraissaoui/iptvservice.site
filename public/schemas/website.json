@@ -33,5 +33,10 @@
     "isPartOf": {
       "@id": "https://www.iptvservice.site/#website"
     }
-  }
+  },
+  "sameAs": [
+    "https://facebook.com/iptvservice",
+    "https://twitter.com/iptvservice",
+    "https://instagram.com/iptvservice"
+  ]
 }
