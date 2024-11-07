@@ -12,6 +12,10 @@ import Pricing from "./pages/Pricing";
 import Features from "./pages/Features";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import France from "./pages/localized/France";
+import Germany from "./pages/localized/Germany";
+import Spain from "./pages/localized/Spain";
+import UK from "./pages/localized/UK";
 import { getQueryClient } from "./utils/ssr";
 
 const queryClient = getQueryClient();
@@ -31,6 +35,10 @@ const App = ({ dehydratedState }: { dehydratedState?: unknown }) => (
                 <Route path="/pricing" element={<Pricing />} />
                 <Route path="/features" element={<Features />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/fr" element={<France />} />
+                <Route path="/de" element={<Germany />} />
+                <Route path="/es" element={<Spain />} />
+                <Route path="/uk" element={<UK />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </BrowserRouter>
