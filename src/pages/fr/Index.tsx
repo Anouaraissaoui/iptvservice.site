@@ -70,12 +70,12 @@ const FrenchIndex = () => {
       />
       <Helmet>
         <html lang="fr" />
-        <link rel="alternate" hreflang="fr" href="https://www.iptvservice.site/fr" />
-        <link rel="alternate" hreflang="en" href="https://www.iptvservice.site" />
-        <link rel="alternate" hreflang="es" href="https://www.iptvservice.site/es" />
-        <link rel="alternate" hreflang="de" href="https://www.iptvservice.site/de" />
-        <link rel="alternate" hreflang="uk" href="https://www.iptvservice.site/uk" />
-        <link rel="alternate" hreflang="x-default" href="https://www.iptvservice.site" />
+        <link rel="alternate" hrefLang="fr" href="https://www.iptvservice.site/fr" />
+        <link rel="alternate" hrefLang="en" href="https://www.iptvservice.site" />
+        <link rel="alternate" hrefLang="es" href="https://www.iptvservice.site/es" />
+        <link rel="alternate" hrefLang="de" href="https://www.iptvservice.site/de" />
+        <link rel="alternate" hrefLang="uk" href="https://www.iptvservice.site/uk" />
+        <link rel="alternate" hrefLang="x-default" href="https://www.iptvservice.site" />
       </Helmet>
       <div className="min-h-screen bg-navy">
         <Navbar />
