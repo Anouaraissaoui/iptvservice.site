@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { Users, Tv, Radio, Film } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Stats from "@/components/Stats";
