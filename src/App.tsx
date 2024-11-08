@@ -12,10 +12,6 @@ import Pricing from "./pages/Pricing";
 import Features from "./pages/Features";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-import FrenchIndex from "./pages/fr/Index";
-import SpanishIndex from "./pages/es/Index";
-import GermanIndex from "./pages/de/Index";
-import UkrainianIndex from "./pages/uk/Index";
 import { getQueryClient } from "./utils/ssr";
 
 const queryClient = getQueryClient();
@@ -31,10 +27,6 @@ const App = ({ dehydratedState }: { dehydratedState?: unknown }) => (
             <BrowserRouter>
               <Routes>
                 <Route path="/" element={<Index />} />
-                <Route path="/fr" element={<FrenchIndex />} />
-                <Route path="/es" element={<SpanishIndex />} />
-                <Route path="/de" element={<GermanIndex />} />
-                <Route path="/uk" element={<UkrainianIndex />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/pricing" element={<Pricing />} />
                 <Route path="/features" element={<Features />} />
