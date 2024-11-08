@@ -22,16 +22,3 @@ export interface ContactMethodProps {
   title: string;
   description: string;
 }
-
-export interface BlogPost {
-  id: number;
-  date: string;
-  title: { rendered: string };
-  excerpt: { rendered: string };
-  _embedded?: {
-    "wp:featuredmedia"?: Array<{
-      source_url: string;
-    }>;
-  };
-  link: string;
-}
