@@ -43,9 +43,9 @@ const TroubleshootingGuide = () => {
   return (
     <>
       <SEO
-        title="IPTV Troubleshooting Guide | Fix Common Streaming Issues 2024"
+        title="IPTV Troubleshooting Guide | Fix Common Streaming Issues 2025"
         description="Comprehensive guide to fix IPTV streaming issues. Learn how to resolve buffering, connection problems, and playback errors. Expert solutions for better streaming."
-        keywords="IPTV troubleshooting, streaming issues, IPTV buffering fix, connection problems, playback issues, IPTV guide 2024"
+        keywords="IPTV troubleshooting, streaming issues, IPTV buffering fix, connection problems, playback issues, IPTV guide 2025"
         canonical={`${baseUrl}/troubleshooting`}
         structuredData={structuredData}
         breadcrumbs={[
@@ -83,7 +83,7 @@ const TroubleshootingGuide = () => {
           <div className="mb-16">
             <Card className="bg-navy-light border-white/10 overflow-hidden">
               <Image
-                src="https://raw.githubusercontent.com/Anouaraissaoui/iptvservice.site/refs/heads/main/public/images/IPTV-troubleshooting.webp?token=GHSAT0AAAAAACUWE35KXOWL7Z3USEBPDC3EZZOIVDA"
+                src="/IPTV-Subscription.webp"
                 alt="IPTV troubleshooting guide showing technical setup and streaming solutions"
                 className="w-full h-[400px] object-cover"
                 width={1200}
