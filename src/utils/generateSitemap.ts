@@ -41,14 +41,14 @@ ${xmlUrls}
 
 export const generateSitemap = async (domain: string, urls: SitemapURL[]) => {
   try {
+    // Verify all URLs return 200 status before including them
     const validUrls = await Promise.all(
       urls.map(async (url) => {
         try {
           const response = await fetch(`${domain}${url.loc}`);
           return response.status === 200 ? url : null;
         } catch {
-          console.warn(`Failed to validate URL: ${domain}${url.loc}`);
-          return url; // Keep the URL even if validation fails
+          return null;
         }
       })
     );
@@ -58,16 +58,11 @@ export const generateSitemap = async (domain: string, urls: SitemapURL[]) => {
       filteredUrls.map((url) => ({
         ...url,
         loc: `${domain}${url.loc}`,
-        lastmod: url.lastmod || new Date().toISOString(),
-        priority: url.priority || 0.5,
-        changefreq: url.changefreq || 'weekly'
       }))
     );
 
     writeFileSync(resolve(process.cwd(), 'public', 'sitemap.xml'), sitemap);
-    console.log('Sitemap generated successfully');
   } catch (error) {
     console.error('Error generating sitemap:', error);
-    // Don't throw the error, just log it
   }
 };
