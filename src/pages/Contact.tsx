@@ -74,7 +74,7 @@ const Contact = () => {
         <link rel="canonical" href="https://www.iptvservice.site/contact" />
         
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="24/7 IPTV Customer Support & Technical Help 2024" />
+        <meta property="og:title" content="24/7 IPTV Customer Support & Technical Help 2025" />
         <meta property="og:description" content="Need help? Our 24/7 support team is ready to assist with technical issues, subscription inquiries, and setup guidance." />
         <meta property="og:url" content="https://www.iptvservice.site/contact" />
         <meta property="og:site_name" content="IPTV Service" />
