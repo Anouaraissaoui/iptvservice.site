@@ -42,14 +42,14 @@ const TroubleshootingGuide = () => {
           { 
             name: "Home", 
             path: "/", 
-            position: 1, 
-            item: "https://www.iptvservice.site" 
+            position: 1,
+            item: "https://www.iptvservice.site"
           },
           { 
             name: "Troubleshooting Guide", 
             path: "/troubleshooting", 
-            position: 2, 
-            item: "https://www.iptvservice.site/troubleshooting" 
+            position: 2,
+            item: "https://www.iptvservice.site/troubleshooting"
           }
         ]}
       />
@@ -80,13 +80,16 @@ const TroubleshootingGuide = () => {
 
           <div className="mb-16">
             <Card className="bg-navy-light border-white/10 overflow-hidden">
-              <Image
-                src="/images/IPTV-troubleshooting.webp"
-                alt="IPTV troubleshooting guide showing technical setup and streaming solutions"
-                className="w-full h-[400px] object-cover"
-                width={1200}
-                height={400}
-              />
+              <div className="relative w-full h-[400px]">
+                <Image
+                  src="/images/IPTV-troubleshooting.webp"
+                  alt="IPTV troubleshooting guide showing technical setup and streaming solutions"
+                  className="w-full h-full object-cover"
+                  width={1200}
+                  height={400}
+                  priority
+                />
+              </div>
               <CardContent className="p-8">
                 <p className="text-gray-300 mb-6">
                   Welcome to our comprehensive IPTV troubleshooting guide. Here you'll find solutions to common streaming issues and tips for optimizing your viewing experience. For premium support, check our{" "}
