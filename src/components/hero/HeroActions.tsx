@@ -4,19 +4,15 @@ import { ArrowRight, MessageCircle } from "lucide-react";
 
 const HeroActions = () => (
   <nav className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start" aria-label="Primary CTA">
-    <a 
-      href="https://wa.me/message/R5IYJF3GG635D1" 
-      target="_blank" 
-      rel="noopener noreferrer"
-    >
+    <Link to="/pricing">
       <Button 
         className="bg-primary text-navy hover:bg-primary/90 text-base md:text-lg px-6 md:px-8 h-12 md:h-14 group transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_40px_rgba(0,255,133,0.4)] w-full sm:w-auto"
-        aria-label="Get Started via WhatsApp"
+        aria-label="View Pricing Plans"
       >
-        Get Started
+        View Pricing Plans
         <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
       </Button>
-    </a>
+    </Link>
     <Link to="/contact">
       <Button 
         variant="outline" 
