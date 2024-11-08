@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { HelmetProvider } from "react-helmet-async";
 import { QueryClient, QueryClientProvider, HydrationBoundary } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Index from "./pages/Index";
@@ -13,77 +13,33 @@ import Features from "./pages/Features";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import { getQueryClient } from "./utils/ssr";
-import { useTranslation } from "react-i18next";
 
 const queryClient = getQueryClient();
 
-const App = ({ dehydratedState }: { dehydratedState?: unknown }) => {
-  const { i18n } = useTranslation();
-
-  return (
-    <ErrorBoundary>
-      <HelmetProvider>
-        <QueryClientProvider client={queryClient}>
-          <HydrationBoundary state={dehydratedState}>
-            <TooltipProvider>
-              <Toaster />
-              <Sonner />
-              <BrowserRouter>
-                <Routes>
-                  <Route path="/" element={<Index />} />
-                  <Route path="/es/*" element={
-                    <>
-                      {i18n.changeLanguage('es')}
-                      <Routes>
-                        <Route path="/" element={<Index />} />
-                        <Route path="blog" element={<Blog />} />
-                        <Route path="pricing" element={<Pricing />} />
-                        <Route path="features" element={<Features />} />
-                        <Route path="contact" element={<Contact />} />
-                        <Route path="*" element={<NotFound />} />
-                      </Routes>
-                    </>
-                  } />
-                  <Route path="/fr/*" element={
-                    <>
-                      {i18n.changeLanguage('fr')}
-                      <Routes>
-                        <Route path="/" element={<Index />} />
-                        <Route path="blog" element={<Blog />} />
-                        <Route path="pricing" element={<Pricing />} />
-                        <Route path="features" element={<Features />} />
-                        <Route path="contact" element={<Contact />} />
-                        <Route path="*" element={<NotFound />} />
-                      </Routes>
-                    </>
-                  } />
-                  <Route path="/de/*" element={
-                    <>
-                      {i18n.changeLanguage('de')}
-                      <Routes>
-                        <Route path="/" element={<Index />} />
-                        <Route path="blog" element={<Blog />} />
-                        <Route path="pricing" element={<Pricing />} />
-                        <Route path="features" element={<Features />} />
-                        <Route path="contact" element={<Contact />} />
-                        <Route path="*" element={<NotFound />} />
-                      </Routes>
-                    </>
-                  } />
-                  <Route path="blog" element={<Blog />} />
-                  <Route path="pricing" element={<Pricing />} />
-                  <Route path="features" element={<Features />} />
-                  <Route path="contact" element={<Contact />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </BrowserRouter>
-              <Analytics />
-            </TooltipProvider>
-          </HydrationBoundary>
-        </QueryClientProvider>
-      </HelmetProvider>
-    </ErrorBoundary>
-  );
-};
+const App = ({ dehydratedState }: { dehydratedState?: unknown }) => (
+  <ErrorBoundary>
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <HydrationBoundary state={dehydratedState}>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/pricing" element={<Pricing />} />
+                <Route path="/features" element={<Features />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </BrowserRouter>
+            <Analytics />
+          </TooltipProvider>
+        </HydrationBoundary>
+      </QueryClientProvider>
+    </HelmetProvider>
+  </ErrorBoundary>
+);
 
 export default App;
