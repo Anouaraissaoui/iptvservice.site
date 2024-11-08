@@ -9,6 +9,7 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: 'en',
+    supportedLngs: ['en', 'es', 'fr'],
     debug: true,
     interpolation: {
       escapeValue: false,
@@ -16,6 +17,10 @@ i18n
     backend: {
       loadPath: '/locales/{{lng}}/{{ns}}.json',
     },
+    detection: {
+      order: ['path', 'navigator'],
+      lookupFromPathIndex: 0
+    }
   });
 
 export default i18n;

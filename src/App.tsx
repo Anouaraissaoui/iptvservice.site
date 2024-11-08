@@ -27,6 +27,7 @@ const App = ({ dehydratedState }: { dehydratedState?: unknown }) => (
             <BrowserRouter>
               <Routes>
                 <Route path="/" element={<Index />} />
+                <Route path="/fr" element={<Index />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/pricing" element={<Pricing />} />
                 <Route path="/features" element={<Features />} />
