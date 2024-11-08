@@ -8,7 +8,20 @@ const Benefits = () => {
   const benefits = [
     {
       title: "Cost-Effective",
-      description: "More affordable than traditional cable or satellite TV packages.",
+      description: (
+        <>
+          More affordable than traditional cable or satellite TV packages. Learn more about{" "}
+          <a 
+            href="https://en.wikipedia.org/wiki/Internet_Protocol_television" 
+            target="_blank" 
+            rel="dofollow"
+            className="text-primary hover:text-primary/80 underline decoration-primary/30 transition-colors"
+          >
+            IPTV technology
+          </a>
+          .
+        </>
+      ),
       icon: <CreditCard className="w-6 h-6" />,
       link: "/pricing"
     },
