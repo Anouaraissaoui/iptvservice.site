@@ -51,7 +51,7 @@ const TroubleshootingGuide = () => {
         breadcrumbs={[
           { 
             name: "Home", 
-            path: "/",
+            path: "/", 
             position: 1,
             item: `${baseUrl}/`
           },
@@ -83,7 +83,7 @@ const TroubleshootingGuide = () => {
           <div className="mb-16">
             <Card className="bg-navy-light border-white/10 overflow-hidden">
               <Image
-                src="/images/IPTV-troubleshooting.webp"
+                src="/IPTV-Subscription.webp"
                 alt="IPTV troubleshooting guide showing technical setup and streaming solutions"
                 className="w-full h-[400px] object-cover"
                 width={1200}
