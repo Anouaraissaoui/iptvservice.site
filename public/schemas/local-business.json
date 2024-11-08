@@ -1,11 +1,11 @@
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://www.iptvservice.site/#localbusiness",
   "name": "IPTV Service",
-  "image": "https://www.iptvservice.site/images/IPTV-Service.webp",
+  "image": "https://ideogram.ai/assets/progressive-image/balanced/response/T-JUnqqgRsmp3yYR7L_s0g",
   "priceRange": "$$",
-  "url": "https://www.iptvservice.site",
+  "@id": "https://www.iptvservice.site/#localbusiness",
+  "url": "https://www.iptvservice.site/",
   "telephone": "+1-234-567-8900",
   "address": {
     "@type": "PostalAddress",
@@ -20,7 +20,7 @@
     "latitude": "40.7128",
     "longitude": "-74.0060"
   },
-  "openingHoursSpecification": {
+  "openingHoursSpecification": [{
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": [
       "Monday",
@@ -33,5 +33,37 @@
     ],
     "opens": "00:00",
     "closes": "23:59"
+  }],
+  "sameAs": [
+    "https://facebook.com/iptvservice",
+    "https://twitter.com/iptvservice",
+    "https://instagram.com/iptvservice"
+  ],
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": "40.7128",
+      "longitude": "-74.0060"
+    },
+    "geoRadius": "50000"
+  },
+  "hasMap": "https://www.google.com/maps?cid=123456789",
+  "potentialAction": {
+    "@type": "OrderAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://www.iptvservice.site/pricing",
+      "inLanguage": "en-US",
+      "actionPlatform": [
+        "http://schema.org/DesktopWebPlatform",
+        "http://schema.org/IOSPlatform",
+        "http://schema.org/AndroidPlatform"
+      ]
+    },
+    "result": {
+      "@type": "Order",
+      "actionStatus": "https://schema.org/PotentialActionStatus"
+    }
   }
 }

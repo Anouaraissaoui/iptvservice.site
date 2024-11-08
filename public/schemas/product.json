@@ -1,25 +1,55 @@
 {
   "@context": "https://schema.org",
   "@type": "Product",
-  "@id": "https://www.iptvservice.site/#product",
-  "name": "IPTV Subscription Service",
-  "description": "Premium IPTV subscription service with 18,000+ HD & 4K channels, VOD content, and live sports streaming.",
+  "name": "Buy Premium IPTV Subscription | Best IPTV Service USA",
+  "description": "Buy the best IPTV subscription service with 18,000+ HD & 4K channels. Premium IPTV service with instant activation and 24/7 support. Top-rated IPTV provider in USA.",
   "image": {
     "@type": "ImageObject",
     "url": "https://www.iptvservice.site/images/IPTV-Service.webp",
-    "width": "1200",
-    "height": "630"
+    "width": 6052,
+    "height": 4035,
+    "caption": "Premium IPTV Streaming Experience"
   },
   "brand": {
     "@type": "Brand",
-    "name": "IPTV Service"
+    "name": "IPTV Service",
+    "slogan": "Your Ultimate Entertainment Solution",
+    "logo": "https://www.iptvservice.site/logo.svg"
   },
+  "category": "IPTV Subscription Services",
   "offers": {
-    "@type": "Offer",
+    "@type": "AggregateOffer",
     "priceCurrency": "USD",
-    "price": "11.00",
+    "lowPrice": "11.00",
+    "highPrice": "90.00",
+    "offerCount": "4",
     "availability": "https://schema.org/InStock",
-    "url": "https://www.iptvservice.site/pricing"
+    "seller": {
+      "@type": "Organization",
+      "name": "Best IPTV Service USA"
+    },
+    "priceValidUntil": "2024-12-31",
+    "itemCondition": "https://schema.org/NewCondition",
+    "warranty": "30-day money-back guarantee",
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": 30,
+      "returnMethod": "https://schema.org/ReturnByMail"
+    },
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {
+          "@type": "QuantitativeValue",
+          "minValue": "0",
+          "maxValue": "1",
+          "unitCode": "HUR"
+        }
+      }
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",
@@ -27,5 +57,33 @@
     "reviewCount": "1250",
     "bestRating": "5",
     "worstRating": "1"
-  }
+  },
+  "review": [{
+    "@type": "Review",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5",
+      "bestRating": "5"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "John Smith"
+    },
+    "datePublished": "2024-02-15",
+    "reviewBody": "Best IPTV service I've used. HD & 4K channels work perfectly with great support."
+  }],
+  "keywords": "buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV subscription, premium IPTV service, best IPTV provider USA",
+  "additionalProperty": [{
+    "@type": "PropertyValue",
+    "name": "Number of Channels",
+    "value": "18000+"
+  }, {
+    "@type": "PropertyValue",
+    "name": "Video Quality",
+    "value": "HD/4K"
+  }, {
+    "@type": "PropertyValue",
+    "name": "Support",
+    "value": "24/7"
+  }]
 }
