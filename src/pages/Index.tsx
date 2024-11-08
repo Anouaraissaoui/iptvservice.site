@@ -67,8 +67,7 @@ const Index = () => {
           {
             name: "Home",
             path: "/",
-            position: 1,
-            item: "https://www.iptvservice.site"
+            url: "https://www.iptvservice.site"
           }
         ]}
       />

@@ -26,11 +26,14 @@ export default {
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "#00FF85",
+          light: "#33FF9D",
+          dark: "#00CC6B",
           foreground: "#0F172A",
         },
         navy: {
           DEFAULT: "#0F172A",
           light: "#1E293B",
+          dark: "#0B1121",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
