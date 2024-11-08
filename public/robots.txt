@@ -21,6 +21,7 @@ Sitemap: https://www.iptvservice.site/sitemap.xml
 # Main Pages
 Allow: /pricing
 Allow: /features
+Allow: /blog
 Allow: /contact
 Allow: /terms
 Allow: /privacy
@@ -31,6 +32,8 @@ Disallow: /api/
 Disallow: /checkout/
 Disallow: /account/
 Disallow: /private/
+Disallow: /wp-admin/
+Disallow: /wp-includes/
 Disallow: /search
 Disallow: /*?*
 Disallow: /*&
