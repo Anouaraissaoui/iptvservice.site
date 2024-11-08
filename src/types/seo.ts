@@ -19,9 +19,8 @@ export interface SEOData {
 export interface BreadcrumbItem {
   name: string;
   path: string;
-  url?: string;
-  position?: number;
-  item?: string;
+  position: number;
+  item: string;
 }
 
 export interface MetaTag {
