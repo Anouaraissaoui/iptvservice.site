@@ -20,32 +20,13 @@ interface Post {
 }
 
 const fetchPosts = async (): Promise<Post[]> => {
-  // Add the troubleshooting guide as a static post
-  const staticPosts: Post[] = [{
-    id: 1,
-    date: "2024-03-08",
-    title: { rendered: "IPTV Troubleshooting Guide: Common Issues & Solutions" },
-    excerpt: { rendered: "A comprehensive guide to resolving common IPTV streaming issues, connectivity problems, and playback errors." },
-    link: "/blog/iptv-troubleshooting",
-    _embedded: {
-      "wp:featuredmedia": [{
-        source_url: "/images/IPTV-Service.webp"
-      }]
-    }
-  }];
-
-  try {
-    const response = await fetch(
-      "https://your-wordpress-site.com/wp-json/wp/v2/posts?_embed&per_page=9"
-    );
-    if (!response.ok) {
-      return staticPosts;
-    }
-    const wpPosts = await response.json();
-    return [...staticPosts, ...wpPosts];
-  } catch (error) {
-    return staticPosts;
+  const response = await fetch(
+    "https://your-wordpress-site.com/wp-json/wp/v2/posts?_embed&per_page=9"
+  );
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
   }
+  return response.json();
 };
 
 const Blog = () => {
