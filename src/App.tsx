@@ -12,6 +12,7 @@ import Pricing from "./pages/Pricing";
 import Features from "./pages/Features";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import TroubleshootingGuide from "./pages/TroubleshootingGuide";
 import { getQueryClient } from "./utils/ssr";
 
 const queryClient = getQueryClient();
@@ -31,6 +32,7 @@ const App = ({ dehydratedState }: { dehydratedState?: unknown }) => (
                 <Route path="/pricing" element={<Pricing />} />
                 <Route path="/features" element={<Features />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/troubleshooting" element={<TroubleshootingGuide />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </BrowserRouter>
