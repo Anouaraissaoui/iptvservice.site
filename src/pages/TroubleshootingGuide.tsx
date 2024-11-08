@@ -4,54 +4,15 @@ import Footer from "@/components/Footer";
 import { Image } from "@/components/ui/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Link } from "react-router-dom";
 
 const TroubleshootingGuide = () => {
-  const structuredData = {
-    "@type": "HowTo",
-    "name": "IPTV Troubleshooting Guide",
-    "description": "Complete guide to resolving common IPTV streaming issues, buffering problems, and connection errors",
-    "step": [
-      {
-        "@type": "HowToStep",
-        "name": "Check Connection Issues",
-        "text": "Verify your internet connection and speed requirements"
-      },
-      {
-        "@type": "HowToStep",
-        "name": "Resolve Buffering Problems",
-        "text": "Optimize streaming settings and clear cache"
-      },
-      {
-        "@type": "HowToStep",
-        "name": "Fix Playback Issues",
-        "text": "Update media player and verify stream settings"
-      }
-    ]
-  };
-
   return (
     <>
       <SEO
-        title="IPTV Troubleshooting Guide 2024 | Fix Streaming Issues"
-        description="Comprehensive IPTV troubleshooting guide. Learn how to fix buffering, connection problems, and optimize your streaming experience. Expert solutions for common IPTV issues."
+        title="IPTV Troubleshooting Guide | Comprehensive Streaming Solutions"
+        description="Complete guide to troubleshooting common IPTV streaming issues. Learn how to fix buffering, connection problems, and optimize your streaming experience."
         canonical="https://www.iptvservice.site/troubleshooting"
-        keywords="IPTV troubleshooting, streaming issues, IPTV buffering, IPTV connection problems, IPTV not working, IPTV playback issues"
-        structuredData={structuredData}
-        breadcrumbs={[
-          { 
-            name: "Home", 
-            path: "/", 
-            position: 1, 
-            item: "https://www.iptvservice.site" 
-          },
-          { 
-            name: "Troubleshooting Guide", 
-            path: "/troubleshooting", 
-            position: 2, 
-            item: "https://www.iptvservice.site/troubleshooting" 
-          }
-        ]}
+        keywords="IPTV troubleshooting, streaming issues, IPTV buffering, IPTV connection problems, IPTV guide"
       />
 
       <main className="min-h-screen bg-navy">
@@ -67,14 +28,7 @@ const TroubleshootingGuide = () => {
               </span>
             </h1>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Your comprehensive resource for resolving common IPTV streaming issues. Need help? Check our{" "}
-              <Link to="/contact" className="text-primary hover:text-primary/80 underline">
-                support team
-              </Link>{" "}
-              or browse our{" "}
-              <Link to="/features" className="text-primary hover:text-primary/80 underline">
-                features guide
-              </Link>.
+              Your comprehensive resource for resolving common IPTV streaming issues
             </p>
           </div>
 
@@ -89,10 +43,7 @@ const TroubleshootingGuide = () => {
               />
               <CardContent className="p-8">
                 <p className="text-gray-300 mb-6">
-                  Welcome to our comprehensive IPTV troubleshooting guide. Here you'll find solutions to common streaming issues and tips for optimizing your viewing experience. For premium support, check our{" "}
-                  <Link to="/pricing" className="text-primary hover:text-primary/80 underline">
-                    subscription plans
-                  </Link>.
+                  Welcome to our comprehensive IPTV troubleshooting guide. Here you'll find solutions to common streaming issues and tips for optimizing your viewing experience.
                 </p>
               </CardContent>
             </Card>
@@ -110,12 +61,6 @@ const TroubleshootingGuide = () => {
                   <li>Try switching between Wi-Fi and ethernet connection</li>
                   <li>Restart your modem and router</li>
                 </ul>
-                <p className="mt-4">
-                  For network optimization tips, visit our{" "}
-                  <Link to="/blog" className="text-primary hover:text-primary/80 underline">
-                    blog section
-                  </Link>.
-                </p>
               </AccordionContent>
             </AccordionItem>
 
@@ -130,13 +75,6 @@ const TroubleshootingGuide = () => {
                   <li>Close other applications using bandwidth</li>
                   <li>Try using a different media player</li>
                 </ul>
-                <p className="mt-4">
-                  Check our{" "}
-                  <Link to="/features" className="text-primary hover:text-primary/80 underline">
-                    features page
-                  </Link>{" "}
-                  for supported media players.
-                </p>
               </AccordionContent>
             </AccordionItem>
 
@@ -151,12 +89,6 @@ const TroubleshootingGuide = () => {
                   <li>Try different video output settings</li>
                   <li>Verify stream URL and authentication details</li>
                 </ul>
-                <p className="mt-4">
-                  Need professional help? Contact our{" "}
-                  <Link to="/contact" className="text-primary hover:text-primary/80 underline">
-                    support team
-                  </Link>.
-                </p>
               </AccordionContent>
             </AccordionItem>
           </Accordion>
