@@ -36,12 +36,18 @@ const PricingCard = ({ duration, price, period, features }: PricingCardProps): J
         ))}
       </ul>
 
-      <Button 
-        className="w-full h-12 group-hover:scale-105 transition-all duration-300 bg-white/10 text-white hover:bg-white/20"
+      <a 
+        href="https://wa.me/message/R5IYJF3GG635D1" 
+        target="_blank" 
+        rel="noopener noreferrer"
       >
-        Get Started
-        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-      </Button>
+        <Button 
+          className="w-full h-12 group-hover:scale-105 transition-all duration-300 bg-white/10 text-white hover:bg-white/20"
+        >
+          Get Started
+          <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+        </Button>
+      </a>
     </div>
   </div>
 );
