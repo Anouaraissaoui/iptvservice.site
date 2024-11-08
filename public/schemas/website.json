@@ -29,9 +29,15 @@
     "@type": "WebPage",
     "@id": "https://www.iptvservice.site/#webpage",
     "url": "https://www.iptvservice.site",
-    "name": "Buy Premium IPTV Subscription | Best IPTV Service 2024",
+    "name": "Buy Premium IPTV Subscription | Best IPTV Service 2025",
     "isPartOf": {
       "@id": "https://www.iptvservice.site/#website"
+    },
+    "about": {
+      "@type": "Product",
+      "name": "IPTV Subscription Service",
+      "description": "Premium IPTV streaming service with 18,000+ channels",
+      "category": "Streaming Services"
     }
   }
 }

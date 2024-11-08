@@ -4,7 +4,12 @@
   "name": "IPTV Service",
   "alternateName": "IPTV Provider",
   "url": "https://www.iptvservice.site",
-  "logo": "https://iptvservice.site/logo.svg",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://iptvservice.site/logo.svg",
+    "width": "180",
+    "height": "60"
+  },
   "description": "Leading IPTV streaming service offering 18,000+ channels, VOD content, and live sports with HD/4K quality.",
   "foundingDate": "2020",
   "founders": [{
