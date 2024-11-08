@@ -40,11 +40,36 @@ export const SEO = ({
         "url": baseUrl,
         "name": `IPTV Service - Premium Streaming ${currentYear}`,
         "description": "Premium IPTV Streaming Service",
+        "publisher": {
+          "@type": "Organization",
+          "name": "IPTV Service",
+          "logo": {
+            "@type": "ImageObject",
+            "url": `${baseUrl}/logo.svg`
+          }
+        },
         "potentialAction": {
           "@type": "SearchAction",
           "target": `${baseUrl}/search?q={search_term_string}`,
           "query-input": "required name=search_term_string"
         }
+      },
+      {
+        "@type": "Organization",
+        "@id": `${baseUrl}/#organization`,
+        "name": "IPTV Service",
+        "url": baseUrl,
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${baseUrl}/logo.svg`,
+          "width": 180,
+          "height": 60
+        },
+        "sameAs": [
+          "https://facebook.com/iptvservice",
+          "https://twitter.com/iptvservice",
+          "https://instagram.com/iptvservice"
+        ]
       }
     ].filter(Boolean)
   };
