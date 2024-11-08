@@ -3,9 +3,9 @@ import { resolve } from 'path';
 
 interface SitemapURL {
   loc: string;
-  lastmod: string;
-  changefreq: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
-  priority: number;
+  lastmod?: string;
+  changefreq?: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
+  priority?: number;
   images?: Array<{
     loc: string;
     title: string;
@@ -19,9 +19,9 @@ const generateSitemapXML = (urls: SitemapURL[]): string => {
       ({ loc, lastmod, changefreq, priority, images }) => `
   <url>
     <loc>${loc}</loc>
-    <lastmod>${lastmod}</lastmod>
-    <changefreq>${changefreq}</changefreq>
-    <priority>${priority}</priority>
+    ${lastmod ? `<lastmod>${lastmod}</lastmod>` : ''}
+    ${changefreq ? `<changefreq>${changefreq}</changefreq>` : ''}
+    ${priority ? `<priority>${priority}</priority>` : ''}
     ${images?.map(image => `
     <image:image>
       <image:loc>${image.loc}</image:loc>
@@ -39,57 +39,27 @@ ${xmlUrls}
 </urlset>`;
 };
 
-export const generateSitemap = async (domain: string) => {
+export const generateSitemap = async (domain: string, urls: SitemapURL[]) => {
   try {
-    const defaultUrls: SitemapURL[] = [
-      {
-        loc: '/',
-        lastmod: new Date().toISOString(),
-        changefreq: 'daily',
-        priority: 1.0,
-        images: [{
-          loc: `${domain}/images/IPTV-Service.webp`,
-          title: 'Premium IPTV Service'
-        }]
-      },
-      {
-        loc: '/pricing',
-        lastmod: new Date().toISOString(),
-        changefreq: 'weekly',
-        priority: 0.9,
-        images: [{
-          loc: `${domain}/images/Buy-IPTV.jpg`,
-          title: 'IPTV Subscription Plans'
-        }]
-      },
-      {
-        loc: '/features',
-        lastmod: new Date().toISOString(),
-        changefreq: 'weekly',
-        priority: 0.8,
-        images: [{
-          loc: `${domain}/images/IPTV-Subscription.webp`,
-          title: 'IPTV Features'
-        }]
-      },
-      {
-        loc: '/blog',
-        lastmod: new Date().toISOString(),
-        changefreq: 'daily',
-        priority: 0.8
-      },
-      {
-        loc: '/contact',
-        lastmod: new Date().toISOString(),
-        changefreq: 'monthly',
-        priority: 0.7
-      }
-    ];
+    // Verify all URLs return 200 status before including them
+    const validUrls = await Promise.all(
+      urls.map(async (url) => {
+        try {
+          const response = await fetch(`${domain}${url.loc}`);
+          return response.status === 200 ? url : null;
+        } catch {
+          return null;
+        }
+      })
+    );
 
-    const sitemap = generateSitemapXML(defaultUrls.map(url => ({
-      ...url,
-      loc: `${domain}${url.loc}`
-    })));
+    const filteredUrls = validUrls.filter((url): url is SitemapURL => url !== null);
+    const sitemap = generateSitemapXML(
+      filteredUrls.map((url) => ({
+        ...url,
+        loc: `${domain}${url.loc}`,
+      }))
+    );
 
     writeFileSync(resolve(process.cwd(), 'public', 'sitemap.xml'), sitemap);
   } catch (error) {
