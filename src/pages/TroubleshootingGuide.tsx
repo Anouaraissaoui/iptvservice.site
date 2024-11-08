@@ -4,20 +4,56 @@ import Footer from "@/components/Footer";
 import { Image } from "@/components/ui/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Link } from "react-router-dom";
 
 const TroubleshootingGuide = () => {
+  const structuredData = {
+    "@type": "FAQPage",
+    "@id": "https://www.iptvservice.site/troubleshooting/#faq",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I fix connection issues?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Check your internet connection speed (minimum 10Mbps recommended), verify VPN connection, try switching between Wi-Fi and ethernet, restart modem and router."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I resolve buffering problems?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Lower stream quality, clear device cache and cookies, close bandwidth-heavy applications, try a different media player."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What should I do for playback issues?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Update media player, check system requirements, adjust video output settings, verify stream URL and authentication details."
+        }
+      }
+    ]
+  };
+
   return (
     <>
       <SEO
-        title="IPTV Troubleshooting Guide | Comprehensive Streaming Solutions"
-        description="Complete guide to troubleshooting common IPTV streaming issues. Learn how to fix buffering, connection problems, and optimize your streaming experience."
+        title="IPTV Troubleshooting Guide | Fix Common Streaming Issues 2024"
+        description="Comprehensive guide to fix IPTV streaming issues. Learn how to resolve buffering, connection problems, and playback errors. Expert solutions for better streaming."
+        keywords="IPTV troubleshooting, streaming issues, IPTV buffering fix, connection problems, playback issues, IPTV guide 2024"
         canonical="https://www.iptvservice.site/troubleshooting"
-        keywords="IPTV troubleshooting, streaming issues, IPTV buffering, IPTV connection problems, IPTV guide"
+        structuredData={structuredData}
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Troubleshooting", path: "/troubleshooting" }
+        ]}
       />
 
       <main className="min-h-screen bg-navy">
         <Navbar />
-        
         <div className="container mx-auto px-4 py-24">
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -28,14 +64,14 @@ const TroubleshootingGuide = () => {
               </span>
             </h1>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Your comprehensive resource for resolving common IPTV streaming issues
+              Your comprehensive resource for resolving common IPTV streaming issues. Need immediate assistance? <Link to="/contact" className="text-primary hover:underline">Contact our support team</Link>.
             </p>
           </div>
 
           <div className="mb-16">
             <Card className="bg-navy-light border-white/10 overflow-hidden">
               <Image
-                src="/images/IPTV-troubleshooting.webp"
+                src="/IPTV-Subscription.webp"
                 alt="IPTV troubleshooting guide showing technical setup and streaming solutions"
                 className="w-full h-[400px] object-cover"
                 width={1200}
@@ -43,7 +79,7 @@ const TroubleshootingGuide = () => {
               />
               <CardContent className="p-8">
                 <p className="text-gray-300 mb-6">
-                  Welcome to our comprehensive IPTV troubleshooting guide. Here you'll find solutions to common streaming issues and tips for optimizing your viewing experience.
+                  Welcome to our comprehensive IPTV troubleshooting guide. Here you'll find solutions to common streaming issues and tips for optimizing your viewing experience. Check our <Link to="/features" className="text-primary hover:underline">features page</Link> to learn more about our service capabilities.
                 </p>
               </CardContent>
             </Card>
@@ -60,6 +96,7 @@ const TroubleshootingGuide = () => {
                   <li>Verify your VPN connection if you're using one</li>
                   <li>Try switching between Wi-Fi and ethernet connection</li>
                   <li>Restart your modem and router</li>
+                  <li>For more network tips, visit our <Link to="/blog" className="text-primary hover:underline">blog</Link></li>
                 </ul>
               </AccordionContent>
             </AccordionItem>
@@ -74,6 +111,7 @@ const TroubleshootingGuide = () => {
                   <li>Clear your device's cache and cookies</li>
                   <li>Close other applications using bandwidth</li>
                   <li>Try using a different media player</li>
+                  <li>Check our <Link to="/pricing" className="text-primary hover:underline">premium plans</Link> for better streaming quality</li>
                 </ul>
               </AccordionContent>
             </AccordionItem>
@@ -88,6 +126,7 @@ const TroubleshootingGuide = () => {
                   <li>Check if your device meets minimum system requirements</li>
                   <li>Try different video output settings</li>
                   <li>Verify stream URL and authentication details</li>
+                  <li>Need help? Visit our <Link to="/contact" className="text-primary hover:underline">support page</Link></li>
                 </ul>
               </AccordionContent>
             </AccordionItem>
