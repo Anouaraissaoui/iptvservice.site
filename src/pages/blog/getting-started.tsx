@@ -8,10 +8,10 @@ import ReactMarkdown from 'react-markdown';
 const blogContent = `
 # Getting Started with IPTV - Complete Guide 2024
 
-## What is IPTV?
 IPTV (Internet Protocol Television) is a modern way to receive television content over the internet rather than through traditional terrestrial, satellite, or cable formats. This technology allows you to stream your favorite channels and content directly to various devices.
 
 ## Key Benefits of IPTV
+
 * **Extensive Content Library:** Access thousands of channels worldwide
 * **High Quality:** Stream in HD and 4K resolution
 * **On-Demand Content:** Enjoy VOD (Video on Demand) services
@@ -19,18 +19,20 @@ IPTV (Internet Protocol Television) is a modern way to receive television conten
 * **Cost-Effective:** Save money compared to traditional cable
 
 ## Essential Requirements
+
 Three key components are needed for optimal IPTV streaming:
 
 1. **Internet Connection**
-   - Minimum 10Mbps broadband connection recommended for smooth streaming
+   * Minimum 10Mbps broadband connection recommended for smooth streaming
 
 2. **IPTV Subscription**
-   - Choose a reliable provider with good reviews and customer support
+   * Choose a reliable provider with good reviews and customer support
 
 3. **Compatible Device**
-   - Smart TV, Android Box, or Mobile Device
+   * Smart TV, Android Box, or Mobile Device
 
 ## Supported Devices
+
 ### Smart TVs
 * Samsung Smart TV
 * LG WebOS TV
@@ -42,23 +44,25 @@ Three key components are needed for optimal IPTV streaming:
 * Apple TV
 
 ## Quick Setup Guide
+
 1. Download your preferred IPTV player app
 2. Enter your subscription credentials
 3. Configure video quality settings
 4. Start enjoying your content
 
 ## Pro Tips
+
 * **Use Ethernet When Possible**
-  - Wired connections provide more stable streaming
+  * Wired connections provide more stable streaming
 
 * **Keep Software Updated**
-  - Regular updates ensure optimal performance
+  * Regular updates ensure optimal performance
 
 * **Optimize Quality Settings**
-  - Match video quality to your internet speed
+  * Match video quality to your internet speed
 
 * **Consider Using a VPN**
-  - Enhanced privacy and security while streaming
+  * Enhanced privacy and security while streaming
 `;
 
 const GettingStartedWithIPTV = () => {
@@ -121,7 +125,20 @@ const GettingStartedWithIPTV = () => {
                 className="w-full rounded-lg mb-8"
               />
               
-              <ReactMarkdown>{blogContent}</ReactMarkdown>
+              <ReactMarkdown
+                components={{
+                  h1: ({ children }) => <h1 className="text-3xl font-bold mb-6">{children}</h1>,
+                  h2: ({ children }) => <h2 className="text-2xl font-semibold mt-8 mb-4">{children}</h2>,
+                  h3: ({ children }) => <h3 className="text-xl font-semibold mt-6 mb-3">{children}</h3>,
+                  p: ({ children }) => <p className="mb-4">{children}</p>,
+                  ul: ({ children }) => <ul className="list-disc pl-6 mb-4">{children}</ul>,
+                  ol: ({ children }) => <ol className="list-decimal pl-6 mb-4">{children}</ol>,
+                  li: ({ children }) => <li className="mb-2">{children}</li>,
+                  strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
+                }}
+              >
+                {blogContent}
+              </ReactMarkdown>
             </div>
           </div>
         </article>
