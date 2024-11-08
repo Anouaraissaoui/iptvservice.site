@@ -28,14 +28,6 @@ const Footer = () => {
     { name: "FAQs", path: "/features#faq" }
   ];
 
-  const resourceLinks = [
-    {
-      name: "Learn more about IPTV",
-      href: "https://en.wikipedia.org/wiki/Internet_Protocol_television",
-      description: "Discover the technology behind IPTV on Wikipedia"
-    }
-  ];
-
   return (
     <footer className="bg-navy-light relative overflow-hidden border-t border-white/10">
       {/* Background Effects */}
@@ -59,7 +51,7 @@ const Footer = () => {
           </div>
 
           {/* Navigation Links */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 text-center md:text-left">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center md:text-left">
             <div className="space-y-4">
               <h3 className="text-white font-semibold text-lg">Main Pages</h3>
               <ul className="space-y-2">
@@ -100,25 +92,6 @@ const Footer = () => {
                     <a 
                       href={link.path}
                       className="text-gray-400 hover:text-primary transition-colors"
-                    >
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="space-y-4">
-              <h3 className="text-white font-semibold text-lg">Resources</h3>
-              <ul className="space-y-2">
-                {resourceLinks.map((link) => (
-                  <li key={link.href}>
-                    <a 
-                      href={link.href}
-                      className="text-gray-400 hover:text-primary transition-colors"
-                      rel="dofollow"
-                      target="_blank"
-                      title={link.description}
                     >
                       {link.name}
                     </a>
