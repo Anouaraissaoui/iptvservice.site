@@ -11,30 +11,19 @@ import { ServerSEO } from "@/components/ServerSEO";
 import { generateOrganizationData, generateWebsiteData, generateProductData } from "@/utils/structuredData";
 
 const Index = () => {
-  const currentYear = new Date().getFullYear();
+  const currentDate = new Date().getFullYear();
   
-  // Load and parse JSON schema files
-  const productSchema = require('/public/schemas/product.json');
-  const websiteSchema = require('/public/schemas/website.json');
-  const organizationSchema = require('/public/schemas/organization.json');
-  const breadcrumbsSchema = require('/public/schemas/breadcrumbs.json');
-  const faqSchema = require('/public/schemas/faq.json');
-  const localBusinessSchema = require('/public/schemas/local-business.json');
-
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
-      productSchema,
-      websiteSchema,
-      organizationSchema,
-      breadcrumbsSchema,
-      faqSchema,
-      localBusinessSchema,
+      generateOrganizationData(),
+      generateWebsiteData(),
+      generateProductData(11),
       {
         "@type": "WebPage",
         "@id": "https://www.iptvservice.site/#webpage",
         "url": "https://www.iptvservice.site",
-        "name": `Buy IPTV Subscription | Best IPTV Service Provider ${currentYear + 1}`,
+        "name": `Buy IPTV Subscription | Best IPTV Service Provider 2025`,
         "isPartOf": { "@id": "https://www.iptvservice.site/#website" },
         "about": { "@id": "https://www.iptvservice.site/#organization" },
         "primaryImageOfPage": {
@@ -57,18 +46,13 @@ const Index = () => {
 
   return (
     <>
-      <Helmet>
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
-      </Helmet>
       <ServerSEO 
-        title={`Buy IPTV Subscription | Best IPTV Service Provider ${currentYear + 1}`}
+        title={`Buy IPTV Subscription | Best IPTV Service Provider 2025`}
         description="Buy IPTV subscription with 18000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support."
         structuredData={structuredData}
       />
       <SEO
-        title={`Buy IPTV Subscription | Best IPTV Service Provider ${currentYear + 1}`}
+        title={`Buy IPTV Subscription | Best IPTV Service Provider 2025`}
         description="Buy IPTV subscription with 18000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support."
         keywords="buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV buy, best buy IPTV, IPTV channels, HD IPTV, 4K IPTV, premium IPTV service, IPTV provider USA"
         structuredData={structuredData}
