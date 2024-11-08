@@ -7,9 +7,11 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Link } from "react-router-dom";
 
 const TroubleshootingGuide = () => {
+  const baseUrl = "https://www.iptvservice.site";
+  
   const structuredData = {
     "@type": "FAQPage",
-    "@id": "https://www.iptvservice.site/troubleshooting/#faq",
+    "@id": `${baseUrl}/troubleshooting/#faq`,
     "mainEntity": [
       {
         "@type": "Question",
@@ -44,11 +46,21 @@ const TroubleshootingGuide = () => {
         title="IPTV Troubleshooting Guide | Fix Common Streaming Issues 2024"
         description="Comprehensive guide to fix IPTV streaming issues. Learn how to resolve buffering, connection problems, and playback errors. Expert solutions for better streaming."
         keywords="IPTV troubleshooting, streaming issues, IPTV buffering fix, connection problems, playback issues, IPTV guide 2024"
-        canonical="https://www.iptvservice.site/troubleshooting"
+        canonical={`${baseUrl}/troubleshooting`}
         structuredData={structuredData}
         breadcrumbs={[
-          { name: "Home", path: "/" },
-          { name: "Troubleshooting", path: "/troubleshooting" }
+          { 
+            name: "Home", 
+            path: "/", 
+            position: 1,
+            item: `${baseUrl}/`
+          },
+          { 
+            name: "Troubleshooting", 
+            path: "/troubleshooting",
+            position: 2,
+            item: `${baseUrl}/troubleshooting`
+          }
         ]}
       />
 
@@ -132,7 +144,6 @@ const TroubleshootingGuide = () => {
             </AccordionItem>
           </Accordion>
         </div>
-
         <Footer />
       </main>
     </>
