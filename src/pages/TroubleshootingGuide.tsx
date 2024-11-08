@@ -82,7 +82,7 @@ const TroubleshootingGuide = () => {
             <Card className="bg-navy-light border-white/10 overflow-hidden">
               <div className="relative w-full h-[400px]">
                 <Image
-                  src="/images/IPTV-troubleshooting.webp"
+                  src="IPTV-troubleshooting.webp"
                   alt="IPTV troubleshooting guide showing technical setup and streaming solutions"
                   className="w-full h-full object-cover"
                   width={1200}
