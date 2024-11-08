@@ -57,13 +57,13 @@ const Features = () => {
         <link rel="canonical" href="https://www.iptvservice.site/features" />
         
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Premium IPTV Features & Benefits 2024" />
+        <meta property="og:title" content="Premium IPTV Features & Benefits 2025" />
         <meta property="og:description" content="Discover our advanced IPTV features: 18,000+ channels, HD/4K quality, catch-up TV, EPG, VOD library, and more!" />
         <meta property="og:url" content="https://www.iptvservice.site/features" />
         <meta property="og:image" content="https://www.iptvservice.site/features-overview.jpg" />
         
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Premium IPTV Features & Benefits 2024" />
+        <meta name="twitter:title" content="Premium IPTV Features & Benefits 2025" />
         <meta name="twitter:description" content="Experience next-level streaming with our premium IPTV features. HD/4K quality, 18,000+ channels!" />
         
         <script type="application/ld+json">
