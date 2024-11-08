@@ -26,7 +26,9 @@ export interface BreadcrumbItem {
 export interface MetaTag {
   name?: string;
   property?: string;
-  content: string;
+  content?: string;
+  rel?: string;
+  href?: string;
 }
 
 export interface PreloadResource {

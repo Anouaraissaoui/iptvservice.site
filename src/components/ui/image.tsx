@@ -3,28 +3,22 @@ import { useState } from "react";
 interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   alt: string;
   className?: string;
-  priority?: boolean;
 }
 
-export const Image = ({ alt, className = "", priority = false, ...props }: ImageProps) => {
+export const Image = ({ alt, className = "", ...props }: ImageProps) => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative">
       {isLoading && (
-        <div 
-          className="absolute inset-0 bg-navy animate-pulse rounded-inherit" 
-          aria-hidden="true"
-        />
+        <div className="absolute inset-0 bg-navy animate-pulse rounded-inherit" />
       )}
       <img
         alt={alt}
         className={`transition-opacity duration-300 ${
           isLoading ? "opacity-0" : "opacity-100"
         } ${className}`}
-        loading={priority ? "eager" : "lazy"}
-        decoding={priority ? "sync" : "async"}
         onLoad={() => setIsLoading(false)}
         onError={() => {
           setError(true);
