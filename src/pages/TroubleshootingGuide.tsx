@@ -39,8 +39,18 @@ const TroubleshootingGuide = () => {
         keywords="IPTV troubleshooting, streaming issues, IPTV buffering, IPTV connection problems, IPTV not working, IPTV playback issues"
         structuredData={structuredData}
         breadcrumbs={[
-          { name: "Home", path: "/" },
-          { name: "Troubleshooting Guide", path: "/troubleshooting" }
+          { 
+            name: "Home", 
+            path: "/", 
+            position: 1, 
+            item: "https://www.iptvservice.site" 
+          },
+          { 
+            name: "Troubleshooting Guide", 
+            path: "/troubleshooting", 
+            position: 2, 
+            item: "https://www.iptvservice.site/troubleshooting" 
+          }
         ]}
       />
 
