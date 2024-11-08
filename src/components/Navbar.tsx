@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { NavItem } from "@/types/components";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -48,6 +49,7 @@ const Navbar = () => {
                 }`} />
               </a>
             ))}
+            <LanguageSwitcher />
           </div>
 
           <Button 
@@ -63,7 +65,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isMenuOpen && (
         <div 
           id="mobile-menu"
@@ -83,6 +84,9 @@ const Navbar = () => {
                 {item.name}
               </a>
             ))}
+            <div className="py-2">
+              <LanguageSwitcher />
+            </div>
           </div>
         </div>
       )}
