@@ -4,6 +4,7 @@
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "redirects": [
+    { "source": "/blog/usa-iptv-guide", "destination": "/blog/usa-iptv-guide", "permanent": true },
     { "source": "/blog/:path*", "destination": "/blog/:path*", "permanent": true },
     { "source": "/features/:path*", "destination": "/features/:path*", "permanent": true },
     { "source": "/pricing/:path*", "destination": "/pricing/:path*", "permanent": true },
@@ -36,43 +37,6 @@
         { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), payment=()" },
         { "key": "Content-Security-Policy", "value": "default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google-analytics.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://api.iptvservice.site;" },
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-      ]
-    },
-    {
-      "source": "/(.+\\.js)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
-        { "key": "Content-Type", "value": "application/javascript; charset=utf-8" },
-        { "key": "X-Content-Type-Options", "value": "nosniff" }
-      ]
-    },
-    {
-      "source": "/(.+\\.css)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
-        { "key": "Content-Type", "value": "text/css; charset=utf-8" },
-        { "key": "X-Content-Type-Options", "value": "nosniff" }
-      ]
-    },
-    {
-      "source": "/images/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
-        { "key": "Content-Type", "value": "image/jpeg" }
-      ]
-    },
-    {
-      "source": "/fonts/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
-        { "key": "X-Content-Type-Options", "value": "nosniff" }
-      ]
-    },
-    {
-      "source": "404.html",
-      "headers": [
-        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" },
-        { "key": "Status", "value": "404" }
       ]
     }
   ]

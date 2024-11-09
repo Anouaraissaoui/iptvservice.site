@@ -30,11 +30,11 @@ const App = ({ dehydratedState }: { dehydratedState?: unknown }) => (
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/usa-iptv-guide" element={<UsaIptvGuide />} />
                 <Route path="/pricing" element={<Pricing />} />
                 <Route path="/features" element={<Features />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/troubleshooting" element={<TroubleshootingGuide />} />
-                <Route path="/blog/usa-iptv-guide" element={<UsaIptvGuide />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </BrowserRouter>
