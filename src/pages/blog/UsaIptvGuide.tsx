@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { HelpCircle } from "lucide-react";
 
 const UsaIptvGuide = () => {
   const providers = [
@@ -69,79 +70,123 @@ const UsaIptvGuide = () => {
       <div className="min-h-screen bg-navy">
         <Navbar />
         
-        <main className="container mx-auto px-4 py-20 text-white">
-          <article className="prose prose-invert max-w-none">
-            <h1 className="text-4xl font-bold mb-8">Best USA IPTV Service Providers (2024): A Complete Guide</h1>
-            
-            <section className="mb-12">
-              <p className="text-lg mb-6">
-                In today's streaming-focused world, traditional cable TV is becoming a thing of the past. 
-                Many in the USA are turning to IPTV (Internet Protocol Television) as an alternative that 
-                offers a vast array of live TV channels, movies, and on-demand content.
-              </p>
-            </section>
-
-            <section className="mb-12">
-              <h2 className="text-2xl font-bold mb-6">What is IPTV?</h2>
-              <Card className="p-6 bg-navy-light border-white/10">
-                <p>
-                  IPTV delivers television content over the internet, unlike traditional broadcast or cable 
-                  TV services. Through IPTV, viewers can access live TV, on-demand content, and time-shifted 
-                  media, often with more flexibility and at a lower cost than conventional options.
+        <main className="relative overflow-hidden">
+          {/* Background Effects */}
+          <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px] animate-[grid_20s_linear_infinite]" />
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] animate-pulse" />
+          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] animate-pulse" />
+          
+          <div className="container mx-auto px-4 py-24 relative">
+            <article className="prose prose-invert max-w-none">
+              {/* Header Section */}
+              <div className="text-center mb-16 space-y-4">
+                <span className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-6 py-2 backdrop-blur-xl text-sm">
+                  <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                  <span className="text-white">USA IPTV Guide 2024</span>
+                </span>
+                
+                <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+                  Best USA{" "}
+                  <span className="text-primary relative inline-block">
+                    IPTV Service
+                    <span className="absolute -bottom-2 left-0 right-0 h-1 bg-primary/30 blur-sm" />
+                  </span>{" "}
+                  Providers
+                </h1>
+                
+                <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+                  Comprehensive guide to the best IPTV service providers in the USA for 2024. 
+                  Compare features, pricing, and find the perfect streaming solution.
                 </p>
-              </Card>
-            </section>
-
-            <section className="mb-12">
-              <h2 className="text-2xl font-bold mb-6">Top IPTV Service Providers in the USA for 2024</h2>
-              <div className="overflow-x-auto">
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>IPTV Provider</TableHead>
-                      <TableHead>Channels</TableHead>
-                      <TableHead>Supported Devices</TableHead>
-                      <TableHead>Key Features</TableHead>
-                      <TableHead>Pricing</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {providers.map((provider) => (
-                      <TableRow key={provider.name}>
-                        <TableCell className="font-medium">{provider.name}</TableCell>
-                        <TableCell>{provider.channels}</TableCell>
-                        <TableCell>{provider.devices}</TableCell>
-                        <TableCell>{provider.features}</TableCell>
-                        <TableCell>{provider.pricing}</TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
               </div>
-            </section>
 
-            <section className="mb-12">
-              <h2 className="text-2xl font-bold mb-6">Requirements for Optimal IPTV Performance</h2>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>High-Speed Internet: Recommended speeds are 25 Mbps for HD and 75 Mbps or higher for 4K.</li>
-                <li>Compatible Device: Use Smart TVs, streaming devices, or smartphones that support the IPTV app.</li>
-                <li>Subscription: Most IPTV providers offer subscription-based access.</li>
-                <li>VPN (Optional): While not necessary for legal IPTV, a VPN can enhance privacy.</li>
-              </ul>
-            </section>
+              {/* What is IPTV Section */}
+              <section className="mb-16">
+                <Card className="bg-navy-light/50 border border-white/10 p-8 backdrop-blur-sm">
+                  <h2 className="text-2xl font-bold text-white mb-4">What is IPTV?</h2>
+                  <p className="text-gray-400">
+                    IPTV delivers television content over the internet, unlike traditional broadcast or cable 
+                    TV services. Through IPTV, viewers can access live TV, on-demand content, and time-shifted 
+                    media, often with more flexibility and at a lower cost than conventional options.
+                  </p>
+                </Card>
+              </section>
 
-            <section className="mb-12">
-              <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
-              <Accordion type="single" collapsible className="w-full">
-                {faqs.map((faq, index) => (
-                  <AccordionItem key={index} value={`item-${index}`}>
-                    <AccordionTrigger>{faq.question}</AccordionTrigger>
-                    <AccordionContent>{faq.answer}</AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </section>
-          </article>
+              {/* Providers Table Section */}
+              <section className="mb-16">
+                <h2 className="text-2xl font-bold text-white mb-6">Top IPTV Service Providers</h2>
+                <div className="relative rounded-xl overflow-hidden border border-white/10 backdrop-blur-sm">
+                  <Table>
+                    <TableHeader>
+                      <TableRow className="bg-navy-light/50 hover:bg-navy-light/70">
+                        <TableHead className="text-white">IPTV Provider</TableHead>
+                        <TableHead className="text-white">Channels</TableHead>
+                        <TableHead className="text-white">Supported Devices</TableHead>
+                        <TableHead className="text-white">Key Features</TableHead>
+                        <TableHead className="text-white">Pricing</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {providers.map((provider) => (
+                        <TableRow key={provider.name} className="bg-navy-light/30 hover:bg-navy-light/50">
+                          <TableCell className="font-medium text-white">{provider.name}</TableCell>
+                          <TableCell className="text-gray-300">{provider.channels}</TableCell>
+                          <TableCell className="text-gray-300">{provider.devices}</TableCell>
+                          <TableCell className="text-gray-300">{provider.features}</TableCell>
+                          <TableCell className="text-gray-300">{provider.pricing}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
+              </section>
+
+              {/* Requirements Section */}
+              <section className="mb-16">
+                <h2 className="text-2xl font-bold text-white mb-6">Requirements for Optimal IPTV Performance</h2>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <Card className="bg-navy-light/50 border border-white/10 p-6 backdrop-blur-sm">
+                    <h3 className="text-lg font-semibold text-white mb-4">High-Speed Internet</h3>
+                    <p className="text-gray-400">
+                      Recommended speeds are 25 Mbps for HD and 75 Mbps or higher for 4K streaming quality.
+                    </p>
+                  </Card>
+                  <Card className="bg-navy-light/50 border border-white/10 p-6 backdrop-blur-sm">
+                    <h3 className="text-lg font-semibold text-white mb-4">Compatible Devices</h3>
+                    <p className="text-gray-400">
+                      Use Smart TVs, streaming devices, or smartphones that support the IPTV app.
+                    </p>
+                  </Card>
+                </div>
+              </section>
+
+              {/* FAQs Section */}
+              <section className="mb-16">
+                <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+                <Accordion type="single" collapsible className="space-y-4">
+                  {faqs.map((faq, index) => (
+                    <AccordionItem 
+                      key={index} 
+                      value={`item-${index}`}
+                      className="group bg-navy-light/50 border border-white/10 rounded-xl px-6 backdrop-blur-sm transition-all duration-300 hover:border-primary/50"
+                    >
+                      <AccordionTrigger className="py-6 text-white group-hover:text-primary transition-colors">
+                        <div className="flex items-center gap-3">
+                          <div className="p-2 rounded-lg bg-primary/10 text-primary group-data-[state=open]:bg-primary/20 transition-colors">
+                            <HelpCircle className="w-4 h-4" />
+                          </div>
+                          <span className="text-left">{faq.question}</span>
+                        </div>
+                      </AccordionTrigger>
+                      <AccordionContent className="text-gray-400 pb-6 pt-2 pl-14">
+                        {faq.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </section>
+            </article>
+          </div>
         </main>
 
         <Footer />
