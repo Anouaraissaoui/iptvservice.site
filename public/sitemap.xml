@@ -2,10 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-  <!-- Main Pages -->
+  <!-- Homepage -->
   <url>
     <loc>https://www.iptvservice.site/</loc>
     <lastmod>2024-02-26T12:00:00+00:00</lastmod>
@@ -14,36 +16,66 @@
     <image:image>
       <image:loc>https://www.iptvservice.site/images/IPTV-Service.webp</image:loc>
       <image:title>Premium IPTV Service</image:title>
+      <image:caption>Best IPTV Service Provider 2025</image:caption>
     </image:image>
   </url>
 
-  <!-- Core Service Pages -->
+  <!-- Pricing Page -->
   <url>
     <loc>https://www.iptvservice.site/pricing</loc>
     <lastmod>2024-02-26T12:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.iptvservice.site/images/Buy-IPTV.jpg</image:loc>
+      <image:title>IPTV Subscription Plans</image:title>
+      <image:caption>Premium IPTV Subscription Packages</image:caption>
+    </image:image>
   </url>
+
+  <!-- Features Page -->
   <url>
     <loc>https://www.iptvservice.site/features</loc>
     <lastmod>2024-02-26T12:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.iptvservice.site/images/IPTV-Subscription.webp</image:loc>
+      <image:title>IPTV Features</image:title>
+      <image:caption>Premium IPTV Features and Benefits</image:caption>
+    </image:image>
   </url>
+
+  <!-- Troubleshooting Guide -->
+  <url>
+    <loc>https://www.iptvservice.site/troubleshooting</loc>
+    <lastmod>2024-02-26T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.iptvservice.site/images/IPTV-troubleshooting.webp</image:loc>
+      <image:title>IPTV Troubleshooting Guide</image:title>
+      <image:caption>Comprehensive IPTV Troubleshooting Solutions</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Blog Page -->
   <url>
     <loc>https://www.iptvservice.site/blog</loc>
     <lastmod>2024-02-26T12:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
+    <news:news>
+      <news:publication>
+        <news:name>IPTV Service Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2024-02-26T12:00:00+00:00</news:publication_date>
+      <news:title>Latest IPTV News and Updates</news:title>
+    </news:news>
   </url>
 
-  <!-- Support Pages -->
-  <url>
-    <loc>https://www.iptvservice.site/troubleshooting</loc>
-    <lastmod>2024-02-26T12:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
+  <!-- Contact Page -->
   <url>
     <loc>https://www.iptvservice.site/contact</loc>
     <lastmod>2024-02-26T12:00:00+00:00</lastmod>
@@ -51,17 +83,49 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- Legal Pages -->
+  <!-- Terms Page -->
   <url>
     <loc>https://www.iptvservice.site/terms</loc>
     <lastmod>2024-02-26T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
+
+  <!-- Privacy Page -->
   <url>
     <loc>https://www.iptvservice.site/privacy</loc>
     <lastmod>2024-02-26T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
+  </url>
+
+  <!-- Error Pages -->
+  <url>
+    <loc>https://www.iptvservice.site/404</loc>
+    <lastmod>2024-02-26T12:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+
+  <!-- Language Alternates -->
+  <url>
+    <loc>https://www.iptvservice.site/es</loc>
+    <lastmod>2024-02-26T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.iptvservice.site/fr</loc>
+    <lastmod>2024-02-26T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.iptvservice.site/de</loc>
+    <lastmod>2024-02-26T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
