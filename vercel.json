@@ -4,7 +4,7 @@
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "redirects": [
-    { "source": "/blog/usa-iptv-guide", "destination": "/blog/usa-iptv-guide", "permanent": true },
+    { "source": "/blog/usa-iptv-guide/:path", "destination": "/blog/usa-iptv-guide/:path", "permanent": true },
     { "source": "/blog/:path*", "destination": "/blog/:path*", "permanent": true },
     { "source": "/features/:path*", "destination": "/features/:path*", "permanent": true },
     { "source": "/pricing/:path*", "destination": "/pricing/:path*", "permanent": true },
