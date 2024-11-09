@@ -24,5 +24,23 @@
     "name": "Blog",
     "item": "https://www.iptvservice.site/blog",
     "description": "Latest IPTV news and updates"
+  }, {
+    "@type": "ListItem",
+    "position": 5,
+    "name": "Contact",
+    "item": "https://www.iptvservice.site/contact",
+    "description": "Get in touch with our support team"
+  }, {
+    "@type": "ListItem",
+    "position": 6,
+    "name": "Troubleshooting",
+    "item": "https://www.iptvservice.site/troubleshooting",
+    "description": "IPTV troubleshooting guide and solutions"
+  }, {
+    "@type": "ListItem",
+    "position": 7,
+    "name": "USA IPTV Guide",
+    "item": "https://www.iptvservice.site/blog/usa-iptv-guide",
+    "description": "Complete guide to USA IPTV services"
   }]
 }
