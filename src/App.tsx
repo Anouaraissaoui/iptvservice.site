@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { HelmetProvider } from "react-helmet-async";
 import { QueryClient, QueryClientProvider, HydrationBoundary } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Index from "./pages/Index";
@@ -35,20 +35,6 @@ const App = ({ dehydratedState }: { dehydratedState?: unknown }) => (
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/troubleshooting" element={<TroubleshootingGuide />} />
                 <Route path="/blog/usa-iptv-guide" element={<UsaIptvGuide />} />
-                
-                {/* Redirects for old/alternative paths */}
-                <Route path="/about" element={<Navigate to="/features" replace />} />
-                <Route path="/support" element={<Navigate to="/contact" replace />} />
-                <Route path="/help" element={<Navigate to="/contact" replace />} />
-                <Route path="/packages" element={<Navigate to="/pricing" replace />} />
-                <Route path="/services" element={<Navigate to="/features" replace />} />
-                <Route path="/news" element={<Navigate to="/blog" replace />} />
-                <Route path="/channels" element={<Navigate to="/features" replace />} />
-                <Route path="/guide" element={<Navigate to="/features" replace />} />
-                <Route path="/setup-guide" element={<Navigate to="/features" replace />} />
-                <Route path="/faq" element={<Navigate to="/features#faq" replace />} />
-                
-                {/* Catch all 404 route */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </BrowserRouter>

@@ -4,15 +4,13 @@
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "redirects": [
-    { "source": "/blog/:slug*", "destination": "/blog/:slug*", "permanent": true },
-    { "source": "/blog/usa-iptv-guide/:path*", "destination": "/blog/usa-iptv-guide/:path*", "permanent": true },
+    { "source": "/blog/:path*", "destination": "/blog/:path*", "permanent": true },
     { "source": "/features/:path*", "destination": "/features/:path*", "permanent": true },
     { "source": "/pricing/:path*", "destination": "/pricing/:path*", "permanent": true },
     { "source": "/contact/:path*", "destination": "/contact/:path*", "permanent": true },
     { "source": "/terms/:path*", "destination": "/terms/:path*", "permanent": true },
     { "source": "/privacy/:path*", "destination": "/privacy/:path*", "permanent": true },
     { "source": "/troubleshooting/:path*", "destination": "/troubleshooting/:path*", "permanent": true },
-    { "source": "/blog/usa-iptv-guide", "destination": "/blog/usa-iptv-guide", "permanent": true },
     { "source": "/refund", "destination": "/terms", "permanent": true },
     { "source": "/setup-guide", "destination": "/features", "permanent": true },
     { "source": "/guide", "destination": "/features", "permanent": true },
@@ -44,20 +42,37 @@
       "source": "/(.+\\.js)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
-        { "key": "Content-Type", "value": "application/javascript; charset=utf-8" }
+        { "key": "Content-Type", "value": "application/javascript; charset=utf-8" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" }
       ]
     },
     {
       "source": "/(.+\\.css)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
-        { "key": "Content-Type", "value": "text/css; charset=utf-8" }
+        { "key": "Content-Type", "value": "text/css; charset=utf-8" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" }
       ]
     },
     {
       "source": "/images/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
+        { "key": "Content-Type", "value": "image/jpeg" }
+      ]
+    },
+    {
+      "source": "/fonts/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" }
+      ]
+    },
+    {
+      "source": "404.html",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" },
+        { "key": "Status", "value": "404" }
       ]
     }
   ]
