@@ -9,12 +9,14 @@ interface SitemapURL {
   images?: Array<{
     loc: string;
     title: string;
+    caption?: string;
   }>;
 }
 
 const generateSitemapXML = (urls: SitemapURL[]): string => {
   const xmlUrls = urls
-    .map(({ loc, lastmod, changefreq, priority, images }) => `
+    .map(
+      ({ loc, lastmod, changefreq, priority, images }) => `
   <url>
     <loc>${loc}</loc>
     ${lastmod ? `<lastmod>${lastmod}</lastmod>` : ''}
@@ -24,8 +26,11 @@ const generateSitemapXML = (urls: SitemapURL[]): string => {
     <image:image>
       <image:loc>${image.loc}</image:loc>
       <image:title>${image.title}</image:title>
+      ${image.caption ? `<image:caption>${image.caption}</image:caption>` : ''}
     </image:image>`).join('') || ''}
-  </url>`).join('');
+  </url>`
+    )
+    .join('');
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -36,13 +41,13 @@ ${xmlUrls}
 
 export const generateSitemap = async (domain: string, urls: SitemapURL[]) => {
   try {
+    // Verify all URLs return 200 status before including them
     const validUrls = await Promise.all(
       urls.map(async (url) => {
         try {
           const response = await fetch(`${domain}${url.loc}`);
           return response.status === 200 ? url : null;
         } catch {
-          console.error(`Failed to validate URL: ${domain}${url.loc}`);
           return null;
         }
       })
@@ -57,7 +62,6 @@ export const generateSitemap = async (domain: string, urls: SitemapURL[]) => {
     );
 
     writeFileSync(resolve(process.cwd(), 'public', 'sitemap.xml'), sitemap);
-    console.log('Sitemap generated successfully');
   } catch (error) {
     console.error('Error generating sitemap:', error);
   }
