@@ -7,6 +7,21 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { HelpCircle } from "lucide-react";
 
 const UsaIptvGuide = () => {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Complete USA IPTV Guide 2024: Everything You Need to Know",
+    "description": "Comprehensive guide to IPTV services in the USA. Learn about features, pricing, and how to choose the best IPTV provider for your needs.",
+    "image": "https://www.iptvservice.site/images/IPTV-Service.webp",
+    "datePublished": "2024-02-26T12:00:00+00:00",
+    "dateModified": "2024-02-26T12:00:00+00:00",
+    "author": {
+      "@type": "Organization",
+      "name": "IPTV Service",
+      "url": "https://www.iptvservice.site"
+    }
+  };
+
   const providers = [
     {
       name: "IFLEX IPTV",
@@ -63,13 +78,21 @@ const UsaIptvGuide = () => {
   return (
     <>
       <Helmet>
-        <title>Best USA IPTV Service Providers (2024): A Complete Guide</title>
-        <meta name="description" content="Comprehensive guide to the best IPTV service providers in the USA for 2024. Compare features, pricing, and find the perfect streaming solution." />
+        <title>Complete USA IPTV Guide 2024: Everything You Need to Know</title>
+        <meta name="description" content="Comprehensive guide to IPTV services in the USA. Learn about features, pricing, and how to choose the best IPTV provider for your needs." />
+        <meta name="keywords" content="USA IPTV, IPTV guide, IPTV services, streaming guide, IPTV providers, USA streaming" />
+        <link rel="canonical" href="https://www.iptvservice.site/blog/usa-iptv-guide/" />
+        <meta property="og:title" content="Complete USA IPTV Guide 2024: Everything You Need to Know" />
+        <meta property="og:description" content="Comprehensive guide to IPTV services in the USA. Learn about features, pricing, and how to choose the best IPTV provider for your needs." />
+        <meta property="og:url" content="https://www.iptvservice.site/blog/usa-iptv-guide/" />
+        <meta property="og:type" content="article" />
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
       </Helmet>
 
       <div className="min-h-screen bg-navy">
         <Navbar />
-        
         <main className="relative overflow-hidden">
           {/* Background Effects */}
           <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px] animate-[grid_20s_linear_infinite]" />
@@ -188,7 +211,6 @@ const UsaIptvGuide = () => {
             </article>
           </div>
         </main>
-
         <Footer />
       </div>
     </>
