@@ -20,6 +20,7 @@ export const SEO = ({
   const currentYear = new Date().getFullYear();
   
   const breadcrumbData = breadcrumbs ? {
+    "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": breadcrumbs.map((item, index) => ({
       "@type": "ListItem",
@@ -29,32 +30,51 @@ export const SEO = ({
     }))
   } : null;
 
+  const websiteData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${baseUrl}/#website`,
+    "url": baseUrl,
+    "name": `IPTV Service - Premium Streaming ${currentYear}`,
+    "description": description,
+    "publisher": {
+      "@type": "Organization",
+      "name": "IPTV Service",
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${baseUrl}/logo.svg`,
+        "width": 180,
+        "height": 60
+      }
+    },
+    "potentialAction": [{
+      "@type": "SearchAction",
+      "target": `${baseUrl}/search?q={search_term_string}`,
+      "query-input": "required name=search_term_string"
+    }]
+  };
+
   const fullStructuredData = {
     "@context": "https://schema.org",
     "@graph": [
       structuredData,
       breadcrumbData,
+      websiteData,
       {
-        "@type": "WebSite",
-        "@id": `${baseUrl}/#website`,
-        "url": baseUrl,
-        "name": `IPTV Service - Premium Streaming ${currentYear}`,
+        "@type": type === "article" ? "Article" : type === "product" ? "Product" : "WebPage",
+        "@id": `${canonical}#content`,
+        "url": canonical,
+        "name": title,
         "description": description,
-        "publisher": {
+        "datePublished": publishedTime,
+        "dateModified": modifiedTime,
+        "author": {
           "@type": "Organization",
-          "name": "IPTV Service",
-          "logo": {
-            "@type": "ImageObject",
-            "url": `${baseUrl}/logo.svg`,
-            "width": 180,
-            "height": 60
-          }
+          "name": author
         },
-        "potentialAction": [{
-          "@type": "SearchAction",
-          "target": `${baseUrl}/search?q={search_term_string}`,
-          "query-input": "required name=search_term_string"
-        }]
+        "isPartOf": {
+          "@id": `${baseUrl}/#website`
+        }
       }
     ].filter(Boolean)
   };
@@ -65,12 +85,9 @@ export const SEO = ({
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="robots" content={noindex ? "noindex,nofollow" : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"} />
+      <meta name="keywords" content={keywords} />
+      <meta name="author" content={author} />
       <link rel="canonical" href={canonical} />
-      
-      {/* Schema.org Markup */}
-      <script type="application/ld+json">
-        {JSON.stringify(fullStructuredData)}
-      </script>
       
       {/* Open Graph */}
       <meta property="og:title" content={title} />
@@ -92,14 +109,15 @@ export const SEO = ({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
       
-      {/* Additional Meta */}
-      <meta name="keywords" content={keywords} />
-      <meta name="author" content={author} />
-      
       {/* Language Alternates */}
       {alternates && Object.entries(alternates).map(([lang, url]) => (
         <link key={lang} rel="alternate" hrefLang={lang} href={`${baseUrl}${url}`} />
       ))}
+      
+      {/* Schema.org Markup */}
+      <script type="application/ld+json">
+        {JSON.stringify(fullStructuredData)}
+      </script>
     </Helmet>
   );
 };
