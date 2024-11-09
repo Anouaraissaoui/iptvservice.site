@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { HelmetProvider } from "react-helmet-async";
 import { QueryClient, QueryClientProvider, HydrationBoundary } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Index from "./pages/Index";
@@ -31,6 +31,7 @@ const App = ({ dehydratedState }: { dehydratedState?: unknown }) => (
                 <Route path="/" element={<Index />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/usa-iptv-guide" element={<UsaIptvGuide />} />
+                <Route path="/blog/usa-iptv-guide/" element={<UsaIptvGuide />} />
                 <Route path="/pricing" element={<Pricing />} />
                 <Route path="/features" element={<Features />} />
                 <Route path="/contact" element={<Contact />} />
