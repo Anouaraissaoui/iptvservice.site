@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
@@ -32,59 +33,6 @@ const UsaIptvGuide = () => {
       }
     }
   };
-
-  const providers = [
-    {
-      name: "IFLEX IPTV",
-      channels: "28,000+",
-      devices: "Android, iOS, Firestick, Smart TVs",
-      features: "4K quality, VOD, Multi-device",
-      pricing: "Starts at $34.99/3 months"
-    },
-    {
-      name: "CalmaHUB",
-      channels: "20,000+",
-      devices: "Fire TV, Apple TV, Android, Windows",
-      features: "Multi-screen, on-demand",
-      pricing: "Starts at £24.99/3 months"
-    },
-    {
-      name: "FLOKI TV",
-      channels: "65,000+",
-      devices: "Android, Firestick, Windows, iOS",
-      features: "VOD in 4K, HD quality",
-      pricing: "$38.13/3 months"
-    },
-    {
-      name: "Fubo IPTV",
-      channels: "22,000+",
-      devices: "TV box, smartphone, tablet",
-      features: "Variety of live content",
-      pricing: "$10.99/month"
-    },
-    {
-      name: "Sync IPTV",
-      channels: "32,000+",
-      devices: "Smart TVs, Firestick, Android",
-      features: "150,000 VOD, HD & 4K quality",
-      pricing: "$34.99/3 months"
-    }
-  ];
-
-  const faqs = [
-    {
-      question: "Which IPTV services are legal in the USA?",
-      answer: "IPTV itself is not illegal. The legality depends on whether the IPTV service has proper licensing agreements. Services with apps in major app stores are generally considered legal."
-    },
-    {
-      question: "Do I need a VPN for IPTV in the USA?",
-      answer: "A VPN isn't required if you're using a legitimate IPTV provider. However, it may add a layer of privacy or help access geo-restricted content."
-    },
-    {
-      question: "How can I watch Indian TV channels legally in the USA?",
-      answer: "Services like IFLEX and CalmaHUB offer Indian content. You can also explore apps from Indian broadcasters or services like Sling TV."
-    }
-  ];
 
   return (
     <>
@@ -141,14 +89,40 @@ const UsaIptvGuide = () => {
                   <p className="text-gray-400">
                     IPTV delivers television content over the internet, unlike traditional broadcast or cable 
                     TV services. Through IPTV, viewers can access live TV, on-demand content, and time-shifted 
-                    media, often with more flexibility and at a lower cost than conventional options.
+                    media, often with more flexibility and at a lower cost than conventional options. Check out our{" "}
+                    <Link to="/features" className="text-primary hover:text-primary/80 underline">
+                      features page
+                    </Link>{" "}
+                    to learn more about IPTV capabilities.
                   </p>
                 </Card>
               </section>
 
               <section className="mb-16">
                 <h2 className="text-2xl font-bold text-white mb-6">Top IPTV Service Providers</h2>
+                <p className="text-gray-400 mb-6">
+                  We've compiled a list of the best IPTV providers based on reliability, features, and value. 
+                  Visit our{" "}
+                  <Link to="/pricing" className="text-primary hover:text-primary/80 underline">
+                    pricing page
+                  </Link>{" "}
+                  to compare subscription plans and find the best deal for your needs.
+                </p>
                 <ProvidersTable providers={providers} />
+              </section>
+
+              <section className="mb-16">
+                <h2 className="text-2xl font-bold text-white mb-6">Need Help?</h2>
+                <p className="text-gray-400 mb-6">
+                  If you're experiencing any issues with your IPTV service, check out our{" "}
+                  <Link to="/troubleshooting" className="text-primary hover:text-primary/80 underline">
+                    troubleshooting guide
+                  </Link>{" "}
+                  for quick solutions. For personalized assistance, visit our{" "}
+                  <Link to="/contact" className="text-primary hover:text-primary/80 underline">
+                    contact page
+                  </Link>.
+                </p>
               </section>
 
               <section className="mb-16">
