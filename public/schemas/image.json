@@ -1,0 +1,50 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ImageGallery",
+  "name": "IPTV Service Image Gallery",
+  "description": "High-quality images showcasing our premium IPTV streaming service, features, and subscription plans",
+  "associatedMedia": [
+    {
+      "@type": "ImageObject",
+      "contentUrl": "https://www.iptvservice.site/images/IPTV-Service.webp",
+      "name": "Premium IPTV Streaming Service",
+      "description": "Experience premium IPTV streaming with over 18,000 HD & 4K channels",
+      "width": 6052,
+      "height": 4035,
+      "encodingFormat": "image/webp",
+      "caption": "Premium IPTV Streaming Experience",
+      "representativeOfPage": true
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "https://www.iptvservice.site/images/IPTV-Subscription.webp",
+      "name": "IPTV Subscription Plans",
+      "description": "Choose from our flexible IPTV subscription plans with instant activation",
+      "width": 1920,
+      "height": 1080,
+      "encodingFormat": "image/webp",
+      "caption": "IPTV Subscription Plans and Features",
+      "representativeOfPage": false
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "https://www.iptvservice.site/images/IPTV-troubleshooting.webp",
+      "name": "IPTV Troubleshooting Guide",
+      "description": "Comprehensive guide for resolving common IPTV streaming issues",
+      "width": 1920,
+      "height": 1080,
+      "encodingFormat": "image/webp",
+      "caption": "IPTV Setup and Troubleshooting Guide",
+      "representativeOfPage": false
+    }
+  ],
+  "thumbnails": [
+    {
+      "@type": "ImageObject",
+      "contentUrl": "https://www.iptvservice.site/images/IPTV-Service-thumb.webp",
+      "width": 300,
+      "height": 200,
+      "encodingFormat": "image/webp"
+    }
+  ]
+}

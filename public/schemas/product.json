@@ -8,7 +8,15 @@
     "url": "https://www.iptvservice.site/images/IPTV-Service.webp",
     "width": 6052,
     "height": 4035,
-    "caption": "Premium IPTV Streaming Experience"
+    "caption": "Premium IPTV Streaming Experience",
+    "thumbnail": {
+      "@type": "ImageObject",
+      "url": "https://www.iptvservice.site/images/IPTV-Service-thumb.webp",
+      "width": 300,
+      "height": 200
+    },
+    "representativeOfPage": true,
+    "license": "https://creativecommons.org/licenses/by/4.0/"
   },
   "brand": {
     "@type": "Brand",
