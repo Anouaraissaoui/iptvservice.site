@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 export interface NavItem {
   name: string;
   path: string;
+  ariaLabel: string;  // Added this line to resolve the TypeScript errors
 }
 
 export interface PricingFeature {
