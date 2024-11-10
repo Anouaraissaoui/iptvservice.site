@@ -11,12 +11,12 @@ const Navbar = () => {
   const toggleMenu = (): void => setIsMenuOpen(!isMenuOpen);
 
   const navItems: NavItem[] = [
-    { name: "Home", path: "/" },
-    { name: "Features", path: "/features" },
-    { name: "Pricing", path: "/pricing" },
-    { name: "Blog", path: "/blog" },
-    { name: "Troubleshooting", path: "/troubleshooting" },
-    { name: "Contact", path: "/contact" }
+    { name: "Home", path: "/", ariaLabel: "IPTV Service Home" },
+    { name: "Features", path: "/features", ariaLabel: "IPTV Features & Channels" },
+    { name: "Pricing", path: "/pricing", ariaLabel: "IPTV Subscription Plans" },
+    { name: "Blog", path: "/blog", ariaLabel: "IPTV Guides & Updates" },
+    { name: "Troubleshooting", path: "/troubleshooting", ariaLabel: "IPTV Setup & Support Guide" },
+    { name: "Contact", path: "/contact", ariaLabel: "24/7 IPTV Support" }
   ];
 
   return (
@@ -26,7 +26,7 @@ const Navbar = () => {
           <Link 
             to="/" 
             className="flex items-center gap-2"
-            aria-label="Go to homepage"
+            aria-label="Premium IPTV Service Home"
           >
             <span className="text-primary font-bold text-xl md:text-2xl tracking-tight hover:text-primary/90 transition-colors">
               IPTV Service
@@ -41,6 +41,7 @@ const Navbar = () => {
                 className={`text-gray-300 hover:text-white transition-colors relative group ${
                   location.pathname === item.path ? "text-white" : ""
                 }`}
+                aria-label={item.ariaLabel}
                 aria-current={location.pathname === item.path ? "page" : undefined}
               >
                 {item.name}
@@ -79,6 +80,7 @@ const Navbar = () => {
                   location.pathname === item.path ? "text-white" : ""
                 }`}
                 onClick={toggleMenu}
+                aria-label={item.ariaLabel}
                 aria-current={location.pathname === item.path ? "page" : undefined}
               >
                 {item.name}
