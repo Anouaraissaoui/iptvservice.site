@@ -1,5 +1,6 @@
 import { Shield, Tv, Globe, CreditCard } from "lucide-react";
 import { useState } from "react";
+import { Image } from "@/components/ui/image";
 
 const Benefits = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -75,8 +76,8 @@ const Benefits = () => {
                   isLoading ? 'opacity-0' : 'opacity-100'
                 }`}
                 loading="lazy"
-                width="600"
-                height="400"
+                width={600}
+                height={400}
                 onLoad={() => setIsLoading(false)}
                 onError={() => {
                   setError(true);
