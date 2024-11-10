@@ -17,35 +17,35 @@ const Benefits = () => {
             rel="dofollow"
             className="text-primary hover:text-primary/80 underline decoration-primary/30 transition-colors"
           >
-            IPTV streaming technology and benefits
+            IPTV streaming technology
           </a>
           .
         </>
       ),
       icon: <CreditCard className="w-6 h-6" />,
       link: "/pricing",
-      linkText: "Compare IPTV Subscription Plans & Pricing"
+      linkText: "View IPTV Subscription Plans"
     },
     {
       title: "High-Quality Streaming",
       description: "Enjoy crisp, high-definition video and audio quality.",
       icon: <Tv className="w-6 h-6" />,
       link: "/features",
-      linkText: "Explore HD & 4K IPTV Streaming Features"
+      linkText: "Explore HD & 4K Streaming Features"
     },
     {
       title: "Flexible Viewing",
       description: "Watch your favorite content anytime, anywhere with an internet connection.",
       icon: <Shield className="w-6 h-6" />,
       link: "/features#streaming",
-      linkText: "Learn About Multi-device IPTV Streaming"
+      linkText: "Learn About Multi-device Streaming"
     },
     {
       title: "Global Reach",
       description: "Access a wide range of international channels and content.",
       icon: <Globe className="w-6 h-6" />,
       link: "/features#channels",
-      linkText: "Browse International IPTV Channel List"
+      linkText: "Browse International Channel List"
     }
   ];
 

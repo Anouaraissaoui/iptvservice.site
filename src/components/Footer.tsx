@@ -11,21 +11,21 @@ const Footer = () => {
   ];
 
   const mainLinks = [
-    { name: "Premium IPTV Home", path: "/" },
-    { name: "IPTV Features & Channels", path: "/features" },
-    { name: "IPTV Subscription Plans", path: "/pricing" },
-    { name: "IPTV Guides & Updates", path: "/blog" },
-    { name: "24/7 IPTV Support", path: "/contact" }
+    { name: "Home", path: "/" },
+    { name: "Features", path: "/features" },
+    { name: "Pricing", path: "/pricing" },
+    { name: "Blog", path: "/blog" },
+    { name: "Contact", path: "/contact" }
   ];
 
   const legalLinks = [
-    { name: "IPTV Terms of Service", path: "/terms" },
-    { name: "IPTV Privacy Policy", path: "/privacy" }
+    { name: "Terms", path: "/terms" },
+    { name: "Privacy", path: "/privacy" }
   ];
 
   const supportLinks = [
-    { name: "24/7 IPTV Technical Support", path: "/contact" },
-    { name: "IPTV Setup & FAQs", path: "/features#faq" }
+    { name: "24/7 Support", path: "/contact" },
+    { name: "FAQs", path: "/features#faq" }
   ];
 
   return (

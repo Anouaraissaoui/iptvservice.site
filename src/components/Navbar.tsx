@@ -11,12 +11,12 @@ const Navbar = () => {
   const toggleMenu = (): void => setIsMenuOpen(!isMenuOpen);
 
   const navItems: NavItem[] = [
-    { name: "Premium IPTV Service", path: "/", ariaLabel: "Premium IPTV Service Home" },
-    { name: "IPTV Features & Channels", path: "/features", ariaLabel: "IPTV Features & Channels" },
-    { name: "IPTV Subscription Plans", path: "/pricing", ariaLabel: "IPTV Subscription Plans" },
-    { name: "IPTV Guides & Updates", path: "/blog", ariaLabel: "IPTV Guides & Updates" },
-    { name: "IPTV Setup & Support", path: "/troubleshooting", ariaLabel: "IPTV Setup & Support Guide" },
-    { name: "24/7 IPTV Support", path: "/contact", ariaLabel: "24/7 IPTV Support" }
+    { name: "Home", path: "/", ariaLabel: "IPTV Service Home" },
+    { name: "Features", path: "/features", ariaLabel: "IPTV Features & Channels" },
+    { name: "Pricing", path: "/pricing", ariaLabel: "IPTV Subscription Plans" },
+    { name: "Blog", path: "/blog", ariaLabel: "IPTV Guides & Updates" },
+    { name: "Troubleshooting", path: "/troubleshooting", ariaLabel: "IPTV Setup & Support Guide" },
+    { name: "Contact", path: "/contact", ariaLabel: "24/7 IPTV Support" }
   ];
 
   return (
