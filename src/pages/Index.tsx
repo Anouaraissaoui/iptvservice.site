@@ -18,7 +18,11 @@ const Index = () => {
     "@graph": [
       generateOrganizationData(),
       generateWebsiteData(),
-      generateProductData(11),
+      generateProductData(
+        11,
+        "IPTV Subscription Service",
+        "Premium IPTV subscription service with 18000+ HD & 4K channels"
+      ),
       {
         "@type": "WebPage",
         "@id": "https://www.iptvservice.site/#webpage",
