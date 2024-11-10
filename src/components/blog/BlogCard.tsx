@@ -17,7 +17,7 @@ export const BlogCard = ({ post }: BlogCardProps) => {
           <div className="relative h-48 overflow-hidden rounded-t-lg">
             <Image
               src={post._embedded["wp:featuredmedia"][0].source_url}
-              alt={post.title.rendered}
+              alt={`IPTV streaming guide: ${post.title.rendered} - Latest updates and tips for premium IPTV service subscribers`}
               className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
             />
           </div>
