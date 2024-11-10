@@ -12,12 +12,12 @@ const Benefits = () => {
         <>
           More affordable than traditional cable or satellite TV packages. Learn more about{" "}
           <a 
-            href="https://en.wikipedia.org/wiki/Internet_Protocol_television" 
+            href="https://www.cisco.com/c/en/us/solutions/service-provider/ip-ngn-ip-next-generation-network/white_paper_c11-481360.html" 
             target="_blank" 
-            rel="dofollow"
+            rel="noopener noreferrer"
             className="text-primary hover:text-primary/80 underline decoration-primary/30 transition-colors"
           >
-            IPTV streaming technology
+            IPTV network technology
           </a>
           .
         </>
@@ -28,21 +28,60 @@ const Benefits = () => {
     },
     {
       title: "High-Quality Streaming",
-      description: "Enjoy crisp, high-definition video and audio quality.",
+      description: (
+        <>
+          Enjoy crisp, high-definition video and audio quality. Read about{" "}
+          <a 
+            href="https://www.itu.int/en/ITU-T/studygroups/2017-2020/16/Pages/iptv.aspx" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-primary hover:text-primary/80 underline decoration-primary/30 transition-colors"
+          >
+            IPTV standards
+          </a>
+          .
+        </>
+      ),
       icon: <Tv className="w-6 h-6" />,
       link: "/features",
       linkText: "Explore HD & 4K Streaming Features"
     },
     {
       title: "Flexible Viewing",
-      description: "Watch your favorite content anytime, anywhere with an internet connection.",
+      description: (
+        <>
+          Watch your favorite content anytime, anywhere with an internet connection. See{" "}
+          <a 
+            href="https://www.fcc.gov/media/engineering/dtvmaps" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-primary hover:text-primary/80 underline decoration-primary/30 transition-colors"
+          >
+            digital TV coverage
+          </a>
+          .
+        </>
+      ),
       icon: <Shield className="w-6 h-6" />,
       link: "/features#streaming",
       linkText: "Learn About Multi-device Streaming"
     },
     {
       title: "Global Reach",
-      description: "Access a wide range of international channels and content.",
+      description: (
+        <>
+          Access a wide range of international channels and content. Check{" "}
+          <a 
+            href="https://www.itu.int/en/ITU-D/Statistics/Pages/stat/default.aspx" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-primary hover:text-primary/80 underline decoration-primary/30 transition-colors"
+          >
+            global connectivity statistics
+          </a>
+          .
+        </>
+      ),
       icon: <Globe className="w-6 h-6" />,
       link: "/features#channels",
       linkText: "Browse International Channel List"
