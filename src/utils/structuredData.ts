@@ -1,3 +1,5 @@
+import { BreadcrumbItem } from "@/types/seo";
+
 export const generateBreadcrumbData = (items: BreadcrumbItem[]) => ({
   "@type": "BreadcrumbList",
   "itemListElement": items.map((item) => ({
