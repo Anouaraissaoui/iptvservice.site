@@ -1,13 +1,13 @@
 {
-  "name": "IPTV Service",
+  "name": "IPTV Service - Premium Streaming Experience",
   "short_name": "IPTV",
-  "description": "IPTV service with 18,000+ channels",
+  "description": "Premium IPTV service with 18,000+ channels, HD/4K quality, and instant activation",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0F172A",
   "theme_color": "#0F172A",
   "orientation": "any",
-  "categories": ["entertainment", "streaming"],
+  "categories": ["entertainment", "streaming", "television", "sports"],
   "icons": [
     {
       "src": "https://res.cloudinary.com/aste/image/upload/v1730132979/iptvservice.site.png",
@@ -26,12 +26,28 @@
     {
       "name": "Features",
       "url": "/features",
-      "description": "View IPTV features"
+      "description": "Explore IPTV features and benefits"
     },
     {
       "name": "Pricing",
       "url": "/pricing",
-      "description": "View IPTV pricing plans"
+      "description": "View IPTV subscription plans"
+    },
+    {
+      "name": "Blog",
+      "url": "/blog",
+      "description": "Read latest IPTV news and guides"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "screenshots": [
+    {
+      "src": "/images/IPTV-Service.webp",
+      "sizes": "1280x720",
+      "type": "image/webp",
+      "platform": "wide",
+      "label": "IPTV Service Homepage"
     }
   ]
 }
