@@ -36,6 +36,12 @@ const Index = () => {
           "width": "1200",
           "height": "630"
         },
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://www.iptvservice.site/images/IPTV-Service.webp",
+          "width": "1200",
+          "height": "630"
+        },
         "datePublished": "2024-01-01T08:00:00+00:00",
         "dateModified": new Date().toISOString(),
         "description": "Buy IPTV subscription with 18000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support.",
