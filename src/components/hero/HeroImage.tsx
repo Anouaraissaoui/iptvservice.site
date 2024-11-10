@@ -22,6 +22,9 @@ const HeroImage = () => {
           </div>
         </figcaption>
       </div>
+      <figcaption className="mt-4 text-center text-sm text-gray-400">
+        Experience premium IPTV streaming with crystal-clear HD and 4K quality across 18,000+ channels worldwide
+      </figcaption>
     </figure>
   );
 };
