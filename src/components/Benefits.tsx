@@ -1,6 +1,5 @@
 import { Shield, Tv, Globe, CreditCard } from "lucide-react";
 import { useState } from "react";
-import { Image } from "@/components/ui/image";
 
 const Benefits = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -69,15 +68,15 @@ const Benefits = () => {
               {isLoading && (
                 <div className="absolute inset-0 bg-navy animate-pulse rounded-3xl" />
               )}
-              <Image 
+              <img 
                 src="/images/IPTV-Subscription.webp" 
                 alt="Premium IPTV subscription service showcasing HD and 4K quality streaming with multiple channels and VOD content for the best entertainment experience" 
                 className={`relative rounded-3xl shadow-2xl border border-white/10 group-hover:border-primary/50 transition-all duration-300 ${
                   isLoading ? 'opacity-0' : 'opacity-100'
                 }`}
                 loading="lazy"
-                width={600}
-                height={400}
+                width="600"
+                height="400"
                 onLoad={() => setIsLoading(false)}
                 onError={() => {
                   setError(true);
@@ -96,9 +95,6 @@ const Benefits = () => {
                 </div>
               </figcaption>
             </a>
-            <figcaption className="mt-6 text-center text-sm text-gray-400">
-              Unlock a world of entertainment with our premium IPTV subscription packages, featuring extensive channel lineups and high-quality streaming options
-            </figcaption>
           </figure>
           
           <div className="space-y-8 md:space-y-10 order-1 lg:order-2">
