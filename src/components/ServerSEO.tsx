@@ -27,6 +27,8 @@ export const ServerSEO = ({
   alternateUrls
 }: ServerSEOProps) => {
   const [isServer, setIsServer] = useState(true);
+  const baseUrl = "https://www.iptvservice.site";
+  const canonicalUrl = canonical.startsWith('http') ? canonical : `${baseUrl}${canonical}`;
 
   useEffect(() => {
     setIsServer(false);
@@ -48,14 +50,14 @@ export const ServerSEO = ({
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
       <meta name="author" content={author} />
-      <link rel="canonical" href={canonical} />
+      <link rel="canonical" href={canonicalUrl} />
       
       {/* Open Graph */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={ogImage} />
       <meta property="og:type" content={type} />
-      <meta property="og:url" content={canonical} />
+      <meta property="og:url" content={canonicalUrl} />
       <meta property="og:site_name" content="IPTV Service" />
       
       {/* Twitter Card */}

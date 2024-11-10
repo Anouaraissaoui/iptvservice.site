@@ -19,6 +19,7 @@ export const SEO = ({
 }: SEOData) => {
   const baseUrl = "https://www.iptvservice.site";
   const currentYear = new Date().getFullYear();
+  const canonicalUrl = canonical.startsWith('http') ? canonical : `${baseUrl}${canonical}`;
 
   const websiteStructuredData = {
     "@context": "https://schema.org",
@@ -29,8 +30,8 @@ export const SEO = ({
       breadcrumbs ? generateBreadcrumbData(breadcrumbs) : null,
       {
         "@type": type === "article" ? "Article" : type === "product" ? "Product" : "WebPage",
-        "@id": `${canonical}#content`,
-        "url": canonical,
+        "@id": `${canonicalUrl}#content`,
+        "url": canonicalUrl,
         "name": title,
         "description": description,
         "datePublished": publishedTime,
@@ -62,13 +63,13 @@ export const SEO = ({
       <meta name="robots" content={noindex ? "noindex,nofollow" : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"} />
       <meta name="keywords" content={keywords} />
       <meta name="author" content={author} />
-      <link rel="canonical" href={canonical} />
+      <link rel="canonical" href={canonicalUrl} />
       
       {/* Open Graph */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content={type} />
-      <meta property="og:url" content={canonical} />
+      <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={ogImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
