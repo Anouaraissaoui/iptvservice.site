@@ -70,7 +70,7 @@ const Benefits = () => {
               )}
               <img 
                 src="/images/IPTV-Subscription.webp" 
-                alt="Premium IPTV entertainment setup showing a modern living room with a large smart TV displaying high-quality streaming content, demonstrating the superior viewing experience of IPTV services" 
+                alt="Family enjoying premium IPTV entertainment with HD quality streaming" 
                 className={`relative rounded-3xl shadow-2xl border border-white/10 group-hover:border-primary/50 transition-all duration-300 ${
                   isLoading ? 'opacity-0' : 'opacity-100'
                 }`}
