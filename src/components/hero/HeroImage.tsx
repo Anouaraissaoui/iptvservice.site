@@ -7,10 +7,10 @@ const HeroImage = () => {
       <div className="relative bg-navy-light rounded-3xl border border-white/10 p-2 md:p-3 shadow-2xl transform hover:scale-[1.02] transition-transform duration-300 hover:border-primary/50">
         <Image 
           src="/images/IPTV-Service.webp"
-          alt="Person enjoying IPTV streaming service on a large screen TV in a modern living room setting" 
+          alt="Premium IPTV streaming service interface displayed on a modern smart TV in a luxurious living room setting, showcasing high-quality content and user-friendly navigation" 
           className="relative rounded-2xl shadow-2xl w-full object-cover aspect-video"
           loading="eager"
-          fetchPriority="high"  // Corrected property name
+          fetchPriority="high"
           width={800}
           height={450}
           decoding="async"
