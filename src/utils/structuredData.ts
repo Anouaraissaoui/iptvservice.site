@@ -26,7 +26,14 @@ export const generateOrganizationData = () => ({
     "https://twitter.com/iptvservice",
     "https://instagram.com/iptvservice",
     "https://linkedin.com/company/iptvservice"
-  ]
+  ],
+  "contactPoint": [{
+    "@type": "ContactPoint",
+    "telephone": "+1-234-567-8900",
+    "contactType": "customer service",
+    "areaServed": "Worldwide",
+    "availableLanguage": ["English"]
+  }]
 });
 
 export const generateWebsiteData = () => ({
@@ -37,29 +44,24 @@ export const generateWebsiteData = () => ({
   "description": "Premium IPTV Streaming Service",
   "publisher": {
     "@id": "https://www.iptvservice.site/#organization"
-  }
+  },
+  "potentialAction": [{
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://www.iptvservice.site/search?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }]
 });
 
-export const generateProductData = (price: number) => ({
+export const generateProductData = (price: number, title: string, description: string) => ({
   "@type": "Product",
-  "name": "IPTV Subscription",
-  "description": "Premium IPTV subscription with 18,000+ channels, VOD content, and live sports.",
-  "image": {
-    "@type": "ImageObject",
-    "url": "https://www.iptvservice.site/images/IPTV-Service.webp",
-    "width": 6052,
-    "height": 4035,
-    "caption": "Premium IPTV Streaming Experience"
-  },
+  "name": title,
+  "description": description,
   "brand": {
     "@type": "Brand",
-    "name": "IPTV Service",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://www.iptvservice.site/logo.svg",
-      "width": "180",
-      "height": "60"
-    }
+    "name": "IPTV Service"
   },
   "offers": {
     "@type": "Offer",
@@ -68,25 +70,32 @@ export const generateProductData = (price: number) => ({
     "availability": "https://schema.org/InStock",
     "seller": {
       "@id": "https://www.iptvservice.site/#organization"
-    },
-    "shippingDetails": {
-      "@type": "OfferShippingDetails",
-      "deliveryTime": {
-        "@type": "ShippingDeliveryTime",
-        "handlingTime": {
-          "@type": "QuantitativeValue",
-          "minValue": "0",
-          "maxValue": "1",
-          "unitCode": "HUR"
-        }
-      }
-    },
-    "hasMerchantReturnPolicy": {
-      "@type": "MerchantReturnPolicy",
-      "applicableCountry": "US",
-      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-      "merchantReturnDays": 30,
-      "returnMethod": "https://schema.org/ReturnByMail"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "1250"
+  }
+});
+
+export const generateArticleData = (title: string, description: string, publishedTime: string, modifiedTime: string, image: string) => ({
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "image": image,
+  "datePublished": publishedTime,
+  "dateModified": modifiedTime,
+  "author": {
+    "@type": "Organization",
+    "name": "IPTV Service"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "IPTV Service",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.iptvservice.site/logo.svg"
     }
   }
 });

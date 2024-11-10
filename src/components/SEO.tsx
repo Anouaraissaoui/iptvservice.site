@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { SEOData } from "@/types/seo";
+import { generateBreadcrumbData, generateOrganizationData, generateWebsiteData } from "@/utils/structuredData";
 
 export const SEO = ({
   title,
@@ -18,48 +19,14 @@ export const SEO = ({
 }: SEOData) => {
   const baseUrl = "https://www.iptvservice.site";
   const currentYear = new Date().getFullYear();
-  
-  const breadcrumbData = breadcrumbs ? {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": breadcrumbs.map((item, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "name": item.name,
-      "item": `${baseUrl}${item.path}`
-    }))
-  } : null;
 
-  const websiteData = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": `${baseUrl}/#website`,
-    "url": baseUrl,
-    "name": `IPTV Service - Premium Streaming ${currentYear}`,
-    "description": description,
-    "publisher": {
-      "@type": "Organization",
-      "name": "IPTV Service",
-      "logo": {
-        "@type": "ImageObject",
-        "url": `${baseUrl}/logo.svg`,
-        "width": 180,
-        "height": 60
-      }
-    },
-    "potentialAction": [{
-      "@type": "SearchAction",
-      "target": `${baseUrl}/search?q={search_term_string}`,
-      "query-input": "required name=search_term_string"
-    }]
-  };
-
-  const fullStructuredData = {
+  const websiteStructuredData = {
     "@context": "https://schema.org",
     "@graph": [
+      generateOrganizationData(),
+      generateWebsiteData(),
       structuredData,
-      breadcrumbData,
-      websiteData,
+      breadcrumbs ? generateBreadcrumbData(breadcrumbs) : null,
       {
         "@type": type === "article" ? "Article" : type === "product" ? "Product" : "WebPage",
         "@id": `${canonical}#content`,
@@ -74,6 +41,14 @@ export const SEO = ({
         },
         "isPartOf": {
           "@id": `${baseUrl}/#website`
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "IPTV Service",
+          "logo": {
+            "@type": "ImageObject",
+            "url": `${baseUrl}/logo.svg`
+          }
         }
       }
     ].filter(Boolean)
@@ -113,10 +88,23 @@ export const SEO = ({
       {alternates && Object.entries(alternates).map(([lang, url]) => (
         <link key={lang} rel="alternate" hrefLang={lang} href={`${baseUrl}${url}`} />
       ))}
+
+      {/* Video Schema if available */}
+      {type === "video" && (
+        <meta property="og:video" content={`${baseUrl}/video-player`} />
+      )}
+
+      {/* Article Schema if it's a blog post */}
+      {type === "article" && (
+        <>
+          <meta property="article:section" content="IPTV Guides" />
+          <meta property="article:tag" content={keywords} />
+        </>
+      )}
       
       {/* Schema.org Markup */}
       <script type="application/ld+json">
-        {JSON.stringify(fullStructuredData)}
+        {JSON.stringify(websiteStructuredData)}
       </script>
     </Helmet>
   );
