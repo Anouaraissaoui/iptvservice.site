@@ -6,7 +6,7 @@ export const SEO = ({
   title,
   description,
   canonical = "https://www.iptvservice.site",
-  ogImage = "https://www.iptvservice.site/images/IPTV-Service.webp",
+  ogImage = "https://www.iptvservice.site/Buy-IPTV.jpg",
   noindex = false,
   keywords,
   author = "IPTV Service",
@@ -16,11 +16,10 @@ export const SEO = ({
   structuredData,
   alternates,
   breadcrumbs,
-  locale = "en_US",
-  rating,
-}: SEOData & { rating?: { value: number; count: number } }) => {
+}: SEOData) => {
   const baseUrl = "https://www.iptvservice.site";
   const currentYear = new Date().getFullYear();
+  const canonicalUrl = canonical.startsWith('http') ? canonical : `${baseUrl}${canonical}`;
 
   const websiteStructuredData = {
     "@context": "https://schema.org",
@@ -29,17 +28,10 @@ export const SEO = ({
       generateWebsiteData(),
       structuredData,
       breadcrumbs ? generateBreadcrumbData(breadcrumbs) : null,
-      rating ? {
-        "@type": "AggregateRating",
-        "ratingValue": rating.value,
-        "reviewCount": rating.count,
-        "bestRating": "5",
-        "worstRating": "1"
-      } : null,
       {
         "@type": type === "article" ? "Article" : type === "product" ? "Product" : "WebPage",
-        "@id": `${canonical}#content`,
-        "url": canonical,
+        "@id": `${canonicalUrl}#content`,
+        "url": canonicalUrl,
         "name": title,
         "description": description,
         "datePublished": publishedTime,
@@ -66,23 +58,22 @@ export const SEO = ({
   return (
     <Helmet prioritizeSeoTags={true}>
       {/* Primary Meta Tags */}
-      <title>{`${title} ${currentYear}`}</title>
+      <title>{title}</title>
       <meta name="description" content={description} />
-      <meta name="robots" content={noindex ? "noindex,follow" : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"} />
+      <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
       <meta name="keywords" content={keywords} />
       <meta name="author" content={author} />
-      <link rel="canonical" href={canonical} />
+      <link rel="canonical" href={canonicalUrl} />
       
       {/* Open Graph */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content={type} />
-      <meta property="og:url" content={canonical} />
+      <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={ogImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:site_name" content={`IPTV Service ${currentYear}`} />
-      <meta property="og:locale" content={locale} />
       
       {/* Article Metadata */}
       {publishedTime && <meta property="article:published_time" content={publishedTime} />}

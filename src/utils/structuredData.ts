@@ -1,4 +1,6 @@
-export const generateBreadcrumbData = (items: Array<{ name: string; path: string; position: number; item: string }>) => ({
+import { BreadcrumbItem } from "@/types/seo";
+
+export const generateBreadcrumbData = (items: BreadcrumbItem[]) => ({
   "@type": "BreadcrumbList",
   "itemListElement": items.map((item) => ({
     "@type": "ListItem",
@@ -36,7 +38,7 @@ export const generateOrganizationData = () => ({
     "telephone": "+1-234-567-8900",
     "contactType": "customer service",
     "areaServed": "Worldwide",
-    "availableLanguage": ["English", "Spanish", "French", "German"]
+    "availableLanguage": ["English"]
   }]
 });
 
@@ -46,31 +48,77 @@ export const generateWebsiteData = () => ({
   "url": "https://www.iptvservice.site",
   "name": "IPTV Service",
   "description": "Premium IPTV Streaming Service",
-  "inLanguage": ["en-US", "es", "fr", "de"],
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://www.iptvservice.site/images/IPTV-Service.webp",
+    "width": "1200",
+    "height": "630"
+  },
   "publisher": {
     "@id": "https://www.iptvservice.site/#organization"
-  }
+  },
+  "potentialAction": [{
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://www.iptvservice.site/search?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }]
 });
 
 export const generateProductData = (price: number, title: string, description: string) => ({
   "@type": "Product",
   "name": title,
   "description": description,
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://www.iptvservice.site/images/IPTV-Service.webp",
+    "width": "1200",
+    "height": "630"
+  },
   "brand": {
     "@type": "Brand",
     "name": "IPTV Service"
   },
   "offers": {
-    "@type": "AggregateOffer",
+    "@type": "Offer",
+    "price": price.toString(),
     "priceCurrency": "USD",
-    "lowPrice": price.toString(),
-    "highPrice": "90.00",
-    "offerCount": "4",
-    "availability": "https://schema.org/InStock"
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@id": "https://www.iptvservice.site/#organization"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.8",
     "reviewCount": "1250"
+  }
+});
+
+export const generateArticleData = (title: string, description: string, publishedTime: string, modifiedTime: string, image: string) => ({
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "image": {
+    "@type": "ImageObject",
+    "url": image,
+    "width": "1200",
+    "height": "630"
+  },
+  "datePublished": publishedTime,
+  "dateModified": modifiedTime,
+  "author": {
+    "@type": "Organization",
+    "name": "IPTV Service"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "IPTV Service",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.iptvservice.site/logo.svg"
+    }
   }
 });

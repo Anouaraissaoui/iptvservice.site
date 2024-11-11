@@ -14,11 +14,6 @@ export interface SEOData {
     [key: string]: string;
   };
   breadcrumbs?: Array<BreadcrumbItem>;
-  locale?: string;
-  rating?: {
-    value: number;
-    count: number;
-  };
 }
 
 export interface BreadcrumbItem {
