@@ -50,7 +50,7 @@ export interface MetaTag {
   lang?: string;
   as?: string;
   type?: string;
-  crossOrigin?: string;
+  crossOrigin?: 'anonymous' | 'use-credentials' | '';
 }
 
 export interface PreloadResource {

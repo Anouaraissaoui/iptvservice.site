@@ -71,8 +71,20 @@ export const ServerSEO = ({
       
       {/* SEO Meta Tags */}
       {metaTags.map((tag, index) => {
+        if (tag.rel === 'preload') {
+          return (
+            <link 
+              key={index}
+              rel={tag.rel}
+              href={tag.href}
+              as={tag.as}
+              type={tag.type}
+              crossOrigin={tag.crossOrigin as 'anonymous' | 'use-credentials' | '' | undefined}
+            />
+          );
+        }
         if (tag.rel) {
-          return <link key={index} {...tag} />;
+          return <link key={index} rel={tag.rel} href={tag.href} />;
         }
         return <meta key={index} {...tag} />;
       })}
