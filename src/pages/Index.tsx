@@ -11,26 +11,27 @@ import { ServerSEO } from "@/components/ServerSEO";
 
 const Index = () => {
   const currentDate = new Date().getFullYear();
+  const baseUrl = "https://www.iptvservice.site";
   
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://www.iptvservice.site/#webpage",
-    "url": "https://www.iptvservice.site",
+    "@id": `${baseUrl}/#webpage`,
+    "url": baseUrl,
     "name": `Buy IPTV Subscription | Best IPTV Service Provider ${currentDate}`,
     "description": "Buy IPTV subscription with 18000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support.",
     "isPartOf": {
       "@type": "WebSite",
-      "@id": "https://www.iptvservice.site/#website",
+      "@id": `${baseUrl}/#website`,
       "name": "IPTV Service",
       "description": "Premium IPTV Streaming Service",
       "publisher": {
         "@type": "Organization",
-        "@id": "https://www.iptvservice.site/#organization",
+        "@id": `${baseUrl}/#organization`,
         "name": "IPTV Service",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://www.iptvservice.site/logo.svg",
+          "url": `${baseUrl}/logo.svg`,
           "width": "180",
           "height": "60"
         }
@@ -38,7 +39,7 @@ const Index = () => {
     },
     "primaryImageOfPage": {
       "@type": "ImageObject",
-      "url": "https://www.iptvservice.site/images/IPTV-Service.webp"
+      "url": `${baseUrl}/images/IPTV-Service.webp`
     },
     "datePublished": "2024-01-01T08:00:00+00:00",
     "dateModified": new Date().toISOString(),
@@ -49,7 +50,7 @@ const Index = () => {
           "@type": "ListItem",
           "position": 1,
           "item": {
-            "@id": "https://www.iptvservice.site",
+            "@id": baseUrl,
             "name": "Home"
           }
         }
@@ -65,7 +66,8 @@ const Index = () => {
         structuredData={structuredData}
         keywords="buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV buy, best buy IPTV, IPTV channels, HD IPTV, 4K IPTV, premium IPTV service, IPTV provider USA"
         type="website"
-        ogImage="https://www.iptvservice.site/images/IPTV-Service.webp"
+        ogImage={`${baseUrl}/images/IPTV-Service.webp`}
+        canonical={baseUrl}
         alternates={{
           "en": "/",
           "es": "/es",
@@ -77,7 +79,8 @@ const Index = () => {
         description="Buy IPTV subscription with 18000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support."
         structuredData={structuredData}
         type="website"
-        ogImage="https://www.iptvservice.site/images/IPTV-Service.webp"
+        ogImage={`${baseUrl}/images/IPTV-Service.webp`}
+        canonical={baseUrl}
         alternates={{
           "en": "/",
           "es": "/es",
@@ -88,7 +91,7 @@ const Index = () => {
             name: "Home",
             path: "/",
             position: 1,
-            item: "https://www.iptvservice.site"
+            item: baseUrl
           }
         ]}
       />
