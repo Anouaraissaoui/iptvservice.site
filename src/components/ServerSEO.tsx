@@ -13,7 +13,7 @@ export const ServerSEO = ({
   type = 'website',
   keywords,
   author = "IPTV Service",
-  alternateUrls,
+  alternates,
   publishedTime,
   modifiedTime = lastModified
 }: SEOData) => {
@@ -47,6 +47,10 @@ export const ServerSEO = ({
     modifiedTime
   });
 
+  const schemaString = typeof structuredData === 'string' 
+    ? structuredData 
+    : JSON.stringify(structuredData || dynamicSchema);
+
   return (
     <Helmet prioritizeSeoTags={true}>
       <title>{title}</title>
@@ -58,7 +62,7 @@ export const ServerSEO = ({
       })}
       
       {/* Language Alternates */}
-      {alternateUrls && Object.entries(alternateUrls).map(([lang, url]) => (
+      {alternates && Object.entries(alternates).map(([lang, url]) => (
         <link key={lang} rel="alternate" hrefLang={lang} href={url} />
       ))}
       
@@ -68,7 +72,7 @@ export const ServerSEO = ({
       
       {/* Schema.org Structured Data */}
       <script type="application/ld+json">
-        {structuredData || dynamicSchema}
+        {schemaString}
       </script>
     </Helmet>
   );
