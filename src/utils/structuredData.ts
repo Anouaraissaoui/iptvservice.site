@@ -38,7 +38,8 @@ export const generateOrganizationData = () => ({
     "telephone": "+1-234-567-8900",
     "contactType": "customer service",
     "areaServed": "Worldwide",
-    "availableLanguage": ["English"]
+    "availableLanguage": ["English"],
+    "hoursAvailable": "Mo-Su 00:00-24:00"
   }]
 });
 
@@ -64,7 +65,16 @@ export const generateWebsiteData = () => ({
       "urlTemplate": "https://www.iptvservice.site/search?q={search_term_string}"
     },
     "query-input": "required name=search_term_string"
-  }]
+  }],
+  "inLanguage": "en-US",
+  "copyrightYear": new Date().getFullYear().toString(),
+  "isAccessibleForFree": "False",
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "USD",
+    "lowPrice": "11.00",
+    "highPrice": "90.00"
+  }
 });
 
 export const generateProductData = (price: number, title: string, description: string) => ({
@@ -88,13 +98,28 @@ export const generateProductData = (price: number, title: string, description: s
     "availability": "https://schema.org/InStock",
     "seller": {
       "@id": "https://www.iptvservice.site/#organization"
-    }
+    },
+    "priceValidUntil": new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
+    "warranty": "30-day money-back guarantee"
   },
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.8",
     "reviewCount": "1250"
-  }
+  },
+  "review": [{
+    "@type": "Review",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5",
+      "bestRating": "5"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "John Smith"
+    },
+    "datePublished": new Date().toISOString().split('T')[0]
+  }]
 });
 
 export const generateArticleData = (title: string, description: string, publishedTime: string, modifiedTime: string, image: string) => ({
@@ -111,14 +136,29 @@ export const generateArticleData = (title: string, description: string, publishe
   "dateModified": modifiedTime,
   "author": {
     "@type": "Organization",
-    "name": "IPTV Service"
+    "name": "IPTV Service",
+    "@id": "https://www.iptvservice.site/#organization"
   },
   "publisher": {
     "@type": "Organization",
     "name": "IPTV Service",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://www.iptvservice.site/logo.svg"
-    }
+      "url": "https://www.iptvservice.site/logo.svg",
+      "width": "180",
+      "height": "60"
+    },
+    "@id": "https://www.iptvservice.site/#organization"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.iptvservice.site"
+  },
+  "articleSection": "IPTV Services",
+  "articleBody": description,
+  "wordCount": description.split(/\s+/).length,
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": ["article", "h1", ".description"]
   }
 });

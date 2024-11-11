@@ -27,6 +27,10 @@ export interface SEOData {
   published?: boolean;
   tags?: string[];
   category?: string;
+  imageAlt?: string;
+  videoUrl?: string;
+  articleSection?: string;
+  wordCount?: number;
 }
 
 export interface BreadcrumbItem {
@@ -43,6 +47,10 @@ export interface MetaTag {
   rel?: string;
   href?: string;
   httpEquiv?: string;
+  lang?: string;
+  as?: string;
+  type?: string;
+  crossOrigin?: string;
 }
 
 export interface PreloadResource {

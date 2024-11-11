@@ -9,7 +9,11 @@ export const getMetaTags = ({
   author,
   publishedTime,
   modifiedTime,
-  type = 'website'
+  type = 'website',
+  imageAlt,
+  locale = 'en_US',
+  articleSection,
+  wordCount
 }: SEOData): MetaTag[] => [
   { name: "description", content: description },
   { name: "keywords", content: keywords || "buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV buy, best buy IPTV, IPTV channels, HD IPTV, 4K IPTV, premium IPTV service, IPTV provider USA" },
@@ -23,22 +27,27 @@ export const getMetaTags = ({
   { property: "og:description", content: description },
   { property: "og:type", content: type },
   { property: "og:image", content: ogImage },
+  { property: "og:image:alt", content: imageAlt || title },
   { property: "og:image:width", content: "1200" },
   { property: "og:image:height", content: "630" },
   { property: "og:site_name", content: "Premium IPTV Service Provider | Buy IPTV USA" },
-  { property: "og:locale", content: "en_US" },
+  { property: "og:locale", content: locale },
   { property: "article:publisher", content: "https://www.iptvservice.site" },
+  { property: "article:section", content: articleSection },
+  { property: "article:word_count", content: wordCount?.toString() },
   { name: "twitter:card", content: "summary_large_image" },
   { name: "twitter:title", content: title },
   { name: "twitter:description", content: description },
   { name: "twitter:image", content: ogImage },
+  { name: "twitter:image:alt", content: imageAlt || title },
   { name: "twitter:creator", content: "@iptvservice" },
   { name: "twitter:site", content: "@iptvservice" },
   ...(publishedTime ? [{ property: "article:published_time", content: publishedTime }] : []),
   ...(modifiedTime ? [{ property: "article:modified_time", content: modifiedTime }] : []),
   { rel: "canonical", href: canonical },
   { name: "format-detection", content: "telephone=no" },
-  { httpEquiv: "x-ua-compatible", content: "IE=edge" }
+  { httpEquiv: "x-ua-compatible", content: "IE=edge" },
+  { httpEquiv: "Content-Type", content: "text/html; charset=utf-8" }
 ];
 
 export const generateDynamicSchema = ({
@@ -48,7 +57,10 @@ export const generateDynamicSchema = ({
   ogImage,
   type,
   publishedTime,
-  modifiedTime
+  modifiedTime,
+  imageAlt,
+  articleSection,
+  wordCount
 }: SEOData) => ({
   "@context": "https://schema.org",
   "@type": type === "article" ? "Article" : type === "product" ? "Product" : "WebPage",
@@ -61,7 +73,8 @@ export const generateDynamicSchema = ({
     "@type": "ImageObject",
     "url": ogImage,
     "width": "1200",
-    "height": "630"
+    "height": "630",
+    "caption": imageAlt || title
   },
   "datePublished": publishedTime || new Date().toISOString(),
   "dateModified": modifiedTime || new Date().toISOString(),
@@ -85,6 +98,11 @@ export const generateDynamicSchema = ({
     "@type": "WebPage",
     "@id": canonical
   },
+  ...(type === "article" && {
+    "articleSection": articleSection,
+    "wordCount": wordCount,
+    "articleBody": description
+  }),
   "speakable": {
     "@type": "SpeakableSpecification",
     "cssSelector": ["article", "h1", ".description"]
