@@ -50,6 +50,7 @@ export const ServerSEO = ({
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
       <meta name="author" content={author} />
+      <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
       <link rel="canonical" href={canonicalUrl} />
       
       {/* Open Graph */}
@@ -67,7 +68,6 @@ export const ServerSEO = ({
       <meta name="twitter:image" content={ogImage} />
       
       {/* Technical */}
-      <meta name="robots" content="index,follow,max-image-preview:large" />
       <meta property="article:modified_time" content={lastModified} />
       <meta httpEquiv="last-modified" content={lastModified} />
       
