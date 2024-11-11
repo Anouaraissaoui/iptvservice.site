@@ -13,7 +13,10 @@
       "height": 4035,
       "encodingFormat": "image/webp",
       "caption": "Premium IPTV Streaming Experience",
-      "representativeOfPage": true
+      "representativeOfPage": true,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "acquireLicensePage": "https://www.iptvservice.site/license",
+      "creditText": "© 2024 IPTV Service"
     },
     {
       "@type": "ImageObject",

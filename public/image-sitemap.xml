@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://www.iptvservice.site/</loc>
+    <image:image>
+      <image:loc>https://www.iptvservice.site/images/IPTV-Service.webp</image:loc>
+      <image:title>Premium IPTV Streaming Service</image:title>
+      <image:caption>Experience premium IPTV streaming with over 18,000 HD &amp; 4K channels</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.iptvservice.site/images/Buy-IPTV.jpg</image:loc>
+      <image:title>Buy IPTV Subscription</image:title>
+      <image:caption>Premium IPTV Subscription Packages</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.iptvservice.site/images/IPTV-Subscription.webp</image:loc>
+      <image:title>IPTV Subscription Plans</image:title>
+      <image:caption>Choose from our flexible IPTV subscription plans</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.iptvservice.site/images/IPTV-troubleshooting.webp</image:loc>
+      <image:title>IPTV Troubleshooting Guide</image:title>
+      <image:caption>Comprehensive guide for resolving common IPTV streaming issues</image:caption>
+    </image:image>
+  </url>
+</urlset>

@@ -5,6 +5,7 @@
 User-agent: *
 Allow: /
 Allow: /sitemap.xml
+Allow: /image-sitemap.xml
 Allow: /*.js$
 Allow: /*.css$
 Allow: /*.png$
@@ -15,8 +16,20 @@ Allow: /*.webp$
 Allow: /assets/
 Allow: /images/
 
-# Primary Sitemap
+# Image Crawlers
+User-agent: Googlebot-Image
+Allow: /
+Allow: /images/
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.png$
+Allow: /*.webp$
+Allow: /*.svg$
+
+# Primary Sitemaps
 Sitemap: https://www.iptvservice.site/sitemap.xml
+Sitemap: https://www.iptvservice.site/image-sitemap.xml
 
 # Main Pages
 Allow: /pricing
@@ -37,35 +50,6 @@ Disallow: /wp-includes/
 Disallow: /search
 Disallow: /*?*
 Disallow: /*&
-Disallow: /*.json$
-Disallow: /*/amp/
-Disallow: /*?amp
-Disallow: /*&amp
-
-# Media Crawlers
-User-agent: Googlebot-Image
-Allow: /images/
-Allow: /assets/
-Allow: /*.jpg$
-Allow: /*.jpeg$
-Allow: /*.gif$
-Allow: /*.png$
-Allow: /*.webp$
-Allow: /*.svg$
-Disallow: /temp/
-
-# Major Search Engines
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 2
-
-User-agent: DuckDuckBot
-Allow: /
-Crawl-delay: 2
 
 # Block AI/ML Crawlers
 User-agent: GPTBot
@@ -84,12 +68,6 @@ User-agent: anthropic-ai
 Disallow: /
 
 User-agent: Claude-Web
-Disallow: /
-
-User-agent: Omgilibot
-Disallow: /
-
-User-agent: FacebookBot
 Disallow: /
 
 # Host
