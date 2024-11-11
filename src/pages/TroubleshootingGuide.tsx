@@ -47,7 +47,7 @@ const TroubleshootingGuide = () => {
         description="Comprehensive guide to fix IPTV streaming issues. Learn how to resolve buffering, connection problems, and playback errors. Expert solutions for better streaming."
         keywords="IPTV troubleshooting, streaming issues, IPTV buffering fix, connection problems, playback issues, IPTV guide 2025"
         canonical={`${baseUrl}/troubleshooting`}
-        structuredData={structuredData}
+        structuredData={JSON.stringify(structuredData)}
         breadcrumbs={[
           { 
             name: "Home", 

@@ -9,8 +9,8 @@ export interface SEOData {
   publishedTime?: string;
   modifiedTime?: string;
   type?: 'website' | 'article' | 'product' | 'video' | 'blog' | 'organization';
-  structuredData?: string;
-  alternateUrls?: {
+  structuredData?: string | Record<string, any>;
+  alternates?: {
     [key: string]: string;
   };
   breadcrumbs?: Array<BreadcrumbItem>;
