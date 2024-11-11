@@ -95,15 +95,17 @@ const Index = () => {
           }
         ]}
       />
-      <div className="min-h-screen bg-navy">
+      <main className="min-h-screen bg-navy" itemScope itemType="https://schema.org/WebPage">
         <Navbar />
         <Hero />
-        <Stats />
-        <PricingCards />
-        <Benefits />
-        <FaqSection />
+        <article itemScope itemType="https://schema.org/Article">
+          <Stats />
+          <PricingCards />
+          <Benefits />
+          <FaqSection />
+        </article>
         <Footer />
-      </div>
+      </main>
     </>
   );
 };
