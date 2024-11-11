@@ -14,9 +14,11 @@ export const getMetaTags = ({
   { name: "description", content: description },
   { name: "keywords", content: keywords || "buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV buy, best buy IPTV, IPTV channels, HD IPTV, 4K IPTV, premium IPTV service, IPTV provider USA" },
   { name: "author", content: author },
-  { name: "robots", content: "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" },
+  { name: "robots", content: "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1,noodp,noydir" },
   { name: "googlebot", content: "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" },
   { name: "bingbot", content: "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" },
+  { name: "revisit-after", content: "1 days" },
+  { name: "rating", content: "general" },
   { property: "og:title", content: title },
   { property: "og:description", content: description },
   { property: "og:type", content: type },
@@ -25,6 +27,7 @@ export const getMetaTags = ({
   { property: "og:image:height", content: "630" },
   { property: "og:site_name", content: "Premium IPTV Service Provider | Buy IPTV USA" },
   { property: "og:locale", content: "en_US" },
+  { property: "article:publisher", content: "https://www.iptvservice.site" },
   { name: "twitter:card", content: "summary_large_image" },
   { name: "twitter:title", content: title },
   { name: "twitter:description", content: description },
@@ -34,6 +37,8 @@ export const getMetaTags = ({
   ...(publishedTime ? [{ property: "article:published_time", content: publishedTime }] : []),
   ...(modifiedTime ? [{ property: "article:modified_time", content: modifiedTime }] : []),
   { rel: "canonical", href: canonical },
+  { name: "format-detection", content: "telephone=no" },
+  { "http-equiv": "x-ua-compatible", content: "IE=edge" },
 ];
 
 export const generateDynamicSchema = ({
@@ -62,19 +67,27 @@ export const generateDynamicSchema = ({
   "dateModified": modifiedTime || new Date().toISOString(),
   "author": {
     "@type": "Organization",
-    "name": "IPTV Service"
+    "name": "IPTV Service",
+    "@id": "https://www.iptvservice.site/#organization"
   },
   "publisher": {
     "@type": "Organization",
     "name": "IPTV Service",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://www.iptvservice.site/logo.svg"
-    }
+      "url": "https://www.iptvservice.site/logo.svg",
+      "width": "180",
+      "height": "60"
+    },
+    "@id": "https://www.iptvservice.site/#organization"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": canonical
+  },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": ["article", "h1", ".description"]
   }
 });
 

@@ -46,18 +46,6 @@
       "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
       "merchantReturnDays": 30,
       "returnMethod": "https://schema.org/ReturnByMail"
-    },
-    "shippingDetails": {
-      "@type": "OfferShippingDetails",
-      "deliveryTime": {
-        "@type": "ShippingDeliveryTime",
-        "handlingTime": {
-          "@type": "QuantitativeValue",
-          "minValue": "0",
-          "maxValue": "1",
-          "unitCode": "HUR"
-        }
-      }
     }
   },
   "aggregateRating": {
