@@ -12,7 +12,7 @@ export const getMetaTags = ({
   type = 'website'
 }: SEOData): MetaTag[] => [
   { name: "description", content: description },
-  { name: "keywords", content: keywords || "" },
+  { name: "keywords", content: keywords || "buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV buy, best buy IPTV, IPTV channels, HD IPTV, 4K IPTV, premium IPTV service, IPTV provider USA" },
   { name: "author", content: author },
   { name: "robots", content: "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" },
   { name: "googlebot", content: "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" },
@@ -23,7 +23,7 @@ export const getMetaTags = ({
   { property: "og:image", content: ogImage },
   { property: "og:image:width", content: "1200" },
   { property: "og:image:height", content: "630" },
-  { property: "og:site_name", content: "IPTV Service" },
+  { property: "og:site_name", content: "Premium IPTV Service Provider | Buy IPTV USA" },
   { property: "og:locale", content: "en_US" },
   { name: "twitter:card", content: "summary_large_image" },
   { name: "twitter:title", content: title },
@@ -51,6 +51,7 @@ export const generateDynamicSchema = ({
   "url": canonical,
   "name": title,
   "description": description,
+  "keywords": "buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV buy, best buy IPTV, IPTV channels, HD IPTV, 4K IPTV, premium IPTV service, IPTV provider USA",
   "image": {
     "@type": "ImageObject",
     "url": ogImage,

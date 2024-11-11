@@ -25,6 +25,7 @@
     "logo": "https://www.iptvservice.site/logo.svg"
   },
   "category": "IPTV Subscription Services",
+  "keywords": "buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV buy, best buy IPTV, IPTV channels, HD IPTV, 4K IPTV, premium IPTV service, IPTV provider USA",
   "offers": {
     "@type": "AggregateOffer",
     "priceCurrency": "USD",
@@ -80,7 +81,6 @@
     "datePublished": "2024-02-15",
     "reviewBody": "Best IPTV service I've used. HD & 4K channels work perfectly with great support."
   }],
-  "keywords": "buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV subscription, premium IPTV service, best IPTV provider USA",
   "additionalProperty": [{
     "@type": "PropertyValue",
     "name": "Number of Channels",
