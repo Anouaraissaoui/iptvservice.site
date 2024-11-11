@@ -15,6 +15,18 @@ export interface SEOData {
   };
   breadcrumbs?: Array<BreadcrumbItem>;
   lastModified?: string;
+  isAmp?: boolean;
+  ampUrl?: string;
+  nofollow?: boolean;
+  locale?: string;
+  twitterCard?: 'summary' | 'summary_large_image' | 'app' | 'player';
+  twitterSite?: string;
+  twitterCreator?: string;
+  fbAppId?: string;
+  section?: string;
+  published?: boolean;
+  tags?: string[];
+  category?: string;
 }
 
 export interface BreadcrumbItem {
