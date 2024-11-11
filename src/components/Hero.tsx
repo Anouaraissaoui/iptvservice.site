@@ -27,11 +27,11 @@ const Hero = memo(() => {
           
           <HeroTitle />
           
-          <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0">
+          <h2 className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0">
             Unleash unmatched entertainment with our leading IPTV subscription service. 
             <Link to="/blog" className="text-primary hover:text-primary/90 transition-colors"> Learn more about IPTV </Link> 
             from the best in the industry and enjoy a seamless, high-quality viewing experience.
-          </p>
+          </h2>
           
           <HeroActions />
         </article>
