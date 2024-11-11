@@ -8,12 +8,13 @@ export interface SEOData {
   author?: string;
   publishedTime?: string;
   modifiedTime?: string;
-  type?: 'website' | 'article' | 'product' | 'video' | 'blog';
-  structuredData?: object;
-  alternates?: {
+  type?: 'website' | 'article' | 'product' | 'video' | 'blog' | 'organization';
+  structuredData?: string;
+  alternateUrls?: {
     [key: string]: string;
   };
   breadcrumbs?: Array<BreadcrumbItem>;
+  lastModified?: string;
 }
 
 export interface BreadcrumbItem {
@@ -36,4 +37,5 @@ export interface PreloadResource {
   as: 'script' | 'style' | 'font' | 'image';
   type?: string;
   crossOrigin?: boolean;
+  fetchPriority?: 'high' | 'low' | 'auto';
 }

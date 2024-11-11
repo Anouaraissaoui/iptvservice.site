@@ -1,18 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-
-interface ServerSEOProps {
-  title: string;
-  description: string;
-  canonical?: string;
-  ogImage?: string;
-  structuredData?: object;
-  lastModified?: string;
-  type?: 'website' | 'article' | 'product';
-  keywords?: string;
-  author?: string;
-  alternateUrls?: Record<string, string>;
-}
+import { SEOData } from '@/types/seo';
+import { getMetaTags, generateDynamicSchema } from '@/utils/seo';
 
 export const ServerSEO = ({ 
   title, 
@@ -24,8 +13,10 @@ export const ServerSEO = ({
   type = 'website',
   keywords,
   author = "IPTV Service",
-  alternateUrls
-}: ServerSEOProps) => {
+  alternateUrls,
+  publishedTime,
+  modifiedTime = lastModified
+}: SEOData) => {
   const [isServer, setIsServer] = useState(true);
   const baseUrl = "https://www.iptvservice.site";
   const canonicalUrl = canonical.startsWith('http') ? canonical : `${baseUrl}${canonical}`;
@@ -34,50 +25,50 @@ export const ServerSEO = ({
     setIsServer(false);
   }, []);
 
-  const fullStructuredData = {
-    ...structuredData,
-    "@context": "https://schema.org",
-    "dateModified": lastModified,
-    "isPartOf": {
-      "@type": "WebSite",
-      "@id": "https://www.iptvservice.site/#website"
-    }
-  };
+  const metaTags = getMetaTags({
+    title,
+    description,
+    canonical: canonicalUrl,
+    ogImage,
+    keywords,
+    author,
+    publishedTime,
+    modifiedTime,
+    type
+  });
+
+  const dynamicSchema = generateDynamicSchema({
+    title,
+    description,
+    canonical: canonicalUrl,
+    ogImage,
+    type,
+    publishedTime,
+    modifiedTime
+  });
 
   return (
     <Helmet prioritizeSeoTags={true}>
       <title>{title}</title>
-      <meta name="description" content={description} />
-      <meta name="keywords" content={keywords} />
-      <meta name="author" content={author} />
-      <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
-      <link rel="canonical" href={canonicalUrl} />
-      
-      {/* Open Graph */}
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={ogImage} />
-      <meta property="og:type" content={type} />
-      <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:site_name" content="IPTV Service" />
-      
-      {/* Twitter Card */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={ogImage} />
-      
-      {/* Technical */}
-      <meta property="article:modified_time" content={lastModified} />
-      <meta httpEquiv="last-modified" content={lastModified} />
+      {metaTags.map((tag, index) => {
+        if (tag.rel) {
+          return <link key={index} {...tag} />;
+        }
+        return <meta key={index} {...tag} />;
+      })}
       
       {/* Language Alternates */}
       {alternateUrls && Object.entries(alternateUrls).map(([lang, url]) => (
         <link key={lang} rel="alternate" hrefLang={lang} href={url} />
       ))}
       
+      {/* Preload Critical Resources */}
+      <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      <link rel="preload" href="/images/IPTV-Service.webp" as="image" type="image/webp" fetchPriority="high" />
+      
+      {/* Schema.org Structured Data */}
       <script type="application/ld+json">
-        {JSON.stringify(fullStructuredData)}
+        {structuredData || dynamicSchema}
       </script>
     </Helmet>
   );
