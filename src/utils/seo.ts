@@ -38,7 +38,7 @@ export const getMetaTags = ({
   ...(modifiedTime ? [{ property: "article:modified_time", content: modifiedTime }] : []),
   { rel: "canonical", href: canonical },
   { name: "format-detection", content: "telephone=no" },
-  { "http-equiv": "x-ua-compatible", content: "IE=edge" },
+  { httpEquiv: "x-ua-compatible", content: "IE=edge" }
 ];
 
 export const generateDynamicSchema = ({

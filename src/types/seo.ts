@@ -42,6 +42,7 @@ export interface MetaTag {
   content?: string;
   rel?: string;
   href?: string;
+  httpEquiv?: string;
 }
 
 export interface PreloadResource {
