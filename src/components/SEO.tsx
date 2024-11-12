@@ -86,9 +86,9 @@ export const SEO = ({
       <meta name="twitter:image" content={ogImage} />
       
       {/* Language Alternates with absolute URLs */}
-      <link rel="alternate" hreflang="x-default" href={baseUrl} />
+      <link rel="alternate" hrefLang="x-default" href={baseUrl} />
       {alternates && Object.entries(alternates).map(([lang, url]) => (
-        <link key={lang} rel="alternate" hreflang={lang} href={`${baseUrl}${url}`} />
+        <link key={lang} rel="alternate" hrefLang={lang} href={`${baseUrl}${url}`} />
       ))}
 
       {/* Schema.org Markup */}
