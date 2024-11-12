@@ -15,10 +15,14 @@ Allow: /*.svg$
 Allow: /*.webp$
 Allow: /assets/
 Allow: /images/
+Allow: /blog/
+Allow: /features/
+Allow: /pricing/
+Allow: /contact/
+Allow: /troubleshooting/
 
 # Image Crawlers
 User-agent: Googlebot-Image
-Allow: /
 Allow: /images/
 Allow: /*.jpg$
 Allow: /*.jpeg$
@@ -31,22 +35,12 @@ Allow: /*.svg$
 Sitemap: https://www.iptvservice.site/sitemap.xml
 Sitemap: https://www.iptvservice.site/image-sitemap.xml
 
-# Main Pages
-Allow: /pricing
-Allow: /features
-Allow: /blog
-Allow: /contact
-Allow: /terms
-Allow: /privacy
-
 # Protected Areas & Dynamic URLs
 Disallow: /admin/
 Disallow: /api/
 Disallow: /checkout/
 Disallow: /account/
 Disallow: /private/
-Disallow: /wp-admin/
-Disallow: /wp-includes/
 Disallow: /search
 Disallow: /*?*
 Disallow: /*&
@@ -69,6 +63,9 @@ Disallow: /
 
 User-agent: Claude-Web
 Disallow: /
+
+# Rate Limiting
+Crawl-delay: 1
 
 # Host
 Host: https://www.iptvservice.site
