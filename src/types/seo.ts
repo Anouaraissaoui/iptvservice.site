@@ -14,7 +14,6 @@ export interface SEOData {
     [key: string]: string;
   };
   breadcrumbs?: Array<BreadcrumbItem>;
-  schema?: Record<string, any>;
   lastModified?: string;
   isAmp?: boolean;
   ampUrl?: string;

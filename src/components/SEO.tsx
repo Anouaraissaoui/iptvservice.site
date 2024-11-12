@@ -16,7 +16,6 @@ export const SEO = ({
   structuredData,
   alternates,
   breadcrumbs,
-  schema,
 }: SEOData) => {
   const baseUrl = "https://www.iptvservice.site";
   const currentYear = new Date().getFullYear();
@@ -29,7 +28,6 @@ export const SEO = ({
       generateWebsiteData(),
       structuredData,
       breadcrumbs ? generateBreadcrumbData(breadcrumbs) : null,
-      schema,
       {
         "@type": type === "article" ? "Article" : type === "product" ? "Product" : "WebPage",
         "@id": `${canonicalUrl}#content`,
@@ -59,13 +57,15 @@ export const SEO = ({
 
   return (
     <Helmet prioritizeSeoTags={true}>
+      {/* Primary Meta Tags */}
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta name="robots" content={noindex ? "noindex,nofollow" : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"} />
+      <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
       <meta name="keywords" content={keywords} />
       <meta name="author" content={author} />
       <link rel="canonical" href={canonicalUrl} />
       
+      {/* Open Graph */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content={type} />
@@ -75,18 +75,22 @@ export const SEO = ({
       <meta property="og:image:height" content="630" />
       <meta property="og:site_name" content={`IPTV Service ${currentYear}`} />
       
+      {/* Article Metadata */}
       {publishedTime && <meta property="article:published_time" content={publishedTime} />}
       {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
       
+      {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
       
+      {/* Language Alternates */}
       {alternates && Object.entries(alternates).map(([lang, url]) => (
         <link key={lang} rel="alternate" hrefLang={lang} href={`${baseUrl}${url}`} />
       ))}
 
+      {/* Schema.org Markup */}
       <script type="application/ld+json">
         {JSON.stringify(websiteStructuredData)}
       </script>
