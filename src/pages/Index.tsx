@@ -18,7 +18,7 @@ const Index = () => {
     "@type": "WebPage",
     "@id": `${baseUrl}/#webpage`,
     "url": baseUrl,
-    "name": `Buy IPTV Subscription | Best IPTV Service Provider 2025`,
+    "name": `Buy IPTV Subscription | Best IPTV Service Provider ${currentDate}`,
     "description": "Buy IPTV subscription with 18000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support.",
     "isPartOf": {
       "@type": "WebSite",
@@ -61,7 +61,7 @@ const Index = () => {
   return (
     <>
       <ServerSEO 
-        title={`Buy IPTV Subscription | Best IPTV Service Provider 2025`}
+        title={`Buy IPTV Subscription | Best IPTV Service Provider ${currentDate}`}
         description="Buy IPTV subscription with 18000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support."
         structuredData={structuredData}
         keywords="buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV buy, best buy IPTV, IPTV channels, HD IPTV, 4K IPTV, premium IPTV service, IPTV provider USA"
@@ -75,7 +75,7 @@ const Index = () => {
         }}
       />
       <SEO
-        title={`Buy IPTV Subscription | Best IPTV Service Provider 2025`}
+        title={`Buy IPTV Subscription | Best IPTV Service Provider ${currentDate}`}
         description="Buy IPTV subscription with 18000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support."
         structuredData={structuredData}
         type="website"
@@ -95,10 +95,19 @@ const Index = () => {
           }
         ]}
       />
-      <main className="min-h-screen bg-navy" itemScope itemType="https://schema.org/WebPage">
+      <main 
+        className="min-h-screen bg-navy" 
+        itemScope 
+        itemType="https://schema.org/WebPage"
+        role="main"
+      >
         <Navbar />
         <Hero />
-        <article itemScope itemType="https://schema.org/Article">
+        <article 
+          itemScope 
+          itemType="https://schema.org/Article"
+          role="article"
+        >
           <Stats />
           <PricingCards />
           <Benefits />
