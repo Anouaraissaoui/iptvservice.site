@@ -1,5 +1,5 @@
 import { Image } from "@/components/ui/image";
-import { optimizeImages } from "@/utils/performance";
+import { optimizeImages, generateImageSrcSet } from "@/utils/performance";
 
 interface HeroImageProps {
   alt: string;
