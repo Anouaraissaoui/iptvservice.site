@@ -72,10 +72,19 @@ const Features = () => {
       </Helmet>
       <main className="min-h-screen bg-navy">
         <Navbar />
-        <section aria-labelledby="features-heading" className="pt-20">
-          <h1 id="features-heading" className="sr-only">IPTV Features and Benefits</h1>
-          <Benefits />
-        </section>
+        <header className="pt-20 pb-12 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Premium IPTV{" "}
+            <span className="text-primary relative inline-block">
+              Features & Benefits
+              <span className="absolute -bottom-2 left-0 right-0 h-1 bg-primary/30 blur-sm" />
+            </span>
+          </h1>
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Discover why our IPTV service stands out with premium features and unmatched benefits
+          </p>
+        </header>
+        <Benefits />
         <Footer />
       </main>
     </>

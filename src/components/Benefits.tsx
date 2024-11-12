@@ -99,17 +99,17 @@ const Benefits = () => {
           
           <div className="space-y-6 sm:space-y-8 md:space-y-10 order-1 lg:order-2">
             <header className="space-y-4 text-center lg:text-left">
-              <a href="/features" className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-3 sm:px-4 md:px-6 py-2 backdrop-blur-xl text-xs sm:text-sm hover:bg-white/10 transition-all duration-300" aria-label="Discover IPTV Features">
-                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" aria-hidden="true" />
+              <a href="/features" className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-3 sm:px-4 md:px-6 py-2 backdrop-blur-xl text-xs sm:text-sm hover:bg-white/10 transition-all duration-300">
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                 <span className="text-white">Why Choose Our IPTV Service?</span>
               </a>
               
               <h2 id="benefits-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
-                Benefits of{" "}
-                <a href="/pricing" className="text-primary relative inline-block hover:text-primary/90 transition-colors" aria-label="View IPTV Subscription Plans">
-                  IPTV Streaming
-                  <span className="absolute -bottom-2 left-0 right-0 h-1 bg-primary/30 blur-sm" aria-hidden="true" />
-                </a>
+                Premium{" "}
+                <span className="text-primary relative inline-block hover:text-primary/90 transition-colors">
+                  IPTV Benefits
+                  <span className="absolute -bottom-2 left-0 right-0 h-1 bg-primary/30 blur-sm" />
+                </span>
               </h2>
             </header>
             
@@ -119,10 +119,9 @@ const Benefits = () => {
                   <a 
                     href={benefit.link}
                     className="block group bg-navy/50 border border-white/10 rounded-xl sm:rounded-2xl p-4 sm:p-6 hover:border-primary/50 transition-all duration-300 hover:bg-navy-light/50 hover:scale-[1.02] sm:hover:scale-105 backdrop-blur-sm"
-                    aria-label={benefit.linkText}
                   >
                     <article className="flex items-start gap-3 sm:gap-4">
-                      <div className="p-2 sm:p-3 rounded-lg sm:rounded-xl bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors" aria-hidden="true">
+                      <div className="p-2 sm:p-3 rounded-lg sm:rounded-xl bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
                         {benefit.icon}
                       </div>
                       <div>

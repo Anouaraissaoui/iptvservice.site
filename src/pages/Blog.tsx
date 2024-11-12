@@ -73,18 +73,18 @@ const Blog = () => {
       <main className="min-h-screen bg-navy">
         <Navbar />
         <div className="container mx-auto px-4 py-24">
-          <div className="text-center mb-16">
+          <header className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Latest from Our{" "}
+              Latest IPTV{" "}
               <span className="text-primary relative inline-block">
-                Blog
+                News & Guides
                 <span className="absolute -bottom-2 left-0 right-0 h-1 bg-primary/30 blur-sm" />
               </span>
             </h1>
             <p className="text-gray-400 max-w-2xl mx-auto">
               Stay updated with the latest news, guides, and insights about IPTV streaming
             </p>
-          </div>
+          </header>
 
           <BlogGrid posts={posts} isLoading={isLoading} />
         </div>
@@ -95,16 +95,4 @@ const Blog = () => {
   );
 };
 
-export const getServerSideProps = async () => {
-  const queryClient = new QueryClient();
-  await prefetchData(queryClient);
-  
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
-  };
-};
-
 export default Blog;
-
