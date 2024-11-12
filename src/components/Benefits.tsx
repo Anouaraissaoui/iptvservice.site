@@ -1,52 +1,51 @@
 import { Shield, Tv, Globe, CreditCard } from "lucide-react";
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
 
 const Benefits = () => {
-  const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
 
   const benefits = [
     {
-      title: t('benefits.costEffective.title'),
+      title: "Cost-Effective",
       description: (
         <>
-          {t('benefits.costEffective.description')}{" "}
+          More affordable than traditional cable or satellite TV packages. Learn more about{" "}
           <a 
             href="https://en.wikipedia.org/wiki/Internet_Protocol_television" 
             target="_blank" 
             rel="dofollow"
             className="text-primary hover:text-primary/80 underline decoration-primary/30 transition-colors"
           >
-            {t('benefits.costEffective.learnMore')}
+            IPTV streaming technology
           </a>
+          .
         </>
       ),
       icon: <CreditCard className="w-5 h-5 sm:w-6 sm:h-6" />,
       link: "/pricing",
-      linkText: t('benefits.costEffective.link')
+      linkText: "View IPTV Subscription Plans"
     },
     {
-      title: t('benefits.streaming.title'),
-      description: t('benefits.streaming.description'),
+      title: "High-Quality Streaming",
+      description: "Enjoy crisp, high-definition video and audio quality.",
       icon: <Tv className="w-5 h-5 sm:w-6 sm:h-6" />,
       link: "/features",
-      linkText: t('benefits.streaming.link')
+      linkText: "Explore HD & 4K Streaming Features"
     },
     {
-      title: t('benefits.flexible.title'),
-      description: t('benefits.flexible.description'),
+      title: "Flexible Viewing",
+      description: "Watch your favorite content anytime, anywhere with an internet connection.",
       icon: <Shield className="w-5 h-5 sm:w-6 sm:h-6" />,
       link: "/features#streaming",
-      linkText: t('benefits.flexible.link')
+      linkText: "Learn About Multi-device Streaming"
     },
     {
-      title: t('benefits.global.title'),
-      description: t('benefits.global.description'),
+      title: "Global Reach",
+      description: "Access a wide range of international channels and content.",
       icon: <Globe className="w-5 h-5 sm:w-6 sm:h-6" />,
       link: "/features#channels",
-      linkText: t('benefits.global.link')
+      linkText: "Browse International Channel List"
     }
   ];
 
