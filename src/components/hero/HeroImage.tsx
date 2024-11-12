@@ -1,13 +1,17 @@
 import { Image } from "@/components/ui/image";
 
-const HeroImage = () => {
+interface HeroImageProps {
+  alt: string;
+}
+
+const HeroImage = ({ alt }: HeroImageProps) => {
   return (
     <figure className="relative mt-8 lg:mt-0">
       <div className="absolute inset-0 bg-primary/20 blur-[120px] rounded-full animate-pulse" aria-hidden="true" />
       <div className="relative bg-navy-light rounded-3xl border border-white/10 p-2 md:p-3 shadow-2xl transform hover:scale-[1.02] transition-transform duration-300 hover:border-primary/50">
         <Image 
           src="/images/IPTV-Service.webp"
-          alt="Best IPTV service provider offering premium 4K streaming experience with over 18,000 HD channels, VOD content, and live sports coverage for complete entertainment" 
+          alt={alt}
           className="relative rounded-2xl shadow-2xl w-full object-cover aspect-video"
           loading="eager"
           fetchPriority="high"
