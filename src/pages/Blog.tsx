@@ -19,6 +19,23 @@ interface Post {
   link: string;
 }
 
+const staticPosts = [
+  {
+    id: 1,
+    date: "2024-02-26T12:00:00+00:00",
+    title: { rendered: "Complete USA IPTV Guide 2024" },
+    excerpt: { 
+      rendered: "Comprehensive guide to IPTV services in the USA. Learn about features, pricing, and how to choose the best IPTV provider for your needs." 
+    },
+    link: "/blog/usa-iptv-guide/",
+    _embedded: {
+      "wp:featuredmedia": [{
+        source_url: "https://www.iptvservice.site/images/IPTV-Service.webp"
+      }]
+    }
+  }
+];
+
 const fetchPosts = async (): Promise<Post[]> => {
   const response = await fetch(
     "https://your-wordpress-site.com/wp-json/wp/v2/posts?_embed&per_page=9"
@@ -26,7 +43,8 @@ const fetchPosts = async (): Promise<Post[]> => {
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
-  return response.json();
+  const dynamicPosts = await response.json();
+  return [...staticPosts, ...dynamicPosts];
 };
 
 const Blog = () => {
@@ -107,4 +125,3 @@ export const getServerSideProps = async () => {
 };
 
 export default Blog;
-
