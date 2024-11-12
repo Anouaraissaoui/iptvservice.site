@@ -13,16 +13,28 @@ const resolve = (p: string) => path.resolve(__dirname, p);
 
 async function createServer() {
   const app = express();
+  
+  // Enable compression for all responses
   app.use(compression());
 
+  // Cache static assets in production
   if (isProduction) {
-    app.use(sirv('dist/client', { extensions: [] }));
+    app.use(sirv('dist/client', { 
+      maxAge: 31536000, // 1 year
+      immutable: true,
+      gzip: true,
+      brotli: true,
+      dev: false
+    }));
   } else {
     const vite = await import('vite');
     const viteDevMiddleware = (
       await vite.createServer({
         server: { middlewareMode: true },
         appType: 'custom',
+        optimizeDeps: {
+          include: ['react', 'react-dom', 'react-router-dom']
+        }
       })
     ).middlewares;
     app.use(viteDevMiddleware);
@@ -36,10 +48,23 @@ async function createServer() {
         'utf-8'
       );
 
-      const queryClient = new QueryClient();
+      const queryClient = new QueryClient({
+        defaultOptions: {
+          queries: {
+            staleTime: 60 * 1000,
+            cacheTime: 5 * 60 * 1000,
+            retry: 1
+          }
+        }
+      });
+
       const { html: appHtml, helmetContext } = await render(url, queryClient);
       const { helmet } = helmetContext as any;
 
+      // Implement streaming for large HTML content
+      res.setHeader('Content-Type', 'text/html');
+      res.setHeader('Cache-Control', 'public, max-age=600, s-maxage=1200');
+      
       const html = template
         .replace(`<div id="root"></div>`, `<div id="root">${appHtml}</div>`)
         .replace(
@@ -53,7 +78,7 @@ async function createServer() {
           )}</script></body>`
         );
 
-      res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
+      res.status(200).end(html);
     } catch (e) {
       console.error(e);
       res.status(500).end((e as Error).stack);

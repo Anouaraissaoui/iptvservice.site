@@ -6,14 +6,20 @@ import { HelmetProvider } from 'react-helmet-async';
 import App from './App';
 import './index.css';
 
+// Configure QueryClient with optimized settings
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 60 * 1000,
+      staleTime: 60 * 1000, // 1 minute
+      cacheTime: 5 * 60 * 1000, // 5 minutes
+      retry: 1,
+      refetchOnWindowFocus: false,
+      refetchOnReconnect: false
     },
   },
 });
 
+// Use hydrateRoot for client-side hydration
 ReactDOM.hydrateRoot(
   document.getElementById('root') as HTMLElement,
   <React.StrictMode>

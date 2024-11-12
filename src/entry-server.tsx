@@ -8,14 +8,17 @@ import App from './App';
 export function render(url: string, queryClient: QueryClient) {
   const helmetContext = {};
   
+  // Use renderToString for initial fast page load
   const html = ReactDOMServer.renderToString(
-    <HelmetProvider context={helmetContext}>
-      <QueryClientProvider client={queryClient}>
-        <StaticRouter location={url}>
-          <App dehydratedState={queryClient.getQueryData([])} />
-        </StaticRouter>
-      </QueryClientProvider>
-    </HelmetProvider>
+    <React.StrictMode>
+      <HelmetProvider context={helmetContext}>
+        <QueryClientProvider client={queryClient}>
+          <StaticRouter location={url}>
+            <App dehydratedState={queryClient.getQueryData([])} />
+          </StaticRouter>
+        </QueryClientProvider>
+      </HelmetProvider>
+    </React.StrictMode>
   );
 
   return { html, helmetContext };
