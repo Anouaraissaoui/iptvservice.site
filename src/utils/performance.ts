@@ -31,3 +31,22 @@ export const deferNonCriticalResources = () => {
 
   return observer;
 };
+
+export const preloadCriticalAssets = () => {
+  const criticalAssets = [
+    '/fonts/inter-var.woff2',
+    '/images/IPTV-Service.webp',
+    '/images/logo.png'
+  ];
+
+  criticalAssets.forEach(asset => {
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.href = asset;
+    link.as = asset.includes('.woff2') ? 'font' : 'image';
+    if (asset.includes('.woff2')) {
+      link.setAttribute('crossorigin', 'anonymous');
+    }
+    document.head.appendChild(link);
+  });
+};
