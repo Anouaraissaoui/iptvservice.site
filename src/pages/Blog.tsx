@@ -63,7 +63,7 @@ const Blog = () => {
   return (
     <>
       <SEO
-        title="IPTV Blog - Latest Streaming News & Updates 2025"
+        title="IPTV Blog | Latest Streaming News & Expert Tips 2024"
         description="Stay informed with expert IPTV guides, streaming tips, industry news, and technical tutorials. Learn about new features, channel updates, and maximize your streaming experience."
         keywords="IPTV blog, streaming news, IPTV guides, streaming tips, IPTV tutorials, IPTV updates 2024, streaming guides"
         canonical="https://www.iptvservice.site/blog"
@@ -107,4 +107,3 @@ export const getServerSideProps = async () => {
 };
 
 export default Blog;
-
