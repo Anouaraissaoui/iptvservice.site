@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
@@ -11,7 +10,7 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.iptvservice.site/blog/usa-iptv-guide/</loc>
+    <loc>https://www.iptvservice.site/blog/uk-iptv-guide/</loc>
     <lastmod>2024-02-26T12:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -21,7 +20,7 @@
         <news:language>en</news:language>
       </news:publication>
       <news:publication_date>2024-02-26T12:00:00+00:00</news:publication_date>
-      <news:title>Complete USA IPTV Guide 2024</news:title>
+      <news:title>12 Best UK IPTV Service Providers (2024)</news:title>
     </news:news>
   </url>
   <!-- Pricing Page -->
