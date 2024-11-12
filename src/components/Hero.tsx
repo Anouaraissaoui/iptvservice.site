@@ -30,8 +30,9 @@ const Hero = memo(() => {
               to="/features" 
               className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent text-sm md:text-base hover:text-primary transition-colors"
               itemProp="url"
+              aria-label="Explore Premium IPTV Features & Channels"
             >
-              Experience the future of TV →
+              Discover Premium IPTV Features →
             </Link>
           </div>
           
@@ -42,7 +43,13 @@ const Hero = memo(() => {
             itemProp="description"
           >
             Unleash unmatched entertainment with our leading IPTV subscription service. 
-            <Link to="/blog" className="text-primary hover:text-primary/90 transition-colors"> Learn more about IPTV </Link> 
+            <Link 
+              to="/blog" 
+              className="text-primary hover:text-primary/90 transition-colors"
+              aria-label="Read IPTV Guides & Tutorials"
+            > 
+              Learn about IPTV streaming guides 
+            </Link> 
             from the best in the industry and enjoy a seamless, high-quality viewing experience.
           </h2>
           
