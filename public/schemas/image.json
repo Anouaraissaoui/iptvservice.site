@@ -14,20 +14,38 @@
       "encodingFormat": "image/webp",
       "caption": "Premium IPTV Streaming Experience",
       "representativeOfPage": true,
-      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "license": "https://www.iptvservice.site/license",
       "acquireLicensePage": "https://www.iptvservice.site/license",
-      "creditText": "© 2024 IPTV Service"
+      "creditText": "© 2024 IPTV Service",
+      "copyrightNotice": "© 2024 IPTV Service. All rights reserved.",
+      "creator": {
+        "@type": "Organization",
+        "name": "IPTV Service"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "https://www.iptvservice.site/images/Buy-IPTV.jpg",
+      "name": "Buy IPTV Subscription",
+      "description": "Premium IPTV Subscription Packages",
+      "width": 1920,
+      "height": 1080,
+      "encodingFormat": "image/jpeg",
+      "caption": "IPTV Subscription Plans and Pricing",
+      "representativeOfPage": false,
+      "license": "https://www.iptvservice.site/license"
     },
     {
       "@type": "ImageObject",
       "contentUrl": "https://www.iptvservice.site/images/IPTV-Subscription.webp",
       "name": "IPTV Subscription Plans",
-      "description": "Choose from our flexible IPTV subscription plans with instant activation",
+      "description": "Choose from our flexible IPTV subscription plans",
       "width": 1920,
       "height": 1080,
       "encodingFormat": "image/webp",
       "caption": "IPTV Subscription Plans and Features",
-      "representativeOfPage": false
+      "representativeOfPage": false,
+      "license": "https://www.iptvservice.site/license"
     },
     {
       "@type": "ImageObject",
@@ -38,7 +56,56 @@
       "height": 1080,
       "encodingFormat": "image/webp",
       "caption": "IPTV Setup and Troubleshooting Guide",
-      "representativeOfPage": false
+      "representativeOfPage": false,
+      "license": "https://www.iptvservice.site/license"
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "https://www.iptvservice.site/images/IPTV-Service-thumb.webp",
+      "name": "IPTV Service Thumbnail",
+      "description": "Premium IPTV Service Preview",
+      "width": 300,
+      "height": 200,
+      "encodingFormat": "image/webp",
+      "caption": "IPTV Service Preview Thumbnail",
+      "representativeOfPage": false,
+      "license": "https://www.iptvservice.site/license"
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "https://www.iptvservice.site/images/logo.png",
+      "name": "IPTV Service Logo",
+      "description": "Official logo of IPTV Service",
+      "width": 180,
+      "height": 60,
+      "encodingFormat": "image/png",
+      "caption": "IPTV Service Official Logo",
+      "representativeOfPage": true,
+      "license": "https://www.iptvservice.site/license"
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "https://www.iptvservice.site/images/og-image.jpg",
+      "name": "IPTV Service Social Share Image",
+      "description": "Premium IPTV Service - Social Media Preview",
+      "width": 1200,
+      "height": 630,
+      "encodingFormat": "image/jpeg",
+      "caption": "IPTV Service Social Media Preview",
+      "representativeOfPage": false,
+      "license": "https://www.iptvservice.site/license"
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "https://www.iptvservice.site/images/twitter-card.jpg",
+      "name": "IPTV Service Twitter Card",
+      "description": "Premium IPTV Service - Twitter Preview",
+      "width": 1200,
+      "height": 600,
+      "encodingFormat": "image/jpeg",
+      "caption": "IPTV Service Twitter Card Preview",
+      "representativeOfPage": false,
+      "license": "https://www.iptvservice.site/license"
     }
   ],
   "thumbnails": [

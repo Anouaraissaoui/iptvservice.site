@@ -7,21 +7,57 @@
       <image:loc>https://www.iptvservice.site/images/IPTV-Service.webp</image:loc>
       <image:title>Premium IPTV Streaming Service</image:title>
       <image:caption>Experience premium IPTV streaming with over 18,000 HD &amp; 4K channels</image:caption>
+      <image:geo_location>United States</image:geo_location>
+      <image:license>https://www.iptvservice.site/license</image:license>
     </image:image>
     <image:image>
       <image:loc>https://www.iptvservice.site/images/Buy-IPTV.jpg</image:loc>
       <image:title>Buy IPTV Subscription</image:title>
       <image:caption>Premium IPTV Subscription Packages</image:caption>
+      <image:geo_location>United States</image:geo_location>
+      <image:license>https://www.iptvservice.site/license</image:license>
     </image:image>
     <image:image>
       <image:loc>https://www.iptvservice.site/images/IPTV-Subscription.webp</image:loc>
       <image:title>IPTV Subscription Plans</image:title>
       <image:caption>Choose from our flexible IPTV subscription plans</image:caption>
+      <image:geo_location>United States</image:geo_location>
+      <image:license>https://www.iptvservice.site/license</image:license>
     </image:image>
     <image:image>
       <image:loc>https://www.iptvservice.site/images/IPTV-troubleshooting.webp</image:loc>
       <image:title>IPTV Troubleshooting Guide</image:title>
       <image:caption>Comprehensive guide for resolving common IPTV streaming issues</image:caption>
+      <image:geo_location>United States</image:geo_location>
+      <image:license>https://www.iptvservice.site/license</image:license>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.iptvservice.site/images/IPTV-Service-thumb.webp</image:loc>
+      <image:title>IPTV Service Thumbnail</image:title>
+      <image:caption>Premium IPTV Service Preview</image:caption>
+      <image:geo_location>United States</image:geo_location>
+      <image:license>https://www.iptvservice.site/license</image:license>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.iptvservice.site/images/logo.png</image:loc>
+      <image:title>IPTV Service Logo</image:title>
+      <image:caption>Official logo of IPTV Service</image:caption>
+      <image:geo_location>United States</image:geo_location>
+      <image:license>https://www.iptvservice.site/license</image:license>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.iptvservice.site/images/og-image.jpg</image:loc>
+      <image:title>IPTV Service Social Share Image</image:title>
+      <image:caption>Premium IPTV Service - Social Media Preview</image:caption>
+      <image:geo_location>United States</image:geo_location>
+      <image:license>https://www.iptvservice.site/license</image:license>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.iptvservice.site/images/twitter-card.jpg</image:loc>
+      <image:title>IPTV Service Twitter Card</image:title>
+      <image:caption>Premium IPTV Service - Twitter Preview</image:caption>
+      <image:geo_location>United States</image:geo_location>
+      <image:license>https://www.iptvservice.site/license</image:license>
     </image:image>
   </url>
 </urlset>
