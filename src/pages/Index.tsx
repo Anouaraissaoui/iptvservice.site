@@ -69,9 +69,14 @@ const Index = () => {
         ogImage={`${baseUrl}/images/IPTV-Service.webp`}
         canonical={baseUrl}
         alternates={{
+          "x-default": "/",
           "en": "/",
+          "en-us": "/en-us",
+          "en-gb": "/en-gb",
+          "fr": "/fr",
+          "fr-ca": "/fr-ca",
           "es": "/es",
-          "fr": "/fr"
+          "es-mx": "/es-mx"
         }}
       />
       <SEO
@@ -82,9 +87,14 @@ const Index = () => {
         ogImage={`${baseUrl}/images/IPTV-Service.webp`}
         canonical={baseUrl}
         alternates={{
+          "x-default": "/",
           "en": "/",
+          "en-us": "/en-us",
+          "en-gb": "/en-gb",
+          "fr": "/fr",
+          "fr-ca": "/fr-ca",
           "es": "/es",
-          "fr": "/fr"
+          "es-mx": "/es-mx"
         }}
         breadcrumbs={[
           {
