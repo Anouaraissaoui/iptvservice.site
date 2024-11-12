@@ -20,7 +20,7 @@ ReactDOM.hydrateRoot(
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
-          <App dehydratedState={window.__INITIAL_DATA__} />
+          <App dehydratedState={window.__INITIAL_DATA__ || undefined} />
         </BrowserRouter>
       </QueryClientProvider>
     </HelmetProvider>
