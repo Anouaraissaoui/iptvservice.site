@@ -50,7 +50,7 @@ const Features = () => {
   return (
     <>
       <Helmet>
-        <title>IPTV Features | HD/4K Streaming | 18,000+ Live Channels</title>
+        <title>IPTV Features & Benefits | HD/4K Streaming with 18,000+ Channels</title>
         <meta name="description" content="Explore our premium IPTV features: 18,000+ channels worldwide, HD/4K streaming, catch-up TV, multi-device support, EPG guide, and extensive VOD library." />
         <meta name="keywords" content="IPTV features, IPTV benefits, streaming quality, VOD content, live TV channels, HD IPTV, 4K streaming, EPG guide" />
         <meta name="robots" content="index, follow, max-image-preview:large" />

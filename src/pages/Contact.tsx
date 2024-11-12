@@ -65,7 +65,7 @@ const Contact = () => {
   return (
     <>
       <Helmet>
-        <title>24/7 IPTV Support | Fast & Friendly Customer Service</title>
+        <title>Contact IPTV Support | 24/7 Customer Service & Technical Help</title>
         <meta name="description" content="Get instant support for your IPTV service. Our 24/7 customer support team provides technical assistance, subscription help, and setup guidance. Reach us via live chat, WhatsApp, or email." />
         <meta name="keywords" content="IPTV support, IPTV customer service, IPTV help, IPTV technical support, IPTV setup help, contact IPTV service 2024" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />

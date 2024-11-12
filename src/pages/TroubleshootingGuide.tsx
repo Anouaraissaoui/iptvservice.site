@@ -43,7 +43,7 @@ const TroubleshootingGuide = () => {
   return (
     <>
       <SEO
-        title="IPTV Setup Guide | Quick Solutions & Expert Tips 2024"
+        title="IPTV Troubleshooting Guide | Fix Common Streaming Issues 2025"
         description="Comprehensive guide to fix IPTV streaming issues. Learn how to resolve buffering, connection problems, and playback errors. Expert solutions for better streaming."
         keywords="IPTV troubleshooting, streaming issues, IPTV buffering fix, connection problems, playback issues, IPTV guide 2025"
         canonical={`${baseUrl}/troubleshooting`}

@@ -75,7 +75,7 @@ const Index = () => {
         }}
       />
       <SEO
-        title="Premium IPTV Service | 18,000+ HD Channels | Best Value 2024"
+        title={`Buy IPTV Subscription | Best IPTV Service Provider 2025`}
         description="Buy IPTV subscription with 18000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support."
         structuredData={structuredData}
         type="website"
