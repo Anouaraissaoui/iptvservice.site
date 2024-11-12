@@ -15,7 +15,11 @@ export const ServerSEO = ({
   author = "IPTV Service",
   alternates,
   publishedTime,
-  modifiedTime = lastModified
+  modifiedTime = lastModified,
+  locale = 'en_US',
+  imageAlt,
+  articleSection,
+  wordCount
 }: SEOData) => {
   const [isServer, setIsServer] = useState(true);
   const baseUrl = "https://www.iptvservice.site";
@@ -34,7 +38,11 @@ export const ServerSEO = ({
     author,
     publishedTime,
     modifiedTime,
-    type
+    type,
+    imageAlt,
+    articleSection,
+    wordCount,
+    locale
   });
 
   const dynamicSchema = generateDynamicSchema({
@@ -44,7 +52,10 @@ export const ServerSEO = ({
     ogImage,
     type,
     publishedTime,
-    modifiedTime
+    modifiedTime,
+    imageAlt,
+    articleSection,
+    wordCount
   });
 
   const schemaString = typeof structuredData === 'string' 
@@ -54,6 +65,9 @@ export const ServerSEO = ({
   return (
     <Helmet prioritizeSeoTags={true}>
       <title>{title}</title>
+      <html lang={locale.split('_')[0]} />
+      
+      {/* Resource Hints */}
       <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
@@ -91,12 +105,29 @@ export const ServerSEO = ({
       
       {/* Language Alternates */}
       {alternates && Object.entries(alternates).map(([lang, url]) => (
-        <link key={lang} rel="alternate" href={url} />
+        <link 
+          key={lang} 
+          rel="alternate" 
+          href={url} 
+          hrefLang={lang} 
+        />
       ))}
       
       {/* Preload Critical Resources */}
-      <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-      <link rel="preload" href="/images/IPTV-Service.webp" as="image" type="image/webp" fetchPriority="high" />
+      <link 
+        rel="preload" 
+        href="/fonts/inter-var.woff2" 
+        as="font" 
+        type="font/woff2" 
+        crossOrigin="anonymous" 
+      />
+      <link 
+        rel="preload" 
+        href="/images/IPTV-Service.webp" 
+        as="image" 
+        type="image/webp" 
+        fetchPriority="high" 
+      />
       
       {/* Schema.org Structured Data */}
       <script type="application/ld+json">
@@ -104,7 +135,10 @@ export const ServerSEO = ({
       </script>
 
       {/* Security Headers */}
-      <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;" />
+      <meta 
+        httpEquiv="Content-Security-Policy" 
+        content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;" 
+      />
       <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
       <meta httpEquiv="X-Frame-Options" content="SAMEORIGIN" />
       <meta httpEquiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
