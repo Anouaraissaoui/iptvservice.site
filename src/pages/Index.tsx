@@ -97,13 +97,21 @@ const Index = () => {
       />
       <main className="min-h-screen bg-navy" itemScope itemType="https://schema.org/WebPage">
         <Navbar />
-        <Hero />
-        <article itemScope itemType="https://schema.org/Article">
+        <section id="hero">
+          <Hero />
+        </section>
+        <section id="stats">
           <Stats />
+        </section>
+        <section id="pricing">
           <PricingCards />
+        </section>
+        <section id="benefits">
           <Benefits />
+        </section>
+        <section id="faq-section">
           <FaqSection />
-        </article>
+        </section>
         <Footer />
       </main>
     </>
