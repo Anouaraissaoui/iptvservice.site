@@ -91,7 +91,7 @@ export const ServerSEO = ({
       
       {/* Language Alternates */}
       {alternates && Object.entries(alternates).map(([lang, url]) => (
-        <link key={lang} rel="alternate" hrefLang={lang} href={url} />
+        <link key={lang} rel="alternate" href={url} />
       ))}
       
       {/* Preload Critical Resources */}
