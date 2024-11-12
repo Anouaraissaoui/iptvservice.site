@@ -56,7 +56,10 @@ export const generateMetaTags = (url: string, title: string, description: string
     `<link rel="canonical" href="${url}">`,
     `<meta property="og:url" content="${url}">`,
     `<meta property="og:title" content="${title}">`,
-    `<meta property="og:description" content="${description}">`
+    `<meta property="og:description" content="${description}">`,
+    `<meta name="robots" content="index, follow, max-image-preview:large">`,
+    `<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">`,
+    `<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large">`
   ];
 
   if (lastModified) {

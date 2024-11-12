@@ -6,6 +6,7 @@ import compression from 'compression';
 import sirv from 'sirv';
 import { QueryClient } from '@tanstack/react-query';
 import { render } from './entry-server';
+import { generateMetaTags, generatePreloadTags } from './utils/ssr';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const isProduction = process.env.NODE_ENV === 'production';
@@ -58,6 +59,12 @@ async function createServer() {
         }
       });
 
+      // Generate critical resources preload tags
+      const preloadTags = generatePreloadTags([
+        { href: '/fonts/inter-var.woff2', as: 'font', type: 'font/woff2', crossOrigin: true },
+        { href: '/images/IPTV-Service.webp', as: 'image', type: 'image/webp' }
+      ]);
+
       const { html: appHtml, helmetContext } = await render(url, queryClient);
       const { helmet } = helmetContext as any;
 
@@ -65,17 +72,21 @@ async function createServer() {
       res.setHeader('Content-Type', 'text/html');
       res.setHeader('Cache-Control', 'public, max-age=600, s-maxage=1200');
       
+      // Generate meta tags for SEO
+      const metaTags = generateMetaTags(
+        `https://www.iptvservice.site${url}`,
+        helmet.title.toString(),
+        helmet.meta.toString(),
+        new Date().toISOString()
+      );
+
       const html = template
-        .replace(`<div id="root"></div>`, `<div id="root">${appHtml}</div>`)
+        .replace('</head>', `${preloadTags}${metaTags}</head>`)
         .replace(
-          '</head>',
-          `${helmet.title.toString()}${helmet.meta.toString()}${helmet.link.toString()}</head>`
-        )
-        .replace(
-          '</body>',
-          `<script>window.__INITIAL_DATA__ = ${JSON.stringify(
+          '<div id="root"></div>',
+          `<div id="root">${appHtml}</div><script>window.__INITIAL_DATA__ = ${JSON.stringify(
             queryClient.getQueryData([])
-          )}</script></body>`
+          )}</script>`
         );
 
       res.status(200).end(html);
