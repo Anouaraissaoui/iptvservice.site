@@ -6,7 +6,7 @@ import HeroActions from "./hero/HeroActions";
 
 const Hero = memo(() => {
   return (
-    <section 
+    <header 
       className="relative min-h-[calc(100vh-4rem)] w-full pt-24 md:pt-32 pb-16 md:pb-20 bg-navy overflow-hidden"
       aria-labelledby="hero-heading"
       role="banner"
@@ -53,7 +53,7 @@ const Hero = memo(() => {
           alt="Premium IPTV streaming service showcasing 18,000+ HD and 4K quality channels with live sports, movies, and international content for the ultimate entertainment experience" 
         />
       </div>
-    </section>
+    </header>
   );
 });
 

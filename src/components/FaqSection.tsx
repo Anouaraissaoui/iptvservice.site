@@ -31,7 +31,7 @@ const FaqSection = () => {
   ];
 
   return (
-    <div className="py-24 bg-navy relative overflow-hidden">
+    <section className="py-24 bg-navy relative overflow-hidden" aria-labelledby="faq-heading">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px] animate-[grid_20s_linear_infinite]" />
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] animate-pulse" />
@@ -92,7 +92,7 @@ const FaqSection = () => {
           <div className="absolute -bottom-10 -left-10 w-20 h-20 bg-primary/10 rounded-full blur-2xl animate-pulse" />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

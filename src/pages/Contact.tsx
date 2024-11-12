@@ -93,16 +93,27 @@ const Contact = () => {
         </script>
       </Helmet>
 
-      <main className="min-h-screen bg-navy">
+      <div className="min-h-screen bg-navy">
         <Navbar />
-        <div className="container mx-auto px-4 py-24">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <ContactInfo />
-            <ContactForm />
-          </div>
-        </div>
+        <main>
+          <article className="container mx-auto px-4 py-24">
+            <header className="text-center mb-16">
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                Contact Our Support Team
+              </h1>
+              <p className="text-gray-400 max-w-2xl mx-auto">
+                Get instant support for your IPTV service needs
+              </p>
+            </header>
+
+            <section className="grid lg:grid-cols-2 gap-12 items-start">
+              <ContactInfo />
+              <ContactForm />
+            </section>
+          </article>
+        </main>
         <Footer />
-      </main>
+      </div>
     </>
   );
 };
