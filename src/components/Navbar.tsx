@@ -10,20 +10,12 @@ const Navbar = () => {
 
   const toggleMenu = (): void => setIsMenuOpen(!isMenuOpen);
 
-  const scrollToSection = (sectionId: string): void => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMenuOpen(false);
-    }
-  };
-
   const navItems: NavItem[] = [
-    { name: "Home", path: "hero", ariaLabel: "IPTV Service Home" },
-    { name: "Features", path: "benefits", ariaLabel: "IPTV Features & Channels" },
-    { name: "Pricing", path: "pricing", ariaLabel: "IPTV Subscription Plans" },
-    { name: "FAQ", path: "faq-section", ariaLabel: "Frequently Asked Questions" },
+    { name: "Home", path: "/", ariaLabel: "IPTV Service Home" },
+    { name: "Features", path: "/features", ariaLabel: "IPTV Features & Channels" },
+    { name: "Pricing", path: "/pricing", ariaLabel: "IPTV Subscription Plans" },
     { name: "Blog", path: "/blog", ariaLabel: "IPTV Guides & Updates" },
+    { name: "Troubleshooting", path: "/troubleshooting", ariaLabel: "IPTV Setup & Support Guide" },
     { name: "Contact", path: "/contact", ariaLabel: "24/7 IPTV Support" }
   ];
 
@@ -31,39 +23,32 @@ const Navbar = () => {
     <nav className="fixed w-full bg-navy/90 backdrop-blur-sm z-50 border-b border-white/10">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between py-4 md:py-6">
-          <button 
-            onClick={() => scrollToSection('hero')}
+          <Link 
+            to="/" 
             className="flex items-center gap-2"
             aria-label="Premium IPTV Service Home"
           >
             <span className="text-primary font-bold text-xl md:text-2xl tracking-tight hover:text-primary/90 transition-colors">
               IPTV Service
             </span>
-          </button>
+          </Link>
           
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              item.path.startsWith('/') ? (
-                <Link 
-                  key={item.path}
-                  to={item.path}
-                  className="text-gray-300 hover:text-white transition-colors relative group"
-                  aria-label={item.ariaLabel}
-                >
-                  {item.name}
-                  <span className="absolute -bottom-1.5 left-0 h-0.5 bg-primary transition-all duration-300 w-0 group-hover:w-full" />
-                </Link>
-              ) : (
-                <button
-                  key={item.path}
-                  onClick={() => scrollToSection(item.path)}
-                  className="text-gray-300 hover:text-white transition-colors relative group"
-                  aria-label={item.ariaLabel}
-                >
-                  {item.name}
-                  <span className="absolute -bottom-1.5 left-0 h-0.5 bg-primary transition-all duration-300 w-0 group-hover:w-full" />
-                </button>
-              )
+              <Link 
+                key={item.path}
+                to={item.path}
+                className={`text-gray-300 hover:text-white transition-colors relative group ${
+                  location.pathname === item.path ? "text-white" : ""
+                }`}
+                aria-label={item.ariaLabel}
+                aria-current={location.pathname === item.path ? "page" : undefined}
+              >
+                {item.name}
+                <span className={`absolute -bottom-1.5 left-0 h-0.5 bg-primary transition-all duration-300 ${
+                  location.pathname === item.path ? "w-full" : "w-0 group-hover:w-full"
+                }`} />
+              </Link>
             ))}
           </div>
 
@@ -88,26 +73,18 @@ const Navbar = () => {
         >
           <div className="px-4 py-8 flex flex-col gap-6">
             {navItems.map((item) => (
-              item.path.startsWith('/') ? (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className="text-gray-300 hover:text-white transition-colors text-lg font-medium py-2 border-b border-white/10"
-                  onClick={toggleMenu}
-                  aria-label={item.ariaLabel}
-                >
-                  {item.name}
-                </Link>
-              ) : (
-                <button
-                  key={item.path}
-                  onClick={() => scrollToSection(item.path)}
-                  className="text-gray-300 hover:text-white transition-colors text-lg font-medium py-2 border-b border-white/10 text-left"
-                  aria-label={item.ariaLabel}
-                >
-                  {item.name}
-                </button>
-              )
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`text-gray-300 hover:text-white transition-colors text-lg font-medium py-2 border-b border-white/10 ${
+                  location.pathname === item.path ? "text-white" : ""
+                }`}
+                onClick={toggleMenu}
+                aria-label={item.ariaLabel}
+                aria-current={location.pathname === item.path ? "page" : undefined}
+              >
+                {item.name}
+              </Link>
             ))}
           </div>
         </div>
