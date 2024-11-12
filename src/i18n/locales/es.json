@@ -1,0 +1,36 @@
+{
+  "hero": {
+    "new": "Nuevo",
+    "experience": "Experimenta el futuro de la TV",
+    "title": "¡Experimenta el servicio de suscripción IPTV #1 hoy!",
+    "description": "Descubre un entretenimiento sin igual con nuestro servicio líder de suscripción IPTV.",
+    "learnMore": "Aprende más sobre IPTV",
+    "browsePlans": "Explorar planes IPTV",
+    "support": "Soporte IPTV 24/7"
+  },
+  "stats": {
+    "title": "¿Por qué elegirnos?",
+    "subtitle": "Por qué elegirnos para tu suscripción IPTV",
+    "description": "Experimenta una calidad y fiabilidad inigualables con nuestro servicio IPTV premium, confiado por miles de usuarios.",
+    "customers": "Clientes satisfechos",
+    "channels": "Canales",
+    "sports": "Canales deportivos",
+    "vod": "VOD y películas"
+  },
+  "pricing": {
+    "title": "Explora nuestros planes de suscripción IPTV",
+    "subtitle": "Elige el plan perfecto para tus necesidades de entretenimiento con nuestros paquetes IPTV flexibles",
+    "features": {
+      "device": "Conexión de dispositivo",
+      "channels": "Canales de TV",
+      "support": "Compatible con todos los dispositivos",
+      "instant": "Soporte instantáneo 24/7"
+    },
+    "getStarted": "Comenzar"
+  },
+  "faq": {
+    "title": "¿Tienes preguntas?",
+    "subtitle": "Preguntas frecuentes",
+    "description": "Encuentra respuestas a preguntas comunes sobre nuestro servicio IPTV"
+  }
+}
