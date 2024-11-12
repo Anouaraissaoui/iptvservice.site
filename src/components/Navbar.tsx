@@ -1,91 +1,61 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { NavItem } from "@/types/components";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const location = useLocation();
-
-  const toggleMenu = (): void => setIsMenuOpen(!isMenuOpen);
-
-  const navItems: NavItem[] = [
-    { name: "Home", path: "/", ariaLabel: "IPTV Service Home" },
-    { name: "Features", path: "/features", ariaLabel: "IPTV Features & Channels" },
-    { name: "Pricing", path: "/pricing", ariaLabel: "IPTV Subscription Plans" },
-    { name: "Blog", path: "/blog", ariaLabel: "IPTV Guides & Updates" },
-    { name: "Troubleshooting", path: "/troubleshooting", ariaLabel: "IPTV Setup & Support Guide" },
-    { name: "Contact", path: "/contact", ariaLabel: "24/7 IPTV Support" }
-  ];
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed w-full bg-navy/90 backdrop-blur-sm z-50 border-b border-white/10">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between py-4 md:py-6">
-          <Link 
-            to="/" 
-            className="flex items-center gap-2"
-            aria-label="Premium IPTV Service Home"
-          >
-            <span className="text-primary font-bold text-xl md:text-2xl tracking-tight hover:text-primary/90 transition-colors">
-              IPTV Service
-            </span>
-          </Link>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-navy/80 backdrop-blur-xl border-b border-white/10">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
+          <Link to="/" className="text-white font-bold text-xl">IPTV Service</Link>
           
-          <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <Link 
-                key={item.path}
-                to={item.path}
-                className={`text-gray-300 hover:text-white transition-colors relative group ${
-                  location.pathname === item.path ? "text-white" : ""
-                }`}
-                aria-label={item.ariaLabel}
-                aria-current={location.pathname === item.path ? "page" : undefined}
-              >
-                {item.name}
-                <span className={`absolute -bottom-1.5 left-0 h-0.5 bg-primary transition-all duration-300 ${
-                  location.pathname === item.path ? "w-full" : "w-0 group-hover:w-full"
-                }`} />
-              </Link>
-            ))}
+          <div className="hidden md:flex items-center space-x-8">
+            <LanguageSwitcher />
+            <Link to="/pricing">
+              <Button variant="ghost" className="text-white hover:text-primary">
+                Pricing
+              </Button>
+            </Link>
+            <Link to="/features">
+              <Button variant="ghost" className="text-white hover:text-primary">
+                Features
+              </Button>
+            </Link>
+            <Link to="/contact">
+              <Button variant="default" className="bg-primary text-navy hover:bg-primary/90">
+                Contact
+              </Button>
+            </Link>
           </div>
 
-          <Button 
-            variant="ghost" 
-            className="md:hidden text-gray-300 hover:text-white"
-            onClick={toggleMenu}
-            aria-expanded={isMenuOpen}
-            aria-controls="mobile-menu"
+          <button
+            className="md:hidden text-white p-2"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            <span className="sr-only">{isMenuOpen ? 'Close menu' : 'Open menu'}</span>
-          </Button>
+            {isOpen ? <X /> : <Menu />}
+          </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div 
-          id="mobile-menu"
-          className="md:hidden fixed inset-0 top-[73px] bg-navy/95 backdrop-blur-lg z-40"
-        >
-          <div className="px-4 py-8 flex flex-col gap-6">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`text-gray-300 hover:text-white transition-colors text-lg font-medium py-2 border-b border-white/10 ${
-                  location.pathname === item.path ? "text-white" : ""
-                }`}
-                onClick={toggleMenu}
-                aria-label={item.ariaLabel}
-                aria-current={location.pathname === item.path ? "page" : undefined}
-              >
-                {item.name}
-              </Link>
-            ))}
+      {/* Mobile menu */}
+      {isOpen && (
+        <div className="md:hidden bg-navy border-t border-white/10">
+          <div className="container mx-auto px-4 py-4 space-y-4">
+            <LanguageSwitcher />
+            <Link to="/pricing" className="block text-white hover:text-primary">
+              Pricing
+            </Link>
+            <Link to="/features" className="block text-white hover:text-primary">
+              Features
+            </Link>
+            <Link to="/contact" className="block text-white hover:text-primary">
+              Contact
+            </Link>
           </div>
         </div>
       )}
