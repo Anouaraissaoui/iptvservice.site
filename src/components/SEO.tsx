@@ -60,7 +60,7 @@ export const SEO = ({
       {/* Primary Meta Tags */}
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+      <meta name="robots" content={noindex ? "noindex,follow" : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"} />
       <meta name="keywords" content={keywords} />
       <meta name="author" content={author} />
       <link rel="canonical" href={canonicalUrl} />
@@ -85,9 +85,10 @@ export const SEO = ({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
       
-      {/* Language Alternates */}
+      {/* Language Alternates with absolute URLs */}
+      <link rel="alternate" hreflang="x-default" href={baseUrl} />
       {alternates && Object.entries(alternates).map(([lang, url]) => (
-        <link key={lang} rel="alternate" hrefLang={lang} href={`${baseUrl}${url}`} />
+        <link key={lang} rel="alternate" hreflang={lang} href={`${baseUrl}${url}`} />
       ))}
 
       {/* Schema.org Markup */}
