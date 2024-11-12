@@ -5,6 +5,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { QueryClient, QueryClientProvider, HydrationBoundary } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Index from "./pages/Index";
 import Blog from "./pages/Blog";
@@ -40,6 +41,7 @@ const App = ({ dehydratedState }: { dehydratedState?: unknown }) => (
               </Routes>
             </BrowserRouter>
             <Analytics />
+            <SpeedInsights />
           </TooltipProvider>
         </HydrationBoundary>
       </QueryClientProvider>
