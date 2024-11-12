@@ -49,7 +49,9 @@ const Hero = memo(() => {
           <HeroActions />
         </article>
         
-        <HeroImage />
+        <HeroImage 
+          alt="Premium IPTV streaming service showcasing 18,000+ HD and 4K quality channels with live sports, movies, and international content for the ultimate entertainment experience" 
+        />
       </div>
     </section>
   );

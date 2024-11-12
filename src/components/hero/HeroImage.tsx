@@ -7,7 +7,7 @@ const HeroImage = () => {
       <div className="relative bg-navy-light rounded-3xl border border-white/10 p-2 md:p-3 shadow-2xl transform hover:scale-[1.02] transition-transform duration-300 hover:border-primary/50">
         <Image 
           src="/images/IPTV-Service.webp"
-          alt="Best IPTV service provider in USA offering premium 4K streaming experience with over 18,000 HD channels and VOD content for ultimate entertainment" 
+          alt="Best IPTV service provider offering premium 4K streaming experience with over 18,000 HD channels, VOD content, and live sports coverage for complete entertainment" 
           className="relative rounded-2xl shadow-2xl w-full object-cover aspect-video"
           loading="eager"
           fetchPriority="high"
