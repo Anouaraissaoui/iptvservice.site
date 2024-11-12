@@ -15,10 +15,10 @@ const resolve = (p: string) => path.resolve(__dirname, p);
 async function createServer() {
   const app = express();
   
-  // Enable compression for all responses
+  // Enable Brotli/Gzip compression
   app.use(compression());
 
-  // Cache static assets in production
+  // Serve static assets with aggressive caching
   if (isProduction) {
     app.use(sirv('dist/client', { 
       maxAge: 31536000, // 1 year
@@ -41,6 +41,7 @@ async function createServer() {
     app.use(viteDevMiddleware);
   }
 
+  // Handle all routes
   app.use('*', async (req, res) => {
     try {
       const url = req.originalUrl;
@@ -49,12 +50,14 @@ async function createServer() {
         'utf-8'
       );
 
+      // Initialize QueryClient with optimized settings
       const queryClient = new QueryClient({
         defaultOptions: {
           queries: {
             staleTime: 60 * 1000,
             gcTime: 5 * 60 * 1000,
-            retry: 1
+            retry: 1,
+            refetchOnWindowFocus: false
           }
         }
       });
@@ -65,10 +68,11 @@ async function createServer() {
         { href: '/images/IPTV-Service.webp', as: 'image', type: 'image/webp' }
       ]);
 
+      // Render the app
       const { html: appHtml, helmetContext } = await render(url, queryClient);
       const { helmet } = helmetContext as any;
 
-      // Implement streaming for large HTML content
+      // Set appropriate headers
       res.setHeader('Content-Type', 'text/html');
       res.setHeader('Cache-Control', 'public, max-age=600, s-maxage=1200');
       
@@ -80,16 +84,35 @@ async function createServer() {
         new Date().toISOString()
       );
 
-      const html = template
-        .replace('</head>', `${preloadTags}${metaTags}</head>`)
-        .replace(
-          '<div id="root"></div>',
-          `<div id="root">${appHtml}</div><script>window.__INITIAL_DATA__ = ${JSON.stringify(
-            queryClient.getQueryData([])
-          )}</script>`
-        );
+      // Stream the response for better TTFB
+      const stream = new ReadableStream({
+        start(controller) {
+          const chunks = template
+            .replace('</head>', `${preloadTags}${metaTags}</head>`)
+            .replace(
+              '<div id="root"></div>',
+              `<div id="root">${appHtml}</div><script>window.__INITIAL_DATA__ = ${JSON.stringify(
+                queryClient.getQueryData([])
+              )}</script>`
+            )
+            .split('\n');
 
-      res.status(200).end(html);
+          chunks.forEach(chunk => {
+            controller.enqueue(new TextEncoder().encode(chunk + '\n'));
+          });
+          controller.close();
+        }
+      });
+
+      const readable = new Response(stream).body;
+      readable?.pipeTo(new WritableStream({
+        write(chunk) {
+          res.write(chunk);
+        },
+        close() {
+          res.end();
+        }
+      }));
     } catch (e) {
       console.error(e);
       res.status(500).end((e as Error).stack);

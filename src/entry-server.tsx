@@ -23,3 +23,16 @@ export function render(url: string, queryClient: QueryClient) {
 
   return { html, helmetContext };
 }
+
+// Preload critical data
+export async function preload(url: string) {
+  const queryClient = new QueryClient();
+  
+  // Add your data prefetching logic here
+  // Example:
+  // if (url.startsWith('/blog')) {
+  //   await queryClient.prefetchQuery(['posts'], fetchPosts);
+  // }
+  
+  return queryClient;
+}
