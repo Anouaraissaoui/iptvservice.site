@@ -53,6 +53,7 @@ const Benefits = () => {
     <section 
       className="py-12 sm:py-16 md:py-24 bg-navy-light relative overflow-hidden"
       aria-labelledby="benefits-heading"
+      role="region"
     >
       {/* Background Effects */}
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px] animate-[grid_20s_linear_infinite]" aria-hidden="true" />
@@ -61,12 +62,16 @@ const Benefits = () => {
       
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
-          <figure className="relative group order-2 lg:order-1">
+          <figure className="relative group order-2 lg:order-1" role="img" aria-label="IPTV Service Features">
             <div className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full animate-pulse" aria-hidden="true" />
-            <a href="/features" className="block relative transform group-hover:scale-[1.02] transition-all duration-500" aria-label="Explore IPTV Features">
+            <a 
+              href="/features" 
+              className="block relative transform group-hover:scale-[1.02] transition-all duration-500"
+              aria-label="Explore IPTV Features"
+            >
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent blur-2xl" aria-hidden="true" />
               {isLoading && (
-                <div className="absolute inset-0 bg-navy animate-pulse rounded-3xl" />
+                <div className="absolute inset-0 bg-navy animate-pulse rounded-3xl" role="progressbar" aria-label="Loading image..." />
               )}
               <img 
                 src="/images/IPTV-Subscription.webp" 
@@ -84,7 +89,7 @@ const Benefits = () => {
                 }}
               />
               {error && (
-                <div className="absolute inset-0 flex items-center justify-center bg-navy rounded-3xl">
+                <div className="absolute inset-0 flex items-center justify-center bg-navy rounded-3xl" role="alert">
                   <p className="text-gray-400">Failed to load image</p>
                 </div>
               )}
@@ -99,29 +104,44 @@ const Benefits = () => {
           
           <div className="space-y-6 sm:space-y-8 md:space-y-10 order-1 lg:order-2">
             <header className="space-y-4 text-center lg:text-left">
-              <a href="/features" className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-3 sm:px-4 md:px-6 py-2 backdrop-blur-xl text-xs sm:text-sm hover:bg-white/10 transition-all duration-300">
-                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <a 
+                href="/features" 
+                className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-3 sm:px-4 md:px-6 py-2 backdrop-blur-xl text-xs sm:text-sm hover:bg-white/10 transition-all duration-300"
+                aria-label="Learn about our IPTV service benefits"
+              >
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" aria-hidden="true" />
                 <span className="text-white">Why Choose Our IPTV Service?</span>
               </a>
               
-              <h2 id="benefits-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+              <h2 
+                id="benefits-heading" 
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight"
+              >
                 Premium{" "}
                 <span className="text-primary relative inline-block hover:text-primary/90 transition-colors">
                   IPTV Benefits
-                  <span className="absolute -bottom-2 left-0 right-0 h-1 bg-primary/30 blur-sm" />
+                  <span className="absolute -bottom-2 left-0 right-0 h-1 bg-primary/30 blur-sm" aria-hidden="true" />
                 </span>
               </h2>
             </header>
             
-            <ul className="space-y-4 md:space-y-6" role="list">
+            <ul 
+              className="space-y-4 md:space-y-6" 
+              role="list" 
+              aria-label="IPTV Service Benefits"
+            >
               {benefits.map((benefit, index) => (
                 <li key={index}>
                   <a 
                     href={benefit.link}
                     className="block group bg-navy/50 border border-white/10 rounded-xl sm:rounded-2xl p-4 sm:p-6 hover:border-primary/50 transition-all duration-300 hover:bg-navy-light/50 hover:scale-[1.02] sm:hover:scale-105 backdrop-blur-sm"
+                    aria-label={benefit.linkText}
                   >
                     <article className="flex items-start gap-3 sm:gap-4">
-                      <div className="p-2 sm:p-3 rounded-lg sm:rounded-xl bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
+                      <div 
+                        className="p-2 sm:p-3 rounded-lg sm:rounded-xl bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors"
+                        aria-hidden="true"
+                      >
                         {benefit.icon}
                       </div>
                       <div>
