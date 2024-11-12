@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Image } from "@/components/ui/image";
 import { BlogPost } from "@/types/components";
+import { Link } from "react-router-dom";
 
 interface BlogCardProps {
   post: BlogPost;
@@ -45,6 +46,20 @@ export const BlogCard = ({ post }: BlogCardProps) => {
             <span>5 min read</span>
           </div>
         </div>
+        <div className="mt-4 space-y-2">
+          <p className="text-sm text-gray-400">Related Content:</p>
+          <div className="flex flex-wrap gap-2">
+            <Link to="/features" className="text-primary hover:underline text-sm">
+              IPTV Features
+            </Link>
+            <Link to="/troubleshooting" className="text-primary hover:underline text-sm">
+              Setup Guide
+            </Link>
+            <Link to="/pricing" className="text-primary hover:underline text-sm">
+              Subscription Plans
+            </Link>
+          </div>
+        </div>
       </CardContent>
       <CardFooter>
         <Button 
@@ -52,15 +67,13 @@ export const BlogCard = ({ post }: BlogCardProps) => {
           className="w-full group-hover:text-primary group-hover:bg-primary/10"
           asChild
         >
-          <a 
-            href={post.link} 
-            target="_blank" 
-            rel="noopener noreferrer"
+          <Link 
+            to={post.link}
             className="flex items-center justify-center gap-2"
           >
             Read More
             <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </a>
+          </Link>
         </Button>
       </CardFooter>
     </Card>

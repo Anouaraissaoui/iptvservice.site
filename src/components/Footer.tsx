@@ -1,5 +1,6 @@
 import { Facebook, Instagram, Twitter, Linkedin, Youtube } from "lucide-react";
 import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const socialLinks = [
@@ -15,17 +16,21 @@ const Footer = () => {
     { name: "Features", path: "/features" },
     { name: "Pricing", path: "/pricing" },
     { name: "Blog", path: "/blog" },
-    { name: "Contact", path: "/contact" }
+    { name: "Contact", path: "/contact" },
+    { name: "Troubleshooting", path: "/troubleshooting" }
   ];
 
-  const legalLinks = [
-    { name: "Terms", path: "/terms" },
-    { name: "Privacy", path: "/privacy" }
+  const resourceLinks = [
+    { name: "Setup Guide", path: "/troubleshooting" },
+    { name: "Channel List", path: "/features#channels" },
+    { name: "USA IPTV Guide", path: "/blog/usa-iptv-guide" },
+    { name: "FAQs", path: "/features#faq" }
   ];
 
   const supportLinks = [
     { name: "24/7 Support", path: "/contact" },
-    { name: "FAQs", path: "/features#faq" }
+    { name: "Technical Help", path: "/troubleshooting" },
+    { name: "Subscription Help", path: "/pricing" }
   ];
 
   return (
@@ -57,28 +62,28 @@ const Footer = () => {
               <ul className="space-y-2">
                 {mainLinks.map((link) => (
                   <li key={link.path}>
-                    <a 
-                      href={link.path}
+                    <Link 
+                      to={link.path}
                       className="text-gray-400 hover:text-primary transition-colors"
                     >
                       {link.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
             
             <div className="space-y-4">
-              <h3 className="text-white font-semibold text-lg">Legal</h3>
+              <h3 className="text-white font-semibold text-lg">Resources</h3>
               <ul className="space-y-2">
-                {legalLinks.map((link) => (
+                {resourceLinks.map((link) => (
                   <li key={link.path}>
-                    <a 
-                      href={link.path}
+                    <Link 
+                      to={link.path}
                       className="text-gray-400 hover:text-primary transition-colors"
                     >
                       {link.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -89,12 +94,12 @@ const Footer = () => {
               <ul className="space-y-2">
                 {supportLinks.map((link) => (
                   <li key={link.path}>
-                    <a 
-                      href={link.path}
+                    <Link 
+                      to={link.path}
                       className="text-gray-400 hover:text-primary transition-colors"
                     >
                       {link.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -133,18 +138,18 @@ const Footer = () => {
                 © {new Date().getFullYear()} IPTV Service. All rights reserved.
               </p>
               <div className="flex items-center gap-6">
-                <a 
-                  href="/terms" 
+                <Link 
+                  to="/terms" 
                   className="text-gray-400 hover:text-primary text-sm transition-colors"
                 >
                   Terms of Service
-                </a>
-                <a 
-                  href="/privacy" 
+                </Link>
+                <Link 
+                  to="/privacy" 
                   className="text-gray-400 hover:text-primary text-sm transition-colors"
                 >
                   Privacy Policy
-                </a>
+                </Link>
               </div>
             </div>
           </div>
