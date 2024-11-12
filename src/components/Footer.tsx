@@ -34,17 +34,25 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-navy-light relative overflow-hidden border-t border-white/10">
+    <footer 
+      className="bg-navy-light relative overflow-hidden border-t border-white/10"
+      role="contentinfo"
+      aria-label="Site Footer"
+    >
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px] animate-[grid_20s_linear_infinite]" />
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px] animate-pulse" />
-      <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px] animate-pulse" />
+      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px] animate-[grid_20s_linear_infinite]" aria-hidden="true" />
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px] animate-pulse" aria-hidden="true" />
+      <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px] animate-pulse" aria-hidden="true" />
       
       <div className="container mx-auto py-20 relative">
         <div className="max-w-6xl mx-auto space-y-12">
           {/* Brand Section */}
           <div className="space-y-8 text-center">
-            <a href="/" className="inline-flex items-center gap-2 bg-white/5 px-6 py-3 rounded-full backdrop-blur-sm border border-white/10">
+            <a 
+              href="/" 
+              className="inline-flex items-center gap-2 bg-white/5 px-6 py-3 rounded-full backdrop-blur-sm border border-white/10"
+              aria-label="Return to Homepage"
+            >
               <span className="text-primary font-bold text-2xl tracking-tight">
                 IPTV Service
               </span>
@@ -56,15 +64,16 @@ const Footer = () => {
           </div>
 
           {/* Navigation Links */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center md:text-left">
+          <nav className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center md:text-left" aria-label="Footer Navigation">
             <div className="space-y-4">
               <h3 className="text-white font-semibold text-lg">Main Pages</h3>
-              <ul className="space-y-2">
+              <ul className="space-y-2" role="list">
                 {mainLinks.map((link) => (
                   <li key={link.path}>
                     <Link 
                       to={link.path}
                       className="text-gray-400 hover:text-primary transition-colors"
+                      aria-label={`Navigate to ${link.name}`}
                     >
                       {link.name}
                     </Link>
@@ -75,12 +84,13 @@ const Footer = () => {
             
             <div className="space-y-4">
               <h3 className="text-white font-semibold text-lg">Resources</h3>
-              <ul className="space-y-2">
+              <ul className="space-y-2" role="list">
                 {resourceLinks.map((link) => (
                   <li key={link.path}>
                     <Link 
                       to={link.path}
                       className="text-gray-400 hover:text-primary transition-colors"
+                      aria-label={`Access ${link.name}`}
                     >
                       {link.name}
                     </Link>
@@ -91,12 +101,13 @@ const Footer = () => {
 
             <div className="space-y-4">
               <h3 className="text-white font-semibold text-lg">Support</h3>
-              <ul className="space-y-2">
+              <ul className="space-y-2" role="list">
                 {supportLinks.map((link) => (
                   <li key={link.path}>
                     <Link 
                       to={link.path}
                       className="text-gray-400 hover:text-primary transition-colors"
+                      aria-label={`Get ${link.name}`}
                     >
                       {link.name}
                     </Link>
@@ -108,7 +119,11 @@ const Footer = () => {
             <div className="space-y-4">
               <h3 className="text-white font-semibold text-lg">Connect</h3>
               {/* Social Links */}
-              <div className="flex flex-wrap justify-center md:justify-start gap-4">
+              <div 
+                className="flex flex-wrap justify-center md:justify-start gap-4"
+                role="list"
+                aria-label="Social Media Links"
+              >
                 {socialLinks.map((social, index) => (
                   <Button
                     key={index}
@@ -129,7 +144,7 @@ const Footer = () => {
                 ))}
               </div>
             </div>
-          </div>
+          </nav>
 
           {/* Bottom Section */}
           <div className="pt-8 border-t border-white/10">
@@ -137,7 +152,7 @@ const Footer = () => {
               <p className="text-gray-400 text-sm">
                 © {new Date().getFullYear()} IPTV Service. All rights reserved.
               </p>
-              <div className="flex items-center gap-6">
+              <nav className="flex items-center gap-6" aria-label="Legal">
                 <Link 
                   to="/terms" 
                   className="text-gray-400 hover:text-primary text-sm transition-colors"
@@ -150,7 +165,7 @@ const Footer = () => {
                 >
                   Privacy Policy
                 </Link>
-              </div>
+              </nav>
             </div>
           </div>
         </div>
