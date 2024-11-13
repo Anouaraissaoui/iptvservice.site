@@ -8,7 +8,7 @@ export interface SEOData {
   author?: string;
   publishedTime?: string;
   modifiedTime?: string;
-  type?: 'website' | 'article' | 'product' | 'video' | 'blog' | 'organization';
+  type?: 'website' | 'article' | 'product';
   structuredData?: string | Record<string, any>;
   alternates?: {
     [key: string]: string;
