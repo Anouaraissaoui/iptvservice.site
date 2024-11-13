@@ -9,13 +9,13 @@ const Stats = () => {
   ];
 
   return (
-    <div className="py-16 md:py-24 bg-navy-light relative overflow-hidden">
+    <div className="py-24 md:py-32 bg-navy-light relative overflow-hidden">
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px]" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px]" />
       
-      <div className="container mx-auto px-4 relative">
-        <div className="max-w-3xl mx-auto text-center mb-12 md:mb-20">
+      <div className="container max-w-[1200px] mx-auto px-6 relative">
+        <div className="max-w-2xl mx-auto text-center mb-16 md:mb-24">
           <span className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 md:px-6 py-2 backdrop-blur-xl text-sm mb-6">
             <span className="w-2 h-2 rounded-full bg-primary" />
             <span className="text-white">Why Choose Us?</span>
@@ -36,16 +36,15 @@ const Stats = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {stats.map((stat, index) => (
             <div 
               key={index} 
               className="relative group transform hover:scale-105 transition-all duration-500"
-              style={{ minHeight: '250px' }}
             >
               <div className="absolute inset-0 bg-primary/5 blur-xl rounded-3xl group-hover:bg-primary/10 transition-all duration-300" />
               
-              <div className="relative bg-navy-light/80 border border-white/10 rounded-2xl p-8 text-center hover:border-primary/50 transition-all duration-300 backdrop-blur-sm h-full">
+              <div className="relative bg-navy-light/80 border border-white/10 rounded-2xl p-10 text-center hover:border-primary/50 transition-all duration-300 backdrop-blur-sm h-full">
                 <div className="mb-4 inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
                   {stat.icon}
                 </div>
