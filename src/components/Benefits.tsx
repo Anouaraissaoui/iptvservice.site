@@ -1,4 +1,4 @@
-import { Shield, Zap, Globe2, DevicePhoneMobile } from "lucide-react";
+import { Shield, Zap, Globe2, Smartphone } from "lucide-react";
 
 const Benefits = () => {
   const benefits = [
@@ -18,7 +18,7 @@ const Benefits = () => {
       description: "Access 18,000+ international channels through our comprehensive IPTV subscription service."
     },
     {
-      icon: <DevicePhoneMobile className="w-12 h-12" />,
+      icon: <Smartphone className="w-12 h-12" />,
       title: "Multi-Device Support",
       description: "Use our IPTV service on any device with our flexible streaming solution and 24/7 customer support."
     }
