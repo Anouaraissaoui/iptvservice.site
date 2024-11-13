@@ -44,8 +44,8 @@ const Footer = () => {
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px] animate-pulse" aria-hidden="true" />
       <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px] animate-pulse" aria-hidden="true" />
       
-      <div className="container max-w-[1200px] mx-auto py-24 px-6 relative">
-        <div className="max-w-5xl mx-auto space-y-16">
+      <div className="container mx-auto py-20 relative">
+        <div className="max-w-6xl mx-auto space-y-12">
           {/* Brand Section */}
           <div className="space-y-8 text-center">
             <a 
