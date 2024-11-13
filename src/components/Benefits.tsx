@@ -7,24 +7,24 @@ const Benefits = () => {
 
   const benefits = [
     {
-      title: "Cost-Effective",
+      title: "Professional IPTV Service",
       description: (
         <>
-          More affordable than traditional cable or satellite TV packages. Learn more about{" "}
+          Experience premium quality IPTV service at competitive prices. Learn more about{" "}
           <a 
             href="https://en.wikipedia.org/wiki/Internet_Protocol_television" 
             target="_blank" 
             rel="dofollow"
             className="text-primary hover:text-primary/80 underline decoration-primary/30 transition-colors"
           >
-            IPTV streaming technology
+            professional IPTV services
           </a>
           .
         </>
       ),
       icon: <CreditCard className="w-5 h-5 sm:w-6 sm:h-6" />,
       link: "/pricing",
-      linkText: "View IPTV Subscription Plans"
+      linkText: "View IPTV Service Plans"
     },
     {
       title: "High-Quality Streaming",
