@@ -17,8 +17,8 @@ const resolve = (p: string) => path.resolve(__dirname, p);
 
 // Server configuration
 const configureServer = (app: express.Application) => {
-  // Configure Prerender.io
-  app.use(prerender.set('prerenderToken', process.env.PRERENDER_TOKEN));
+  // Configure Prerender.io with token
+  app.use(prerender.set('prerenderToken', 'SOxPU2XfQP1j4PQ5fYTF'));
   
   app.use(compression());
   
