@@ -24,6 +24,7 @@ const DEFAULT_META = {
 export const generateMetaInfo = (config: MetaConfig = {}) => {
   const meta = { ...DEFAULT_META, ...config };
   const baseUrl = 'https://www.iptvservice.site';
+  const canonicalUrl = meta.canonical?.startsWith('http') ? meta.canonical : `${baseUrl}${meta.canonical}`;
 
   return {
     title: meta.title,
@@ -34,7 +35,7 @@ export const generateMetaInfo = (config: MetaConfig = {}) => {
       { property: 'og:title', content: meta.title },
       { property: 'og:description', content: meta.description },
       { property: 'og:image', content: meta.ogImage },
-      { property: 'og:url', content: `${baseUrl}${meta.canonical}` },
+      { property: 'og:url', content: canonicalUrl },
       { property: 'og:type', content: meta.type },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: meta.title },
@@ -45,7 +46,7 @@ export const generateMetaInfo = (config: MetaConfig = {}) => {
       ...(meta.section ? [{ property: 'article:section', content: meta.section }] : [])
     ],
     link: [
-      { rel: 'canonical', href: `${baseUrl}${meta.canonical}` }
+      { rel: 'canonical', href: canonicalUrl }
     ]
   };
 };

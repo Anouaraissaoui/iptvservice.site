@@ -17,10 +17,13 @@ export const SEO = ({
   alternates,
   breadcrumbs,
 }: SEOData) => {
+  const baseUrl = "https://www.iptvservice.site";
+  const canonicalUrl = canonical.startsWith('http') ? canonical : `${baseUrl}${canonical}`;
+  
   const metaInfo = generateMetaInfo({
     title,
     description,
-    canonical,
+    canonical: canonicalUrl,
     ogImage,
     keywords,
     author,
@@ -32,7 +35,7 @@ export const SEO = ({
   const schema = structuredData || generateStructuredData({
     title,
     description,
-    canonical,
+    canonical: canonicalUrl,
     ogImage,
     type,
     publishedTime,
@@ -52,7 +55,7 @@ export const SEO = ({
       {noindex && <meta name="robots" content="noindex,follow" />}
       
       {alternates && Object.entries(alternates).map(([lang, url]) => (
-        <link key={lang} rel="alternate" href={`https://www.iptvservice.site${url}`} hrefLang={lang} />
+        <link key={lang} rel="alternate" href={`${baseUrl}${url}`} hrefLang={lang} />
       ))}
 
       <script type="application/ld+json">
