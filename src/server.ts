@@ -4,22 +4,16 @@ import { fileURLToPath } from 'url';
 import express from 'express';
 import compression from 'compression';
 import sirv from 'sirv';
-import prerender from 'prerender-node';
 import { QueryClient } from '@tanstack/react-query';
 import { render } from './entry-server';
 import { generateMetaTags, generatePreloadTags } from './utils/ssr';
-import { load } from 'cheerio';
-import { enrichMetadata } from './utils/seo-enricher';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const isProduction = process.env.NODE_ENV === 'production';
 const resolve = (p: string) => path.resolve(__dirname, p);
 
-// Server configuration
+// Separate server configuration for better organization
 const configureServer = (app: express.Application) => {
-  // Configure Prerender.io with token
-  app.use(prerender.set('prerenderToken', 'SOxPU2XfQP1j4PQ5fYTF'));
-  
   app.use(compression());
   
   if (isProduction) {
@@ -52,11 +46,10 @@ const configureDevServer = async (app: express.Application) => {
   return app;
 };
 
-// Handle rendering with optimized streaming and metadata enrichment
+// Handle rendering with optimized streaming
 const handleRender = async (req: express.Request, res: express.Response) => {
   try {
     const url = req.originalUrl;
-    const slug = url.split('/').pop();
     const template = fs.readFileSync(resolve('index.html'), 'utf-8');
     const queryClient = new QueryClient({
       defaultOptions: {
@@ -87,21 +80,18 @@ const handleRender = async (req: express.Request, res: express.Response) => {
       new Date().toISOString()
     );
 
-    let finalHtml = template
-      .replace('</head>', `${preloadTags}${metaTags}</head>`)
-      .replace(
-        '<div id="root"></div>',
-        `<div id="root">${appHtml}</div><script>window.__INITIAL_DATA__ = ${JSON.stringify(
-          queryClient.getQueryData([])
-        )}</script>`
-      );
-
-    // Enrich metadata based on route
-    finalHtml = await enrichMetadata(finalHtml, slug);
-
     const stream = new ReadableStream({
       start(controller) {
-        const chunks = finalHtml.split('\n');
+        const chunks = template
+          .replace('</head>', `${preloadTags}${metaTags}</head>`)
+          .replace(
+            '<div id="root"></div>',
+            `<div id="root">${appHtml}</div><script>window.__INITIAL_DATA__ = ${JSON.stringify(
+              queryClient.getQueryData([])
+            )}</script>`
+          )
+          .split('\n');
+
         chunks.forEach(chunk => {
           controller.enqueue(new TextEncoder().encode(chunk + '\n'));
         });
@@ -127,14 +117,6 @@ const handleRender = async (req: express.Request, res: express.Response) => {
 // Create and start server
 const createServer = async () => {
   const app = express();
-  
-  // Configure prerender for specific user agents
-  app.use(prerender.set('prerenderServiceUrl', process.env.PRERENDER_SERVICE_URL || 'https://service.prerender.io/'));
-  app.use(prerender.set('beforeRender', function(req, done) {
-    // Add any custom headers or modifications before rendering
-    done();
-  }));
-  
   await configureServer(app);
   app.use('*', handleRender);
   return app;
