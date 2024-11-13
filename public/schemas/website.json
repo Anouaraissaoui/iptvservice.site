@@ -2,8 +2,8 @@
   "@context": "https://schema.org",
   "@type": "WebSite",
   "url": "https://www.iptvservice.site/",
-  "name": "Buy IPTV Subscription | Best IPTV Service Provider",
-  "description": "Buy IPTV subscription with 18,000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support.",
+  "name": "Premium IPTV Service Provider | Best Streaming Experience",
+  "description": "Experience premium IPTV service with 18,000+ HD & 4K channels. Professional IPTV provider offering high-quality streaming, instant activation, and 24/7 technical support.",
   "potentialAction": {
     "@type": "SearchAction",
     "target": "https://www.iptvservice.site/search?q={search_term_string}",
@@ -16,27 +16,29 @@
   "inLanguage": "en-US",
   "copyrightYear": "2024",
   "keywords": [
-    "buy IPTV",
-    "IPTV service",
-    "best IPTV service",
-    "IPTV subscription",
-    "buy IPTV subscription",
     "premium IPTV service",
+    "professional IPTV provider",
+    "IPTV streaming service",
     "HD IPTV channels",
-    "4K IPTV streaming"
+    "4K IPTV streaming",
+    "best IPTV service",
+    "IPTV subscription plans",
+    "quality IPTV provider",
+    "streaming service provider",
+    "live TV streaming"
   ],
   "mainEntity": {
     "@type": "WebPage",
     "@id": "https://www.iptvservice.site/#webpage",
     "url": "https://www.iptvservice.site",
-    "name": "Buy Premium IPTV Subscription | Best IPTV Service 2025",
+    "name": "Premium IPTV Service Provider | Professional Streaming Solutions",
     "isPartOf": {
       "@id": "https://www.iptvservice.site/#website"
     },
     "about": {
-      "@type": "Product",
-      "name": "IPTV Subscription Service",
-      "description": "Premium IPTV streaming service with 18,000+ channels",
+      "@type": "Service",
+      "name": "Professional IPTV Streaming Service",
+      "description": "High-quality IPTV streaming service with 18,000+ channels",
       "category": "Streaming Services"
     }
   }

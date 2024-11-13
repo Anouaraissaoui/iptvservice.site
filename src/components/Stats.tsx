@@ -2,10 +2,10 @@ import { Users, Tv, Radio, Film } from "lucide-react";
 
 const Stats = () => {
   const stats = [
-    { number: "+50K", label: "Happy Customers", icon: <Users className="w-8 h-8" /> },
-    { number: "+40K", label: "Channels", icon: <Tv className="w-8 h-8" /> },
-    { number: "+1,500", label: "Sport Channels", icon: <Radio className="w-8 h-8" /> },
-    { number: "+50K", label: "VOD & Movies", icon: <Film className="w-8 h-8" /> }
+    { number: "+50K", label: "Premium IPTV Users", icon: <Users className="w-8 h-8" /> },
+    { number: "+40K", label: "HD & 4K Channels", icon: <Tv className="w-8 h-8" /> },
+    { number: "+1,500", label: "Live Sports Channels", icon: <Radio className="w-8 h-8" /> },
+    { number: "+50K", label: "VOD & Movies Library", icon: <Film className="w-8 h-8" /> }
   ];
 
   return (
@@ -18,13 +18,13 @@ const Stats = () => {
         <div className="max-w-3xl mx-auto text-center mb-12 md:mb-20">
           <span className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 md:px-6 py-2 backdrop-blur-xl text-sm mb-6">
             <span className="w-2 h-2 rounded-full bg-primary" />
-            <span className="text-white">Why Choose Us?</span>
+            <span className="text-white">Premium IPTV Service Features</span>
           </span>
           
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tight bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
-            Why Choose Us For Your{" "}
+            Why Choose Our{" "}
             <span className="text-primary relative inline-block">
-              IPTV Subscription
+              Premium IPTV Service
               <span className="absolute -bottom-2 left-0 right-0 h-1 bg-primary/30 blur-sm" />
             </span>
           </h2>
@@ -32,7 +32,7 @@ const Stats = () => {
           <div className="h-1 w-24 bg-gradient-to-r from-primary to-primary/50 mx-auto rounded-full mb-8" />
           
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Experience unmatched quality and reliability with our premium IPTV service, trusted by thousands worldwide.
+            Experience unmatched streaming quality with our professional IPTV service, trusted by thousands worldwide for HD & 4K content delivery.
           </p>
         </div>
         
