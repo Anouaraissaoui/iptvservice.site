@@ -6,12 +6,12 @@ const HeroTitle = memo(() => {
       className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight"
       itemProp="headline"
     >
-      Premium{" "}
+      Experience The Best{" "}
       <span className="text-primary relative inline-block">
-        IPTV Service
+        IPTV Service Provider
         <span className="absolute -bottom-2 left-0 right-0 h-1 bg-primary/30 blur-sm" />
       </span>{" "}
-      Provider
+      Today!
       <br />
       <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
         Trusted by 50,000+ Users
