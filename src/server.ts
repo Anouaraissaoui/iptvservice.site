@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import express from 'express';
 import compression from 'compression';
 import sirv from 'sirv';
+import prerender from 'prerender-node';
 import { QueryClient } from '@tanstack/react-query';
 import { render } from './entry-server';
 import { generateMetaTags, generatePreloadTags } from './utils/ssr';
@@ -14,8 +15,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const isProduction = process.env.NODE_ENV === 'production';
 const resolve = (p: string) => path.resolve(__dirname, p);
 
-// Separate server configuration for better organization
+// Server configuration
 const configureServer = (app: express.Application) => {
+  // Configure Prerender.io
+  app.use(prerender.set('prerenderToken', process.env.PRERENDER_TOKEN));
+  
   app.use(compression());
   
   if (isProduction) {
@@ -123,6 +127,14 @@ const handleRender = async (req: express.Request, res: express.Response) => {
 // Create and start server
 const createServer = async () => {
   const app = express();
+  
+  // Configure prerender for specific user agents
+  app.use(prerender.set('prerenderServiceUrl', process.env.PRERENDER_SERVICE_URL || 'https://service.prerender.io/'));
+  app.use(prerender.set('beforeRender', function(req, done) {
+    // Add any custom headers or modifications before rendering
+    done();
+  }));
+  
   await configureServer(app);
   app.use('*', handleRender);
   return app;
