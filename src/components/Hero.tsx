@@ -13,7 +13,7 @@ const Hero = memo(() => {
       itemScope
       itemType="https://schema.org/WPHeader"
     >
-      {/* Background Effects */}
+      {/* Enhanced Background Effects */}
       <div 
         className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px] animate-[grid_20s_linear_infinite]" 
         aria-hidden="true" 
@@ -51,7 +51,7 @@ const Hero = memo(() => {
               itemProp="url"
               aria-label="Learn about our new features"
             >
-              Experience the future of TV →
+              Experience Premium IPTV Streaming →
             </Link>
           </div>
           
@@ -62,15 +62,8 @@ const Hero = memo(() => {
             itemProp="description"
             role="doc-subtitle"
           >
-            Unleash unmatched entertainment with our leading IPTV subscription service. 
-            <Link 
-              to="/blog" 
-              className="text-primary hover:text-primary/90 transition-colors"
-              aria-label="Read our IPTV guide"
-            >
-              Learn more about IPTV 
-            </Link> 
-            from the best in the industry and enjoy a seamless, high-quality viewing experience.
+            Access 18,000+ HD & 4K channels with our premium IPTV service. 
+            Experience unmatched streaming quality and reliability.
           </h2>
           
           <HeroActions />
