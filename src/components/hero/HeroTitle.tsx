@@ -1,5 +1,3 @@
-import { memo } from "react";
-
 const HeroTitle = () => (
   <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight">
     <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">Experience The #1 </span>
@@ -11,6 +9,4 @@ const HeroTitle = () => (
   </h1>
 );
 
-HeroTitle.displayName = "HeroTitle";
-
-export default memo(HeroTitle);
+export default HeroTitle;
