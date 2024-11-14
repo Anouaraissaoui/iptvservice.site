@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { WhatsappIcon } from "lucide-react";
+import { MessageSquare } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -72,7 +72,7 @@ const FreeTrial = () => {
                       rel="noopener noreferrer"
                       className="flex items-center gap-2"
                     >
-                      <WhatsappIcon className="w-6 h-6" />
+                      <MessageSquare className="w-6 h-6" />
                       Contact Us on WhatsApp
                     </a>
                   </Button>
