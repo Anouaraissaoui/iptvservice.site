@@ -36,7 +36,7 @@ const UsaIptvGuide = () => {
 
   const providers = [
     {
-      name: "IFLEX IPTV",
+      name: "IPTV Service",
       channels: "28,000+",
       devices: "Android, iOS, Firestick, Smart TVs",
       features: "4K quality, VOD, Multi-device",
