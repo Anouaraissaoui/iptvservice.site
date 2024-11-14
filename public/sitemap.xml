@@ -7,7 +7,7 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-  <!-- Homepage -->
+  <!-- Core Pages -->
   <url>
     <loc>https://www.iptvservice.site/</loc>
     <lastmod>2024-02-26T12:00:00+00:00</lastmod>
@@ -20,7 +20,7 @@
     </image:image>
   </url>
 
-  <!-- Main Pages -->
+  <!-- Product Pages -->
   <url>
     <loc>https://www.iptvservice.site/pricing</loc>
     <lastmod>2024-02-26T12:00:00+00:00</lastmod>
@@ -33,6 +33,19 @@
     </image:image>
   </url>
 
+  <url>
+    <loc>https://www.iptvservice.site/free-trial</loc>
+    <lastmod>2024-02-26T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.iptvservice.site/images/IPTV-Service.webp</image:loc>
+      <image:title>Free IPTV Trial</image:title>
+      <image:caption>Get your free IPTV trial with instant activation</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Features & Information -->
   <url>
     <loc>https://www.iptvservice.site/features</loc>
     <lastmod>2024-02-26T12:00:00+00:00</lastmod>
@@ -55,7 +68,7 @@
 
   <!-- Blog Posts -->
   <url>
-    <loc>https://www.iptvservice.site/blog/usa-iptv-guide/</loc>
+    <loc>https://www.iptvservice.site/blog/usa-iptv-guide</loc>
     <lastmod>2024-02-26T12:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -69,7 +82,7 @@
     </news:news>
   </url>
 
-  <!-- Support Pages -->
+  <!-- Support & Contact -->
   <url>
     <loc>https://www.iptvservice.site/contact</loc>
     <lastmod>2024-02-26T12:00:00+00:00</lastmod>
@@ -87,5 +100,20 @@
       <image:title>IPTV Troubleshooting Guide</image:title>
       <image:caption>Comprehensive guide for resolving common IPTV streaming issues</image:caption>
     </image:image>
+  </url>
+
+  <!-- Language Alternates -->
+  <url>
+    <loc>https://www.iptvservice.site/es</loc>
+    <lastmod>2024-02-26T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.iptvservice.site/fr</loc>
+    <lastmod>2024-02-26T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>
