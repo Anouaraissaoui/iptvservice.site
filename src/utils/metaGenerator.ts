@@ -9,6 +9,8 @@ interface MetaConfig {
   modifiedTime?: string;
   author?: string;
   section?: string;
+  locale?: string;
+  imageAlt?: string;
 }
 
 const DEFAULT_META = {
@@ -18,7 +20,9 @@ const DEFAULT_META = {
   ogImage: 'https://www.iptvservice.site/Buy-IPTV.jpg',
   canonical: 'https://www.iptvservice.site',
   type: 'website' as const,
-  author: 'IPTV Service'
+  author: 'IPTV Service',
+  locale: 'en_US',
+  imageAlt: 'IPTV Service - Premium Streaming Solution'
 };
 
 export const generateMetaInfo = (config: MetaConfig = {}) => {
@@ -37,6 +41,8 @@ export const generateMetaInfo = (config: MetaConfig = {}) => {
       { property: 'og:image', content: meta.ogImage },
       { property: 'og:url', content: canonicalUrl },
       { property: 'og:type', content: meta.type },
+      { property: 'og:locale', content: meta.locale },
+      { property: 'og:image:alt', content: meta.imageAlt },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: meta.title },
       { name: 'twitter:description', content: meta.description },
