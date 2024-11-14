@@ -17,6 +17,7 @@ const FreeTrial = () => {
         canonical="/free-trial"
         type="website"
         ogImage="https://www.iptvservice.site/images/IPTV-Service.webp"
+        keywords="iptv free trial, iptv free trials, free iptv trial, free trial iptv, free iptv trials, premium IPTV service, HD channels, 4K streaming, IPTV subscription"
       />
       
       <main className="min-h-screen bg-navy">
