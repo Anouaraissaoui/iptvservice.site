@@ -15,12 +15,12 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import TroubleshootingGuide from "./pages/TroubleshootingGuide";
 import UsaIptvGuide from "./pages/blog/UsaIptvGuide";
+import InstallationGuide from "./pages/blog/InstallationGuide";
 import FreeTrial from "./pages/FreeTrial";
 import { getQueryClient } from "./utils/ssr";
 
 const queryClient = getQueryClient();
 
-// Console log for tracking Speed Insights initialization
 console.log('[Speed Insights] Initializing performance monitoring');
 
 const App = ({ dehydratedState }: { dehydratedState?: unknown }) => (
@@ -49,6 +49,7 @@ const App = ({ dehydratedState }: { dehydratedState?: unknown }) => (
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/usa-iptv-guide" element={<Navigate to="/blog/usa-iptv-guide/" replace />} />
                 <Route path="/blog/usa-iptv-guide/" element={<UsaIptvGuide />} />
+                <Route path="/blog/installation-guide" element={<InstallationGuide />} />
                 
                 {/* Catch-all for 404 */}
                 <Route path="*" element={<NotFound />} />
