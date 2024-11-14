@@ -15,53 +15,58 @@ const Index = () => {
   
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": `${baseUrl}/#webpage`,
-    "url": baseUrl,
-    "name": `Buy IPTV Subscription | Best IPTV Service Provider 2025`,
-    "description": "Buy IPTV subscription with 18000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support.",
-    "isPartOf": {
-      "@type": "WebSite",
-      "@id": `${baseUrl}/#website`,
-      "name": "IPTV Service",
-      "description": "Premium IPTV Streaming Service",
-      "publisher": {
-        "@type": "Organization",
-        "@id": `${baseUrl}/#organization`,
-        "name": "IPTV Service",
-        "logo": {
-          "@type": "ImageObject",
-          "url": `${baseUrl}/logo.svg`,
-          "width": "180",
-          "height": "60"
-        }
-      }
-    },
-    "primaryImageOfPage": {
-      "@type": "ImageObject",
-      "url": `${baseUrl}/images/IPTV-Service.webp`
-    },
-    "datePublished": "2024-01-01T08:00:00+00:00",
-    "dateModified": new Date().toISOString(),
-    "breadcrumb": {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "item": {
-            "@id": baseUrl,
-            "name": "Home"
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${baseUrl}/#webpage`,
+        "url": baseUrl,
+        "name": `Buy IPTV Subscription | Best IPTV Service Provider ${currentDate}`,
+        "description": "Buy IPTV subscription with 18000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support.",
+        "isPartOf": { "@id": `${baseUrl}/#website` },
+        "about": {
+          "@type": "Product",
+          "name": "IPTV Subscription Service",
+          "description": "Premium IPTV streaming service with 18,000+ channels",
+          "category": "Streaming Services",
+          "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "USD",
+            "lowPrice": "11",
+            "highPrice": "90",
+            "offerCount": "4"
           }
-        }
-      ]
-    }
+        },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": `${baseUrl}/images/IPTV-Service.webp`,
+          "width": "1200",
+          "height": "630"
+        },
+        "datePublished": "2024-01-01T08:00:00+00:00",
+        "dateModified": new Date().toISOString(),
+        "breadcrumb": { "@id": `${baseUrl}/#breadcrumb` }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}/#breadcrumb`,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": baseUrl,
+              "name": "Home"
+            }
+          }
+        ]
+      }
+    ]
   };
 
   return (
     <>
       <ServerSEO 
-        title={`Buy IPTV Subscription | Best IPTV Service Provider 2025`}
+        title={`Buy IPTV Subscription | Best IPTV Service Provider ${currentDate}`}
         description="Buy IPTV subscription with 18000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support."
         structuredData={structuredData}
         keywords="buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV buy, best buy IPTV, IPTV channels, HD IPTV, 4K IPTV, premium IPTV service, IPTV provider USA"
@@ -75,7 +80,7 @@ const Index = () => {
         }}
       />
       <SEO
-        title={`Buy IPTV Subscription | Best IPTV Service Provider 2025`}
+        title={`Buy IPTV Subscription | Best IPTV Service Provider ${currentDate}`}
         description="Buy IPTV subscription with 18000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support."
         structuredData={structuredData}
         type="website"
@@ -101,17 +106,27 @@ const Index = () => {
         itemType="https://schema.org/WebPage"
         role="main"
       >
-        <Navbar />
+        <header role="banner">
+          <Navbar />
+        </header>
         <Hero />
         <article 
           itemScope 
           itemType="https://schema.org/Article"
           role="article"
         >
-          <Stats />
-          <PricingCards />
-          <Benefits />
-          <FaqSection />
+          <section aria-label="Statistics" role="region">
+            <Stats />
+          </section>
+          <section aria-label="Pricing Plans" role="region">
+            <PricingCards />
+          </section>
+          <section aria-label="Service Benefits" role="region">
+            <Benefits />
+          </section>
+          <section aria-label="Frequently Asked Questions" role="region">
+            <FaqSection />
+          </section>
         </article>
         <Footer />
       </main>

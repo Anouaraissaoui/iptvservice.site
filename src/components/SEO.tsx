@@ -9,13 +9,17 @@ export const SEO = ({
   ogImage,
   noindex = false,
   keywords,
-  author,
+  author = "IPTV Service",
   publishedTime,
-  modifiedTime,
+  modifiedTime = new Date().toISOString(),
   type = "website",
   structuredData,
   alternates,
   breadcrumbs,
+  locale = "en_US",
+  imageAlt,
+  articleSection,
+  wordCount
 }: SEOData) => {
   const baseUrl = "https://www.iptvservice.site";
   const canonicalUrl = canonical.startsWith('http') ? canonical : `${baseUrl}${canonical}`;
@@ -29,7 +33,8 @@ export const SEO = ({
     author,
     publishedTime,
     modifiedTime,
-    type
+    type,
+    locale
   });
 
   const schema = structuredData || generateStructuredData({
@@ -39,25 +44,57 @@ export const SEO = ({
     ogImage,
     type,
     publishedTime,
-    modifiedTime
+    modifiedTime,
+    imageAlt,
+    articleSection,
+    wordCount
   });
 
   return (
     <Helmet prioritizeSeoTags={true}>
+      <html lang={locale.split('_')[0]} />
       <title>{metaInfo.title}</title>
-      {metaInfo.meta.map((tag, index) => (
-        <meta key={index} {...tag} />
-      ))}
-      {metaInfo.link.map((link, index) => (
-        <link key={index} {...link} />
+      
+      {/* Core Meta Tags */}
+      <meta name="description" content={description} />
+      <meta name="keywords" content={keywords} />
+      <meta name="author" content={author} />
+      
+      {/* Open Graph Tags */}
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:type" content={type} />
+      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:image" content={ogImage} />
+      <meta property="og:locale" content={locale} />
+      <meta property="og:site_name" content="IPTV Service" />
+      
+      {/* Twitter Card Tags */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={ogImage} />
+      
+      {/* Article Meta Tags */}
+      {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+      {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+      {articleSection && <meta property="article:section" content={articleSection} />}
+      
+      {/* Canonical & Alternate Links */}
+      <link rel="canonical" href={canonicalUrl} />
+      {alternates && Object.entries(alternates).map(([lang, url]) => (
+        <link 
+          key={lang} 
+          rel="alternate" 
+          href={url.startsWith('http') ? url : `${baseUrl}${url}`}
+          hrefLang={lang} 
+        />
       ))}
       
+      {/* No Index Directive */}
       {noindex && <meta name="robots" content="noindex,follow" />}
       
-      {alternates && Object.entries(alternates).map(([lang, url]) => (
-        <link key={lang} rel="alternate" href={`${baseUrl}${url}`} hrefLang={lang} />
-      ))}
-
+      {/* Schema.org Structured Data */}
       <script type="application/ld+json">
         {JSON.stringify(schema)}
       </script>

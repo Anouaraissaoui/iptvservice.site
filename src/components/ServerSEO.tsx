@@ -64,8 +64,8 @@ export const ServerSEO = ({
 
   return (
     <Helmet prioritizeSeoTags={true}>
-      <title>{title}</title>
       <html lang={locale.split('_')[0]} itemScope itemType="https://schema.org/WebPage" />
+      <title>{title}</title>
       
       {/* Resource Hints */}
       <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
@@ -105,22 +105,6 @@ export const ServerSEO = ({
           hrefLang={lang} 
         />
       ))}
-      
-      {/* Preload Critical Resources */}
-      <link 
-        rel="preload" 
-        href="/fonts/inter-var.woff2" 
-        as="font" 
-        type="font/woff2" 
-        crossOrigin="anonymous" 
-      />
-      <link 
-        rel="preload" 
-        href="/images/IPTV-Service.webp" 
-        as="image" 
-        type="image/webp" 
-        fetchPriority="high" 
-      />
       
       {/* Schema.org Structured Data */}
       <script type="application/ld+json">
