@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider, HydrationBoundary } from "@tanstack/r
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import type { BeforeSendEvent } from "@vercel/speed-insights/react";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Index from "./pages/Index";
 import Blog from "./pages/Blog";
@@ -22,14 +23,6 @@ const queryClient = getQueryClient();
 
 // Console logs for tracking Core Web Vitals
 console.log('[Speed Insights] Initializing Core Web Vitals monitoring');
-
-interface SpeedInsightMetric {
-  name: string;
-  value: number;
-  rating: string;
-  navigationType: string;
-  id: string;
-}
 
 // Helper function to format metric values
 const formatMetricValue = (value: number, metric: string) => {
@@ -97,29 +90,29 @@ const App = ({ dehydratedState }: { dehydratedState?: unknown }) => (
             <SpeedInsights 
               debug={process.env.NODE_ENV === 'development'}
               sampleRate={100}
-              beforeSend={(metric: SpeedInsightMetric) => {
-                const formattedValue = formatMetricValue(metric.value, metric.name);
-                const status = getMetricStatus(metric.value, metric.name);
+              beforeSend={(event: BeforeSendEvent) => {
+                const formattedValue = formatMetricValue(event.value, event.name);
+                const status = getMetricStatus(event.value, event.name);
                 
-                console.log(`[Speed Insights] Core Web Vital: ${metric.name}`);
+                console.log(`[Speed Insights] Core Web Vital: ${event.name}`);
                 console.log(`├─ Value: ${formattedValue}`);
                 console.log(`├─ Status: ${status}`);
-                console.log(`├─ Rating: ${metric.rating}`);
-                console.log(`├─ Navigation URL: ${metric.navigationType}`);
-                console.log(`└─ ID: ${metric.id}`);
+                console.log(`├─ Rating: ${event.rating}`);
+                console.log(`├─ Navigation URL: ${event.navigationType}`);
+                console.log(`└─ ID: ${event.id}`);
 
                 // Log to console in development only
                 if (process.env.NODE_ENV === 'development') {
                   console.table({
-                    metric: metric.name,
+                    metric: event.name,
                     value: formattedValue,
                     status,
-                    rating: metric.rating,
-                    navigation: metric.navigationType
+                    rating: event.rating,
+                    navigation: event.navigationType
                   });
                 }
 
-                return metric;
+                return event;
               }}
             />
           </TooltipProvider>
