@@ -23,6 +23,14 @@ const queryClient = getQueryClient();
 // Console logs for tracking Core Web Vitals
 console.log('[Speed Insights] Initializing Core Web Vitals monitoring');
 
+interface SpeedInsightMetric {
+  name: string;
+  value: number;
+  rating: string;
+  navigationType: string;
+  id: string;
+}
+
 // Helper function to format metric values
 const formatMetricValue = (value: number, metric: string) => {
   switch (metric) {
@@ -89,7 +97,7 @@ const App = ({ dehydratedState }: { dehydratedState?: unknown }) => (
             <SpeedInsights 
               debug={process.env.NODE_ENV === 'development'}
               sampleRate={100}
-              beforeSend={(metric) => {
+              beforeSend={(metric: SpeedInsightMetric) => {
                 const formattedValue = formatMetricValue(metric.value, metric.name);
                 const status = getMetricStatus(metric.value, metric.name);
                 
