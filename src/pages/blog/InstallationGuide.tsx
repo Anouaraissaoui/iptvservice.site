@@ -35,6 +35,7 @@ const InstallationGuide = () => {
         canonical="/blog/installation-guide"
         type="article"
         structuredData={structuredData}
+        keywords="IPTV installation, Firestick IPTV setup, Android IPTV guide, Apple TV IPTV, IPTV apps, IPTV configuration, streaming setup, IPTV Smarters, TiviMate, GSE Smart IPTV, M3U URL setup, Xtream codes"
       />
       
       <main className="min-h-screen bg-navy">
