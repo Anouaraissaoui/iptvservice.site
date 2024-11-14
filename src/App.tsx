@@ -20,6 +20,9 @@ import { getQueryClient } from "./utils/ssr";
 
 const queryClient = getQueryClient();
 
+// Console log for tracking Speed Insights initialization
+console.log('[Speed Insights] Initializing performance monitoring');
+
 const App = ({ dehydratedState }: { dehydratedState?: unknown }) => (
   <ErrorBoundary>
     <HelmetProvider>
@@ -52,7 +55,14 @@ const App = ({ dehydratedState }: { dehydratedState?: unknown }) => (
               </Routes>
             </BrowserRouter>
             <Analytics />
-            <SpeedInsights />
+            <SpeedInsights 
+              debug={process.env.NODE_ENV === 'development'}
+              sampleRate={100}
+              beforeSend={(metric) => {
+                console.log(`[Speed Insights] Metric collected:`, metric);
+                return metric;
+              }}
+            />
           </TooltipProvider>
         </HydrationBoundary>
       </QueryClientProvider>
