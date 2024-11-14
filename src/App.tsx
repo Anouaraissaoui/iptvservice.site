@@ -54,6 +54,14 @@ const getMetricStatus = (value: number, metric: string) => {
   }
 };
 
+interface SpeedInsightEvent {
+  name: string;
+  value: number;
+  rating: string;
+  navigationType: string;
+  id: string;
+}
+
 const App = ({ dehydratedState }: { dehydratedState?: unknown }) => (
   <ErrorBoundary>
     <HelmetProvider>
@@ -89,7 +97,7 @@ const App = ({ dehydratedState }: { dehydratedState?: unknown }) => (
             <SpeedInsights 
               debug={process.env.NODE_ENV === 'development'}
               sampleRate={100}
-              beforeSend={(data) => {
+              beforeSend={(data: SpeedInsightEvent) => {
                 const formattedValue = formatMetricValue(data.value, data.name);
                 const status = getMetricStatus(data.value, data.name);
                 
