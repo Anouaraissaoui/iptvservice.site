@@ -5,9 +5,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const FreeTrial = () => {
-  const whatsappNumber = "+1-234-567-8900"; // Replace with your actual WhatsApp number
+  const whatsappNumber = "https://wa.me/message/R5IYJF3GG635D1"; // Updated WhatsApp link
   const whatsappMessage = encodeURIComponent("Hi! I'm interested in getting a free IPTV trial.");
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+  const whatsappUrl = whatsappNumber; // Directly use the full URL
 
   return (
     <>
