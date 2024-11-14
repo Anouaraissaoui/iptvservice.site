@@ -12,6 +12,7 @@ interface MetaConfig {
   locale?: string;
   imageAlt?: string;
   articleSection?: string;
+  wordCount?: number;
 }
 
 const DEFAULT_META = {
@@ -24,7 +25,8 @@ const DEFAULT_META = {
   author: 'IPTV Service',
   locale: 'en_US',
   imageAlt: 'IPTV Service - Premium Streaming Solution',
-  articleSection: 'IPTV Services'
+  articleSection: 'IPTV Services',
+  wordCount: 0
 };
 
 export const generateMetaInfo = (config: MetaConfig = {}) => {
@@ -44,7 +46,7 @@ export const generateMetaInfo = (config: MetaConfig = {}) => {
       { property: 'og:url', content: canonicalUrl },
       { property: 'og:type', content: meta.type },
       { property: 'og:locale', content: meta.locale },
-      { property: 'og:image:alt', content: meta.imageAlt },
+      { property: 'og:site_name', content: 'IPTV Service' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: meta.title },
       { name: 'twitter:description', content: meta.description },
@@ -59,22 +61,32 @@ export const generateMetaInfo = (config: MetaConfig = {}) => {
   };
 };
 
-export const generateStructuredData = (config: MetaConfig = {}) => {
-  const meta = { ...DEFAULT_META, ...config };
+export const generateStructuredData = ({
+  title,
+  description,
+  canonical,
+  ogImage,
+  type,
+  publishedTime,
+  modifiedTime,
+  imageAlt,
+  articleSection,
+  wordCount
+}: MetaConfig) => {
   const baseUrl = 'https://www.iptvservice.site';
 
   return {
     '@context': 'https://schema.org',
-    '@type': meta.type === 'article' ? 'Article' : meta.type === 'product' ? 'Product' : 'WebPage',
-    headline: meta.title,
-    description: meta.description,
-    image: meta.ogImage,
-    url: `${baseUrl}${meta.canonical}`,
-    datePublished: meta.publishedTime || new Date().toISOString(),
-    dateModified: meta.modifiedTime || new Date().toISOString(),
+    '@type': type === 'article' ? 'Article' : type === 'product' ? 'Product' : 'WebPage',
+    headline: title,
+    description,
+    image: ogImage,
+    url: `${baseUrl}${canonical}`,
+    datePublished: publishedTime || new Date().toISOString(),
+    dateModified: modifiedTime || new Date().toISOString(),
     author: {
       '@type': 'Organization',
-      name: meta.author
+      name: 'IPTV Service'
     },
     publisher: {
       '@type': 'Organization',
@@ -83,6 +95,11 @@ export const generateStructuredData = (config: MetaConfig = {}) => {
         '@type': 'ImageObject',
         url: `${baseUrl}/logo.svg`
       }
-    }
+    },
+    ...(type === 'article' && {
+      articleSection,
+      wordCount,
+      articleBody: description
+    })
   };
 };
