@@ -30,15 +30,24 @@ const App = ({ dehydratedState }: { dehydratedState?: unknown }) => (
             <Sonner />
             <BrowserRouter>
               <Routes>
+                {/* Main Pages */}
                 <Route path="/" element={<Index />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/pricing" element={<Pricing />} />
+                
+                {/* Service Pages */}
                 <Route path="/features" element={<Features />} />
-                <Route path="/contact" element={<Contact />} />
+                <Route path="/pricing" element={<Pricing />} />
+                <Route path="/free-trial" element={<FreeTrial />} />
+                
+                {/* Support Pages */}
                 <Route path="/troubleshooting" element={<TroubleshootingGuide />} />
+                <Route path="/contact" element={<Contact />} />
+                
+                {/* Blog Section */}
+                <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/usa-iptv-guide" element={<Navigate to="/blog/usa-iptv-guide/" replace />} />
                 <Route path="/blog/usa-iptv-guide/" element={<UsaIptvGuide />} />
-                <Route path="/free-trial" element={<FreeTrial />} />
+                
+                {/* Catch-all for 404 */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </BrowserRouter>
