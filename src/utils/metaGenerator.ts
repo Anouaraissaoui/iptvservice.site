@@ -11,6 +11,7 @@ interface MetaConfig {
   section?: string;
   locale?: string;
   imageAlt?: string;
+  articleSection?: string;
 }
 
 const DEFAULT_META = {
@@ -22,7 +23,8 @@ const DEFAULT_META = {
   type: 'website' as const,
   author: 'IPTV Service',
   locale: 'en_US',
-  imageAlt: 'IPTV Service - Premium Streaming Solution'
+  imageAlt: 'IPTV Service - Premium Streaming Solution',
+  articleSection: 'IPTV Services'
 };
 
 export const generateMetaInfo = (config: MetaConfig = {}) => {
@@ -49,7 +51,7 @@ export const generateMetaInfo = (config: MetaConfig = {}) => {
       { name: 'twitter:image', content: meta.ogImage },
       ...(meta.publishedTime ? [{ property: 'article:published_time', content: meta.publishedTime }] : []),
       ...(meta.modifiedTime ? [{ property: 'article:modified_time', content: meta.modifiedTime }] : []),
-      ...(meta.section ? [{ property: 'article:section', content: meta.section }] : [])
+      ...(meta.articleSection ? [{ property: 'article:section', content: meta.articleSection }] : [])
     ],
     link: [
       { rel: 'canonical', href: canonicalUrl }
