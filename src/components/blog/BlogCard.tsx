@@ -58,6 +58,9 @@ export const BlogCard = ({ post }: BlogCardProps) => {
             <Link to="/pricing" className="text-primary hover:underline text-sm">
               Subscription Plans
             </Link>
+            <Link to="/blog/usa-iptv-guide" className="text-primary hover:underline text-sm">
+              USA IPTV Guide
+            </Link>
           </div>
         </div>
       </CardContent>
