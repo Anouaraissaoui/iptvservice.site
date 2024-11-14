@@ -20,8 +20,39 @@ import { getQueryClient } from "./utils/ssr";
 
 const queryClient = getQueryClient();
 
-// Console log for tracking Speed Insights initialization
-console.log('[Speed Insights] Initializing performance monitoring');
+// Console logs for tracking Core Web Vitals
+console.log('[Speed Insights] Initializing Core Web Vitals monitoring');
+
+// Helper function to format metric values
+const formatMetricValue = (value: number, metric: string) => {
+  switch (metric) {
+    case 'INP':
+    case 'FID':
+      return `${value}ms`;
+    case 'CLS':
+      return value.toFixed(3);
+    case 'LCP':
+      return `${(value / 1000).toFixed(2)}s`;
+    default:
+      return value;
+  }
+};
+
+// Helper function to evaluate metric status
+const getMetricStatus = (value: number, metric: string) => {
+  switch (metric) {
+    case 'INP':
+      return value <= 200 ? 'Good' : value <= 500 ? 'Needs Improvement' : 'Poor';
+    case 'FID':
+      return value <= 100 ? 'Good' : value <= 300 ? 'Needs Improvement' : 'Poor';
+    case 'CLS':
+      return value <= 0.1 ? 'Good' : value <= 0.25 ? 'Needs Improvement' : 'Poor';
+    case 'LCP':
+      return value <= 2500 ? 'Good' : value <= 4000 ? 'Needs Improvement' : 'Poor';
+    default:
+      return 'Unknown';
+  }
+};
 
 const App = ({ dehydratedState }: { dehydratedState?: unknown }) => (
   <ErrorBoundary>
@@ -59,7 +90,27 @@ const App = ({ dehydratedState }: { dehydratedState?: unknown }) => (
               debug={process.env.NODE_ENV === 'development'}
               sampleRate={100}
               beforeSend={(metric) => {
-                console.log(`[Speed Insights] Metric collected:`, metric);
+                const formattedValue = formatMetricValue(metric.value, metric.name);
+                const status = getMetricStatus(metric.value, metric.name);
+                
+                console.log(`[Speed Insights] Core Web Vital: ${metric.name}`);
+                console.log(`├─ Value: ${formattedValue}`);
+                console.log(`├─ Status: ${status}`);
+                console.log(`├─ Rating: ${metric.rating}`);
+                console.log(`├─ Navigation URL: ${metric.navigationType}`);
+                console.log(`└─ ID: ${metric.id}`);
+
+                // Log to console in development only
+                if (process.env.NODE_ENV === 'development') {
+                  console.table({
+                    metric: metric.name,
+                    value: formattedValue,
+                    status,
+                    rating: metric.rating,
+                    navigation: metric.navigationType
+                  });
+                }
+
                 return metric;
               }}
             />
