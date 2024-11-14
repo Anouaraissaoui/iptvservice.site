@@ -21,14 +21,6 @@ Allow: /pricing/
 Allow: /contact/
 Allow: /troubleshooting/
 
-# Language Specific Pages
-Allow: /es/
-Allow: /fr/
-Allow: /de/
-Allow: /*/pricing/
-Allow: /*/features/
-Allow: /*/contact/
-
 # Image Crawlers
 User-agent: Googlebot-Image
 Allow: /images/
@@ -49,8 +41,8 @@ Disallow: /api/
 Disallow: /checkout/
 Disallow: /account/
 Disallow: /private/
-Disallow: /search?q=
-Disallow: /*?*q=
+Disallow: /search
+Disallow: /*?*
 Disallow: /*&
 
 # Block AI/ML Crawlers
