@@ -18,9 +18,9 @@ export const getMetaTags = ({
   { name: "description", content: description },
   { name: "keywords", content: keywords || "buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV buy, best buy IPTV, IPTV channels, HD IPTV, 4K IPTV, premium IPTV service, IPTV provider USA" },
   { name: "author", content: author },
-  { name: "robots", content: "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1,noodp,noydir" },
-  { name: "googlebot", content: "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" },
-  { name: "bingbot", content: "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" },
+  { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1, noodp, noydir" },
+  { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
+  { name: "bingbot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
   { name: "revisit-after", content: "1 days" },
   { name: "rating", content: "general" },
   { property: "og:title", content: title },
@@ -47,7 +47,11 @@ export const getMetaTags = ({
   { rel: "canonical", href: canonical },
   { name: "format-detection", content: "telephone=no" },
   { httpEquiv: "x-ua-compatible", content: "IE=edge" },
-  { httpEquiv: "Content-Type", content: "text/html; charset=utf-8" }
+  { httpEquiv: "Content-Type", content: "text/html; charset=utf-8" },
+  { name: "theme-color", content: "#0F172A" },
+  { name: "mobile-web-app-capable", content: "yes" },
+  { name: "apple-mobile-web-app-capable", content: "yes" },
+  { name: "apple-mobile-web-app-status-bar-style", content: "default" }
 ];
 
 export const generateDynamicSchema = ({
@@ -106,6 +110,14 @@ export const generateDynamicSchema = ({
   "speakable": {
     "@type": "SpeakableSpecification",
     "cssSelector": ["article", "h1", ".description"]
+  },
+  "isAccessibleForFree": "False",
+  "potentialAction": {
+    "@type": "ReadAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": canonical
+    }
   }
 });
 

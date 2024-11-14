@@ -65,7 +65,7 @@ export const ServerSEO = ({
   return (
     <Helmet prioritizeSeoTags={true}>
       <title>{title}</title>
-      <html lang={locale.split('_')[0]} />
+      <html lang={locale.split('_')[0]} itemScope itemType="https://schema.org/WebPage" />
       
       {/* Resource Hints */}
       <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
@@ -97,6 +97,9 @@ export const ServerSEO = ({
             />
           );
         }
+        if (tag.rel === 'canonical') {
+          return <link key={index} rel="canonical" href={canonicalUrl} />;
+        }
         if (tag.rel) {
           return <link key={index} rel={tag.rel} href={tag.href} />;
         }
@@ -108,7 +111,7 @@ export const ServerSEO = ({
         <link 
           key={lang} 
           rel="alternate" 
-          href={url} 
+          href={url.startsWith('http') ? url : `${baseUrl}${url}`}
           hrefLang={lang} 
         />
       ))}
