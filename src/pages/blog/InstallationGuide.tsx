@@ -68,7 +68,7 @@ const InstallationGuide = () => {
                         <h3 className="text-xl font-semibold text-primary mb-2">Step 1: Enable Apps from Unknown Sources</h3>
                         <ul className="list-disc pl-6 text-gray-300 space-y-2">
                           <li>Go to the Firestick Home Screen</li>
-                          <li>Navigate to Settings > My Fire TV > Developer Options</li>
+                          <li>Navigate to Settings {'->'} My Fire TV {'->'} Developer Options</li>
                           <li>Enable Apps from Unknown Sources</li>
                         </ul>
                       </div>
@@ -101,7 +101,7 @@ const InstallationGuide = () => {
                       <div>
                         <h3 className="text-xl font-semibold text-primary mb-2">Step 1: Enable Unknown Sources</h3>
                         <ul className="list-disc pl-6 text-gray-300 space-y-2">
-                          <li>Go to Settings > Security</li>
+                          <li>Go to Settings {'->'} Security</li>
                           <li>Enable Unknown Sources option</li>
                         </ul>
                       </div>
