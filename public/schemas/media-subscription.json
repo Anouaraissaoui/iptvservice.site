@@ -1,0 +1,58 @@
+{
+  "@context": "https://schema.org",
+  "@type": "MediaSubscription",
+  "name": "IPTV Premium Subscription",
+  "description": "Access to 18,000+ live TV channels, sports events, movies, and shows in HD/4K quality",
+  "category": "Streaming Media Subscription",
+  "offers": {
+    "@type": "Offer",
+    "price": "11.00",
+    "priceCurrency": "USD",
+    "priceValidUntil": "2025-12-31",
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@type": "Organization",
+      "@id": "https://www.iptvservice.site/#organization"
+    }
+  },
+  "identifier": "premium-iptv-subscription",
+  "authenticator": "IPTV Service",
+  "broker": {
+    "@type": "Organization",
+    "@id": "https://www.iptvservice.site/#organization"
+  },
+  "hasBroadcastChannel": {
+    "@type": "BroadcastChannel",
+    "broadcastChannelId": "iptv-streaming",
+    "broadcastServiceTier": "Premium",
+    "inBroadcastLineup": "https://www.iptvservice.site/channels",
+    "providesBroadcastService": {
+      "@type": "BroadcastService",
+      "name": "IPTV Streaming Service",
+      "broadcastDisplayName": "IPTV Service",
+      "videoFormat": ["HD", "4K"]
+    }
+  },
+  "includedService": [
+    {
+      "@type": "Service",
+      "name": "Live TV Streaming",
+      "description": "Access to 18,000+ live TV channels"
+    },
+    {
+      "@type": "Service",
+      "name": "Video on Demand",
+      "description": "Access to movies and TV shows library"
+    },
+    {
+      "@type": "Service",
+      "name": "Multi-device Support",
+      "description": "Stream on multiple devices simultaneously"
+    },
+    {
+      "@type": "Service",
+      "name": "24/7 Support",
+      "description": "Round-the-clock customer support"
+    }
+  ]
+}

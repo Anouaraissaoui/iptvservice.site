@@ -1,0 +1,83 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Premium IPTV Streaming Service",
+  "serviceType": "Streaming Service",
+  "description": "Premium IPTV streaming service offering 18,000+ channels worldwide with HD/4K quality, VOD content, and live sports coverage.",
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://www.iptvservice.site/#organization"
+  },
+  "areaServed": "Worldwide",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "IPTV Channel Categories",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Live Sports Channels",
+          "description": "Live sports coverage from major leagues and tournaments worldwide"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Entertainment Channels",
+          "description": "Premium entertainment channels with movies, series, and shows"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "News Networks",
+          "description": "24/7 news coverage from international news networks"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Video on Demand",
+          "description": "Extensive library of on-demand movies and TV shows"
+        }
+      }
+    ]
+  },
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "USD",
+    "lowPrice": "11.00",
+    "highPrice": "90.00",
+    "offerCount": "4",
+    "availability": "https://schema.org/InStock"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "1250",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "potentialAction": {
+    "@type": "ViewAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://www.iptvservice.site/pricing",
+      "actionPlatform": [
+        "http://schema.org/DesktopWebPlatform",
+        "http://schema.org/IOSPlatform",
+        "http://schema.org/AndroidPlatform"
+      ]
+    }
+  },
+  "termsOfService": "https://www.iptvservice.site/terms",
+  "serviceOutput": {
+    "@type": "MediaObject",
+    "encodingFormat": ["HD", "4K"],
+    "contentUrl": "https://www.iptvservice.site"
+  }
+}
