@@ -32,7 +32,7 @@ const InstallationGuide = () => {
       <SEO
         title="How to Install IPTV on Firestick, Android, and Apple TV | Complete Guide 2024"
         description="Learn how to install IPTV on Firestick, Android devices, and Apple TV with our comprehensive guide. Step-by-step instructions for easy setup and configuration."
-        canonical="https://www.iptvservice.site/blog/installation-guide/"
+        canonical="/blog/installation-guide"
         type="article"
         structuredData={structuredData}
         keywords="IPTV installation, Firestick IPTV setup, Android IPTV guide, Apple TV IPTV, IPTV apps, IPTV configuration, streaming setup, IPTV Smarters, TiviMate, GSE Smart IPTV, M3U URL setup, Xtream codes"
