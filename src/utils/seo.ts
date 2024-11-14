@@ -15,14 +15,19 @@ export const getMetaTags = ({
   articleSection,
   wordCount
 }: SEOData): MetaTag[] => [
+  // Core Meta Tags
   { name: "description", content: description },
   { name: "keywords", content: keywords || "buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV buy, best buy IPTV, IPTV channels, HD IPTV, 4K IPTV, premium IPTV service, IPTV provider USA" },
   { name: "author", content: author },
+  
+  // Search Engine Directives
   { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1, noodp, noydir" },
   { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
   { name: "bingbot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
   { name: "revisit-after", content: "1 days" },
   { name: "rating", content: "general" },
+  
+  // Open Graph Tags
   { property: "og:title", content: title },
   { property: "og:description", content: description },
   { property: "og:type", content: type },
@@ -35,6 +40,8 @@ export const getMetaTags = ({
   { property: "article:publisher", content: "https://www.iptvservice.site" },
   { property: "article:section", content: articleSection },
   { property: "article:word_count", content: wordCount?.toString() },
+  
+  // Twitter Card Tags
   { name: "twitter:card", content: "summary_large_image" },
   { name: "twitter:title", content: title },
   { name: "twitter:description", content: description },
@@ -42,8 +49,12 @@ export const getMetaTags = ({
   { name: "twitter:image:alt", content: imageAlt || title },
   { name: "twitter:creator", content: "@iptvservice" },
   { name: "twitter:site", content: "@iptvservice" },
+  
+  // Article Metadata
   ...(publishedTime ? [{ property: "article:published_time", content: publishedTime }] : []),
   ...(modifiedTime ? [{ property: "article:modified_time", content: modifiedTime }] : []),
+  
+  // Technical & Mobile Meta Tags
   { rel: "canonical", href: canonical },
   { name: "format-detection", content: "telephone=no" },
   { httpEquiv: "x-ua-compatible", content: "IE=edge" },
@@ -51,7 +62,14 @@ export const getMetaTags = ({
   { name: "theme-color", content: "#0F172A" },
   { name: "mobile-web-app-capable", content: "yes" },
   { name: "apple-mobile-web-app-capable", content: "yes" },
-  { name: "apple-mobile-web-app-status-bar-style", content: "default" }
+  { name: "apple-mobile-web-app-status-bar-style", content: "default" },
+  
+  // Security Headers
+  { httpEquiv: "Content-Security-Policy", content: "default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;" },
+  { httpEquiv: "X-Content-Type-Options", content: "nosniff" },
+  { httpEquiv: "X-Frame-Options", content: "SAMEORIGIN" },
+  { httpEquiv: "Referrer-Policy", content: "strict-origin-when-cross-origin" },
+  { httpEquiv: "Permissions-Policy", content: "camera=(), microphone=(), geolocation=()" }
 ];
 
 export const generateDynamicSchema = ({

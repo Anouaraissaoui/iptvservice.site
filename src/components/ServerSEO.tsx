@@ -73,17 +73,7 @@ export const ServerSEO = ({
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
       <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
       
-      {/* Core Meta Tags */}
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-      <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="theme-color" content="#0F172A" />
-      <meta name="mobile-web-app-capable" content="yes" />
-      <meta name="apple-mobile-web-app-capable" content="yes" />
-      <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-      <meta name="format-detection" content="telephone=no" />
-      
-      {/* SEO Meta Tags */}
+      {/* Meta Tags */}
       {metaTags.map((tag, index) => {
         if (tag.rel === 'preload') {
           return (
@@ -136,16 +126,6 @@ export const ServerSEO = ({
       <script type="application/ld+json">
         {schemaString}
       </script>
-
-      {/* Security Headers */}
-      <meta 
-        httpEquiv="Content-Security-Policy" 
-        content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;" 
-      />
-      <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
-      <meta httpEquiv="X-Frame-Options" content="SAMEORIGIN" />
-      <meta httpEquiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
-      <meta httpEquiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
     </Helmet>
   );
 };
