@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider, HydrationBoundary } from "@tanstack/r
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
-import type { BeforeSendEvent } from "@vercel/speed-insights/react";
+import type { BeforeSendMiddleware } from "@vercel/speed-insights/react";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Index from "./pages/Index";
 import Blog from "./pages/Blog";
@@ -90,7 +90,7 @@ const App = ({ dehydratedState }: { dehydratedState?: unknown }) => (
             <SpeedInsights 
               debug={process.env.NODE_ENV === 'development'}
               sampleRate={100}
-              beforeSend={(data: BeforeSendEvent) => {
+              beforeSend={(data) => {
                 const formattedValue = formatMetricValue(data.value, data.name);
                 const status = getMetricStatus(data.value, data.name);
                 
