@@ -5,19 +5,42 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const FreeTrial = () => {
-  const whatsappNumber = "https://wa.me/message/R5IYJF3GG635D1"; // Updated WhatsApp link
+  const whatsappNumber = "https://wa.me/message/R5IYJF3GG635D1";
   const whatsappMessage = encodeURIComponent("Hi! I'm interested in getting a free IPTV trial.");
-  const whatsappUrl = whatsappNumber; // Directly use the full URL
+  const whatsappUrl = whatsappNumber;
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Free IPTV Trial - Premium Streaming Service",
+    "description": "Try our premium IPTV service free for 24 hours. Access 18,000+ channels in HD & 4K quality with instant activation through WhatsApp.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "priceValidUntil": new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0]
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "1250"
+    }
+  };
 
   return (
     <>
       <SEO
         title="Get Your Free IPTV Trial | Premium Streaming Service"
-        description="Try our premium IPTV service free for 24 hours. Access 18,000+ channels in HD & 4K quality. Contact us on WhatsApp for instant activation."
+        description="Try our premium IPTV service free for 24 hours. Access 18,000+ channels in HD & 4K quality. Contact us on WhatsApp for instant activation. Best IPTV free trial with no commitment required."
         canonical="/free-trial"
         type="website"
         ogImage="https://www.iptvservice.site/images/IPTV-Service.webp"
         keywords="iptv free trial, iptv free trials, free iptv trial, free trial iptv, free iptv trials, premium IPTV service, HD channels, 4K streaming, IPTV subscription"
+        structuredData={structuredData}
+        publishedTime="2024-02-26T12:00:00+00:00"
+        modifiedTime={new Date().toISOString()}
+        imageAlt="Free IPTV Trial Service Preview"
       />
       
       <main className="min-h-screen bg-navy">
