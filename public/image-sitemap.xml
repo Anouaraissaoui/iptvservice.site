@@ -3,6 +3,11 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.iptvservice.site/</loc>
+    <lastmod>2024-02-26T12:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    
+    <!-- Main Hero Image -->
     <image:image>
       <image:loc>https://www.iptvservice.site/images/IPTV-Service.webp</image:loc>
       <image:title>Premium IPTV Streaming Service</image:title>
@@ -10,6 +15,8 @@
       <image:geo_location>United States</image:geo_location>
       <image:license>https://www.iptvservice.site/license</image:license>
     </image:image>
+    
+    <!-- Pricing Page Images -->
     <image:image>
       <image:loc>https://www.iptvservice.site/images/Buy-IPTV.jpg</image:loc>
       <image:title>Buy IPTV Subscription</image:title>
@@ -17,6 +24,8 @@
       <image:geo_location>United States</image:geo_location>
       <image:license>https://www.iptvservice.site/license</image:license>
     </image:image>
+    
+    <!-- Features Page Images -->
     <image:image>
       <image:loc>https://www.iptvservice.site/images/IPTV-Subscription.webp</image:loc>
       <image:title>IPTV Subscription Plans</image:title>
@@ -24,6 +33,8 @@
       <image:geo_location>United States</image:geo_location>
       <image:license>https://www.iptvservice.site/license</image:license>
     </image:image>
+    
+    <!-- Support Page Images -->
     <image:image>
       <image:loc>https://www.iptvservice.site/images/IPTV-troubleshooting.webp</image:loc>
       <image:title>IPTV Troubleshooting Guide</image:title>
@@ -31,6 +42,8 @@
       <image:geo_location>United States</image:geo_location>
       <image:license>https://www.iptvservice.site/license</image:license>
     </image:image>
+    
+    <!-- Brand Assets -->
     <image:image>
       <image:loc>https://www.iptvservice.site/images/IPTV-Service-thumb.webp</image:loc>
       <image:title>IPTV Service Thumbnail</image:title>
@@ -38,6 +51,7 @@
       <image:geo_location>United States</image:geo_location>
       <image:license>https://www.iptvservice.site/license</image:license>
     </image:image>
+    
     <image:image>
       <image:loc>https://www.iptvservice.site/images/logo.png</image:loc>
       <image:title>IPTV Service Logo</image:title>
@@ -45,6 +59,8 @@
       <image:geo_location>United States</image:geo_location>
       <image:license>https://www.iptvservice.site/license</image:license>
     </image:image>
+    
+    <!-- Social Media Assets -->
     <image:image>
       <image:loc>https://www.iptvservice.site/images/og-image.jpg</image:loc>
       <image:title>IPTV Service Social Share Image</image:title>
@@ -52,6 +68,7 @@
       <image:geo_location>United States</image:geo_location>
       <image:license>https://www.iptvservice.site/license</image:license>
     </image:image>
+    
     <image:image>
       <image:loc>https://www.iptvservice.site/images/twitter-card.jpg</image:loc>
       <image:title>IPTV Service Twitter Card</image:title>
