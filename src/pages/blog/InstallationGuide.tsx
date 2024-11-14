@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Link } from "react-router-dom";
 
 const InstallationGuide = () => {
   const structuredData = {
@@ -32,7 +33,7 @@ const InstallationGuide = () => {
       <SEO
         title="How to Install IPTV on Firestick, Android, and Apple TV | Complete Guide 2024"
         description="Learn how to install IPTV on Firestick, Android devices, and Apple TV with our comprehensive guide. Step-by-step instructions for easy setup and configuration."
-        canonical="/blog/installation-guide"
+        canonical="https://www.iptvservice.site/blog/installation-guide/"
         type="article"
         structuredData={structuredData}
         keywords="IPTV installation, Firestick IPTV setup, Android IPTV guide, Apple TV IPTV, IPTV apps, IPTV configuration, streaming setup, IPTV Smarters, TiviMate, GSE Smart IPTV, M3U URL setup, Xtream codes"
@@ -48,11 +49,31 @@ const InstallationGuide = () => {
               <span className="text-primary">Different Devices</span>
             </h1>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Complete guide for setting up IPTV on Firestick, Android, and Apple TV
+              Complete guide for setting up IPTV on Firestick, Android, and Apple TV. Need help? Check our{" "}
+              <Link to="/troubleshooting" className="text-primary hover:underline">troubleshooting guide</Link> or{" "}
+              <Link to="/contact" className="text-primary hover:underline">contact our support team</Link>.
             </p>
           </header>
 
           <div className="max-w-4xl mx-auto">
+            <div className="bg-navy-light border border-white/10 rounded-lg p-6 mb-8">
+              <h2 className="text-xl font-semibold text-white mb-4">Quick Links</h2>
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <li>
+                  <Link to="/features" className="text-primary hover:underline">View Available Channels</Link>
+                </li>
+                <li>
+                  <Link to="/pricing" className="text-primary hover:underline">Compare Subscription Plans</Link>
+                </li>
+                <li>
+                  <Link to="/blog/usa-iptv-guide" className="text-primary hover:underline">USA IPTV Guide</Link>
+                </li>
+                <li>
+                  <Link to="/free-trial" className="text-primary hover:underline">Try Our Free Trial</Link>
+                </li>
+              </ul>
+            </div>
+
             <Tabs defaultValue="firestick" className="space-y-8">
               <TabsList className="grid w-full grid-cols-3">
                 <TabsTrigger value="firestick">Firestick</TabsTrigger>
@@ -150,6 +171,27 @@ const InstallationGuide = () => {
                   </CardContent>
                 </Card>
               </TabsContent>
+
+              <div className="mt-8 p-6 bg-navy-light border border-white/10 rounded-lg">
+                <h2 className="text-2xl font-bold text-white mb-4">Ready to Get Started?</h2>
+                <p className="text-gray-400 mb-4">
+                  Now that you know how to set up IPTV on your device, get access to our premium channels and content.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <Link 
+                    to="/pricing" 
+                    className="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition-colors"
+                  >
+                    View Plans
+                  </Link>
+                  <Link 
+                    to="/free-trial" 
+                    className="bg-white/10 text-white px-6 py-2 rounded-full hover:bg-white/20 transition-colors"
+                  >
+                    Start Free Trial
+                  </Link>
+                </div>
+              </div>
             </Tabs>
 
             <section className="mt-16 space-y-8">
