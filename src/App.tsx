@@ -15,6 +15,7 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import TroubleshootingGuide from "./pages/TroubleshootingGuide";
 import UsaIptvGuide from "./pages/blog/UsaIptvGuide";
+import FreeTrial from "./pages/FreeTrial";
 import { getQueryClient } from "./utils/ssr";
 
 const queryClient = getQueryClient();
@@ -37,6 +38,7 @@ const App = ({ dehydratedState }: { dehydratedState?: unknown }) => (
                 <Route path="/troubleshooting" element={<TroubleshootingGuide />} />
                 <Route path="/blog/usa-iptv-guide" element={<Navigate to="/blog/usa-iptv-guide/" replace />} />
                 <Route path="/blog/usa-iptv-guide/" element={<UsaIptvGuide />} />
+                <Route path="/free-trial" element={<FreeTrial />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </BrowserRouter>
