@@ -54,14 +54,6 @@ const getMetricStatus = (value: number, metric: string) => {
   }
 };
 
-interface SpeedInsightEvent {
-  name: string;
-  value: number;
-  rating: string;
-  navigationType: string;
-  id: string;
-}
-
 const App = ({ dehydratedState }: { dehydratedState?: unknown }) => (
   <ErrorBoundary>
     <HelmetProvider>
@@ -97,29 +89,29 @@ const App = ({ dehydratedState }: { dehydratedState?: unknown }) => (
             <SpeedInsights 
               debug={process.env.NODE_ENV === 'development'}
               sampleRate={100}
-              beforeSend={(event: SpeedInsightEvent) => {
-                const formattedValue = formatMetricValue(event.value, event.name);
-                const status = getMetricStatus(event.value, event.name);
+              beforeSend={(data) => {
+                const formattedValue = formatMetricValue(data.value, data.name);
+                const status = getMetricStatus(data.value, data.name);
                 
-                console.log(`[Speed Insights] Core Web Vital: ${event.name}`);
+                console.log(`[Speed Insights] Core Web Vital: ${data.name}`);
                 console.log(`├─ Value: ${formattedValue}`);
                 console.log(`├─ Status: ${status}`);
-                console.log(`├─ Rating: ${event.rating}`);
-                console.log(`├─ Navigation URL: ${event.navigationType}`);
-                console.log(`└─ ID: ${event.id}`);
+                console.log(`├─ Rating: ${data.rating}`);
+                console.log(`├─ Navigation URL: ${data.navigationType}`);
+                console.log(`└─ ID: ${data.id}`);
 
                 // Log to console in development only
                 if (process.env.NODE_ENV === 'development') {
                   console.table({
-                    metric: event.name,
+                    metric: data.name,
                     value: formattedValue,
                     status,
-                    rating: event.rating,
-                    navigation: event.navigationType
+                    rating: data.rating,
+                    navigation: data.navigationType
                   });
                 }
 
-                return event;
+                return data;
               }}
             />
           </TooltipProvider>
