@@ -50,16 +50,16 @@ export const BlogCard = ({ post }: BlogCardProps) => {
           <p className="text-sm text-gray-400">Related Content:</p>
           <div className="flex flex-wrap gap-2">
             <Link to="/features" className="text-primary hover:underline text-sm">
-              IPTV Features
+              Explore Premium IPTV Features & Channels
             </Link>
             <Link to="/troubleshooting" className="text-primary hover:underline text-sm">
-              Setup Guide
+              Complete IPTV Setup & Troubleshooting Guide
             </Link>
             <Link to="/pricing" className="text-primary hover:underline text-sm">
-              Subscription Plans
+              Compare IPTV Subscription Plans & Pricing
             </Link>
             <Link to="/blog/usa-iptv-guide" className="text-primary hover:underline text-sm">
-              USA IPTV Guide
+              Ultimate USA IPTV Streaming Guide 2025
             </Link>
           </div>
         </div>
@@ -74,7 +74,7 @@ export const BlogCard = ({ post }: BlogCardProps) => {
             to={post.link}
             className="flex items-center justify-center gap-2"
           >
-            Read More
+            Read Full IPTV Guide
             <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </Button>
