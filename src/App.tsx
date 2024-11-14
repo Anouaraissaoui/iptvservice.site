@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import ErrorBoundary from "./components/ErrorBoundary";
+import { Breadcrumbs } from "./components/Breadcrumbs";
 import Index from "./pages/Index";
 import Blog from "./pages/Blog";
 import Pricing from "./pages/Pricing";
@@ -29,6 +30,7 @@ const App = ({ dehydratedState }: { dehydratedState?: unknown }) => (
             <Toaster />
             <Sonner />
             <BrowserRouter>
+              <Breadcrumbs />
               <Routes>
                 {/* Main Pages */}
                 <Route path="/" element={<Index />} />
