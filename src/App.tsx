@@ -55,14 +55,7 @@ const App = ({ dehydratedState }: { dehydratedState?: unknown }) => (
               </Routes>
             </BrowserRouter>
             <Analytics />
-            <SpeedInsights 
-              debug={process.env.NODE_ENV === 'development'}
-              sampleRate={100}
-              beforeSend={(metric) => {
-                console.log(`[Speed Insights] Metric collected:`, metric);
-                return metric;
-              }}
-            />
+            <SpeedInsights debug={process.env.NODE_ENV === 'development'} />
           </TooltipProvider>
         </HydrationBoundary>
       </QueryClientProvider>
