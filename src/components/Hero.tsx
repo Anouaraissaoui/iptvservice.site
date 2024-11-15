@@ -14,22 +14,13 @@ const Hero = memo(() => {
       itemType="https://schema.org/WPHeader"
     >
       {/* Background Effects */}
-      <div 
-        className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px] animate-[grid_20s_linear_infinite]" 
-        aria-hidden="true" 
-      />
-      <div 
-        className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] animate-pulse" 
-        aria-hidden="true" 
-      />
-      <div 
-        className="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] animate-pulse" 
-        aria-hidden="true" 
-      />
+      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px] animate-[grid_20s_linear_infinite]" aria-hidden="true" />
+      <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] animate-pulse" aria-hidden="true" />
+      <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] animate-pulse" aria-hidden="true" />
       
       <div className="container max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative">
         <article 
-          className="space-y-6 md:space-y-8 text-center lg:text-left"
+          className="space-y-8 md:space-y-10 text-center lg:text-left"
           itemScope 
           itemType="https://schema.org/Article"
           role="article"
@@ -40,14 +31,14 @@ const Hero = memo(() => {
             role="complementary"
           >
             <span 
-              className="text-primary animate-pulse font-semibold" 
+              className="text-primary animate-pulse font-semibold text-base md:text-lg" 
               aria-label="New Feature Alert"
             >
               New
             </span>
             <Link 
               to="/features" 
-              className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent text-sm md:text-base hover:text-primary transition-colors"
+              className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent text-base md:text-lg hover:text-primary transition-colors font-medium"
               itemProp="url"
               aria-label="Learn about our new features"
             >
@@ -58,14 +49,14 @@ const Hero = memo(() => {
           <HeroTitle />
           
           <h2 
-            className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0"
+            className="text-gray-400 text-lg md:text-xl lg:text-2xl leading-relaxed max-w-2xl mx-auto lg:mx-0"
             itemProp="description"
             role="doc-subtitle"
           >
             Unleash unmatched entertainment with our leading IPTV subscription service. 
             <Link 
               to="/blog" 
-              className="text-primary hover:text-primary/90 transition-colors"
+              className="text-primary hover:text-primary/90 transition-colors font-semibold"
               aria-label="Read our IPTV guide"
             >
               Learn more about IPTV 

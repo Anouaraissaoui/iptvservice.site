@@ -51,7 +51,7 @@ const Benefits = () => {
 
   return (
     <section 
-      className="py-12 sm:py-16 md:py-24 bg-navy-light relative overflow-hidden"
+      className="py-16 sm:py-20 md:py-24 bg-navy-light relative overflow-hidden"
       aria-labelledby="benefits-heading"
       role="region"
     >
@@ -61,7 +61,7 @@ const Benefits = () => {
       <div className="absolute bottom-0 left-0 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-primary/5 rounded-full blur-[120px] animate-pulse" aria-hidden="true" />
       
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
           <figure className="relative group order-2 lg:order-1" role="img" aria-label="IPTV Service Features">
             <div className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full animate-pulse" aria-hidden="true" />
             <a 
@@ -102,11 +102,11 @@ const Benefits = () => {
             </a>
           </figure>
           
-          <div className="space-y-6 sm:space-y-8 md:space-y-10 order-1 lg:order-2">
-            <header className="space-y-4 text-center lg:text-left">
+          <div className="space-y-8 sm:space-y-10 md:space-y-12 order-1 lg:order-2">
+            <header className="space-y-6 text-center lg:text-left">
               <a 
                 href="/features" 
-                className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-3 sm:px-4 md:px-6 py-2 backdrop-blur-xl text-xs sm:text-sm hover:bg-white/10 transition-all duration-300"
+                className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 sm:px-6 md:px-8 py-2.5 backdrop-blur-xl text-sm sm:text-base hover:bg-white/10 transition-all duration-300 font-medium"
                 aria-label="Learn about our IPTV service benefits"
               >
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" aria-hidden="true" />
@@ -115,18 +115,18 @@ const Benefits = () => {
               
               <h2 
                 id="benefits-heading" 
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
               >
                 Premium{" "}
                 <span className="text-primary relative inline-block hover:text-primary/90 transition-colors">
                   IPTV Benefits
-                  <span className="absolute -bottom-2 left-0 right-0 h-1 bg-primary/30 blur-sm" aria-hidden="true" />
+                  <span className="absolute -bottom-2 left-0 right-0 h-1.5 bg-primary/30 blur-sm" aria-hidden="true" />
                 </span>
               </h2>
             </header>
             
             <ul 
-              className="space-y-4 md:space-y-6" 
+              className="space-y-5 md:space-y-7" 
               role="list" 
               aria-label="IPTV Service Benefits"
             >
@@ -134,21 +134,21 @@ const Benefits = () => {
                 <li key={index}>
                   <a 
                     href={benefit.link}
-                    className="block group bg-navy/50 border border-white/10 rounded-xl sm:rounded-2xl p-4 sm:p-6 hover:border-primary/50 transition-all duration-300 hover:bg-navy-light/50 hover:scale-[1.02] sm:hover:scale-105 backdrop-blur-sm"
+                    className="block group bg-navy/50 border border-white/10 rounded-xl sm:rounded-2xl p-5 sm:p-7 hover:border-primary/50 transition-all duration-300 hover:bg-navy-light/50 hover:scale-[1.02] sm:hover:scale-105 backdrop-blur-sm"
                     aria-label={benefit.linkText}
                   >
-                    <article className="flex items-start gap-3 sm:gap-4">
+                    <article className="flex items-start gap-4 sm:gap-5">
                       <div 
-                        className="p-2 sm:p-3 rounded-lg sm:rounded-xl bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors"
+                        className="p-3 sm:p-4 rounded-xl bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors"
                         aria-hidden="true"
                       >
                         {benefit.icon}
                       </div>
                       <div>
-                        <h3 className="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2 group-hover:text-primary transition-colors">
+                        <h3 className="text-xl sm:text-2xl font-semibold text-white mb-2 sm:mb-3 group-hover:text-primary transition-colors">
                           {benefit.title}
                         </h3>
-                        <p className="text-sm sm:text-base text-gray-400 group-hover:text-gray-300 transition-colors">
+                        <p className="text-base sm:text-lg text-gray-400 group-hover:text-gray-300 transition-colors">
                           {benefit.description}
                         </p>
                       </div>
