@@ -90,8 +90,13 @@ const handleRender = async (req: express.Request, res: express.Response) => {
     
     const etag = crypto.createHash('md5').update(appHtml).digest('hex');
     
+    const preloadResources = [
+      { href: '/fonts/inter-var.woff2', as: 'font', type: 'font/woff2', crossOrigin: true },
+      { href: '/images/IPTV-Service.webp', as: 'image', type: 'image/webp' }
+    ];
+
     const html = template
-      .replace('</head>', `${generatePreloadTags()}${generateMetaTags(url, helmet)}`)
+      .replace('</head>', `${generatePreloadTags(preloadResources)}${generateMetaTags(url, helmet.title || '', helmet.description || '', new Date().toISOString())}</head>`)
       .replace(
         '<div id="root"></div>',
         `<div id="root">${appHtml}</div><script>window.__INITIAL_DATA__ = ${JSON.stringify(
