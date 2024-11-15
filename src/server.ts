@@ -12,6 +12,14 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const isProduction = process.env.NODE_ENV === 'production';
 const resolve = (p: string) => path.resolve(__dirname, p);
 
+// Simple in-memory cache implementation
+const cache = new Map<string, { html: string; timestamp: number }>();
+const CACHE_TTL = 5 * 60 * 1000; // 5 minutes in milliseconds
+
+const isCacheValid = (timestamp: number) => {
+  return Date.now() - timestamp < CACHE_TTL;
+};
+
 const configureServer = (app: express.Application) => {
   app.use(compression());
   
@@ -47,6 +55,16 @@ const configureDevServer = async (app: express.Application) => {
 const handleRender = async (req: express.Request, res: express.Response) => {
   try {
     const url = req.originalUrl;
+    
+    // Check cache first
+    const cachedResponse = cache.get(url);
+    if (cachedResponse && isCacheValid(cachedResponse.timestamp)) {
+      res.setHeader('X-Cache', 'HIT');
+      res.setHeader('Content-Type', 'text/html');
+      res.send(cachedResponse.html);
+      return;
+    }
+    
     const template = fs.readFileSync(resolve('index.html'), 'utf-8');
     const queryClient = new QueryClient({
       defaultOptions: {
@@ -67,9 +85,6 @@ const handleRender = async (req: express.Request, res: express.Response) => {
     const { html: appHtml, helmetContext } = await render(url, queryClient);
     const { helmet } = helmetContext as any;
 
-    res.setHeader('Content-Type', 'text/html');
-    res.setHeader('Cache-Control', 'public, max-age=600, s-maxage=1200');
-
     const metaTags = generateMetaTags(
       `https://www.iptvservice.site${url}`,
       helmet.title.toString(),
@@ -77,34 +92,26 @@ const handleRender = async (req: express.Request, res: express.Response) => {
       new Date().toISOString()
     );
 
-    const stream = new ReadableStream({
-      start(controller) {
-        const chunks = template
-          .replace('</head>', `${preloadTags}${metaTags}</head>`)
-          .replace(
-            '<div id="root"></div>',
-            `<div id="root">${appHtml}</div><script>window.__INITIAL_DATA__ = ${JSON.stringify(
-              queryClient.getQueryData([])
-            )}</script>`
-          )
-          .split('\n');
+    const html = template
+      .replace('</head>', `${preloadTags}${metaTags}</head>`)
+      .replace(
+        '<div id="root"></div>',
+        `<div id="root">${appHtml}</div><script>window.__INITIAL_DATA__ = ${JSON.stringify(
+          queryClient.getQueryData([])
+        )}</script>`
+      );
 
-        chunks.forEach(chunk => {
-          controller.enqueue(new TextEncoder().encode(chunk + '\n'));
-        });
-        controller.close();
-      }
+    // Cache the response
+    cache.set(url, {
+      html,
+      timestamp: Date.now()
     });
 
-    const readable = new Response(stream).body;
-    readable?.pipeTo(new WritableStream({
-      write(chunk) {
-        res.write(chunk);
-      },
-      close() {
-        res.end();
-      }
-    }));
+    res.setHeader('X-Cache', 'MISS');
+    res.setHeader('Content-Type', 'text/html');
+    res.setHeader('Cache-Control', 'public, max-age=600, s-maxage=1200');
+    res.send(html);
+    
   } catch (e) {
     console.error(e);
     res.status(500).end((e as Error).stack);
