@@ -12,6 +12,8 @@ interface ImageProps extends Omit<React.ImgHTMLAttributes<HTMLImageElement>, 'lo
   onLoadingComplete?: () => void;
   blurDataURL?: string;
   placeholder?: "blur" | "empty";
+  fetchPriority?: "high" | "low" | "auto";
+  decoding?: "sync" | "async" | "auto";
 }
 
 export const Image = ({ 
@@ -43,14 +45,14 @@ export const Image = ({
     onLoadingComplete?.();
   };
 
-  const imageStyle = {
+  const imageStyle: React.CSSProperties = {
     ...style,
     ...(fill ? {
       position: 'absolute',
       height: '100%',
       width: '100%',
       inset: 0,
-      objectFit: 'cover',
+      objectFit: 'cover' as const,
     } : {}),
     ...(isLoading && placeholder === "blur" ? {
       filter: 'blur(20px)',
@@ -59,13 +61,13 @@ export const Image = ({
       backgroundRepeat: 'no-repeat',
       backgroundImage: `url(${blur})`,
     } : {})
-  } as const;
+  };
 
-  const wrapperStyle = fill ? {
+  const wrapperStyle: React.CSSProperties | undefined = fill ? {
     position: 'relative',
     width: '100%',
     height: '100%',
-  } as const : undefined;
+  } : undefined;
 
   const Wrapper = fill ? 'div' : 'span';
 
@@ -85,8 +87,6 @@ export const Image = ({
         className={`transition-all duration-300 ${
           isLoading ? "scale-110 blur-2xl" : "scale-100 blur-0"
         } ${className}`}
-        loading={priority ? "eager" : "lazy"}
-        decoding={priority ? "sync" : "async"}
         onLoad={handleLoad}
         onError={() => setError(true)}
         style={imageStyle}
