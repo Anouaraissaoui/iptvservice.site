@@ -48,10 +48,12 @@ export const prefetchData = async (queryClient: QueryClient): Promise<QueryClien
         const data = await response.json();
         return {
           data,
-          status: response.status,
-          etag: response.headers.get('ETag') || undefined
+          etag: response.headers.get('ETag') || undefined,
+          status: response.status
         };
-      }
+      },
+      staleTime: 1000 * 60 * 5, // 5 minutes
+      gcTime: 1000 * 60 * 30 // 30 minutes
     })
   ]);
 
