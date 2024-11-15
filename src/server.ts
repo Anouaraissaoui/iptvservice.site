@@ -5,7 +5,7 @@ import express from 'express';
 import compression from 'compression';
 import sirv from 'sirv';
 import { QueryClient } from '@tanstack/react-query';
-import { render } from './entry-server';
+import { render, preload } from './entry-server';
 import { generateMetaTags, generatePreloadTags } from './utils/ssr';
 import crypto from 'crypto';
 
@@ -20,6 +20,17 @@ const CACHE_TTL = 5 * 60 * 1000; // 5 minutes in milliseconds
 const isCacheValid = (timestamp: number) => {
   return Date.now() - timestamp < CACHE_TTL;
 };
+
+// Static routes that can be pre-rendered
+const STATIC_ROUTES = [
+  '/',
+  '/features',
+  '/pricing',
+  '/contact',
+  '/free-trial',
+  '/terms',
+  '/privacy'
+];
 
 const configureServer = (app: express.Application) => {
   app.use(compression());
@@ -57,6 +68,17 @@ const handleRender = async (req: express.Request, res: express.Response) => {
   try {
     const url = req.originalUrl;
     
+    // Check if this is a static route and we have pre-rendered content
+    if (isProduction && STATIC_ROUTES.includes(url)) {
+      const staticHtmlPath = path.join(__dirname, '../dist/static', `${url === '/' ? 'index' : url}.html`);
+      if (fs.existsSync(staticHtmlPath)) {
+        const html = fs.readFileSync(staticHtmlPath, 'utf-8');
+        res.setHeader('Content-Type', 'text/html');
+        res.setHeader('Cache-Control', 'public, max-age=600, s-maxage=1200');
+        return res.send(html);
+      }
+    }
+    
     // Check cache first with ETag support
     const cachedResponse = cache.get(url);
     if (cachedResponse && isCacheValid(cachedResponse.timestamp)) {
@@ -74,18 +96,9 @@ const handleRender = async (req: express.Request, res: express.Response) => {
     }
     
     const template = fs.readFileSync(resolve('index.html'), 'utf-8');
-    const queryClient = new QueryClient({
-      defaultOptions: {
-        queries: {
-          staleTime: 60 * 1000,
-          gcTime: 5 * 60 * 1000,
-          retry: 1,
-          refetchOnWindowFocus: false
-        }
-      }
-    });
+    const queryClient = await preload(url);
 
-    const { html: appHtml, helmetContext } = await render(url, queryClient);
+    const { html: appHtml, helmetContext } = render(url, queryClient);
     const { helmet } = helmetContext as any;
     
     const etag = crypto.createHash('md5').update(appHtml).digest('hex');
@@ -96,7 +109,7 @@ const handleRender = async (req: express.Request, res: express.Response) => {
     ];
 
     const html = template
-      .replace('</head>', `${generatePreloadTags(preloadResources)}${generateMetaTags(url, helmet.title || '', helmet.description || '', new Date().toISOString())}</head>`)
+      .replace('</head>', `${generatePreloadTags(preloadResources)}${generateMetaTags(url, helmet?.title?.toString() || '', helmet?.meta?.toString() || '', new Date().toISOString())}</head>`)
       .replace(
         '<div id="root"></div>',
         `<div id="root">${appHtml}</div><script>window.__INITIAL_DATA__ = ${JSON.stringify(
