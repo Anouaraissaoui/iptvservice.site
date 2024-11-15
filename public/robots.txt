@@ -31,9 +31,10 @@ Allow: /*.png$
 Allow: /*.webp$
 Allow: /*.svg$
 
-# Primary Sitemaps
-Sitemap: https://www.iptvservice.site/sitemap.xml
-Sitemap: https://www.iptvservice.site/image-sitemap.xml
+# Google Bot Specific Rules
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
 
 # Protected Areas & Dynamic URLs
 Disallow: /admin/
@@ -64,8 +65,9 @@ Disallow: /
 User-agent: Claude-Web
 Disallow: /
 
-# Rate Limiting
-Crawl-delay: 1
+# Primary Sitemaps
+Sitemap: https://www.iptvservice.site/sitemap.xml
+Sitemap: https://www.iptvservice.site/image-sitemap.xml
 
 # Host
 Host: https://www.iptvservice.site
