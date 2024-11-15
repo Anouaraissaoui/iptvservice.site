@@ -7,13 +7,14 @@ import sirv from 'sirv';
 import { QueryClient } from '@tanstack/react-query';
 import { render } from './entry-server';
 import { generateMetaTags, generatePreloadTags } from './utils/ssr';
+import crypto from 'crypto';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const isProduction = process.env.NODE_ENV === 'production';
 const resolve = (p: string) => path.resolve(__dirname, p);
 
 // Simple in-memory cache implementation
-const cache = new Map<string, { html: string; timestamp: number }>();
+const cache = new Map<string, { html: string; timestamp: number, etag: string }>();
 const CACHE_TTL = 5 * 60 * 1000; // 5 minutes in milliseconds
 
 const isCacheValid = (timestamp: number) => {
@@ -56,10 +57,17 @@ const handleRender = async (req: express.Request, res: express.Response) => {
   try {
     const url = req.originalUrl;
     
-    // Check cache first
+    // Check cache first with ETag support
     const cachedResponse = cache.get(url);
     if (cachedResponse && isCacheValid(cachedResponse.timestamp)) {
+      const clientETag = req.headers['if-none-match'];
+      if (clientETag === cachedResponse.etag) {
+        res.status(304).end();
+        return;
+      }
+      
       res.setHeader('X-Cache', 'HIT');
+      res.setHeader('ETag', cachedResponse.etag);
       res.setHeader('Content-Type', 'text/html');
       res.send(cachedResponse.html);
       return;
@@ -77,23 +85,13 @@ const handleRender = async (req: express.Request, res: express.Response) => {
       }
     });
 
-    const preloadTags = generatePreloadTags([
-      { href: '/fonts/inter-var.woff2', as: 'font', type: 'font/woff2', crossOrigin: true },
-      { href: '/images/IPTV-Service.webp', as: 'image', type: 'image/webp' }
-    ]);
-
     const { html: appHtml, helmetContext } = await render(url, queryClient);
     const { helmet } = helmetContext as any;
-
-    const metaTags = generateMetaTags(
-      `https://www.iptvservice.site${url}`,
-      helmet.title.toString(),
-      helmet.meta.toString(),
-      new Date().toISOString()
-    );
-
+    
+    const etag = crypto.createHash('md5').update(appHtml).digest('hex');
+    
     const html = template
-      .replace('</head>', `${preloadTags}${metaTags}</head>`)
+      .replace('</head>', `${generatePreloadTags()}${generateMetaTags(url, helmet)}`)
       .replace(
         '<div id="root"></div>',
         `<div id="root">${appHtml}</div><script>window.__INITIAL_DATA__ = ${JSON.stringify(
@@ -101,13 +99,15 @@ const handleRender = async (req: express.Request, res: express.Response) => {
         )}</script>`
       );
 
-    // Cache the response
+    // Cache the response with ETag
     cache.set(url, {
       html,
+      etag,
       timestamp: Date.now()
     });
 
     res.setHeader('X-Cache', 'MISS');
+    res.setHeader('ETag', etag);
     res.setHeader('Content-Type', 'text/html');
     res.setHeader('Cache-Control', 'public, max-age=600, s-maxage=1200');
     res.send(html);
