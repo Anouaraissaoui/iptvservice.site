@@ -1,9 +1,14 @@
 export const optimizeImages = (imageUrl: string, width: number = 1200): string => {
   if (!imageUrl) return '';
   
-  // Add WebP support with fallback
+  // Handle WebP conversion for supported formats
   if (imageUrl.match(/\.(jpg|jpeg|png)$/i)) {
-    return imageUrl.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+    const webpUrl = imageUrl.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+    
+    // Check if WebP version exists, otherwise return original
+    const img = new Image();
+    img.src = webpUrl;
+    return img.complete ? webpUrl : imageUrl;
   }
   
   return imageUrl;
@@ -48,5 +53,14 @@ export const preloadCriticalAssets = () => {
       link.setAttribute('crossorigin', 'anonymous');
     }
     document.head.appendChild(link);
+  });
+};
+
+export const lazyLoadImage = (imageSrc: string): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.src = imageSrc;
+    img.onload = () => resolve(imageSrc);
+    img.onerror = () => reject(new Error(`Failed to load image: ${imageSrc}`));
   });
 };
