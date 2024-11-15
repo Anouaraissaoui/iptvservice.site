@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { generateSrcSet, getSizes, getImageUrl, getBlurDataURL } from "@/utils/imageOptimization";
 
-interface ImageProps extends Omit<React.ImgHTMLAttributes<HTMLImageElement>, 'loading'> {
+interface ImageProps {
   alt: string;
   src: string;
   className?: string;
@@ -9,10 +9,12 @@ interface ImageProps extends Omit<React.ImgHTMLAttributes<HTMLImageElement>, 'lo
   quality?: number;
   sizes?: string;
   fill?: boolean;
+  style?: React.CSSProperties;
+  width?: number;
+  height?: number;
   onLoadingComplete?: () => void;
   blurDataURL?: string;
   placeholder?: "blur" | "empty";
-  fetchPriority?: "high" | "low" | "auto";
   decoding?: "sync" | "async" | "auto";
 }
 
@@ -28,6 +30,9 @@ export const Image = ({
   blurDataURL,
   placeholder = "empty",
   style,
+  width,
+  height,
+  decoding = "async",
   ...props 
 }: ImageProps) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -81,9 +86,12 @@ export const Image = ({
       )}
       <img
         alt={alt}
-        src={getImageUrl(src, undefined)}
-        srcSet={generateSrcSet(src)}
+        src={getImageUrl(src, quality)}
+        srcSet={generateSrcSet(src, quality)}
         sizes={getSizes(sizes)}
+        width={width}
+        height={height}
+        decoding={decoding}
         className={`transition-all duration-300 ${
           isLoading ? "scale-110 blur-2xl" : "scale-100 blur-0"
         } ${className}`}

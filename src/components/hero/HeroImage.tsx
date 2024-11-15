@@ -22,7 +22,6 @@ const HeroImage = ({ alt }: HeroImageProps) => {
           height={450}
           decoding="async"
           sizes="(max-width: 768px) 100vw, 800px"
-          srcSet={generateImageSrcSet(imageUrl)}
         />
         <figcaption className="absolute -bottom-4 md:-bottom-6 left-1/2 -translate-x-1/2 bg-navy-light/90 border border-white/10 rounded-2xl p-3 md:p-4 shadow-xl backdrop-blur-xl w-max">
           <div className="flex items-center gap-3 md:gap-4">
