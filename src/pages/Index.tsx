@@ -20,7 +20,7 @@ const Index = () => {
         "@type": "WebPage",
         "@id": `${baseUrl}/#webpage`,
         "url": baseUrl,
-        "name": `Buy IPTV Subscription | Best IPTV Service Provider ${currentDate}`,
+        "name": `Buy IPTV Subscription | Best IPTV Service Provider 2025`,
         "description": "Buy IPTV subscription with 18000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support.",
         "isPartOf": { "@id": `${baseUrl}/#website` },
         "about": {
@@ -52,7 +52,7 @@ const Index = () => {
   return (
     <>
       <ServerSEO 
-        title={`Buy IPTV Subscription | Best IPTV Service Provider ${currentDate}`}
+        title={`Buy IPTV Subscription | Best IPTV Service Provider 2025`}
         description="Buy IPTV subscription with 18000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support."
         structuredData={structuredData}
         keywords="buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV buy, best buy IPTV, IPTV channels, HD IPTV, 4K IPTV, premium IPTV service, IPTV provider USA"
