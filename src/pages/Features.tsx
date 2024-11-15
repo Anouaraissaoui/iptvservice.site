@@ -2,77 +2,84 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Benefits from "@/components/Benefits";
 import Footer from "@/components/Footer";
+import { Suspense, lazy } from "react";
+import { Loader2 } from "lucide-react";
+
+// Lazy load the Benefits component since it's below the fold
+const LazyBenefits = lazy(() => import("@/components/Benefits"));
 
 const Features = () => {
   const structuredData = {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebPage",
-        "@id": "https://www.iptvservice.site/features/#webpage",
-        "url": "https://www.iptvservice.site/features",
-        "name": "IPTV Features & Benefits | HD/4K Streaming with 18,000+ Channels",
-        "isPartOf": { "@id": "https://www.iptvservice.site/#website" },
-        "datePublished": "2024-01-01T08:00:00+00:00",
-        "dateModified": new Date().toISOString(),
-        "description": "Explore our premium IPTV features: 18,000+ channels worldwide, HD/4K streaming, catch-up TV, multi-device support, EPG guide, and extensive VOD library.",
-        "breadcrumb": { "@id": "https://www.iptvservice.site/features/#breadcrumb" }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://www.iptvservice.site/features/#breadcrumb",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@type": "WebPage",
-              "@id": "https://www.iptvservice.site",
-              "url": "https://www.iptvservice.site",
-              "name": "Home"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "@type": "WebPage",
-              "@id": "https://www.iptvservice.site/features",
-              "url": "https://www.iptvservice.site/features",
-              "name": "Features"
-            }
+    "@type": "WebPage",
+    "@id": "https://www.iptvservice.site/features/#webpage",
+    "url": "https://www.iptvservice.site/features",
+    "name": "Premium IPTV Features & Benefits | HD/4K Streaming with 18,000+ Channels",
+    "description": "Explore our premium IPTV features: 18,000+ live channels, HD/4K quality, VOD content, catch-up TV, EPG guide, and multi-device support. Experience the best in streaming technology.",
+    "isPartOf": { "@id": "https://www.iptvservice.site/#website" },
+    "datePublished": "2024-01-01T08:00:00+00:00",
+    "dateModified": new Date().toISOString(),
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "WebPage",
+            "@id": "https://www.iptvservice.site",
+            "url": "https://www.iptvservice.site",
+            "name": "Home"
           }
-        ]
-      }
-    ]
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "WebPage",
+            "@id": "https://www.iptvservice.site/features",
+            "url": "https://www.iptvservice.site/features",
+            "name": "Features"
+          }
+        }
+      ]
+    }
   };
 
   return (
     <>
       <Helmet>
-        <title>IPTV Features & Benefits | HD/4K Streaming with 18,000+ Channels</title>
-        <meta name="description" content="Explore our premium IPTV features: 18,000+ channels worldwide, HD/4K streaming, catch-up TV, multi-device support, EPG guide, and extensive VOD library." />
-        <meta name="keywords" content="IPTV features, IPTV benefits, streaming quality, VOD content, live TV channels, HD IPTV, 4K streaming, EPG guide" />
+        <title>Premium IPTV Features & Benefits | HD/4K Streaming with 18,000+ Channels</title>
+        <meta name="description" content="Explore our premium IPTV features: 18,000+ live channels, HD/4K quality, VOD content, catch-up TV, EPG guide, and multi-device support. Experience the best in streaming technology." />
+        <meta name="keywords" content="IPTV features, IPTV benefits, streaming quality, VOD content, live TV channels, HD IPTV, 4K streaming, EPG guide, catch-up TV, multi-device support" />
         <meta name="robots" content="index, follow, max-image-preview:large" />
         <link rel="canonical" href="https://www.iptvservice.site/features" />
         
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Premium IPTV Features & Benefits 2025" />
+        <meta property="og:title" content="Premium IPTV Features & Benefits 2024" />
         <meta property="og:description" content="Discover our advanced IPTV features: 18,000+ channels, HD/4K quality, catch-up TV, EPG, VOD library, and more!" />
         <meta property="og:url" content="https://www.iptvservice.site/features" />
-        <meta property="og:image" content="https://www.iptvservice.site/features-overview.jpg" />
+        <meta property="og:image" content="https://www.iptvservice.site/images/IPTV-Service.webp" />
         
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Premium IPTV Features & Benefits 2025" />
+        <meta name="twitter:title" content="Premium IPTV Features & Benefits 2024" />
         <meta name="twitter:description" content="Experience next-level streaming with our premium IPTV features. HD/4K quality, 18,000+ channels!" />
         
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>
+
+        {/* Preload critical assets */}
+        <link rel="preload" href="/images/IPTV-Service.webp" as="image" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       </Helmet>
+
       <main className="min-h-screen bg-navy">
         <Navbar />
-        <header className="pt-20 pb-12 text-center">
+        
+        {/* Hero Section with optimized animation */}
+        <header className="pt-20 pb-12 text-center animate-fade-in">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Premium IPTV{" "}
             <span className="text-primary relative inline-block">
@@ -80,11 +87,22 @@ const Features = () => {
               <span className="absolute -bottom-2 left-0 right-0 h-1 bg-primary/30 blur-sm" />
             </span>
           </h1>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-gray-400 max-w-2xl mx-auto px-4">
             Discover why our IPTV service stands out with premium features and unmatched benefits
           </p>
         </header>
-        <Benefits />
+
+        {/* Lazy load Benefits component with loading fallback */}
+        <Suspense 
+          fallback={
+            <div className="flex justify-center items-center min-h-[400px]">
+              <Loader2 className="h-8 w-8 animate-spin text-primary" />
+            </div>
+          }
+        >
+          <LazyBenefits />
+        </Suspense>
+
         <Footer />
       </main>
     </>
