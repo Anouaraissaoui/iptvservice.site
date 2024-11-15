@@ -51,7 +51,7 @@ const Benefits = () => {
 
   return (
     <section 
-      className="py-12 sm:py-16 md:py-24 bg-navy-light relative overflow-hidden"
+      className="py-16 sm:py-20 md:py-24 lg:py-32 bg-navy-light relative overflow-hidden"
       aria-labelledby="benefits-heading"
       role="region"
     >
@@ -60,8 +60,8 @@ const Benefits = () => {
       <div className="absolute top-0 right-0 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-primary/5 rounded-full blur-[120px] animate-pulse" aria-hidden="true" />
       <div className="absolute bottom-0 left-0 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-primary/5 rounded-full blur-[120px] animate-pulse" aria-hidden="true" />
       
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <figure className="relative group order-2 lg:order-1" role="img" aria-label="IPTV Service Features">
             <div className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full animate-pulse" aria-hidden="true" />
             <a 
@@ -102,7 +102,7 @@ const Benefits = () => {
             </a>
           </figure>
           
-          <div className="space-y-6 sm:space-y-8 md:space-y-10 order-1 lg:order-2">
+          <div className="flex flex-col gap-8 sm:gap-10 md:gap-12 order-1 lg:order-2">
             <header className="space-y-4 text-center lg:text-left">
               <a 
                 href="/features" 
@@ -126,7 +126,7 @@ const Benefits = () => {
             </header>
             
             <ul 
-              className="space-y-4 md:space-y-6" 
+              className="grid gap-4 md:gap-6" 
               role="list" 
               aria-label="IPTV Service Benefits"
             >
