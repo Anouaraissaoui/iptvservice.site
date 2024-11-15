@@ -1,17 +1,17 @@
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Card } from "@/components/ui/card";
 import { ProvidersTable } from "@/components/blog/usa-iptv-guide/ProvidersTable";
 import { FaqSection } from "@/components/blog/usa-iptv-guide/FaqSection";
+import { HeroSection } from "@/components/blog/usa-iptv-guide/HeroSection";
+import { WhatIsIptv } from "@/components/blog/usa-iptv-guide/WhatIsIptv";
 import { SEO } from "@/components/SEO";
 import { Image } from "@/components/ui/image";
 
 const UsaIptvGuide = () => {
   useEffect(() => {
-    // Preload critical images
-    const preloadImage = new Image();
-    preloadImage.src = "https://www.iptvservice.site/images/IPTV-Service.webp";
+    const img = new Image();
+    img.src = "https://www.iptvservice.site/images/IPTV-Service.webp";
   }, []);
 
   const structuredData = {
@@ -127,54 +127,8 @@ const UsaIptvGuide = () => {
           
           <div className="container mx-auto px-4 py-24 relative">
             <article className="prose prose-invert max-w-none">
-              <header className="text-center mb-16 space-y-4">
-                <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-6 py-2 backdrop-blur-xl text-sm">
-                  <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                  <span className="text-white">USA IPTV Guide 2025</span>
-                </div>
-                
-                <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-                  Best USA{" "}
-                  <span className="text-primary relative inline-block">
-                    IPTV Service
-                    <span className="absolute -bottom-2 left-0 right-0 h-1 bg-primary/30 blur-sm" />
-                  </span>{" "}
-                  Providers
-                </h1>
-
-                <div className="relative mx-auto max-w-2xl">
-                  <Image
-                    src="/images/IPTV-Service.webp"
-                    alt="USA IPTV Service Guide - Compare Top Providers"
-                    width={800}
-                    height={400}
-                    className="rounded-lg shadow-xl animate-fade-in"
-                    priority
-                  />
-                </div>
-                
-                <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-                  Comprehensive guide to the best IPTV service providers in the USA for 2025. 
-                  Compare features, pricing, and find the perfect streaming solution.
-                </p>
-              </header>
-
-              <section className="mb-16 animate-fade-in">
-                <Card className="bg-navy-light/50 border border-white/10 p-8 backdrop-blur-sm">
-                  <h2 className="text-2xl font-bold text-white mb-4">What is IPTV?</h2>
-                  <p className="text-gray-400">
-                    IPTV (Internet Protocol Television) delivers television content over the internet, 
-                    unlike traditional broadcast or cable TV services. Through IPTV, viewers can access:
-                  </p>
-                  <ul className="list-disc list-inside text-gray-400 mt-4 space-y-2">
-                    <li>Live TV channels from around the world</li>
-                    <li>On-demand movies and TV shows</li>
-                    <li>Time-shifted media and catch-up TV</li>
-                    <li>Interactive features and program guides</li>
-                  </ul>
-                </Card>
-              </section>
-
+              <HeroSection />
+              <WhatIsIptv />
               <section className="mb-16 animate-fade-in">
                 <h2 className="text-2xl font-bold text-white mb-6">Top IPTV Service Providers</h2>
                 <p className="text-gray-400 mb-6">
@@ -188,11 +142,7 @@ const UsaIptvGuide = () => {
                 </ul>
                 <ProvidersTable providers={providers} />
               </section>
-
-              <section className="mb-16 animate-fade-in">
-                <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
-                <FaqSection faqs={faqs} />
-              </section>
+              <FaqSection faqs={faqs} />
             </article>
           </div>
         </main>
