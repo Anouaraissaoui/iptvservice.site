@@ -6,12 +6,12 @@ import { FaqSection } from "@/components/blog/usa-iptv-guide/FaqSection";
 import { HeroSection } from "@/components/blog/usa-iptv-guide/HeroSection";
 import { WhatIsIptv } from "@/components/blog/usa-iptv-guide/WhatIsIptv";
 import { SEO } from "@/components/SEO";
-import { Image } from "@/components/ui/image";
 
 const UsaIptvGuide = () => {
   useEffect(() => {
-    const img = new Image();
-    img.src = "https://www.iptvservice.site/images/IPTV-Service.webp";
+    // Preload the hero image
+    const preloadImage = new Image();
+    preloadImage.src = "https://www.iptvservice.site/images/IPTV-Service.webp";
   }, []);
 
   const structuredData = {
