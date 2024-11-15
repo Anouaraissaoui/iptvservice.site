@@ -38,18 +38,24 @@ const App = ({ dehydratedState }: { dehydratedState?: unknown }) => (
                 
                 {/* Service Pages */}
                 <Route path="/features" element={<Features />} />
+                <Route path="/iptv-features" element={<Navigate to="/features" replace />} />
                 <Route path="/pricing" element={<Pricing />} />
+                <Route path="/iptv-pricing" element={<Navigate to="/pricing" replace />} />
                 <Route path="/free-trial" element={<FreeTrial />} />
+                <Route path="/iptv-free-trial" element={<Navigate to="/free-trial" replace />} />
                 
                 {/* Support Pages */}
                 <Route path="/troubleshooting" element={<TroubleshootingGuide />} />
+                <Route path="/iptv-troubleshooting" element={<Navigate to="/troubleshooting" replace />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/iptv-contact" element={<Navigate to="/contact" replace />} />
                 
                 {/* Blog Section */}
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/usa-iptv-guide" element={<Navigate to="/blog/usa-iptv-guide/" replace />} />
                 <Route path="/blog/usa-iptv-guide/" element={<UsaIptvGuide />} />
-                <Route path="/blog/installation-guide" element={<InstallationGuide />} />
+                <Route path="/blog/installation-guide" element={<Navigate to="/blog/iptv-installation-guide/" replace />} />
+                <Route path="/blog/iptv-installation-guide/" element={<InstallationGuide />} />
                 
                 {/* Catch-all for 404 */}
                 <Route path="*" element={<NotFound />} />
