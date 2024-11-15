@@ -12,7 +12,7 @@ interface BlogCardProps {
 
 export const BlogCard = ({ post }: BlogCardProps) => {
   return (
-    <Card className="bg-navy-light border-white/10 hover:border-primary/50 transition-all duration-300 group">
+    <Card className="bg-navy-light border-white/10 hover:border-primary/50 transition-all duration-300 group animate-fade-in">
       <CardHeader>
         {post._embedded?.["wp:featuredmedia"]?.[0]?.source_url && (
           <div className="relative h-48 overflow-hidden rounded-t-lg">
@@ -20,9 +20,9 @@ export const BlogCard = ({ post }: BlogCardProps) => {
               src={post._embedded["wp:featuredmedia"][0].source_url}
               alt={`IPTV streaming guide: ${post.title.rendered} - Latest updates and tips for premium IPTV service subscribers`}
               className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
-              loading="lazy"
               width={400}
               height={225}
+              priority={false}
             />
           </div>
         )}
