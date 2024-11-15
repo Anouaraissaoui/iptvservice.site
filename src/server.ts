@@ -7,14 +7,13 @@ import sirv from 'sirv';
 import { QueryClient } from '@tanstack/react-query';
 import { render } from './entry-server';
 import { generateMetaTags, generatePreloadTags } from './utils/ssr';
-import crypto from 'crypto';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const isProduction = process.env.NODE_ENV === 'production';
 const resolve = (p: string) => path.resolve(__dirname, p);
 
 // Simple in-memory cache implementation
-const cache = new Map<string, { html: string; timestamp: number, etag: string }>();
+const cache = new Map<string, { html: string; timestamp: number }>();
 const CACHE_TTL = 5 * 60 * 1000; // 5 minutes in milliseconds
 
 const isCacheValid = (timestamp: number) => {
@@ -32,11 +31,10 @@ const configureServer = (app: express.Application) => {
       brotli: true,
       dev: false
     }));
-  } else {
-    configureDevServer(app);
+    return app;
   }
   
-  return app;
+  return configureDevServer(app);
 };
 
 const configureDevServer = async (app: express.Application) => {
@@ -54,62 +52,17 @@ const configureDevServer = async (app: express.Application) => {
   return app;
 };
 
-const preRenderPages = async () => {
-  const routes = ['/', '/blog', '/features', '/pricing', '/contact', '/free-trial'];
-  const preRenderedPages = new Map<string, string>();
-
-  const template = fs.readFileSync(resolve('index.html'), 'utf-8');
-  const queryClient = new QueryClient({
-    defaultOptions: {
-      queries: {
-        staleTime: 60 * 1000,
-        gcTime: 5 * 60 * 1000,
-        retry: 1,
-        refetchOnWindowFocus: false
-      }
-    }
-  });
-
-  for (const route of routes) {
-    const { html: appHtml, helmetContext } = await render(route, queryClient);
-    const { helmet } = helmetContext as any;
-    
-    const preloadResources = [
-      { href: '/fonts/inter-var.woff2', as: 'font', type: 'font/woff2', crossOrigin: true },
-      { href: '/images/IPTV-Service.webp', as: 'image', type: 'image/webp' }
-    ];
-
-    const html = template
-      .replace('</head>', `${generatePreloadTags(preloadResources)}${generateMetaTags(route, helmet.title || '', helmet.description || '', new Date().toISOString())}</head>`)
-      .replace(
-        '<div id="root"></div>',
-        `<div id="root">${appHtml}</div><script>window.__INITIAL_DATA__ = ${JSON.stringify(
-          queryClient.getQueryData([])
-        )}</script>`
-      );
-
-    preRenderedPages.set(route, html);
-  }
-
-  return preRenderedPages;
-};
-
 const handleRender = async (req: express.Request, res: express.Response) => {
   try {
     const url = req.originalUrl;
     
-    // Check cache first with ETag support
+    // Check cache first
     const cachedResponse = cache.get(url);
     if (cachedResponse && isCacheValid(cachedResponse.timestamp)) {
-      const clientETag = req.headers['if-none-match'];
-      if (clientETag === cachedResponse.etag) {
-        return res.status(304).end();
-      }
-      
       res.setHeader('X-Cache', 'HIT');
-      res.setHeader('ETag', cachedResponse.etag);
       res.setHeader('Content-Type', 'text/html');
-      return res.send(cachedResponse.html);
+      res.send(cachedResponse.html);
+      return;
     }
     
     const template = fs.readFileSync(resolve('index.html'), 'utf-8');
@@ -124,18 +77,23 @@ const handleRender = async (req: express.Request, res: express.Response) => {
       }
     });
 
-    const { html: appHtml, helmetContext } = await render(url, queryClient);
-    const { helmet } = helmetContext as any;
-    
-    const etag = crypto.createHash('md5').update(appHtml).digest('hex');
-    
-    const preloadResources = [
+    const preloadTags = generatePreloadTags([
       { href: '/fonts/inter-var.woff2', as: 'font', type: 'font/woff2', crossOrigin: true },
       { href: '/images/IPTV-Service.webp', as: 'image', type: 'image/webp' }
-    ];
+    ]);
+
+    const { html: appHtml, helmetContext } = await render(url, queryClient);
+    const { helmet } = helmetContext as any;
+
+    const metaTags = generateMetaTags(
+      `https://www.iptvservice.site${url}`,
+      helmet.title.toString(),
+      helmet.meta.toString(),
+      new Date().toISOString()
+    );
 
     const html = template
-      .replace('</head>', `${generatePreloadTags(preloadResources)}${generateMetaTags(url, helmet.title || '', helmet.description || '', new Date().toISOString())}</head>`)
+      .replace('</head>', `${preloadTags}${metaTags}</head>`)
       .replace(
         '<div id="root"></div>',
         `<div id="root">${appHtml}</div><script>window.__INITIAL_DATA__ = ${JSON.stringify(
@@ -143,45 +101,27 @@ const handleRender = async (req: express.Request, res: express.Response) => {
         )}</script>`
       );
 
-    // Cache the response with ETag
+    // Cache the response
     cache.set(url, {
       html,
-      etag,
       timestamp: Date.now()
     });
 
     res.setHeader('X-Cache', 'MISS');
-    res.setHeader('ETag', etag);
     res.setHeader('Content-Type', 'text/html');
     res.setHeader('Cache-Control', 'public, max-age=600, s-maxage=1200');
-    return res.send(html);
+    res.send(html);
     
   } catch (e) {
     console.error(e);
-    return res.status(500).end((e as Error).stack);
+    res.status(500).end((e as Error).stack);
   }
 };
 
 const createServer = async () => {
   const app = express();
-  
-  // Pre-render pages in production
-  if (isProduction) {
-    const preRenderedPages = await preRenderPages();
-    app.use((req, res, next) => {
-      const html = preRenderedPages.get(req.originalUrl);
-      if (html) {
-        res.setHeader('X-Cache', 'PRE-RENDERED');
-        res.setHeader('Content-Type', 'text/html');
-        return res.send(html);
-      }
-      next();
-    });
-  }
-  
   await configureServer(app);
   app.use('*', handleRender);
-  
   return app;
 };
 

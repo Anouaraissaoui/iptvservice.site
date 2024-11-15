@@ -2,12 +2,11 @@ export interface ApiResponse<T> {
   data: T;
   status: number;
   message?: string;
-  etag?: string;
 }
 
 export interface QueryConfig {
   staleTime?: number;
-  gcTime?: number;
+  cacheTime?: number;
   retry?: boolean | number;
   refetchOnWindowFocus?: boolean;
   refetchOnMount?: boolean;
