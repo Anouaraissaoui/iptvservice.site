@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
+import { Hero } from "@/components/Hero";
 import Stats from "@/components/Stats";
 import PricingCards from "@/components/PricingCards";
 import Benefits from "@/components/Benefits";
