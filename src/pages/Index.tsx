@@ -79,7 +79,7 @@ const Index = () => {
         <article 
           itemScope 
           itemType="https://schema.org/Article"
-          className="h-full space-y-12 md:space-y-16"
+          className="h-full"
         >
           <section 
             aria-label="Hero Section" 
@@ -92,7 +92,7 @@ const Index = () => {
           <section 
             aria-label="Statistics" 
             role="region"
-            className="py-8 md:py-12"
+            className="py-16"
           >
             <Stats />
           </section>
@@ -100,7 +100,7 @@ const Index = () => {
           <section 
             aria-label="Pricing Plans" 
             role="region"
-            className="py-8 md:py-12"
+            className="py-16"
           >
             <PricingCards />
           </section>
@@ -108,7 +108,7 @@ const Index = () => {
           <section 
             aria-label="Service Benefits" 
             role="region"
-            className="py-8 md:py-12"
+            className="py-16"
           >
             <Benefits />
           </section>
@@ -116,7 +116,7 @@ const Index = () => {
           <section 
             aria-label="Frequently Asked Questions" 
             role="region"
-            className="py-8 md:py-12"
+            className="py-16"
           >
             <FaqSection />
           </section>
