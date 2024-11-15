@@ -18,13 +18,13 @@ export const HeroSection = () => {
       </h1>
 
       <div className="relative mx-auto max-w-2xl">
-        <Image
+        <img
           src="/images/IPTV-Service.webp"
           alt="USA IPTV Service Guide - Compare Top Providers"
+          className="rounded-lg shadow-xl animate-fade-in w-full"
+          loading="eager"
           width={800}
           height={400}
-          className="rounded-lg shadow-xl animate-fade-in"
-          priority
         />
       </div>
       
