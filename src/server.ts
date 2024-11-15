@@ -84,15 +84,13 @@ const handleRender = async (req: express.Request, res: express.Response) => {
     if (cachedResponse && isCacheValid(cachedResponse.timestamp)) {
       const clientETag = req.headers['if-none-match'];
       if (clientETag === cachedResponse.etag) {
-        res.status(304).end();
-        return;
+        return res.status(304).end();
       }
       
       res.setHeader('X-Cache', 'HIT');
       res.setHeader('ETag', cachedResponse.etag);
       res.setHeader('Content-Type', 'text/html');
-      res.send(cachedResponse.html);
-      return;
+      return res.send(cachedResponse.html);
     }
     
     const template = fs.readFileSync(resolve('index.html'), 'utf-8');
@@ -128,11 +126,11 @@ const handleRender = async (req: express.Request, res: express.Response) => {
     res.setHeader('ETag', etag);
     res.setHeader('Content-Type', 'text/html');
     res.setHeader('Cache-Control', 'public, max-age=600, s-maxage=1200');
-    res.send(html);
+    return res.send(html);
     
   } catch (e) {
     console.error(e);
-    res.status(500).end((e as Error).stack);
+    return res.status(500).end((e as Error).stack);
   }
 };
 
