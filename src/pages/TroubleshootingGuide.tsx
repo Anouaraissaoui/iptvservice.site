@@ -81,13 +81,14 @@ const TroubleshootingGuide = () => {
           </div>
 
           <div className="mb-16">
-            <Card className="bg-navy-light border-white/10 overflow-hidden">
+            <Card className="bg-navy-light/50 border border-white/10 overflow-hidden">
               <Image
-                src="https://www.iptvservice.site/images/IPTV-troubleshooting.webp"
+                src="/images/IPTV-troubleshooting.webp"
                 alt="Comprehensive IPTV troubleshooting guide showing technical setup solutions, connection optimization tips, and streaming quality improvements for better viewing experience"
                 className="w-full h-[400px] object-cover"
                 width={1200}
                 height={400}
+                priority
               />
               <CardContent className="p-8">
                 <p className="text-gray-300 mb-6">

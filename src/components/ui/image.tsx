@@ -81,7 +81,7 @@ export const Image = ({
       )}
       <img
         alt={alt}
-        src={getImageUrl(src, undefined)}
+        src={getImageUrl(src)}
         srcSet={generateSrcSet(src)}
         sizes={getSizes(sizes)}
         className={`transition-all duration-300 ${
@@ -90,6 +90,7 @@ export const Image = ({
         onLoad={handleLoad}
         onError={() => setError(true)}
         style={imageStyle}
+        {...(priority ? { fetchPriority: "high" } : {})}
         {...props}
       />
       {error && (
