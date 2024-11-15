@@ -29,13 +29,10 @@ const TroubleshootingContent = memo(() => (
     <div className="mb-16">
       <Card className="bg-navy-light/50 border border-white/10 overflow-hidden">
         <div className="relative w-full h-[300px] md:h-[400px]">
-          <Image
+          <img
             src="/images/IPTV-troubleshooting.webp"
             alt="Comprehensive IPTV troubleshooting guide showing technical setup solutions, connection optimization tips, and streaming quality improvements for better viewing experience"
             className="w-full h-full object-cover"
-            priority
-            sizes="(max-width: 768px) 100vw, 1200px"
-            fill
           />
         </div>
         <CardContent className="p-6 md:p-8">
