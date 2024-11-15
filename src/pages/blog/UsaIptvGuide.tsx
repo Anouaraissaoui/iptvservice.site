@@ -8,12 +8,6 @@ import { WhatIsIptv } from "@/components/blog/usa-iptv-guide/WhatIsIptv";
 import { SEO } from "@/components/SEO";
 
 const UsaIptvGuide = () => {
-  useEffect(() => {
-    // Preload the hero image
-    const preloadImage = new Image();
-    preloadImage.src = "https://www.iptvservice.site/images/IPTV-Service.webp";
-  }, []);
-
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
