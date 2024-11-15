@@ -12,7 +12,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const isProduction = process.env.NODE_ENV === 'production';
 const resolve = (p: string) => path.resolve(__dirname, p);
 
-// Separate server configuration for better organization
 const configureServer = (app: express.Application) => {
   app.use(compression());
   
@@ -30,7 +29,6 @@ const configureServer = (app: express.Application) => {
   return configureDevServer(app);
 };
 
-// Development server configuration
 const configureDevServer = async (app: express.Application) => {
   const vite = await import('vite');
   const viteDevMiddleware = (
@@ -46,7 +44,6 @@ const configureDevServer = async (app: express.Application) => {
   return app;
 };
 
-// Handle rendering with optimized streaming
 const handleRender = async (req: express.Request, res: express.Response) => {
   try {
     const url = req.originalUrl;
@@ -114,7 +111,6 @@ const handleRender = async (req: express.Request, res: express.Response) => {
   }
 };
 
-// Create and start server
 const createServer = async () => {
   const app = express();
   await configureServer(app);

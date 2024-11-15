@@ -8,7 +8,6 @@ import App from './App';
 export function render(url: string, queryClient: QueryClient) {
   const helmetContext = {};
   
-  // Use renderToString for initial fast page load
   const html = ReactDOMServer.renderToString(
     <React.StrictMode>
       <HelmetProvider context={helmetContext}>
@@ -24,11 +23,19 @@ export function render(url: string, queryClient: QueryClient) {
   return { html, helmetContext };
 }
 
-// Preload critical data
 export async function preload(url: string) {
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: 60 * 1000,
+        gcTime: 5 * 60 * 1000,
+        retry: 1,
+        refetchOnWindowFocus: false
+      }
+    }
+  });
   
-  // Add your data prefetching logic here
+  // Add data prefetching logic here based on route
   // Example:
   // if (url.startsWith('/blog')) {
   //   await queryClient.prefetchQuery(['posts'], fetchPosts);
