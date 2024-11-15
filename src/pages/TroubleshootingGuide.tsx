@@ -7,7 +7,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Link } from "react-router-dom";
 import { memo } from "react";
 
-// Memoize the TroubleshootingContent component for better performance
 const TroubleshootingContent = memo(() => (
   <div className="container mx-auto px-4 py-24">
     <div className="text-center mb-16">
@@ -29,15 +28,16 @@ const TroubleshootingContent = memo(() => (
 
     <div className="mb-16">
       <Card className="bg-navy-light/50 border border-white/10 overflow-hidden">
-        <Image
-          src="/images/IPTV-troubleshooting.webp"
-          alt="Comprehensive IPTV troubleshooting guide showing technical setup solutions, connection optimization tips, and streaming quality improvements for better viewing experience"
-          className="w-full h-[300px] md:h-[400px] object-cover"
-          width={1200}
-          height={400}
-          priority
-          sizes="(max-width: 768px) 100vw, 1200px"
-        />
+        <div className="relative w-full h-[300px] md:h-[400px]">
+          <Image
+            src="/images/IPTV-troubleshooting.webp"
+            alt="Comprehensive IPTV troubleshooting guide showing technical setup solutions, connection optimization tips, and streaming quality improvements for better viewing experience"
+            className="w-full h-full object-cover"
+            priority
+            sizes="(max-width: 768px) 100vw, 1200px"
+            fill
+          />
+        </div>
         <CardContent className="p-6 md:p-8">
           <p className="text-gray-300">
             Welcome to our comprehensive IPTV troubleshooting guide. Here you'll find solutions to common streaming issues and tips for optimizing your viewing experience. Check our{" "}
