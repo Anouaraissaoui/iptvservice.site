@@ -14,7 +14,6 @@ const Navbar = () => {
     { name: "Home", path: "/", ariaLabel: "IPTV Service Home" },
     { name: "Features", path: "/features", ariaLabel: "IPTV Features & Channels" },
     { name: "Pricing", path: "/pricing", ariaLabel: "IPTV Subscription Plans" },
-    { name: "Free Trial", path: "/free-trial", ariaLabel: "Get Your Free IPTV Trial" },
     { name: "Blog", path: "/blog", ariaLabel: "IPTV Guides & Updates" },
     { name: "Troubleshooting", path: "/troubleshooting", ariaLabel: "IPTV Setup & Support Guide" },
     { name: "Contact", path: "/contact", ariaLabel: "24/7 IPTV Support" }

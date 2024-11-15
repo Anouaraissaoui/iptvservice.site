@@ -15,7 +15,6 @@ const Footer = () => {
     { name: "Home", path: "/" },
     { name: "Features", path: "/features" },
     { name: "Pricing", path: "/pricing" },
-    { name: "Free Trial", path: "/free-trial" },
     { name: "Blog", path: "/blog" },
     { name: "Contact", path: "/contact" },
     { name: "Troubleshooting", path: "/troubleshooting" }
@@ -31,8 +30,7 @@ const Footer = () => {
   const supportLinks = [
     { name: "24/7 Support", path: "/contact" },
     { name: "Technical Help", path: "/troubleshooting" },
-    { name: "Subscription Help", path: "/pricing" },
-    { name: "Try Free", path: "/free-trial" }
+    { name: "Subscription Help", path: "/pricing" }
   ];
 
   return (
