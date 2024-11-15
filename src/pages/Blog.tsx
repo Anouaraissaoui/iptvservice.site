@@ -1,11 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import { dehydrate, QueryClient } from "@tanstack/react-query";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { BlogGrid } from "@/components/blog/BlogGrid";
 import { BlogHeader } from "@/components/blog/BlogHeader";
 import { SEO } from "@/components/SEO";
-import { prefetchData } from "@/utils/ssr";
 
 const Blog = () => {
   const { data: posts, isLoading } = useQuery({
@@ -24,8 +22,8 @@ const Blog = () => {
       }
       return response.json();
     },
-    staleTime: 1000 * 60 * 5, // 5 minutes
-    gcTime: 1000 * 60 * 30 // 30 minutes
+    staleTime: 1000 * 60 * 5,
+    gcTime: 1000 * 60 * 30
   });
 
   const structuredData = {
@@ -55,7 +53,7 @@ const Blog = () => {
   return (
     <>
       <SEO
-        title="IPTV Blog - Latest Streaming News & Updates 2025"
+        title="IPTV Blog - Latest Streaming News & Updates 2024"
         description="Stay informed with expert IPTV guides, streaming tips, industry news, and technical tutorials. Learn about new features, channel updates, and maximize your streaming experience."
         keywords="IPTV blog, streaming news, IPTV guides, streaming tips, IPTV tutorials, IPTV updates 2024, streaming guides"
         canonical="https://www.iptvservice.site/blog"
@@ -64,18 +62,31 @@ const Blog = () => {
         modifiedTime={new Date().toISOString()}
       />
 
-      <div className="min-h-screen bg-navy">
-        <Navbar />
-        <main>
-          <article className="container mx-auto px-4 py-24">
-            <BlogHeader />
-            <section>
-              <BlogGrid posts={posts} isLoading={isLoading} />
-            </section>
-          </article>
-        </main>
+      <main 
+        className="min-h-screen bg-navy"
+        itemScope 
+        itemType="https://schema.org/Blog"
+      >
+        <header role="banner">
+          <Navbar />
+        </header>
+        
+        <article 
+          className="container mx-auto px-4 py-24"
+          itemScope 
+          itemType="https://schema.org/BlogPosting"
+        >
+          <BlogHeader />
+          <section 
+            aria-label="Blog Posts"
+            role="region"
+          >
+            <BlogGrid posts={posts} isLoading={isLoading} />
+          </section>
+        </article>
+        
         <Footer />
-      </div>
+      </main>
     </>
   );
 };
