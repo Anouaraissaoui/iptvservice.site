@@ -31,7 +31,7 @@ const InstallationGuide = () => {
   return (
     <>
       <SEO
-        title="How to Install IPTV on Firestick, Android, and Apple TV | Complete Guide 2024"
+        title="How to Install IPTV on Firestick, Android, and Apple TV | Complete Guide 2025"
         description="Learn how to install IPTV on Firestick, Android devices, and Apple TV with our comprehensive guide. Step-by-step instructions for easy setup and configuration."
         canonical="https://www.iptvservice.site/blog/installation-guide/"
         type="article"
