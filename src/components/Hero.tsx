@@ -7,7 +7,7 @@ import HeroActions from "./hero/HeroActions";
 const Hero = memo(() => {
   return (
     <header 
-      className="relative min-h-[calc(100vh-4rem)] w-full pt-24 md:pt-32 pb-16 md:pb-20 bg-navy overflow-hidden"
+      className="relative min-h-[calc(100vh-4rem)] w-full pt-16 md:pt-24 pb-12 md:pb-16 bg-navy overflow-hidden"
       aria-labelledby="hero-heading"
       role="banner"
       itemScope
@@ -27,9 +27,9 @@ const Hero = memo(() => {
         aria-hidden="true" 
       />
       
-      <div className="container max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative">
+      <div className="container max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center relative">
         <article 
-          className="space-y-6 md:space-y-8 text-center lg:text-left"
+          className="space-y-4 md:space-y-6 text-center lg:text-left"
           itemScope 
           itemType="https://schema.org/Article"
           role="article"
