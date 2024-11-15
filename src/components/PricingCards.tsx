@@ -1,7 +1,29 @@
 import { Smartphone, Tv, HeadphonesIcon, MessageCircle } from "lucide-react";
 import PricingCard from "./pricing/PricingCard";
+import { useEffect, useRef } from "react";
 
 const PricingCards = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-in');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   const plans = [
     {
       duration: "1 Month",
@@ -50,7 +72,7 @@ const PricingCards = () => {
   ];
 
   return (
-    <div className="py-12 sm:py-16 md:py-24 bg-navy relative overflow-hidden">
+    <div className="py-12 sm:py-16 md:py-24 bg-navy relative overflow-hidden" ref={containerRef}>
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px] animate-grid" />
       <div className="absolute -top-40 -right-40 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-primary/20 rounded-full blur-[120px] animate-pulse" />
       <div className="absolute -bottom-40 -left-40 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-primary/10 rounded-full blur-[120px] animate-pulse" />

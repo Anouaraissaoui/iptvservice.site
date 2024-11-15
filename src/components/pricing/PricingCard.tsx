@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { PricingFeature } from "@/types/components";
+import { LazyLoadImage } from "@/components/ui/image";
 
 interface PricingCardProps {
   duration: string;
@@ -10,24 +11,35 @@ interface PricingCardProps {
 }
 
 const PricingCard = ({ duration, price, period, features }: PricingCardProps): JSX.Element => (
-  <div className="relative group transform hover:scale-105 transition-all duration-500">
+  <div 
+    className="relative group transform hover:scale-105 transition-all duration-500"
+    itemScope 
+    itemType="https://schema.org/Offer"
+  >
     <div className="absolute inset-0 bg-primary/5 blur-xl rounded-3xl group-hover:bg-primary/10 transition-all duration-300" />
     
     <div className="relative backdrop-blur-sm rounded-2xl p-8 border border-white/10 bg-navy-light/80 group-hover:border-primary/50 transition-all duration-300">
       <div className="text-center mb-8">
-        <h3 className="text-xl font-bold text-white mb-4">{duration}</h3>
+        <h3 className="text-xl font-bold text-white mb-4" itemProp="name">{duration}</h3>
         <div className="flex items-start justify-center gap-1">
           <span className="text-2xl text-primary">$</span>
-          <span className="text-5xl font-bold text-white group-hover:scale-110 transition-transform duration-300">
+          <span 
+            className="text-5xl font-bold text-white group-hover:scale-110 transition-transform duration-300"
+            itemProp="price"
+          >
             {price}
           </span>
         </div>
-        <span className="text-gray-400">{period}</span>
+        <meta itemProp="priceCurrency" content="USD" />
+        <span className="text-gray-400" itemProp="validFrom">{period}</span>
       </div>
 
-      <ul className="space-y-4 mb-8">
+      <ul className="space-y-4 mb-8" itemProp="description">
         {features.map((feature, index) => (
-          <li key={index} className="flex items-center gap-3 text-gray-300 group-hover:text-white transition-colors">
+          <li 
+            key={index} 
+            className="flex items-center gap-3 text-gray-300 group-hover:text-white transition-colors"
+          >
             <span className="p-1.5 rounded-full bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
               {feature.icon}
             </span>
@@ -40,6 +52,7 @@ const PricingCard = ({ duration, price, period, features }: PricingCardProps): J
         href="https://wa.me/message/R5IYJF3GG635D1" 
         target="_blank" 
         rel="noopener noreferrer"
+        itemProp="url"
       >
         <Button 
           className="w-full h-12 group-hover:scale-105 transition-all duration-300 bg-white/10 text-white hover:bg-white/20"
