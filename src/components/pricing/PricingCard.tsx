@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { PricingFeature } from "@/types/components";
-import { LazyLoadImage } from "@/components/ui/image";
 
 interface PricingCardProps {
   duration: string;
