@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import express from 'express';
+import express, { Request, Response } from 'express';
 import compression from 'compression';
 import sirv from 'sirv';
 import { QueryClient } from '@tanstack/react-query';
@@ -45,7 +45,7 @@ async function createServer() {
   }
 
   // Handle all routes
-  app.get('*', async (req, res) => {
+  app.get('*', async (req: Request, res: Response) => {
     try {
       const url = req.originalUrl;
       
