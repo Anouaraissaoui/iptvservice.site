@@ -51,6 +51,33 @@
     "bestRating": "5",
     "worstRating": "1"
   },
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "USD",
+    "lowPrice": "11.00",
+    "highPrice": "90.00",
+    "offerCount": "4",
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@type": "Organization",
+      "name": "IPTV Service"
+    }
+  },
+  "review": [{
+    "@type": "Review",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5",
+      "bestRating": "5"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "John Smith",
+      "jobTitle": "Tech Reviewer"
+    },
+    "datePublished": "2024-02-15",
+    "reviewBody": "Best IPTV service I've used. HD & 4K channels work perfectly with great support."
+  }],
   "knowsAbout": [
     "IPTV Streaming Technology",
     "Digital Television Systems",
