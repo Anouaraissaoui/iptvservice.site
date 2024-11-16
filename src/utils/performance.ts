@@ -1,21 +1,12 @@
-export const optimizeImages = (imageUrl: string, width: number = 1200): string => {
+export const optimizeImages = (imageUrl: string): string => {
   if (!imageUrl) return '';
-  
-  const quality = 75;
-  const encodedUrl = encodeURIComponent(imageUrl);
-  return `/_vercel/image?url=${encodedUrl}&w=${width}&q=${quality}`;
+  return imageUrl.startsWith('http') ? imageUrl : imageUrl.startsWith('/') ? imageUrl : `/${imageUrl}`;
 };
 
 export const generateImageSrcSet = (imageUrl: string): string => {
   const sizes = [320, 640, 768, 1024, 1280, 1536];
-  const quality = 75;
-  const encodedUrl = encodeURIComponent(imageUrl);
-  
   return sizes
-    .map(size => {
-      const optimizedUrl = `/_vercel/image?url=${encodedUrl}&w=${size}&q=${quality}`;
-      return `${optimizedUrl} ${size}w`;
-    })
+    .map(size => `${optimizeImages(imageUrl)} ${size}w`)
     .join(', ');
 };
 

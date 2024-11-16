@@ -12,15 +12,10 @@ export const Image = ({
   src = "", 
   className = "", 
   priority = false,
-  quality = 75,
-  width,
-  height,
   ...props 
 }: ImageProps) => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
-
-  const optimizedSrc = src ? `/_vercel/image?url=${encodeURIComponent(src)}&w=${width || 1200}&q=${quality}` : '';
 
   return (
     <div className="relative overflow-hidden">
@@ -32,7 +27,7 @@ export const Image = ({
       )}
       <img
         alt={alt}
-        src={optimizedSrc}
+        src={src}
         className={`transition-opacity duration-300 ${
           isLoading ? "opacity-0" : "opacity-100"
         } ${className}`}
@@ -43,8 +38,6 @@ export const Image = ({
           setError(true);
           setIsLoading(false);
         }}
-        width={width}
-        height={height}
         {...props}
       />
       {error && (

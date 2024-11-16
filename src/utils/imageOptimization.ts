@@ -6,13 +6,9 @@ export const getImageUrl = (src: string): string => {
 export const generateSrcSet = (src: string): string => {
   const widths = [320, 640, 768, 1024, 1280, 1536];
   const baseUrl = getImageUrl(src);
-  const quality = 75;
-
+  
   return widths
-    .map(width => {
-      const optimizedUrl = `/_vercel/image?url=${encodeURIComponent(baseUrl)}&w=${width}&q=${quality}`;
-      return `${optimizedUrl} ${width}w`;
-    })
+    .map(width => `${baseUrl} ${width}w`)
     .join(', ');
 };
 
