@@ -6,12 +6,12 @@ import { getMetaTags, generateDynamicSchema } from '@/utils/seo';
 export const ServerSEO = ({ 
   title, 
   description, 
-  canonical = "/",
+  canonical = "https://www.iptvservice.site/",
   ogImage = "https://www.iptvservice.site/Buy-IPTV.jpg",
   structuredData,
   lastModified = new Date().toISOString(),
   type = 'website',
-  keywords,
+  keywords = "buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV buy, best buy IPTV",
   author = "IPTV Service",
   alternates,
   publishedTime,
@@ -23,7 +23,7 @@ export const ServerSEO = ({
 }: SEOData) => {
   const [isServer, setIsServer] = useState(true);
   const baseUrl = "https://www.iptvservice.site";
-  const canonicalUrl = canonical.startsWith('http') ? canonical : `${baseUrl}${canonical.startsWith('/') ? canonical : `/${canonical}`}`;
+  const canonicalUrl = canonical.startsWith('http') ? canonical : `${baseUrl}${canonical.endsWith('/') ? canonical : `${canonical}/`}`;
 
   useEffect(() => {
     setIsServer(false);
@@ -67,12 +67,6 @@ export const ServerSEO = ({
       <html lang={locale.split('_')[0]} itemScope itemType="https://schema.org/WebPage" />
       <title>{title}</title>
       <link rel="canonical" href={canonicalUrl} />
-      
-      {/* Resource Hints */}
-      <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-      <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
       
       {/* Meta Tags */}
       {metaTags.map((tag, index) => {

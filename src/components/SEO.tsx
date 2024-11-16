@@ -5,10 +5,10 @@ import { generateMetaInfo, generateStructuredData } from "@/utils/metaGenerator"
 export const SEO = ({
   title,
   description,
-  canonical = "/",
-  ogImage,
+  canonical = "https://www.iptvservice.site/",
+  ogImage = "https://www.iptvservice.site/Buy-IPTV.jpg",
   noindex = false,
-  keywords,
+  keywords = "buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV buy, best buy IPTV",
   author = "IPTV Service",
   publishedTime,
   modifiedTime = new Date().toISOString(),
@@ -22,7 +22,7 @@ export const SEO = ({
   wordCount
 }: SEOData) => {
   const baseUrl = "https://www.iptvservice.site";
-  const canonicalUrl = canonical.startsWith('http') ? canonical : `${baseUrl}${canonical.startsWith('/') ? canonical : `/${canonical}`}`;
+  const canonicalUrl = canonical.startsWith('http') ? canonical : `${baseUrl}${canonical.endsWith('/') ? canonical : `${canonical}/`}`;
   
   const metaInfo = generateMetaInfo({
     title,
@@ -52,13 +52,13 @@ export const SEO = ({
 
   return (
     <Helmet prioritizeSeoTags={true}>
-      <html lang={locale.split('_')[0]} />
-      <title>{metaInfo.title}</title>
+      <html lang={locale.split('_')[0]} itemScope itemType="https://schema.org/WebPage" />
+      <title>{title}</title>
       <link rel="canonical" href={canonicalUrl} />
       
       {/* Core Meta Tags */}
       <meta name="description" content={description} />
-      <meta name="keywords" content={keywords || "buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV buy, best buy IPTV"} />
+      <meta name="keywords" content={keywords} />
       <meta name="author" content={author} />
       
       {/* Open Graph Tags */}
