@@ -2,6 +2,7 @@ import { Suspense, lazy } from "react";
 import { SEO } from "@/components/SEO";
 import Navbar from "@/components/Navbar";
 import { Skeleton } from "@/components/ui/skeleton";
+import { motion } from "framer-motion";
 
 // Lazy load components for better initial load performance
 const Benefits = lazy(() => import("@/components/Benefits"));
@@ -43,34 +44,54 @@ const Features = () => {
         modifiedTime={new Date().toISOString()}
       />
       
-      <main className="min-h-screen bg-navy">
+      <main className="min-h-screen bg-navy overflow-hidden">
         <Navbar />
         
-        <section className="pt-20 pb-12 text-center relative overflow-hidden">
+        <motion.section 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="pt-28 pb-16 text-center relative overflow-hidden"
+        >
           {/* Background Effects */}
           <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px] animate-[grid_20s_linear_infinite]" />
           <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] animate-pulse" />
           <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] animate-pulse" />
           
           <div className="container mx-auto px-4 relative">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Premium IPTV{" "}
-              <span className="text-primary relative inline-block">
-                Features & Benefits
-                <span className="absolute -bottom-2 left-0 right-0 h-1 bg-primary/30 blur-sm" />
-              </span>
-            </h1>
-            <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-              Discover why our IPTV service stands out with premium features and unmatched benefits
-            </p>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="max-w-4xl mx-auto"
+            >
+              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+                Premium IPTV{" "}
+                <span className="text-primary relative inline-block">
+                  Features & Benefits
+                  <span className="absolute -bottom-2 left-0 right-0 h-1 bg-primary/30 blur-sm" />
+                </span>
+              </h1>
+              <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
+                Discover why our IPTV service stands out with premium features and unmatched benefits. 
+                Experience entertainment like never before.
+              </p>
+            </motion.div>
           </div>
-        </section>
+        </motion.section>
 
         <Suspense fallback={
-          <div className="space-y-4 p-8">
-            <Skeleton className="h-12 w-full" />
-            <Skeleton className="h-32 w-full" />
-            <Skeleton className="h-32 w-full" />
+          <div className="container mx-auto px-4 space-y-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[...Array(6)].map((_, i) => (
+                <div key={i} className="p-6 rounded-xl bg-navy-light">
+                  <Skeleton className="h-12 w-12 rounded-lg mb-4" />
+                  <Skeleton className="h-6 w-3/4 mb-3" />
+                  <Skeleton className="h-4 w-full mb-2" />
+                  <Skeleton className="h-4 w-5/6" />
+                </div>
+              ))}
+            </div>
           </div>
         }>
           <Benefits />
