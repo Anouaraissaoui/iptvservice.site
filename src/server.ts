@@ -98,7 +98,7 @@ const createServer = async () => {
   await configureServer(app);
   
   // Mount the render handler as middleware
-  app.use('*', handleRender);
+  app.use('*', (req, res, next) => handleRender(req, res, next));
   
   return app;
 };
