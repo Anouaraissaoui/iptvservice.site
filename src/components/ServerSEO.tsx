@@ -6,7 +6,7 @@ import { getMetaTags, generateDynamicSchema } from '@/utils/seo';
 export const ServerSEO = ({ 
   title, 
   description, 
-  canonical = "https://www.iptvservice.site",
+  canonical = "/",
   ogImage = "https://www.iptvservice.site/Buy-IPTV.jpg",
   structuredData,
   lastModified = new Date().toISOString(),
@@ -23,7 +23,7 @@ export const ServerSEO = ({
 }: SEOData) => {
   const [isServer, setIsServer] = useState(true);
   const baseUrl = "https://www.iptvservice.site";
-  const canonicalUrl = canonical.startsWith('http') ? canonical : `${baseUrl}${canonical}`;
+  const canonicalUrl = canonical.startsWith('http') ? canonical : `${baseUrl}${canonical.startsWith('/') ? canonical : `/${canonical}`}`;
 
   useEffect(() => {
     setIsServer(false);
@@ -66,6 +66,7 @@ export const ServerSEO = ({
     <Helmet prioritizeSeoTags={true}>
       <html lang={locale.split('_')[0]} itemScope itemType="https://schema.org/WebPage" />
       <title>{title}</title>
+      <link rel="canonical" href={canonicalUrl} />
       
       {/* Resource Hints */}
       <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
@@ -86,12 +87,6 @@ export const ServerSEO = ({
               crossOrigin={tag.crossOrigin as 'anonymous' | 'use-credentials' | '' | undefined}
             />
           );
-        }
-        if (tag.rel === 'canonical') {
-          return <link key={index} rel="canonical" href={canonicalUrl} />;
-        }
-        if (tag.rel) {
-          return <link key={index} rel={tag.rel} href={tag.href} />;
         }
         return <meta key={index} {...tag} />;
       })}

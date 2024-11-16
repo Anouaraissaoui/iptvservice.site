@@ -22,7 +22,7 @@ export const SEO = ({
   wordCount
 }: SEOData) => {
   const baseUrl = "https://www.iptvservice.site";
-  const canonicalUrl = canonical.startsWith('http') ? canonical : `${baseUrl}${canonical}`;
+  const canonicalUrl = canonical.startsWith('http') ? canonical : `${baseUrl}${canonical.startsWith('/') ? canonical : `/${canonical}`}`;
   
   const metaInfo = generateMetaInfo({
     title,
