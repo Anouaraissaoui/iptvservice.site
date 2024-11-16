@@ -1,0 +1,36 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Review",
+  "itemReviewed": {
+    "@type": "Product",
+    "name": "Premium IPTV Subscription",
+    "description": "Best IPTV service provider with 18,000+ channels in HD/4K quality",
+    "brand": {
+      "@type": "Brand",
+      "name": "IPTV Service"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "11.00",
+      "highPrice": "90.00",
+      "offerCount": "4"
+    }
+  },
+  "reviewRating": {
+    "@type": "Rating",
+    "ratingValue": "4.8",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "John Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "IPTV Reviews"
+  },
+  "datePublished": "2024-03-20",
+  "reviewBody": "Best IPTV service I've used. The channel quality is excellent with HD and 4K options. Customer support is responsive and helpful. Highly recommended for anyone looking to buy IPTV subscription."
+}
