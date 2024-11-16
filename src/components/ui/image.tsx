@@ -1,61 +1,39 @@
-import { useState, useEffect } from "react";
-import { encode, decode } from "blurhash";
+import { useState } from "react";
 
 interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   alt: string;
+  src: string;
+  width?: number;
+  height?: number;
+  sizes?: string;
   className?: string;
   priority?: boolean;
-  blurhash?: string;
-  aspectRatio?: number;
 }
 
 export const Image = ({ 
   alt, 
-  src = "", 
+  src, 
+  width,
+  height,
+  sizes,
   className = "", 
   priority = false,
-  blurhash = "LKO2:N%2Tw=w]~RBVZRi};RPxuwH",
-  aspectRatio = 16/9,
   ...props 
 }: ImageProps) => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [blurDataUrl, setBlurDataUrl] = useState<string>("");
 
-  useEffect(() => {
-    // Generate placeholder canvas with blurhash
-    const canvas = document.createElement("canvas");
-    canvas.width = 32;
-    canvas.height = 32;
-    const ctx = canvas.getContext("2d");
-    
-    if (ctx) {
-      const pixels = decode(blurhash, 32, 32);
-      const imageData = ctx.createImageData(32, 32);
-      imageData.data.set(pixels);
-      ctx.putImageData(imageData, 0, 0);
-      setBlurDataUrl(canvas.toDataURL());
-    }
-  }, [blurhash]);
+  const optimizedSrc = width ? getOptimizedSrc(src, width) : src;
+  const srcSet = generateSrcSet(src);
+  const imageSizes = getSizes(sizes);
 
   return (
     <div 
       className="relative overflow-hidden" 
-      style={{ aspectRatio: aspectRatio }}
+      style={{ 
+        aspectRatio: width && height ? `${width}/${height}` : undefined 
+      }}
     >
-      {/* Blur placeholder */}
-      {isLoading && blurDataUrl && (
-        <div 
-          className="absolute inset-0 bg-cover bg-center animate-pulse"
-          style={{ 
-            backgroundImage: `url(${blurDataUrl})`,
-            filter: "blur(20px)",
-            transform: "scale(1.2)"
-          }}
-          aria-hidden="true"
-        />
-      )}
-
       {/* Loading skeleton */}
       {isLoading && (
         <div 
@@ -67,9 +45,13 @@ export const Image = ({
       {/* Main image */}
       <img
         alt={alt}
-        src={src}
-        className={`transition-all duration-500 ${
-          isLoading ? "scale-110 blur-2xl" : "scale-100 blur-0"
+        src={optimizedSrc}
+        srcSet={srcSet}
+        sizes={imageSizes}
+        width={width}
+        height={height}
+        className={`transition-opacity duration-300 ${
+          isLoading ? "opacity-0" : "opacity-100"
         } ${className}`}
         loading={priority ? "eager" : "lazy"}
         decoding={priority ? "sync" : "async"}
@@ -83,7 +65,7 @@ export const Image = ({
 
       {/* Error state */}
       {error && (
-        <div className="absolute inset-0 flex items-center justify-center bg-navy rounded-inherit">
+        <div className="absolute inset-0 flex items-center justify-center bg-navy">
           <div className="text-center">
             <p className="text-gray-400 mb-2">Failed to load image</p>
             <button
