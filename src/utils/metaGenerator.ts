@@ -16,7 +16,7 @@ interface MetaConfig {
 }
 
 const DEFAULT_META = {
-  title: 'Buy IPTV Subscription | Best IPTV Service Provider 2025',
+  title: 'Buy IPTV Subscription | Best IPTV Service USA 2025',
   description: 'Buy IPTV subscription with 18000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support.',
   keywords: 'buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV buy, best buy IPTV, IPTV channels, HD IPTV, 4K IPTV, premium IPTV service, IPTV provider USA',
   ogImage: 'https://www.iptvservice.site/Buy-IPTV.jpg',
@@ -24,7 +24,7 @@ const DEFAULT_META = {
   type: 'website' as const,
   author: 'IPTV Service',
   locale: 'en_US',
-  imageAlt: 'IPTV Service - Premium Streaming Solution',
+  imageAlt: 'IPTV Service',
   articleSection: 'IPTV Services',
   wordCount: 0
 };
