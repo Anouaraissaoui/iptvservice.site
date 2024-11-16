@@ -9,22 +9,42 @@ const Benefits = lazy(() => import("@/components/Benefits"));
 const Footer = lazy(() => import("@/components/Footer"));
 
 const Features = () => {
+  const baseUrl = "https://www.iptvservice.site";
+  const canonicalUrl = `${baseUrl}/features/`;
+  
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://www.iptvservice.site/features/#webpage",
-    "url": "https://www.iptvservice.site/features",
+    "@id": `${canonicalUrl}#webpage`,
+    "url": canonicalUrl,
     "name": "Premium IPTV Features & Benefits | HD/4K Streaming Service",
     "description": "Explore our premium IPTV features: 18,000+ HD & 4K channels, VOD library, catch-up TV, EPG guide, and multi-device support. Experience the best streaming quality.",
     "isPartOf": {
       "@type": "WebSite",
-      "@id": "https://www.iptvservice.site/#website"
+      "@id": `${baseUrl}/#website`
     },
     "about": {
       "@type": "Product",
       "name": "IPTV Streaming Service",
       "description": "Premium IPTV service with 18,000+ channels in HD & 4K quality",
       "category": "Streaming Services"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": baseUrl
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Features",
+          "item": canonicalUrl
+        }
+      ]
     },
     "datePublished": "2024-01-01T08:00:00+00:00",
     "dateModified": new Date().toISOString()
@@ -35,13 +55,17 @@ const Features = () => {
       <SEO
         title="Premium IPTV Features & Benefits | HD/4K Streaming Service"
         description="Explore our premium IPTV features: 18,000+ HD & 4K channels, VOD library, catch-up TV, EPG guide, and multi-device support. Experience the best streaming quality."
-        canonical="/features"
+        canonical={canonicalUrl}
         type="website"
-        ogImage="https://www.iptvservice.site/images/IPTV-Service.webp"
+        ogImage={`${baseUrl}/images/IPTV-Service.webp`}
         keywords="IPTV features, HD channels, 4K streaming, VOD library, catch-up TV, EPG guide, multi-device support, premium IPTV service"
         structuredData={structuredData}
         publishedTime="2024-01-01T08:00:00+00:00"
         modifiedTime={new Date().toISOString()}
+        breadcrumbs={[
+          { name: "Home", path: "/", position: 1, item: baseUrl },
+          { name: "Features", path: "/features/", position: 2, item: canonicalUrl }
+        ]}
       />
       
       <main className="min-h-screen bg-navy overflow-hidden">
