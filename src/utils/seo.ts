@@ -46,7 +46,7 @@ export const getMetaTags = ({
     { property: "og:image:alt", content: imageAlt || title },
     { property: "og:image:width", content: "1200" },
     { property: "og:image:height", content: "630" },
-    { property: "og:site_name", content: "Premium IPTV Service Provider | Buy IPTV USA" },
+    { property: "og:site_name", content: "IPTV Service Provider | Buy IPTV USA" },
     { property: "og:locale", content: locale },
     
     // Twitter Card Tags
