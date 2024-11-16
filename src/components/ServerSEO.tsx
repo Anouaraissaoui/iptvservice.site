@@ -6,7 +6,7 @@ import { getMetaTags, generateDynamicSchema } from '@/utils/seo';
 export const ServerSEO = ({ 
   title, 
   description, 
-  canonical = "https://www.iptvservice.site/",
+  canonical = "/",
   ogImage = "https://www.iptvservice.site/Buy-IPTV.jpg",
   structuredData,
   lastModified = new Date().toISOString(),
@@ -23,7 +23,9 @@ export const ServerSEO = ({
 }: SEOData) => {
   const [isServer, setIsServer] = useState(true);
   const baseUrl = "https://www.iptvservice.site";
-  const canonicalUrl = canonical.startsWith('http') ? canonical : `${baseUrl}${canonical.endsWith('/') ? canonical : `${canonical}/`}`;
+  const canonicalUrl = canonical.startsWith('http') 
+    ? canonical 
+    : `${baseUrl}${canonical.startsWith('/') ? canonical : `/${canonical}`}${canonical.endsWith('/') ? '' : '/'}`;
 
   useEffect(() => {
     setIsServer(false);
@@ -68,7 +70,6 @@ export const ServerSEO = ({
       <title>{title}</title>
       <link rel="canonical" href={canonicalUrl} />
       
-      {/* Meta Tags */}
       {metaTags.map((tag, index) => {
         if (tag.rel === 'preload') {
           return (
@@ -85,7 +86,6 @@ export const ServerSEO = ({
         return <meta key={index} {...tag} />;
       })}
       
-      {/* Language Alternates */}
       {alternates && Object.entries(alternates).map(([lang, url]) => (
         <link 
           key={lang} 
@@ -95,7 +95,6 @@ export const ServerSEO = ({
         />
       ))}
       
-      {/* Schema.org Structured Data */}
       <script type="application/ld+json">
         {schemaString}
       </script>

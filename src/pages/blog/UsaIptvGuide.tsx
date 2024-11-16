@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { ServerSEO } from "@/components/ServerSEO";
 import { ProvidersTable } from "@/components/blog/usa-iptv-guide/ProvidersTable";
 import { FaqSection } from "@/components/blog/usa-iptv-guide/FaqSection";
 import { HeroSection } from "@/components/blog/usa-iptv-guide/HeroSection";
@@ -91,23 +91,16 @@ const UsaIptvGuide = () => {
 
   return (
     <>
-      <Helmet prioritizeSeoTags>
-        <title>Best USA IPTV Service Providers Guide (2025) | Complete Comparison</title>
-        <meta name="description" content="Comprehensive guide to IPTV services in the USA. Compare features, pricing, and learn how to choose the best IPTV provider for your streaming needs." />
-        <meta name="keywords" content="USA IPTV, IPTV guide, IPTV services, streaming guide, IPTV providers, iptv usa, best iptv service 2025" />
-        <link rel="canonical" href="https://www.iptvservice.site/blog/usa-iptv-guide/" />
-        <meta property="og:title" content="Complete USA IPTV Guide 2025: Everything You Need to Know" />
-        <meta property="og:description" content="Comprehensive guide to IPTV services in the USA. Compare features, pricing, and learn how to choose the best IPTV provider for your streaming needs." />
-        <meta property="og:url" content="https://www.iptvservice.site/blog/usa-iptv-guide/" />
-        <meta property="og:type" content="article" />
-        <meta property="og:image" content="https://www.iptvservice.site/images/IPTV-Service.webp" />
-        <meta property="article:published_time" content="2024-02-26T12:00:00+00:00" />
-        <meta property="article:modified_time" content={new Date().toISOString()} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
-      </Helmet>
+      <ServerSEO
+        title="Best USA IPTV Service Providers Guide (2025) | Complete Comparison"
+        description="Comprehensive guide to IPTV services in the USA. Compare features, pricing, and learn how to choose the best IPTV provider for your streaming needs."
+        canonical="/blog/usa-iptv-guide/"
+        keywords="USA IPTV, IPTV guide, IPTV services, streaming guide, IPTV providers, iptv usa, best iptv service 2025"
+        type="article"
+        publishedTime="2024-02-26T12:00:00+00:00"
+        modifiedTime={new Date().toISOString()}
+        structuredData={JSON.stringify(structuredData)}
+      />
 
       <div className="min-h-screen bg-navy">
         <Navbar />
