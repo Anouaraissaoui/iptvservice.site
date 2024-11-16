@@ -55,7 +55,10 @@ const configureDevServer = async (app: express.Application) => {
 const handleRender = async (req: express.Request, res: express.Response) => {
   try {
     const url = req.originalUrl;
-    const pageContextInit = { url };
+    const pageContextInit = { 
+      url,
+      urlOriginal: url // Add the required urlOriginal property
+    };
     const pageContext = await renderPage(pageContextInit);
     
     if (!pageContext.httpResponse) {

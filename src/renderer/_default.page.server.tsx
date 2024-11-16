@@ -1,7 +1,7 @@
 import { renderToString } from 'react-dom/server';
 import { escapeInject, dangerouslySkipEscape } from 'vite-plugin-ssr/server';
 import { QueryClient } from '@tanstack/react-query';
-import { App } from '../App';
+import App from '../App';
 import { generateMetaTags, generatePreloadTags } from '../utils/ssr';
 
 export { render };
