@@ -4,6 +4,7 @@ interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   alt: string;
   className?: string;
   priority?: boolean;
+  quality?: number;
 }
 
 export const Image = ({ 
@@ -11,6 +12,7 @@ export const Image = ({
   src = "", 
   className = "", 
   priority = false,
+  quality,
   width,
   height,
   ...props 
