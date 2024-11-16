@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import express, { Request, Response, NextFunction } from 'express';
+import express from 'express';
 import compression from 'compression';
 import sirv from 'sirv';
 import { renderPage } from 'vite-plugin-ssr/server';
@@ -20,7 +20,7 @@ const isCacheValid = (timestamp: number) => {
   return Date.now() - timestamp < CACHE_TTL;
 };
 
-const configureServer = async (app: express.Application) => {
+const configureServer = (app: express.Application) => {
   app.use(compression());
   
   if (isProduction) {
@@ -34,6 +34,10 @@ const configureServer = async (app: express.Application) => {
     return app;
   }
   
+  return configureDevServer(app);
+};
+
+const configureDevServer = async (app: express.Application) => {
   const vite = await import('vite');
   const viteDevMiddleware = (
     await vite.createServer({
@@ -48,58 +52,33 @@ const configureServer = async (app: express.Application) => {
   return app;
 };
 
-const handleRender = async (req: Request, res: Response, next: NextFunction) => {
+const handleRender = async (req: express.Request, res: express.Response) => {
   try {
     const url = req.originalUrl;
     const pageContextInit = { 
       url,
-      urlOriginal: url
+      urlOriginal: url // Add the required urlOriginal property
     };
-    
-    // Check cache in production
-    if (isProduction) {
-      const cached = cache.get(url);
-      if (cached && isCacheValid(cached.timestamp)) {
-        res.setHeader('ETag', cached.etag);
-        res.setHeader('Cache-Control', 'public, max-age=300');
-        return res.send(cached.html);
-      }
-    }
-
     const pageContext = await renderPage(pageContextInit);
     
     if (!pageContext.httpResponse) {
-      return res.status(404).send('Not Found');
+      res.status(404).send('Not Found');
+      return;
     }
     
     const { body, statusCode, contentType } = pageContext.httpResponse;
-
-    // Cache the response in production
-    if (isProduction) {
-      const etag = Math.random().toString(36).substring(7);
-      cache.set(url, {
-        html: body,
-        timestamp: Date.now(),
-        etag
-      });
-      res.setHeader('ETag', etag);
-      res.setHeader('Cache-Control', 'public, max-age=300');
-    }
-
-    return res.status(statusCode).type(contentType).send(body);
+    res.status(statusCode).type(contentType).send(body);
     
   } catch (e) {
-    next(e);
+    console.error(e);
+    res.status(500).send((e as Error).stack);
   }
 };
 
 const createServer = async () => {
   const app = express();
   await configureServer(app);
-  
-  // Mount the render handler as middleware
-  app.get('*', handleRender);
-  
+  app.use('*', handleRender);
   return app;
 };
 

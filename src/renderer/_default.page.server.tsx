@@ -1,53 +1,18 @@
 import { renderToString } from 'react-dom/server';
-import { QueryClient } from '@tanstack/react-query';
 import { escapeInject, dangerouslySkipEscape } from 'vite-plugin-ssr/server';
+import { QueryClient } from '@tanstack/react-query';
 import App from '../App';
 import { generateMetaTags, generatePreloadTags } from '../utils/ssr';
-import { generateStructuredData } from '../utils/structuredData';
 
-// Enable static site generation
-export const passToClient = ['pageProps', 'dehydratedState'];
+export { render };
 
-// Define which routes to prerender
-export const routes = [
-  '/',
-  '/features',
-  '/pricing',
-  '/blog',
-  '/contact',
-  '/free-trial',
-  '/troubleshooting',
-  '/blog/usa-iptv-guide',
-  '/blog/installation-guide'
-];
-
-export const prerender = async () => {
-  return routes;
-};
-
-export async function render(pageContext: any) {
-  const { url, routeParams } = pageContext;
+async function render(pageContext: any) {
   const queryClient = new QueryClient();
-
-  // Pre-fetch any data needed for SEO
-  await queryClient.prefetchQuery({
-    queryKey: ['seoData', url],
-    queryFn: async () => {
-      return {};
-    }
-  });
+  const { url } = pageContext;
 
   const app = renderToString(
     <App dehydratedState={queryClient.getQueryData([])} />
   );
-
-  // Generate structured data based on the route
-  const structuredData = generateStructuredData({
-    title: 'IPTV Service',
-    description: 'Premium IPTV streaming service with 18,000+ channels',
-    canonical: `https://www.iptvservice.site${url}`,
-    type: 'website'
-  });
 
   const preloadResources = [
     { href: '/fonts/inter-var.woff2', as: 'font', type: 'font/woff2', crossOrigin: true },
@@ -60,15 +25,7 @@ export async function render(pageContext: any) {
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         ${dangerouslySkipEscape(generatePreloadTags(preloadResources))}
-        ${dangerouslySkipEscape(generateMetaTags(
-          url,
-          'IPTV Service - Premium Streaming Experience',
-          'Access 18,000+ live channels in HD & 4K quality with our premium IPTV service.',
-          new Date().toISOString()
-        ))}
-        <script type="application/ld+json">
-          ${dangerouslySkipEscape(JSON.stringify(structuredData))}
-        </script>
+        ${dangerouslySkipEscape(generateMetaTags(url, 'IPTV Service', 'Description', new Date().toISOString()))}
       </head>
       <body>
         <div id="root">${dangerouslySkipEscape(app)}</div>
