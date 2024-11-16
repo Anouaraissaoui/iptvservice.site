@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { generateSrcSet, getSizes, getImageUrl } from "@/utils/imageOptimization";
 
 interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   alt: string;
@@ -29,9 +28,7 @@ export const Image = ({
       )}
       <img
         alt={alt}
-        src={getImageUrl(src)}
-        srcSet={generateSrcSet(src)}
-        sizes={getSizes()}
+        src={src}
         className={`transition-opacity duration-300 ${
           isLoading ? "opacity-0" : "opacity-100"
         } ${className}`}
@@ -42,6 +39,8 @@ export const Image = ({
           setError(true);
           setIsLoading(false);
         }}
+        width={width}
+        height={height}
         {...props}
       />
       {error && (
