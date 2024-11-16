@@ -6,7 +6,7 @@ interface HeroImageProps {
 }
 
 const HeroImage = ({ alt }: HeroImageProps) => {
-  const imageUrl = "/_vercel/image?url=/images/IPTV-Service.webp&w=610&q=75";
+  const imageUrl = "/images/IPTV-Service.webp";
 
   return (
     <figure className="relative mt-8 lg:mt-0">
@@ -14,7 +14,7 @@ const HeroImage = ({ alt }: HeroImageProps) => {
       <div className="relative bg-navy-light rounded-3xl border border-white/10 p-2 md:p-3 shadow-2xl transform hover:scale-[1.02] transition-transform duration-300 hover:border-primary/50">
         <div className="relative aspect-[16/9] w-full">
           <Image 
-            src={imageUrl}
+            src={`/_vercel/image?url=${imageUrl}&w=610&q=75`}
             alt={alt}
             className="relative rounded-2xl shadow-2xl w-full h-full object-cover"
             loading="eager"
@@ -23,6 +23,7 @@ const HeroImage = ({ alt }: HeroImageProps) => {
             height={343}
             decoding="async"
             sizes="(max-width: 768px) 100vw, 610px"
+            srcSet={generateImageSrcSet(imageUrl)}
           />
         </div>
         <figcaption className="absolute -bottom-4 md:-bottom-6 left-1/2 -translate-x-1/2 bg-navy-light/90 border border-white/10 rounded-2xl p-3 md:p-4 shadow-xl backdrop-blur-xl w-max">
