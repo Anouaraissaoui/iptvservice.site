@@ -59,6 +59,17 @@ const handleRender = async (req: express.Request, res: express.Response) => {
       url,
       urlOriginal: url // Add the required urlOriginal property
     };
+    
+    // Check cache in production
+    if (isProduction) {
+      const cached = cache.get(url);
+      if (cached && isCacheValid(cached.timestamp)) {
+        res.setHeader('ETag', cached.etag);
+        res.setHeader('Cache-Control', 'public, max-age=300');
+        return res.send(cached.html);
+      }
+    }
+
     const pageContext = await renderPage(pageContextInit);
     
     if (!pageContext.httpResponse) {
@@ -67,6 +78,19 @@ const handleRender = async (req: express.Request, res: express.Response) => {
     }
     
     const { body, statusCode, contentType } = pageContext.httpResponse;
+
+    // Cache the response in production
+    if (isProduction) {
+      const etag = Math.random().toString(36).substring(7);
+      cache.set(url, {
+        html: body,
+        timestamp: Date.now(),
+        etag
+      });
+      res.setHeader('ETag', etag);
+      res.setHeader('Cache-Control', 'public, max-age=300');
+    }
+
     res.status(statusCode).type(contentType).send(body);
     
   } catch (e) {
