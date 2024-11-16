@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import express from 'express';
+import express, { Request, Response } from 'express';
 import compression from 'compression';
 import sirv from 'sirv';
 import { renderPage } from 'vite-plugin-ssr/server';
@@ -20,7 +20,7 @@ const isCacheValid = (timestamp: number) => {
   return Date.now() - timestamp < CACHE_TTL;
 };
 
-const configureServer = (app: express.Application) => {
+const configureServer = async (app: express.Application) => {
   app.use(compression());
   
   if (isProduction) {
@@ -34,10 +34,6 @@ const configureServer = (app: express.Application) => {
     return app;
   }
   
-  return configureDevServer(app);
-};
-
-const configureDevServer = async (app: express.Application) => {
   const vite = await import('vite');
   const viteDevMiddleware = (
     await vite.createServer({
@@ -52,7 +48,7 @@ const configureDevServer = async (app: express.Application) => {
   return app;
 };
 
-const handleRender = async (req: express.Request, res: express.Response) => {
+const handleRender = async (req: Request, res: Response) => {
   try {
     const url = req.originalUrl;
     const pageContextInit = { 
@@ -102,8 +98,8 @@ const createServer = async () => {
   const app = express();
   await configureServer(app);
   
-  // Fix: Use app.get() instead of directly passing the handler
-  app.get('*', (req, res) => handleRender(req, res));
+  // Mount the render handler as middleware
+  app.use(handleRender);
   
   return app;
 };
