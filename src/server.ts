@@ -4,10 +4,9 @@ import { fileURLToPath } from 'url';
 import express from 'express';
 import compression from 'compression';
 import sirv from 'sirv';
+import { renderPage } from 'vite-plugin-ssr/server';
 import { QueryClient } from '@tanstack/react-query';
-import { render } from './entry-server';
 import { generateMetaTags, generatePreloadTags } from './utils/ssr';
-import crypto from 'crypto';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const isProduction = process.env.NODE_ENV === 'production';
@@ -56,70 +55,20 @@ const configureDevServer = async (app: express.Application) => {
 const handleRender = async (req: express.Request, res: express.Response) => {
   try {
     const url = req.originalUrl;
+    const pageContextInit = { url };
+    const pageContext = await renderPage(pageContextInit);
     
-    // Check cache first with ETag support
-    const cachedResponse = cache.get(url);
-    if (cachedResponse && isCacheValid(cachedResponse.timestamp)) {
-      const clientETag = req.headers['if-none-match'];
-      if (clientETag === cachedResponse.etag) {
-        res.status(304).end();
-        return;
-      }
-      
-      res.setHeader('X-Cache', 'HIT');
-      res.setHeader('ETag', cachedResponse.etag);
-      res.setHeader('Content-Type', 'text/html');
-      res.send(cachedResponse.html);
+    if (!pageContext.httpResponse) {
+      res.status(404).send('Not Found');
       return;
     }
     
-    const template = fs.readFileSync(resolve('index.html'), 'utf-8');
-    const queryClient = new QueryClient({
-      defaultOptions: {
-        queries: {
-          staleTime: 60 * 1000,
-          gcTime: 5 * 60 * 1000,
-          retry: 1,
-          refetchOnWindowFocus: false
-        }
-      }
-    });
-
-    const { html: appHtml, helmetContext } = await render(url, queryClient);
-    const { helmet } = helmetContext as any;
-    
-    const etag = crypto.createHash('md5').update(appHtml).digest('hex');
-    
-    const preloadResources = [
-      { href: '/fonts/inter-var.woff2', as: 'font', type: 'font/woff2', crossOrigin: true },
-      { href: '/images/IPTV-Service.webp', as: 'image', type: 'image/webp' }
-    ];
-
-    const html = template
-      .replace('</head>', `${generatePreloadTags(preloadResources)}${generateMetaTags(url, helmet.title || '', helmet.description || '', new Date().toISOString())}</head>`)
-      .replace(
-        '<div id="root"></div>',
-        `<div id="root">${appHtml}</div><script>window.__INITIAL_DATA__ = ${JSON.stringify(
-          queryClient.getQueryData([])
-        )}</script>`
-      );
-
-    // Cache the response with ETag
-    cache.set(url, {
-      html,
-      etag,
-      timestamp: Date.now()
-    });
-
-    res.setHeader('X-Cache', 'MISS');
-    res.setHeader('ETag', etag);
-    res.setHeader('Content-Type', 'text/html');
-    res.setHeader('Cache-Control', 'public, max-age=600, s-maxage=1200');
-    res.send(html);
+    const { body, statusCode, contentType } = pageContext.httpResponse;
+    res.status(statusCode).type(contentType).send(body);
     
   } catch (e) {
     console.error(e);
-    res.status(500).end((e as Error).stack);
+    res.status(500).send((e as Error).stack);
   }
 };
 
