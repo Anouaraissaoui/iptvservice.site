@@ -1,16 +1,13 @@
 export const getImageUrl = (src: string, width?: number): string => {
-  // Use Vercel's Image Optimization API
-  const baseUrl = 'https://www.iptvservice.site';
-  const imageUrl = src.startsWith('http') ? src : `${baseUrl}${src}`;
+  if (!src) return '';
+  
+  // If it's already a full URL, use it directly
+  const imageUrl = src.startsWith('http') ? src : `${src.startsWith('/') ? '' : '/'}${src}`;
   
   if (!width) return imageUrl;
   
-  const url = new URL('/_vercel/image', baseUrl);
-  url.searchParams.set('url', imageUrl);
-  url.searchParams.set('w', width.toString());
-  url.searchParams.set('q', '75'); // Default quality
-  
-  return url.toString();
+  // For Vercel Image Optimization
+  return `/_vercel/image?url=${encodeURIComponent(imageUrl)}&w=${width}&q=75`;
 };
 
 export const generateSrcSet = (src: string): string => {
