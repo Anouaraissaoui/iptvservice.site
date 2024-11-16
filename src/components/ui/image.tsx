@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { getOptimizedSrc, generateSrcSet, getSizes } from "@/utils/imageOptimization";
 
 interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   alt: string;
