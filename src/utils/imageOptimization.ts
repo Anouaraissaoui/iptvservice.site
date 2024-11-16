@@ -1,8 +1,13 @@
 export const getImageUrl = (src: string, width?: number): string => {
   if (!src) return '';
   
-  // If it's already a full URL, use it directly
-  const imageUrl = src.startsWith('http') ? src : `${src.startsWith('/') ? '' : '/'}${src}`;
+  // Handle relative paths and ensure they start with /
+  const normalizedPath = src.startsWith('/') ? src : `/${src}`;
+  
+  // For local images, prepend the current origin
+  const imageUrl = src.startsWith('http') 
+    ? src 
+    : `${typeof window !== 'undefined' ? window.location.origin : ''}${normalizedPath}`;
   
   if (!width) return imageUrl;
   
