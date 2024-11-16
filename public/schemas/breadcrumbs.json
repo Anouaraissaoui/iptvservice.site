@@ -5,24 +5,24 @@
     "@type": "ListItem",
     "position": 1,
     "name": "Home",
-    "item": "https://www.iptvservice.site"
+    "item": "https://www.iptvservice.site/"
   }, {
     "@type": "ListItem",
     "position": 2,
     "name": "Buy IPTV",
-    "item": "https://www.iptvservice.site/pricing",
+    "item": "https://www.iptvservice.site/pricing/",
     "description": "Buy premium IPTV subscription packages"
   }, {
     "@type": "ListItem",
     "position": 3,
     "name": "Features",
-    "item": "https://www.iptvservice.site/features",
+    "item": "https://www.iptvservice.site/features/",
     "description": "Premium IPTV service features and benefits"
   }, {
     "@type": "ListItem",
     "position": 4,
     "name": "Support",
-    "item": "https://www.iptvservice.site/contact",
+    "item": "https://www.iptvservice.site/contact/",
     "description": "24/7 IPTV customer support"
   }]
 }

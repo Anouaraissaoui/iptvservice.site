@@ -54,10 +54,11 @@ export const SEO = ({
     <Helmet prioritizeSeoTags={true}>
       <html lang={locale.split('_')[0]} />
       <title>{metaInfo.title}</title>
+      <link rel="canonical" href={canonicalUrl} />
       
       {/* Core Meta Tags */}
       <meta name="description" content={description} />
-      <meta name="keywords" content={keywords} />
+      <meta name="keywords" content={keywords || "buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV buy, best buy IPTV"} />
       <meta name="author" content={author} />
       
       {/* Open Graph Tags */}
@@ -81,7 +82,6 @@ export const SEO = ({
       {articleSection && <meta property="article:section" content={articleSection} />}
       
       {/* Canonical & Alternate Links */}
-      <link rel="canonical" href={canonicalUrl} />
       {alternates && Object.entries(alternates).map(([lang, url]) => (
         <link 
           key={lang} 

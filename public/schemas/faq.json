@@ -4,7 +4,7 @@
   "mainEntity": [{
     "@type": "Question",
     "name": "How do I buy an IPTV subscription?",
-    "url": "https://www.iptvservice.site/pricing",
+    "url": "https://www.iptvservice.site/pricing/",
     "acceptedAnswer": {
       "@type": "Answer",
       "text": "You can buy an IPTV subscription directly through our website. Simply choose your preferred subscription plan (1, 3, 6, or 12 months), complete the secure payment process, and receive instant activation. We offer the best IPTV service in USA with 18,000+ channels in HD/4K quality.",
@@ -17,7 +17,7 @@
   }, {
     "@type": "Question",
     "name": "What makes your IPTV service the best?",
-    "url": "https://www.iptvservice.site/features",
+    "url": "https://www.iptvservice.site/features/",
     "acceptedAnswer": {
       "@type": "Answer",
       "text": "Our IPTV service stands out with 18,000+ channels in HD/4K quality, 99.9% uptime, instant activation, and 24/7 expert support. We're rated as the best IPTV provider in USA with over 50,000 satisfied customers and a 4.8/5 rating.",
@@ -30,7 +30,7 @@
   }, {
     "@type": "Question",
     "name": "What devices can I use with your IPTV subscription?",
-    "url": "https://www.iptvservice.site/features#devices",
+    "url": "https://www.iptvservice.site/features/#devices",
     "acceptedAnswer": {
       "@type": "Answer",
       "text": "Our IPTV subscription works on all major devices including Smart TVs (Samsung, LG, Android TV), mobile devices (iOS/Android), streaming devices (Amazon Fire Stick, Roku, Apple TV), and MAG boxes. Buy IPTV service that works on any device with an internet connection.",

@@ -15,6 +15,14 @@
       "lowPrice": "11.00",
       "highPrice": "90.00",
       "offerCount": "4"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "1250",
+      "reviewCount": "980"
     }
   },
   "reviewRating": {
