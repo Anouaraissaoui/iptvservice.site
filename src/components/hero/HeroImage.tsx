@@ -20,10 +20,10 @@ const HeroImage = ({ alt }: HeroImageProps) => {
             className="relative rounded-2xl shadow-2xl w-full h-full object-cover"
             loading="eager"
             fetchPriority="high"
-            width={800}
-            height={800}
+            width={610}
+            height={343}
             decoding="async"
-            sizes="(max-width: 768px) 100vw, 800px"
+            sizes="(max-width: 768px) 100vw, 610px"
             srcSet={generateImageSrcSet(imageUrl)}
           />
         </div>
