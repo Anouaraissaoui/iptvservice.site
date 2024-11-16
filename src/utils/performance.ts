@@ -1,12 +1,23 @@
 export const optimizeImages = (imageUrl: string, width: number = 1200): string => {
   if (!imageUrl) return '';
-  return `/_vercel/image?url=${encodeURIComponent(imageUrl)}&w=${width}&q=75`;
+  
+  // Handle WebP conversion for supported formats
+  if (imageUrl.match(/\.(jpg|jpeg|png)$/i)) {
+    const webpUrl = imageUrl.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+    
+    // Check if WebP version exists, otherwise return original
+    const img = new Image();
+    img.src = webpUrl;
+    return img.complete ? webpUrl : imageUrl;
+  }
+  
+  return imageUrl;
 };
 
 export const generateImageSrcSet = (imageUrl: string): string => {
   const sizes = [320, 640, 768, 1024, 1280, 1536];
   return sizes
-    .map(size => `/_vercel/image?url=${encodeURIComponent(imageUrl)}&w=${size}&q=75 ${size}w`)
+    .map(size => `${optimizeImages(imageUrl, size)} ${size}w`)
     .join(', ');
 };
 
