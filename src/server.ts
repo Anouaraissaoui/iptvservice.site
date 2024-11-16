@@ -4,9 +4,8 @@ import { fileURLToPath } from 'url';
 import express from 'express';
 import compression from 'compression';
 import sirv from 'sirv';
-import { renderPage } from 'vite-plugin-ssr/server';
 import { QueryClient } from '@tanstack/react-query';
-import { generateMetaTags, generatePreloadTags } from './utils/ssr';
+import { render, preload } from './entry-server';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const isProduction = process.env.NODE_ENV === 'production';
@@ -20,67 +19,88 @@ const isCacheValid = (timestamp: number) => {
   return Date.now() - timestamp < CACHE_TTL;
 };
 
-const configureServer = (app: express.Application) => {
-  app.use(compression());
+async function createServer() {
+  const app = express();
   
+  // Enable gzip compression
+  app.use(compression());
+
   if (isProduction) {
-    app.use(sirv('dist/client', { 
+    app.use(sirv('dist/client', {
       maxAge: 31536000,
       immutable: true,
       gzip: true,
       brotli: true,
       dev: false
     }));
-    return app;
+  } else {
+    const vite = await import('vite');
+    const viteDevMiddleware = (
+      await vite.createServer({
+        server: { middlewareMode: true },
+        appType: 'custom'
+      })
+    ).middlewares;
+    app.use(viteDevMiddleware);
   }
-  
-  return configureDevServer(app);
-};
 
-const configureDevServer = async (app: express.Application) => {
-  const vite = await import('vite');
-  const viteDevMiddleware = (
-    await vite.createServer({
-      server: { middlewareMode: true },
-      appType: 'custom',
-      optimizeDeps: {
-        include: ['react', 'react-dom', 'react-router-dom']
+  // Handle all routes
+  app.get('*', async (req, res) => {
+    try {
+      const url = req.originalUrl;
+      
+      // Check cache first
+      const cached = cache.get(url);
+      if (cached && isCacheValid(cached.timestamp)) {
+        res.setHeader('ETag', cached.etag);
+        return res.send(cached.html);
       }
-    })
-  ).middlewares;
-  app.use(viteDevMiddleware);
-  return app;
-};
 
-const handleRender = async (req: express.Request, res: express.Response) => {
-  try {
-    const url = req.originalUrl;
-    const pageContextInit = { 
-      url,
-      urlOriginal: url // Add the required urlOriginal property
-    };
-    const pageContext = await renderPage(pageContextInit);
-    
-    if (!pageContext.httpResponse) {
-      res.status(404).send('Not Found');
-      return;
+      // Create a new query client for each request
+      const queryClient = await preload(url);
+      
+      // Render the app
+      const { html: appHtml, helmetContext } = await render(url, queryClient);
+      
+      // Get head tags from Helmet
+      const { helmet } = helmetContext as any;
+      
+      // Read the index.html template
+      let template = fs.readFileSync(
+        isProduction ? 'dist/client/index.html' : 'index.html',
+        'utf-8'
+      );
+
+      // Inject the rendered app and meta tags
+      const html = template
+        .replace('<!--app-html-->', appHtml)
+        .replace(
+          '<!--head-tags-->',
+          `${helmet.title.toString()}
+           ${helmet.meta.toString()}
+           ${helmet.link.toString()}`
+        );
+
+      // Cache the result
+      const etag = Math.random().toString(36).substring(2);
+      cache.set(url, {
+        html,
+        timestamp: Date.now(),
+        etag
+      });
+
+      // Send the response
+      res.setHeader('ETag', etag);
+      res.setHeader('Cache-Control', 'no-cache');
+      res.send(html);
+    } catch (e) {
+      console.error(e);
+      res.status(500).send((e as Error).stack);
     }
-    
-    const { body, statusCode, contentType } = pageContext.httpResponse;
-    res.status(statusCode).type(contentType).send(body);
-    
-  } catch (e) {
-    console.error(e);
-    res.status(500).send((e as Error).stack);
-  }
-};
+  });
 
-const createServer = async () => {
-  const app = express();
-  await configureServer(app);
-  app.use('*', handleRender);
   return app;
-};
+}
 
 createServer().then(app => {
   app.listen(3000, () => {
