@@ -45,7 +45,7 @@ async function createServer() {
   }
 
   // Handle all routes
-  app.get('*', async (req: Request, res: Response) => {
+  const handleRequest = async (req: Request, res: Response) => {
     try {
       const url = req.originalUrl;
       
@@ -97,7 +97,9 @@ async function createServer() {
       console.error(e);
       res.status(500).send((e as Error).stack);
     }
-  });
+  };
+
+  app.get('*', handleRequest);
 
   return app;
 }
