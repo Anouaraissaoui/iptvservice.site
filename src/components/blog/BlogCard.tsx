@@ -12,7 +12,7 @@ interface BlogCardProps {
 
 export const BlogCard = ({ post }: BlogCardProps) => {
   return (
-    <Card className="bg-navy-light border-white/10 hover:border-primary/50 transition-all duration-300 group animate-fade-in">
+    <Card className="bg-navy-light border-white/10 hover:border-primary/50 transition-all duration-300 group">
       <CardHeader>
         {post._embedded?.["wp:featuredmedia"]?.[0]?.source_url && (
           <div className="relative h-48 overflow-hidden rounded-t-lg">
@@ -20,9 +20,6 @@ export const BlogCard = ({ post }: BlogCardProps) => {
               src={post._embedded["wp:featuredmedia"][0].source_url}
               alt={`IPTV streaming guide: ${post.title.rendered} - Latest updates and tips for premium IPTV service subscribers`}
               className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
-              width={400}
-              height={225}
-              priority={false}
             />
           </div>
         )}
@@ -49,6 +46,23 @@ export const BlogCard = ({ post }: BlogCardProps) => {
             <span>5 min read</span>
           </div>
         </div>
+        <div className="mt-4 space-y-2">
+          <p className="text-sm text-gray-400">Related Content:</p>
+          <div className="flex flex-wrap gap-2">
+            <Link to="/features" className="text-primary hover:underline text-sm">
+              Explore Premium IPTV Features & Channels
+            </Link>
+            <Link to="/troubleshooting" className="text-primary hover:underline text-sm">
+              Complete IPTV Setup & Troubleshooting Guide
+            </Link>
+            <Link to="/pricing" className="text-primary hover:underline text-sm">
+              Compare IPTV Subscription Plans & Pricing
+            </Link>
+            <Link to="/blog/usa-iptv-guide" className="text-primary hover:underline text-sm">
+              Ultimate USA IPTV Streaming Guide 2025
+            </Link>
+          </div>
+        </div>
       </CardContent>
       <CardFooter>
         <Button 
@@ -60,7 +74,7 @@ export const BlogCard = ({ post }: BlogCardProps) => {
             to={post.link}
             className="flex items-center justify-center gap-2"
           >
-            Read Full Guide
+            Read Full IPTV Guide
             <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </Button>

@@ -45,6 +45,20 @@ const Index = () => {
         "datePublished": "2024-01-01T08:00:00+00:00",
         "dateModified": new Date().toISOString(),
         "breadcrumb": { "@id": `${baseUrl}/#breadcrumb` }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${baseUrl}/#breadcrumb`,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": baseUrl,
+              "name": "Home"
+            }
+          }
+        ]
       }
     ]
   };
@@ -65,7 +79,27 @@ const Index = () => {
           "fr": "/fr"
         }}
       />
-      
+      <SEO
+        title={`Buy IPTV Subscription | Best IPTV Service Provider 2025`}
+        description="Buy IPTV subscription with 18000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support."
+        structuredData={structuredData}
+        type="website"
+        ogImage={`${baseUrl}/images/IPTV-Service.webp`}
+        canonical={baseUrl}
+        alternates={{
+          "en": "/",
+          "es": "/es",
+          "fr": "/fr"
+        }}
+        breadcrumbs={[
+          {
+            name: "Home",
+            path: "/",
+            position: 1,
+            item: baseUrl
+          }
+        ]}
+      />
       <main 
         className="min-h-screen bg-navy" 
         itemScope 
@@ -75,53 +109,25 @@ const Index = () => {
         <header role="banner">
           <Navbar />
         </header>
-        
+        <Hero />
         <article 
           itemScope 
           itemType="https://schema.org/Article"
-          className="h-full"
+          role="article"
         >
-          <section 
-            aria-label="Hero Section" 
-            role="region"
-            className="relative"
-          >
-            <Hero />
-          </section>
-          
-          <section 
-            aria-label="Statistics" 
-            role="region"
-            className="py-16"
-          >
+          <section aria-label="Statistics" role="region">
             <Stats />
           </section>
-          
-          <section 
-            aria-label="Pricing Plans" 
-            role="region"
-            className="py-16"
-          >
+          <section aria-label="Pricing Plans" role="region">
             <PricingCards />
           </section>
-          
-          <section 
-            aria-label="Service Benefits" 
-            role="region"
-            className="py-16"
-          >
+          <section aria-label="Service Benefits" role="region">
             <Benefits />
           </section>
-          
-          <section 
-            aria-label="Frequently Asked Questions" 
-            role="region"
-            className="py-16"
-          >
+          <section aria-label="Frequently Asked Questions" role="region">
             <FaqSection />
           </section>
         </article>
-        
         <Footer />
       </main>
     </>

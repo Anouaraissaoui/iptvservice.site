@@ -17,7 +17,8 @@ const HeroImage = ({ alt }: HeroImageProps) => {
           src={optimizedImageUrl}
           alt={alt}
           className="relative rounded-2xl shadow-2xl w-full object-cover aspect-video"
-          priority={true}
+          loading="eager"
+          fetchPriority="high"
           width={800}
           height={450}
           decoding="async"
