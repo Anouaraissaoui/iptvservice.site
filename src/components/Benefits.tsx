@@ -13,8 +13,8 @@ const Benefits = () => {
           More affordable than traditional cable or satellite TV packages. Learn more about{" "}
           <a 
             href="https://en.wikipedia.org/wiki/Internet_Protocol_television" 
-            target="_blank" 
-            rel="dofollow"
+            target="_blank"
+            rel="noopener noreferrer dofollow"
             className="text-primary hover:text-primary/80 underline decoration-primary/30 transition-colors"
           >
             IPTV streaming technology
