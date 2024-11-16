@@ -57,7 +57,7 @@ const handleRender = async (req: express.Request, res: express.Response) => {
     const url = req.originalUrl;
     const pageContextInit = { 
       url,
-      urlOriginal: url // Add the required urlOriginal property
+      urlOriginal: url
     };
     
     // Check cache in production
@@ -73,8 +73,7 @@ const handleRender = async (req: express.Request, res: express.Response) => {
     const pageContext = await renderPage(pageContextInit);
     
     if (!pageContext.httpResponse) {
-      res.status(404).send('Not Found');
-      return;
+      return res.status(404).send('Not Found');
     }
     
     const { body, statusCode, contentType } = pageContext.httpResponse;
@@ -91,18 +90,18 @@ const handleRender = async (req: express.Request, res: express.Response) => {
       res.setHeader('Cache-Control', 'public, max-age=300');
     }
 
-    res.status(statusCode).type(contentType).send(body);
+    return res.status(statusCode).type(contentType).send(body);
     
   } catch (e) {
     console.error(e);
-    res.status(500).send((e as Error).stack);
+    return res.status(500).send((e as Error).stack);
   }
 };
 
 const createServer = async () => {
   const app = express();
   await configureServer(app);
-  app.use('*', handleRender);
+  app.get('*', handleRender);
   return app;
 };
 

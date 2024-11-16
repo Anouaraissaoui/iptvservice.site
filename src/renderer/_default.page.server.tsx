@@ -1,32 +1,30 @@
 import { renderToString } from 'react-dom/server';
-import { escapeInject, dangerouslySkipEscape } from 'vite-plugin-ssr/server';
 import { QueryClient } from '@tanstack/react-query';
 import App from '../App';
 import { generateMetaTags, generatePreloadTags } from '../utils/ssr';
 import { generateStructuredData } from '../utils/structuredData';
 
-export { render };
-export { prerender };
-
 // Enable static site generation
 export const passToClient = ['pageProps', 'dehydratedState'];
 
 // Define which routes to prerender
+export const routes = [
+  '/',
+  '/features',
+  '/pricing',
+  '/blog',
+  '/contact',
+  '/free-trial',
+  '/troubleshooting',
+  '/blog/usa-iptv-guide',
+  '/blog/installation-guide'
+];
+
 export async function prerender() {
-  return [
-    '/',
-    '/features',
-    '/pricing',
-    '/blog',
-    '/contact',
-    '/free-trial',
-    '/troubleshooting',
-    '/blog/usa-iptv-guide',
-    '/blog/installation-guide'
-  ];
+  return routes;
 }
 
-async function render(pageContext: any) {
+export async function render(pageContext: any) {
   const { url, routeParams } = pageContext;
   const queryClient = new QueryClient();
 
@@ -34,7 +32,6 @@ async function render(pageContext: any) {
   await queryClient.prefetchQuery({
     queryKey: ['seoData', url],
     queryFn: async () => {
-      // Add your data fetching logic here
       return {};
     }
   });
