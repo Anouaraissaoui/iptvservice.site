@@ -1,64 +1,33 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
 import express from 'express';
 import compression from 'compression';
 import sirv from 'sirv';
 import { renderPage } from 'vite-plugin-ssr/server';
-import { QueryClient } from '@tanstack/react-query';
-import { generateMetaTags, generatePreloadTags } from './utils/ssr';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const isProduction = process.env.NODE_ENV === 'production';
-const resolve = (p: string) => path.resolve(__dirname, p);
 
-// Simple in-memory cache implementation
-const cache = new Map<string, { html: string; timestamp: number, etag: string }>();
-const CACHE_TTL = 5 * 60 * 1000; // 5 minutes in milliseconds
+const app = express();
 
-const isCacheValid = (timestamp: number) => {
-  return Date.now() - timestamp < CACHE_TTL;
-};
+// Enable compression
+app.use(compression());
 
-const configureServer = (app: express.Application) => {
-  app.use(compression());
-  
-  if (isProduction) {
-    app.use(sirv('dist/client', { 
-      maxAge: 31536000,
-      immutable: true,
-      gzip: true,
-      brotli: true,
-      dev: false
-    }));
-    return app;
-  }
-  
-  return configureDevServer(app);
-};
+// Serve static files
+if (isProduction) {
+  app.use(sirv('dist/client', { 
+    maxAge: 31536000,
+    immutable: true,
+    gzip: true,
+    brotli: true,
+    dev: false
+  }));
+}
 
-const configureDevServer = async (app: express.Application) => {
-  const vite = await import('vite');
-  const viteDevMiddleware = (
-    await vite.createServer({
-      server: { middlewareMode: true },
-      appType: 'custom',
-      optimizeDeps: {
-        include: ['react', 'react-dom', 'react-router-dom']
-      }
-    })
-  ).middlewares;
-  app.use(viteDevMiddleware);
-  return app;
-};
-
-const handleRender = async (req: express.Request, res: express.Response) => {
+// Handle all requests
+app.get('*', async (req, res) => {
   try {
-    const url = req.originalUrl;
-    const pageContextInit = { 
-      url,
-      urlOriginal: url // Add the required urlOriginal property
+    const pageContextInit = {
+      urlOriginal: req.originalUrl
     };
+    
     const pageContext = await renderPage(pageContextInit);
     
     if (!pageContext.httpResponse) {
@@ -66,24 +35,27 @@ const handleRender = async (req: express.Request, res: express.Response) => {
       return;
     }
     
-    const { body, statusCode, contentType } = pageContext.httpResponse;
-    res.status(statusCode).type(contentType).send(body);
+    const { body, statusCode, contentType, headers } = pageContext.httpResponse;
     
-  } catch (e) {
-    console.error(e);
-    res.status(500).send((e as Error).stack);
+    // Set SEO-related headers
+    res.setHeader('X-Robots-Tag', 'index, follow');
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+    res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+    
+    // Set response headers
+    headers?.forEach(([name, value]) => res.setHeader(name, value));
+    
+    res.status(statusCode).type(contentType).send(body);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
   }
-};
-
-const createServer = async () => {
-  const app = express();
-  await configureServer(app);
-  app.use('*', handleRender);
-  return app;
-};
-
-createServer().then(app => {
-  app.listen(3000, () => {
-    console.log('Server running at http://localhost:3000');
-  });
 });
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});
+
+export default app;

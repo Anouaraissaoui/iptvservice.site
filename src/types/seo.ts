@@ -4,6 +4,7 @@ export interface SEOData {
   canonical?: string;
   ogImage?: string;
   noindex?: boolean;
+  nofollow?: boolean;
   keywords?: string;
   author?: string;
   publishedTime?: string;
@@ -17,7 +18,6 @@ export interface SEOData {
   lastModified?: string;
   isAmp?: boolean;
   ampUrl?: string;
-  nofollow?: boolean;
   locale?: string;
   twitterCard?: 'summary' | 'summary_large_image' | 'app' | 'player';
   twitterSite?: string;

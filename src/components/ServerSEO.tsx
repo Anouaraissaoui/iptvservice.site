@@ -19,7 +19,9 @@ export const ServerSEO = ({
   locale = 'en_US',
   imageAlt,
   articleSection,
-  wordCount
+  wordCount,
+  noindex = false,
+  nofollow = false
 }: SEOData) => {
   const [isServer, setIsServer] = useState(true);
   const baseUrl = "https://www.iptvservice.site";
@@ -44,7 +46,9 @@ export const ServerSEO = ({
     imageAlt,
     articleSection,
     wordCount,
-    locale
+    locale,
+    noindex,
+    nofollow
   });
 
   const dynamicSchema = generateDynamicSchema({
