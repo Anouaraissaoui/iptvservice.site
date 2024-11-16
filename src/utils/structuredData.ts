@@ -48,7 +48,7 @@ export const generateWebsiteData = () => ({
   "@id": "https://www.iptvservice.site/#website",
   "url": "https://www.iptvservice.site",
   "name": "IPTV Service",
-  "description": "Premium IPTV Streaming Service",
+  "description": "IPTV Subscription",
   "image": {
     "@type": "ImageObject",
     "url": "https://www.iptvservice.site/images/IPTV-Service.webp",
