@@ -1,5 +1,5 @@
 import { Suspense, lazy } from "react";
-import { SEO } from "@/components/SEO";
+import { ServerSEO } from "@/components/ServerSEO";
 import Navbar from "@/components/Navbar";
 import { Skeleton } from "@/components/ui/skeleton";
 import { motion } from "framer-motion";
@@ -52,7 +52,7 @@ const Features = () => {
 
   return (
     <>
-      <SEO
+      <ServerSEO
         title="Premium IPTV Features & Benefits | HD/4K Streaming Service"
         description="Explore our premium IPTV features: 18,000+ HD & 4K channels, VOD library, catch-up TV, EPG guide, and multi-device support. Experience the best streaming quality."
         canonical={canonicalUrl}
