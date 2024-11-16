@@ -10,6 +10,22 @@ export const generateImageSrcSet = (imageUrl: string): string => {
     .join(', ');
 };
 
+export const deferNonCriticalResources = () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const element = entry.target as HTMLImageElement | HTMLIFrameElement;
+        if (element.dataset.src) {
+          element.src = element.dataset.src;
+          observer.unobserve(element);
+        }
+      }
+    });
+  });
+
+  return observer;
+};
+
 export const preloadCriticalAssets = () => {
   const criticalAssets = [
     '/fonts/inter-var.woff2',
@@ -27,22 +43,6 @@ export const preloadCriticalAssets = () => {
     }
     document.head.appendChild(link);
   });
-};
-
-export const deferNonCriticalResources = () => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const element = entry.target as HTMLImageElement | HTMLIFrameElement;
-        if (element.dataset.src) {
-          element.src = element.dataset.src;
-          observer.unobserve(element);
-        }
-      }
-    });
-  });
-
-  return observer;
 };
 
 export const lazyLoadImage = (imageSrc: string): Promise<string> => {
