@@ -1,6 +1,5 @@
 import { Shield, Tv, Globe, CreditCard } from "lucide-react";
 import { useState } from "react";
-import { Image } from "@/components/ui/image";
 
 const Benefits = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -71,17 +70,29 @@ const Benefits = () => {
               aria-label="Explore IPTV Features"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent blur-2xl" aria-hidden="true" />
-              <Image 
+              {isLoading && (
+                <div className="absolute inset-0 bg-navy animate-pulse rounded-3xl" role="progressbar" aria-label="Loading image..." />
+              )}
+              <img 
                 src="/images/IPTV-Subscription.webp" 
                 alt="Premium IPTV subscription packages featuring HD and 4K quality streaming with multiple channels, VOD content, and live sports for comprehensive entertainment"
-                className="relative rounded-3xl shadow-2xl border border-white/10 group-hover:border-primary/50 transition-all duration-300"
+                className={`relative rounded-3xl shadow-2xl border border-white/10 group-hover:border-primary/50 transition-all duration-300 ${
+                  isLoading ? 'opacity-0' : 'opacity-100'
+                }`}
                 loading="lazy"
-                width={600}
-                height={400}
-                blurhash="LKO2:N%2Tw=w]~RBVZRi};RPxuwH"
-                priority={false}
-                aspectRatio={1.5}
+                width="600"
+                height="400"
+                onLoad={() => setIsLoading(false)}
+                onError={() => {
+                  setError(true);
+                  setIsLoading(false);
+                }}
               />
+              {error && (
+                <div className="absolute inset-0 flex items-center justify-center bg-navy rounded-3xl" role="alert">
+                  <p className="text-gray-400">Failed to load image</p>
+                </div>
+              )}
               <figcaption className="absolute -bottom-4 sm:-bottom-6 -right-4 sm:-right-6 bg-navy-light/90 border border-white/10 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-2 sm:py-3 shadow-xl backdrop-blur-xl">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-primary animate-pulse" aria-hidden="true" />
