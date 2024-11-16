@@ -27,7 +27,7 @@ async function createServer() {
 
   if (isProduction) {
     app.use(sirv('dist/client', {
-      maxAge: 31536000,
+      maxAge: 31536000, // 1 year
       immutable: true,
       gzip: true,
       brotli: true,
