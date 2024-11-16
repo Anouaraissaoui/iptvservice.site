@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Card } from "@/components/ui/card";
 import { ProvidersTable } from "@/components/blog/usa-iptv-guide/ProvidersTable";
 import { FaqSection } from "@/components/blog/usa-iptv-guide/FaqSection";
-import { Image } from "@/components/ui/image";
+import { HeroSection } from "@/components/blog/usa-iptv-guide/HeroSection";
+import { IntroSection } from "@/components/blog/usa-iptv-guide/IntroSection";
+import { SupportSection } from "@/components/blog/usa-iptv-guide/SupportSection";
 
 const UsaIptvGuide = () => {
   const structuredData = {
@@ -112,7 +112,7 @@ const UsaIptvGuide = () => {
       <div className="min-h-screen bg-navy">
         <Navbar />
         <main className="relative overflow-hidden">
-          {/* Animated background elements */}
+          {/* Background Effects */}
           <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px] animate-[grid_20s_linear_infinite]" />
           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] animate-pulse" />
           <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] animate-pulse" />
@@ -124,75 +124,9 @@ const UsaIptvGuide = () => {
               transition={{ duration: 0.5 }}
               className="prose prose-invert max-w-none"
             >
-              <div className="text-center mb-16 space-y-4">
-                <motion.span 
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.2 }}
-                  className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-6 py-2 backdrop-blur-xl text-sm"
-                >
-                  <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                  <span className="text-white">Updated for 2025</span>
-                </motion.span>
-                
-                <motion.h1 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                  className="text-4xl md:text-5xl font-bold text-white leading-tight"
-                >
-                  Best USA{" "}
-                  <span className="text-primary relative inline-block">
-                    IPTV Service
-                    <span className="absolute -bottom-2 left-0 right-0 h-1 bg-primary/30 blur-sm" />
-                  </span>{" "}
-                  Providers
-                </motion.h1>
-                
-                <motion.p 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="text-gray-400 max-w-2xl mx-auto text-lg"
-                >
-                  Compare features, pricing, and find the perfect streaming solution for your needs
-                </motion.p>
-              </div>
-
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-                className="mb-16"
-              >
-                <Card className="bg-navy-light/50 border border-white/10 p-8 backdrop-blur-sm hover:border-primary/50 transition-colors duration-300">
-                  <div className="grid md:grid-cols-2 gap-8 items-center">
-                    <div>
-                      <h2 className="text-2xl font-bold text-white mb-4">What is IPTV?</h2>
-                      <p className="text-gray-400">
-                        IPTV delivers television content over the internet, unlike traditional broadcast or cable 
-                        TV services. Through IPTV, viewers can access live TV, on-demand content, and time-shifted 
-                        media, often with more flexibility and at a lower cost than conventional options. Check out our{" "}
-                        <Link to="/features" className="text-primary hover:text-primary/80 underline">
-                          features page
-                        </Link>{" "}
-                        to learn more about IPTV capabilities.
-                      </p>
-                    </div>
-                    <div className="relative">
-                      <div className="absolute inset-0 bg-primary/20 blur-[60px] rounded-full" />
-                      <Image
-                        src="/images/IPTV-Service.webp"
-                        alt="IPTV Streaming Service"
-                        className="relative rounded-xl shadow-2xl border border-white/10"
-                        width={600}
-                        height={400}
-                      />
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
-
+              <HeroSection />
+              <IntroSection />
+              
               <motion.section 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -201,36 +135,12 @@ const UsaIptvGuide = () => {
               >
                 <h2 className="text-2xl font-bold text-white mb-6">Top IPTV Service Providers</h2>
                 <p className="text-gray-400 mb-6">
-                  We've compiled a list of the best IPTV providers based on reliability, features, and value. 
-                  Visit our{" "}
-                  <Link to="/pricing" className="text-primary hover:text-primary/80 underline">
-                    pricing page
-                  </Link>{" "}
-                  to compare subscription plans and find the best deal for your needs.
+                  We've compiled a list of the best IPTV providers based on reliability, features, and value.
                 </p>
                 <ProvidersTable providers={providers} />
               </motion.section>
 
-              <motion.section 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7 }}
-                className="mb-16"
-              >
-                <Card className="bg-navy-light/50 border border-white/10 p-8 backdrop-blur-sm hover:border-primary/50 transition-colors duration-300">
-                  <h2 className="text-2xl font-bold text-white mb-6">Need Help?</h2>
-                  <p className="text-gray-400 mb-6">
-                    If you're experiencing any issues with your IPTV service, check out our{" "}
-                    <Link to="/troubleshooting" className="text-primary hover:text-primary/80 underline">
-                      troubleshooting guide
-                    </Link>{" "}
-                    for quick solutions. For personalized assistance, visit our{" "}
-                    <Link to="/contact" className="text-primary hover:text-primary/80 underline">
-                      contact page
-                    </Link>.
-                  </p>
-                </Card>
-              </motion.section>
+              <SupportSection />
 
               <motion.section 
                 initial={{ opacity: 0, y: 20 }}
