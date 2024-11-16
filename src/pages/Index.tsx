@@ -43,7 +43,7 @@ const Index = () => {
   return (
     <>
       <ServerSEO 
-        title="Buy IPTV Subscription | Best IPTV Service Provider 2025"
+        title="Buy IPTV Subscription | Best IPTV Service USA 2025"
         description="Buy IPTV subscription with 18000+ HD & 4K channels. Best IPTV service in USA with instant activation. Top-rated IPTV provider with 24/7 support."
         canonical="/"
         keywords="buy IPTV, IPTV service, best IPTV service, IPTV subscription, buy IPTV USA, IPTV buy, best buy IPTV"
