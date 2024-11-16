@@ -101,7 +101,10 @@ const handleRender = async (req: express.Request, res: express.Response) => {
 const createServer = async () => {
   const app = express();
   await configureServer(app);
-  app.get('*', handleRender);
+  
+  // Fix: Use app.get() instead of directly passing the handler
+  app.get('*', (req, res) => handleRender(req, res));
+  
   return app;
 };
 

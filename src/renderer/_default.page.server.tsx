@@ -1,5 +1,6 @@
 import { renderToString } from 'react-dom/server';
 import { QueryClient } from '@tanstack/react-query';
+import { escapeInject, dangerouslySkipEscape } from 'vite-plugin-ssr/server';
 import App from '../App';
 import { generateMetaTags, generatePreloadTags } from '../utils/ssr';
 import { generateStructuredData } from '../utils/structuredData';
@@ -20,9 +21,9 @@ export const routes = [
   '/blog/installation-guide'
 ];
 
-export async function prerender() {
+export const prerender = async () => {
   return routes;
-}
+};
 
 export async function render(pageContext: any) {
   const { url, routeParams } = pageContext;
