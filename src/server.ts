@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import express, { Request, Response } from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import compression from 'compression';
 import sirv from 'sirv';
 import { renderPage } from 'vite-plugin-ssr/server';
@@ -48,7 +48,7 @@ const configureServer = async (app: express.Application) => {
   return app;
 };
 
-const handleRender = async (req: Request, res: Response) => {
+const handleRender = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const url = req.originalUrl;
     const pageContextInit = { 
@@ -89,8 +89,7 @@ const handleRender = async (req: Request, res: Response) => {
     return res.status(statusCode).type(contentType).send(body);
     
   } catch (e) {
-    console.error(e);
-    return res.status(500).send((e as Error).stack);
+    next(e);
   }
 };
 
@@ -99,7 +98,7 @@ const createServer = async () => {
   await configureServer(app);
   
   // Mount the render handler as middleware
-  app.use(handleRender);
+  app.use('*', handleRender);
   
   return app;
 };
