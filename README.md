@@ -23,7 +23,7 @@ Welcome to the **[IPTV Service](https://www.iptvservice.site/)** project! This i
 - **Framework**: [React](https://react.dev/)
 - **Bundler**: [Vite](https://vitejs.dev/)
 - **CSS Framework**: [Tailwind CSS](https://tailwindcss.com/)
-- **Hosting**: Deployed on [Netlify/Vercel/Your Hosting Solution]
+- **Hosting**: Deployed on [Netlify](https://www.netlify.com/) [Verce](https://vercel.com/)
 
 ---
 
