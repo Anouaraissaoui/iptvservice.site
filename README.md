@@ -1,4 +1,4 @@
-# IPTV Service Website
+# IPTV Service
 
 Welcome to the **[IPTV Service](https://www.iptvservice.site/)** project! This is a modern and high-performance web application built with [Vite](https://vitejs.dev/) and [React](https://react.dev/), designed to deliver a seamless user experience for IPTV subscriptions.
 
